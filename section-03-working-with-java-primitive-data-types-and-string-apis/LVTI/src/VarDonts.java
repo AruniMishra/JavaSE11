@@ -13,6 +13,7 @@ public class VarDonts {
 //    var instanceVariable = 20;
 
     public static void main(String[] args) {
+        var instanceVariable = 20;
     }
 
 //    // Invalid, cannot have a method return type of var
