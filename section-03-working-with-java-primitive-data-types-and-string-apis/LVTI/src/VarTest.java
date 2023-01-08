@@ -6,6 +6,8 @@ Topic: Local Variable Type Inference
 
 import com.WordyCompanyName.ALongPackageName.AClassWithAVeryLongName;
 
+import java.util.ArrayList;
+
 public class VarTest {
     public static void main(String[] args) {
         var aClassWithAVeryLongName = new AClassWithAVeryLongName();
@@ -18,6 +20,9 @@ public class VarTest {
 
         // An array can be assigned to an LVTI variable
         var aVarArray = new int[3];
+
+        var varry = new ArrayList<>(); //valid
+        varry.add(0, "b");
 
         // Valid to assign a method return value to an LVTI variable
         var methodVal = aClassWithAVeryLongName.getName();
