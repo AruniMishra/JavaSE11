@@ -3,14 +3,14 @@ public class StringConstructor {
 
     public static void main(String[] args) {
         int alphabet_len = 26;
-        char[] alphabet = new char[alphabet_len];
+        char[] char_alphabet = new char[alphabet_len];
         int[] integers = new int[alphabet_len];
         byte[] bytes = new byte[alphabet_len];
         int i = 0;
 
         for (char c = 'a'; c <= 'z'; c++, i++) {
             // Create character array containing the english alphabet a-z
-            alphabet[i] = c;
+            char_alphabet[i] = c;
 
             // Create an integer array, casting alphabet character to ints
             integers[i] = (int) c;
@@ -20,7 +20,7 @@ public class StringConstructor {
         }
 
         // Create a String from the character array
-        String charString = new String(alphabet);
+        String charString = new String(char_alphabet);
         System.out.println("charString = " + charString);
 
         // Create a String from the byte array
@@ -35,8 +35,8 @@ public class StringConstructor {
         System.out.println("intString = " + intString);
 
         // Create a String from the character array
-        int offset = 1;
-        String charString2 = new String(alphabet, offset, alphabet_len - offset);
+        int offset = 1; // bcdefghijklmnopqrstuvwxyz
+        String charString2 = new String(char_alphabet, offset, alphabet_len - offset);
         System.out.println("charString2 = " + charString2);
 
         // Only want f-j now.
