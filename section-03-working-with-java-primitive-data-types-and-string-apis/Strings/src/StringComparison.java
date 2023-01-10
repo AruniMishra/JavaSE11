@@ -14,7 +14,7 @@ public class StringComparison {
         StringBuilder helloStringBuilder = new StringBuilder("Hello");
 
         String firstString = stringhEllo;   // Line 23
-        String secondString = stringHello1;     // Line 24
+        String secondString = stringHello1; // Line 24
         Object secondObject = secondString; // Line 25
         CharSequence secondSequence = secondString; // Line 26
 

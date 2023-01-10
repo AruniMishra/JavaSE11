@@ -20,22 +20,22 @@ public class TextSearch {
         System.out.println("And now the lastIndex = " + lastIndex);
 
         // Matches uses regexp Pattern matching, so will NOT match a
-// substring directly, unless it is the whole string...
+        // substring directly, unless it is the whole string...
         String mississippi = "mississippi";
         boolean matches = mississippi.matches("miss");
         boolean indexMatch = (mississippi.indexOf("miss") > -1);
         System.out.println("matches method returns " + matches +
                 " on 'miss' BUT indexOf>-1 on 'miss' = " + indexMatch);
 
-// Let's try the whole string now...
+        // Let's try the whole string now...
         matches = mississippi.matches("mississippi");
         System.out.println("matches method matches on the entire string = " + matches);
 
-// Why is it useful then?  You can match on a partial string
-// if using regexp expressions surrounding substring
+        // Why is it useful then?  You can match on a partial string
+        // if using regexp expressions surrounding substring
 
-// Code below matches "miss" at the beginnning of the string.
-//  Note the (.*) which matches to anything after "miss"
+        // Code below matches "miss" at the beginnning of the string.
+        //  Note the (.*) which matches to anything after "miss"
         matches = mississippi.matches("^miss(.*)");
         System.out.println("matches method returns " + matches + " on '^miss(.*)'");
 
