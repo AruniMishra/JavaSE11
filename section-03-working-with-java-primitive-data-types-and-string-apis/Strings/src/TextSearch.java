@@ -68,5 +68,10 @@ public class TextSearch {
         // Look for "iss" starting at index 4 in mississippi,
         // match found
         System.out.println(mississippi.regionMatches(4, "miss", 1, 3));
+
+        System.out.println("-----");
+        // Look for "ssipp" starting at index 5 in mississippi,
+        // match found
+        System.out.println(mississippi.regionMatches(5, "ssipp", 0, 4));
     }
 }
