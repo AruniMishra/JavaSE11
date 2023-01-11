@@ -27,7 +27,7 @@ public class StringCompoundConcat {
 
         // String concatenation when right hand object is not a String, but is a CharSequence
         Object charSequenceObject = new StringBuilder("testing");
-        String compoundString3 = "charSequenceObject ";
+        String compoundString3 = "charSequenceObject";
         compoundString3 += charSequenceObject;
         System.out.println("compoundString3 = " + compoundString3);
 
