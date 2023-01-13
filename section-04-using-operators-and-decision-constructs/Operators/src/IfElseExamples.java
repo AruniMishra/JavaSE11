@@ -17,13 +17,13 @@ public class IfElseExamples {
         // Formatted to mislead...
         if (flag)
             if (subflag) System.out.println("3. subflag is true");
-            else System.out.println("3. flag is false"); // Dangling else
+        else System.out.println("3. flag is false"); // Dangling else
 
         // This one looks like it's a possible compiler error doesn't it?
         subflag = false;
         if (flag)
             if (subflag) System.out.println("4. subflag is true");
-            else System.out.println("4. subflag is false");
+        else System.out.println("4. subflag is false");
         else System.out.println("4. flag is false"); // Is this an extra else?
 
         // Very common mistake...
