@@ -1,5 +1,7 @@
 
 public class References {
+
+    int a;
     public static void main(String[] args) {
 
         // Declare and instantiate some objects
