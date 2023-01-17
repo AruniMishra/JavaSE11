@@ -25,7 +25,7 @@ class ASubClass extends ASuperClass {
 
     // Constructor for Sub Class
     ASubClass(String name) {
-        this();
+        super();
         System.out.println("Child single argument constructor executes");
         setName(name);
     }
