@@ -9,6 +9,7 @@ class OnlyClass {
     private OnlyClass() {
     }
 
+
     // You can expose the only instance via a static method
     public static OnlyClass getInstance() {
         return instance;
@@ -30,5 +31,9 @@ class OnlyClass {
 public class RestrictedObjects {
     public static void main(String[] args) {
         OnlyClass.doSomething();
+        // OnlyClass onlyClass= new OnlyClass(); // 'OnlyClass()' has private access in 'OnlyClass'
     }
 }
+
+//There is no default constructor available in 'OnlyClass'
+//class MyOnlyClass extends OnlyClass{}
