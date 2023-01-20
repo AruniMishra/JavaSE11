@@ -1,5 +1,5 @@
 // The Calculator class demonstrates overloading
-// static methods.  Each method prints a unique message so we can
+// static methods.  Each method prints a unique message, so we can
 // understand which method was picked by the JVM
 class Calculator {
     public static long add(int a, Double f) {
@@ -55,7 +55,7 @@ public class OverloadTests {
         result = Calculator.add(1, 10l);
         System.out.println("result = " + result);
 
-        result = Calculator.add(1, 12.3);
+        result = Calculator.add(1, 12.3d);
         System.out.println("result = " + result);
     }
 }
