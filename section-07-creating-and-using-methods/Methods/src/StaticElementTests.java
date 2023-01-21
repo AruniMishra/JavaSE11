@@ -7,10 +7,19 @@ class StaticStuff {
     // static initializer block
     /*
      * only invoked in below conditions satisfies:
-     * 1. any of the non-final, static member is referred in "main" class.
+     * 1. any of the non-final, static member is referred in "main" class; either
+     * when referred via:
+     * 1.1 class reference, or
+     * 1.2 instance reference
      * 2. Class object is initialized.
      *
      * Also, static block only invokes once.
+     *
+     * Reasoning:
+     * The class does not have to be initialized for the application to use that
+     * field;
+     * cause of course once we set the "final" value, it can no longer be changed.
+     *
      */
     static {
         System.out.println("Initializing StaticStuff class");
@@ -32,13 +41,14 @@ public class StaticElementTests {
             System.out.println("Printing " + (i));
         }
 
-//        System.out.println(StaticStuff.counter);
-//        System.out.println(StaticStuff.appName);
-//        System.out.println(StaticStuff.counter);
+        // System.out.println(StaticStuff.counter);
+        // System.out.println(StaticStuff.appName);
+        // System.out.println(StaticStuff.counter);
 
         // ** Create an object of type StaticStuff.
-//        StaticStuff st = new StaticStuff();
+        // StaticStuff st = new StaticStuff();
         StaticStuff st = null;
+        System.out.println("Has it been initialised? ");
 
         // We access static member of the StaticStuff class
         System.out.println("Application Name: " + st.appName + "  " + st.counter);
