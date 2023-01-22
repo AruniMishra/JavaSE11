@@ -6,6 +6,8 @@ class StaticStuffTest {
         StaticStuffTest.counter++;
         StaticStuffTest.counter2++; // legal but effectively a no-op
         StaticStuffTest.counter3++;
+
+//        counter2++; //invalid, Illegal forward reference.
     }
     /**
      * This is a gotcha. It's executed AFTER the static initializer, so it's value will be 0.
