@@ -1,23 +1,24 @@
-public class Test {
-    String getMyName() {
-        return myName;   // Line 1
+class SuperTest {
+
+    public SuperTest(int x) {
     }
 
-    static String myName = "Test";
+    public SuperTest() {
 
-    public static void main(String[] args) {
+    }
+}
 
-        try {
-            Test t1 = new Test();
-            Test t2 = null;
-            System.out.print(Test.myName);
-            System.out.print(t1.myName);  // Line 2
-            System.out.print(t1.getMyName());
+public class Test extends SuperTest {
+    int first, second, third;
 
-            System.out.print(t2.myName);  // Line 3
-            System.out.print(t2.getMyName());    // Line 4
-        } catch (Exception e) {
-            System.out.println();
-        }
+    public Test(int x, int y) {
+        //there is an implicit call to super() in the two parameter Test constructor so you need to add both.
+        //super();
+        first = x;
+        second = y;
+    }
+
+    public Test(int x) {
+        super(x);
     }
 }
