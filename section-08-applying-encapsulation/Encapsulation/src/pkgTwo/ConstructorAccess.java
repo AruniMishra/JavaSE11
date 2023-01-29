@@ -15,6 +15,7 @@ class LevelThreeClass extends LevelTwoClass {
     // private constructor
     private LevelThreeClass(String text) {
         super();
+        System.out.println("test: " + text);
         System.out.println("private LevelThreeClass " +
                 "single params constructor");
     }
