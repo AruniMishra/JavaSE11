@@ -18,6 +18,7 @@ public class LevelTwoClass extends LevelOneClass {
 
     // Protected access constructor
     protected LevelTwoClass() {
+        super();
         System.out.println("protected LevelTwoClass " +
                 "no args constructor");
     }
