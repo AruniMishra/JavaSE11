@@ -31,4 +31,8 @@ public abstract class AutomatedVehicle extends Vehicle {
     // Any concrete class that extends the AutomatedVehicle has to
     // implement autoDrive
     abstract void autoDrive();
+
+    public void nonabstract(){
+        return;
+    }
 }

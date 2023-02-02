@@ -27,6 +27,9 @@ public class AutomatedAuto extends AutomatedVehicle {
         System.out.println("Beep, Beep");
     }
 
+    // Abstract method in non-abstract class not allowed
+    // abstract void notAllowed();
+
     // Main method instances an object of type AutomatedAuto.
     public static void main(String[] args) {
 
