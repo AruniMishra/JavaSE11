@@ -1,3 +1,4 @@
+
 // Animal is our base class
 class Animal {
     public void printAnimal() {
@@ -9,6 +10,10 @@ class Animal {
 class Dog extends Animal {
     public void printDog() {
         System.out.println("I am a dog");
+    }
+
+    public String getDogString() {
+        return "dog";
     }
 }
 
@@ -41,6 +46,16 @@ public class DowncastExamples {
         // generically typed variables.
         dex.testAnimal(genericDog);
         dex.testAnimal(genericCat);
+
+        // Downcasting in an expression to access a specific method on a
+        // more specific type
+        if (((Dog) genericDog).getDogString().equals("dog")) {
+            System.out.println("Matched!");
+        }
+
+        // downcasting a method return type
+        Cat c = (Cat) dex.passThrough(genericCat);
+        c.printCat();
     }
 
     //Three Overloaded methods
@@ -66,5 +81,9 @@ public class DowncastExamples {
 
     public void testCat(Cat cat) {
         cat.printCat();
+    }
+
+    public Object passThrough(Object o) {
+        return o;
     }
 }
