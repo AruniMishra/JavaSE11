@@ -10,7 +10,6 @@ import java.util.List;
 
 public class GenericCasts {
 
-
     // Just want a few classes to play with
 
     static class BaseClass {
@@ -66,6 +65,8 @@ public class GenericCasts {
         System.out.println("We can use either variable to print the typed ArrayList");
         System.out.println("-- bList = " + bList);
         System.out.println("-- baseList = " + baseList);
+
+        System.out.println("--------------------------\n");
 
 //        // Let's add the StringBuilder object to raw list
 //        rawList.add(new StringBuilder("Hello"));
