@@ -106,6 +106,7 @@ public class GenericCasts {
         NextClass.testIt(baseList);
 
         // Execute testIt method with ArrayList<NextClass>
+        //incompatible type
 //        testIt(nextList);
 
         // Casting doesn't fix it
