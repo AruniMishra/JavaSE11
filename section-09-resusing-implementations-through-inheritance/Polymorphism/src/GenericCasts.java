@@ -130,8 +130,8 @@ public class GenericCasts {
         System.out.println("next here is " + next);
 
         // Cast required, retrieving data from raw ArrayList
-        next = (NextClass) rawList.get(0);
-        System.out.println("next here is " + next);
+        base = (BaseClass) rawList.get(0);
+        System.out.println("next here is " + base);
 
 
     }
