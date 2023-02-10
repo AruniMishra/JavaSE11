@@ -33,13 +33,12 @@ public class OverrideOverload extends MostBasicClass {
     // Main method will call our overloaded, overridden methods
     public static void main(String[] args) {
 
-
-        int[] intArray = new int[]{1, 2, 3, 4, 5};
+        int[] intArray = new int[] { 1, 2, 3, 4, 5 };
         OverrideOverload oo = new OverrideOverload();
         int i = 0;
         oo.baseMethod();
         oo.baseMethod("10");
-        oo.baseMethod(new String[]{"10"});
+        oo.baseMethod(new String[] { "10" });
 
         try {
             // We'll make the call with var args

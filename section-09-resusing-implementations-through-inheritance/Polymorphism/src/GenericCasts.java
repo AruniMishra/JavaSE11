@@ -35,7 +35,7 @@ public class GenericCasts {
     public static void main(String[] args) {
         // Raw types
 
-        //  Create ArrayList and assign to ArrayList variable
+        // Create ArrayList and assign to ArrayList variable
         ArrayList rawList = new ArrayList();
         // Declare a List variable
         List aList;
@@ -44,8 +44,8 @@ public class GenericCasts {
 
         // Typed generic lists
 
-        //  Create a typed ArrayList using BaseClass and assign to
-        //  ArrayList variable
+        // Create a typed ArrayList using BaseClass and assign to
+        // ArrayList variable
         ArrayList<BaseClass> baseList = new ArrayList<>();
         // Declare a typed List variable using BaseClass as type
         List<BaseClass> bList;
@@ -68,18 +68,18 @@ public class GenericCasts {
 
         System.out.println("--------------------------\n");
 
-//        // Let's add the StringBuilder object to raw list
-//        rawList.add(new StringBuilder("Hello"));
-//
-//        // Let's add the StringBuilder object to typed list
-//        baseList.add(new StringBuilder("Hello"));
+        // // Let's add the StringBuilder object to raw list
+        // rawList.add(new StringBuilder("Hello"));
+        //
+        // // Let's add the StringBuilder object to typed list
+        // baseList.add(new StringBuilder("Hello"));
 
         // We create variable of NextClass and assign it a new instance
         // NextClass
         NextClass nextClass = new NextClass();
 
         // We create variable of BaseClass and assign it the nextClass
-        // variable - this is a good assignment as we know.  You can
+        // variable - this is a good assignment as we know. You can
         // assign a more specific typed object to a less specifically
         // typed variable.
         BaseClass baseClass = nextClass;
@@ -94,10 +94,10 @@ public class GenericCasts {
         // We assign nextList to the raw List variable
         aList = nextList;
 
-//        // We assign nextList to the typed "ArrayList" of BaseClass variable
-//        baseList = nextList;
-//        // We assign nextList to the typed "List" of BaseClass variable
-//        bList = nextList;
+        // // We assign nextList to the typed "ArrayList" of BaseClass variable
+        // baseList = nextList;
+        // // We assign nextList to the typed "List" of BaseClass variable
+        // bList = nextList;
 
         // Execute testIt method with List<BaseClass>
         NextClass.testIt(bList);
@@ -106,15 +106,15 @@ public class GenericCasts {
         NextClass.testIt(baseList);
 
         // Execute testIt method with ArrayList<NextClass>
-        //incompatible type
-//        testIt(nextList);
+        // incompatible type
+        // testIt(nextList);
 
         // Casting doesn't fix it
-//        baseList = ( ArrayList<BaseClass> )  nextList;
-//
-//        ArrayList<NextClass> anotherTest = ( ArrayList<NextClass> ) rawList;
-//
-//        ArrayList<NextClass> anotherTest = ( ArrayList<NextClass> ) baseList;
+        // baseList = ( ArrayList<BaseClass> ) nextList;
+        //
+        // ArrayList<NextClass> anotherTest = ( ArrayList<NextClass> ) rawList;
+        //
+        // ArrayList<NextClass> anotherTest = ( ArrayList<NextClass> ) baseList;
 
         // No cast required, retrieving data from ArrayList, typed with
         // NextClass
@@ -132,7 +132,6 @@ public class GenericCasts {
         // Cast required, retrieving data from raw ArrayList
         base = (BaseClass) rawList.get(0);
         System.out.println("next here is " + base);
-
 
     }
 }

@@ -24,8 +24,8 @@ class ExtendedClass extends BaseClass {
         System.out.println("extended-method invoked");
     }
 
-    //not an override method
-    //hence can also be declared as private (weaker privilege)
+    // not an override method
+    // hence can also be declared as private (weaker privilege)
     private void printInformation(String string) {
         System.out.println("ExtendedClass prints " + string);
     }
@@ -42,11 +42,9 @@ public class OverrideExample {
         e.printInformation(e.getInformation());
         e.printInformation((CharSequence) e.getInformation());
 
-
         // note: below is valid
         BaseClass baseClass = new ExtendedClass();
         ((ExtendedClass) baseClass).extendedmethod();
-
 
         // Run time error
         BaseClass baseClass2 = new BaseClass();

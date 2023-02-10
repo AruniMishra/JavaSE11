@@ -34,6 +34,6 @@ public class Test {
         Flower1 flower = (Flower1) o; // Line 7
 
         Plant1 plant1 = new Plant1();
-        Flower1 flower1 = (Flower1)plant1; // Line 8
+        Flower1 flower1 = (Flower1) plant1; // Line 8
     }
 }

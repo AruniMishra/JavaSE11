@@ -1,20 +1,7 @@
-
 import java.util.Arrays;
 
 public class CastExtras {
     // Just want a few classes to play with
-
-    static class BaseClass {
-        String name = "Base Case";
-
-        public String toString() {
-            return getClass().getName();
-        }
-    }
-
-    static class NextClass extends BaseClass {
-        String name = "Next Best Case";
-    }
 
     // main method, we'll test out some more casting examples
     public static void main(String[] args) {
@@ -57,30 +44,28 @@ public class CastExtras {
         // denominator BaseClass
         BaseClass mixedArray[] = new BaseClass[6];
         // Fill half with NextClass
-        Arrays.fill(mixedArray,0, 3, new NextClass());
+        Arrays.fill(mixedArray, 0, 3, new NextClass());
         // Fill half with BaseClass
-        Arrays.fill(mixedArray,3, 6, new BaseClass());
+        Arrays.fill(mixedArray, 3, 6, new BaseClass());
 
         System.out.println(Arrays.toString(mixedArray));
         for (BaseClass n : mixedArray) {
             // We cast if we want NextClass's more specific name...
             System.out.println(n + ":" +
-                    // ternary conditional operator uses instanceof
-                    ((n instanceof NextClass) ? ((NextClass) n).name : n.name)
-            );
+            // ternary conditional operator uses instanceof
+                    ((n instanceof NextClass) ? ((NextClass) n).name : n.name));
         }
         System.out.println("----------");
 
         // Compiler let's you get away with it, it's feasible that
         // that mixedArray could be populated with objects of its subtype only
         // but JVM won't allow it
-//        NextClass[] nextArray = (NextClass[]) mixedArray;
+        // NextClass[] nextArray = (NextClass[]) mixedArray;
 
         // Let's actually fill it with just NextClass objects .
-//        Arrays.fill(mixedArray, new NextClass());
-//        JVM still doesn't allow it
-//        NextClass[] nextArray2 = (NextClass[]) mixedArray;
-
+        // Arrays.fill(mixedArray, new NextClass());
+        // JVM still doesn't allow it
+        // NextClass[] nextArray2 = (NextClass[]) mixedArray;
 
         /**
          * below code will compile, but will JVM won't allow.
@@ -88,8 +73,18 @@ public class CastExtras {
         BaseClass baseClass1 = new BaseClass();
         NextClass nextClass1 = (NextClass) baseClass1;
 
-
-
         BaseClass baseClass2 = new NextClass();
+    }
+
+    static class BaseClass {
+        String name = "Base Case";
+
+        public String toString() {
+            return getClass().getName();
+        }
+    }
+
+    static class NextClass extends BaseClass {
+        String name = "Next Best Case";
     }
 }

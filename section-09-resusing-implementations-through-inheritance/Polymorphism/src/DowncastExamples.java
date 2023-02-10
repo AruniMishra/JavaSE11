@@ -58,7 +58,7 @@ public class DowncastExamples {
         c.printCat();
     }
 
-    //Three Overloaded methods
+    // Three Overloaded methods
     public void testAnimal(Animal animal) {
         System.out.println("Executing testAnimal with Animal type");
         animal.printAnimal();
