@@ -52,7 +52,7 @@ public class CastExtras {
         for (BaseClass n : mixedArray) {
             // We cast if we want NextClass's more specific name...
             System.out.println(n + ":" +
-            // ternary conditional operator uses instanceof
+                    // ternary conditional operator uses instanceof
                     ((n instanceof NextClass) ? ((NextClass) n).name : n.name));
         }
         System.out.println("----------");

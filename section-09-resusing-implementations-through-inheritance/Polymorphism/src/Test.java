@@ -25,11 +25,11 @@ public class Test {
         Plant1 plantA = new Flower1();
         Plant1 plantB = (Plant1) o; // Line 5
 
-        /*
+        /**
          * JVM won't compile; java.lang.ClassCastException: class Plant1 cannot be cast
          * to class Flower1
          * line 6 and 7 & 8
-         */
+         **/
         Plant1 plantC = (Flower1) o; // Line 6
         Flower1 flower = (Flower1) o; // Line 7
 
