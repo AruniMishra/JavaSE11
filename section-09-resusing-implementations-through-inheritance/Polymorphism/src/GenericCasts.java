@@ -94,9 +94,9 @@ public class GenericCasts {
         // We assign nextList to the raw List variable
         aList = nextList;
 
-//        // We assign nextList to the typed ArrayList of BaseClass variable
+//        // We assign nextList to the typed "ArrayList" of BaseClass variable
 //        baseList = nextList;
-//        // We assign nextList to the typed List of BaseClass variable
+//        // We assign nextList to the typed "List" of BaseClass variable
 //        bList = nextList;
 
         // Execute testIt method with List<BaseClass>

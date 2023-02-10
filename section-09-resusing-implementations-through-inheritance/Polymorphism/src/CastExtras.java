@@ -77,8 +77,19 @@ public class CastExtras {
 //        NextClass[] nextArray = (NextClass[]) mixedArray;
 
         // Let's actually fill it with just NextClass objects .
-        //Arrays.fill(mixedArray, new NextClass());
-        // JVM still doesn't allow it
-        //NextClass[] nextArray2 = (NextClass[]) mixedArray;
+//        Arrays.fill(mixedArray, new NextClass());
+//        JVM still doesn't allow it
+//        NextClass[] nextArray2 = (NextClass[]) mixedArray;
+
+
+        /**
+         * below code will compile, but will JVM won't allow.
+         */
+        BaseClass baseClass1 = new BaseClass();
+        NextClass nextClass1 = (NextClass) baseClass1;
+
+
+
+        BaseClass baseClass2 = new NextClass();
     }
 }
