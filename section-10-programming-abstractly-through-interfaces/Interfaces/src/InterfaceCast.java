@@ -1,5 +1,3 @@
-import org.jetbrains.annotations.NotNull;
-
 // Very simple interface with one method
 interface Laughable {
     String laugh();
@@ -84,7 +82,7 @@ public class InterfaceCast {
      * A method should not return null Variables (fields, local variables, and parameters) cannot hold a null value.
      *
      */
-    public static String testLaughable(@NotNull Laughable l) {
+    public static String testLaughable(Laughable l) {
         if (l != null) {
             l.laugh();
         }
