@@ -3,6 +3,14 @@ import org.jetbrains.annotations.NotNull;
 // Very simple interface with one method
 interface Laughable {
     String laugh();
+
+    static void doNoting1(){
+
+    }
+
+    default void doNoting2(){
+
+    }
 }
 
 // A class that implements the interface
@@ -47,6 +55,7 @@ class Farce extends Story implements Laughable {
 // The main class
 public class InterfaceCast {
     public static void main(String[] args) {
+
         // Story story = new Story();
         Story story = new Farce();
         FunnyStory funnyStory = new FunnyStory();

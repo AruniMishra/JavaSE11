@@ -25,3 +25,4 @@ public class AmbiguousExamples extends Confused implements Confusable {
         return Confused.name;
     }
 }
+
