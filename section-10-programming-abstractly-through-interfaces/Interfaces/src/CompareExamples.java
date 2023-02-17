@@ -19,6 +19,7 @@ abstract class CounterClass {
 abstract class Animal extends CounterClass {
     private String name;
     private String type;
+
     public Animal(String name, String type) {
         this.name = name;
         this.type = type;
