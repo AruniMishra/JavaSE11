@@ -1,7 +1,10 @@
-// This abstract class's sole purpose is to increment counts
-abstract class CounterClass {
+package interfaces;
+
+// Create an interface to support the countMyInstances method
+interface Countable {
     public abstract void countMyInstances();
 }
+
 
 // We have a global class keeping track of instance counts
 class GlobalInformation {
@@ -10,12 +13,8 @@ class GlobalInformation {
     public static int TreeCount;
 }
 
-// Now we want every other class to execute the countMyInstances method
-// Without interfaces, this means extending every entity from the
-// abstract class that enforces subclasses to implement the method
-// Here is an Animal class, also abstract, so it does not have to implement
-// method
-abstract class Animal extends CounterClass {
+// Animal implements Countable
+abstract class Animal implements Countable{
     private String name;
     private String type;
 
@@ -54,7 +53,7 @@ class Cat extends Animal {
 
 // We add a disparate class that will also implement
 // countMyInstances()
-class Tree extends CounterClass {
+class Tree implements Countable {
     public Tree() {
         countMyInstances();
     }
@@ -66,7 +65,7 @@ class Tree extends CounterClass {
 
 // Our main method will create some objects of disparate types
 // and verify that our counters are being incremented.
-public class CompareExamples {
+public class CompareExamples2 {
     public static void main(String[] args) {
         Dog d;
         Cat c;
