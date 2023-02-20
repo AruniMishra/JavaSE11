@@ -24,7 +24,7 @@ public class ArraysAndLists {
 
         System.out.println("\n--------  subList example ---------");
         List subList = Arrays.asList(firstString).subList(0, 5);
-        //  List subList = firstList.subList(0, 5); // Immutable List
+        // List subList = firstList.subList(0, 5); // Immutable List
         System.out.println("subList = " + subList.toString());
 
         // Sort the sublist
@@ -55,7 +55,7 @@ public class ArraysAndLists {
         System.out.println("bArray array  = "
                 + Arrays.toString(bArray));
 
-        System.out.println("nextArray array  = "
+        System.out.println("nextArray array="
                 + Arrays.toString(nextArray));
 
         System.out.println("nextArray.equals(bArray) = "
@@ -70,13 +70,21 @@ public class ArraysAndLists {
         System.out.println("arrayRepresentation array  = " +
                 Arrays.toString(arrayRepresentation));
 
-        // You can call toArray with no parameter, it returns an array of Object
+        // You can call toArray with no parameter, it returns an array of Object[]
         Object[] objectArray = firstList.toArray();
-        System.out.println("objectArray array  = " +
+        System.out.println("objectArray array  = \t" +
                 Arrays.toString(objectArray));
 
-        String[] newRepresentation = (String[]) objectArray;
-        System.out.println("newRepresentation array  = " +
-                Arrays.toString(newRepresentation));
+        /*
+         * Exception
+         * java.lang.ClassCastException: class [Ljava.lang.Object; cannot be cast to class [Ljava.lang.String;
+         */
+        // String[] newRepresentation = (String[]) objectArray;
+        // System.out.println("newRepresentation array  = " + Arrays.toString(newRepresentation));
+
+
+        // Alternative, java 8
+        String[] strings = Arrays.stream(objectArray).toArray(String[]::new);
+        System.out.println("String: " + Arrays.toString(strings));
     }
 }
