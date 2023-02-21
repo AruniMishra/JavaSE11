@@ -14,15 +14,19 @@ public class ListDeclaration {
         ArrayList<String> stringArray;
         ArrayList<Integer> integerArray;
 
-        // Instantiation of ArrayList objects
+        /*
+        3 ways to instantiate ArrayList
+         */
+
+        //1.  Instantiation of ArrayList objects
         // Initialize a non-typed ArrayList using no args constructor
         a = new ArrayList();
 
-        // Initialize the String-typed ArrayList using the int argument
+        //2. Initialize the String-typed ArrayList using the int argument
         // which sets the initial capacity of the ArrayList
         stringArray = new ArrayList<String>(10);
 
-        // Initialize the Integer-typed ArrayList using the Collections
+        //3. Initialize the Integer-typed ArrayList using the Collections
         // parameter which passes values to the ArrayList
         integerArray = new ArrayList<Integer>(List.of(10, 20, 30));
 
@@ -32,7 +36,7 @@ public class ListDeclaration {
         // This generates a warning but compiles
         ArrayList<String> def = new ArrayList();
 
-        // You cannot create List object but you can set objects that
+        // You cannot create List(interface) object but you can set objects that
         // implement List to a List variable
         l = a;
         intList = integerArray;
