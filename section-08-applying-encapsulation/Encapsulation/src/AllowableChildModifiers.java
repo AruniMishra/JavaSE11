@@ -66,6 +66,6 @@ public class AllowableChildModifiers {
         System.out.println("Pug's breed is " + a.breed);
         System.out.println("Pug's owner is " + a.owner);
         System.out.println("Pug's name is " + a.name);
-//        System.out.println("Pug's type is " + a.type);
+        // System.out.println("Pug's type is " + a.type); // type has private access in Animal
     }
 }
