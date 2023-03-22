@@ -1,9 +1,4 @@
-
 public class AnonymousTest {
-
-    interface Helloable {
-        public void hello();
-    }
 
     public static void main(String[] args) {
         AnonymousTest a = new AnonymousTest();
@@ -67,5 +62,9 @@ public class AnonymousTest {
 
     public void printHello(Helloable h) {
         h.hello();
+    }
+
+    interface Helloable {
+        public void hello();
     }
 }
