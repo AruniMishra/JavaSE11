@@ -7,7 +7,7 @@ public class BinaryCalculator {
         // This lambda expression demonstrates a typed parameter list
         // Parentheses are always required for multiple parameters
         // - This operation will result in the values being added together.
-        BinaryIntegerOperation addition = (int a, int b) -> a + b;
+        BinaryIntegerOperation addition = (int a, int b) -> a + b; // or replace it with Integer::sum
 
         // This lambda expression demonstrates an untyped parameter list
         // Parentheses are always required for multiple parameters
@@ -15,8 +15,8 @@ public class BinaryCalculator {
         BinaryIntegerOperation subtraction = (a, b) -> a - b;
 
         // BinaryIntegerOperation multiplication = (int a, b) -> a * b;
-
-        // BinaryIntegerOperation division = a, b -> a / b;
+        //
+        // BinaryIntegerOperation division = a, b ->a / b;
 
         BinaryIntegerOperation multiplication = (var a, var b) -> a * b;
 
