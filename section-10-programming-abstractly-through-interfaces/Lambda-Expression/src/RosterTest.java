@@ -32,11 +32,7 @@
 import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.Function;
-import java.util.Comparator;
 import java.util.function.Predicate;
-import java.lang.Iterable;
-import java.time.chrono.IsoChronology;
-
 
 public class RosterTest {
 
@@ -44,8 +40,8 @@ public class RosterTest {
         boolean test(Person p);
     }
 
-
-    // Approach 1: Create Methods that Search for Persons that Match One Characteristic
+    // Approach 1: Create Methods that Search for Persons that Match One
+    // Characteristic
     public static void printPersonsOlderThan(List<Person> roster, int age) {
         for (Person p : roster) {
             if (p.getAge() >= age) {
@@ -53,7 +49,6 @@ public class RosterTest {
             }
         }
     }
-
 
     // Approach 2: Create More Generalized Search Methods
     public static void printPersonsWithinAgeRange(
@@ -64,7 +59,6 @@ public class RosterTest {
             }
         }
     }
-
 
     // Approach 3: Specify Search Criteria Code in a Local Class
     // Approach 4: Specify Search Criteria Code in an Anonymous Class
@@ -78,7 +72,6 @@ public class RosterTest {
         }
     }
 
-
     // Approach 6: Use Standard Functional Interfaces with Lambda Expressions
     public static void printPersonsWithPredicate(
             List<Person> roster, Predicate<Person> tester) {
@@ -88,7 +81,6 @@ public class RosterTest {
             }
         }
     }
-
 
     // Approach 7: Use Lambda Expressions Throughout Your Application
     public static void processPersons(
@@ -138,19 +130,16 @@ public class RosterTest {
             p.printPerson();
         }
 
-
         // Approach 1: Create Methods that Search for Persons that Match One
         // Characteristic
         System.out.println("Persons older than 20:");
         printPersonsOlderThan(roster, 20);
         System.out.println();
 
-
         // Approach 2: Create More Generalized Search Methods
         System.out.println("Persons between the ages of 14 and 30:");
         printPersonsWithinAgeRange(roster, 14, 30);
         System.out.println();
-
 
         // Approach 3: Specify Search Criteria Code in a Local Class
         System.out.println("Persons who are eligible for Selective Service:");
@@ -164,7 +153,6 @@ public class RosterTest {
         printPersons(roster, new CheckPersonEligibleForSelectiveService());
         System.out.println();
 
-
         // Approach 4: Specify Search Criteria Code in an Anonymous Class
         System.out.println("Persons who are eligible for Selective Service " +
                 "(anonymous class):");
@@ -176,10 +164,8 @@ public class RosterTest {
                                 && p.getAge() >= 18
                                 && p.getAge() <= 25;
                     }
-                }
-        );
+                });
         System.out.println();
-
 
         // Approach 5: Specify Search Criteria Code with a Lambda Expression
         System.out.println("Persons who are eligible for Selective Service " +
@@ -188,10 +174,8 @@ public class RosterTest {
                 roster,
                 (Person p) -> p.getGender() == Person.Sex.MALE
                         && p.getAge() >= 18
-                        && p.getAge() <= 25
-        );
+                        && p.getAge() <= 25);
         System.out.println();
-
 
         // Approach 6: Use Standard Functional Interfaces with Lambda
         // Expressions
@@ -201,10 +185,8 @@ public class RosterTest {
                 roster,
                 p -> p.getGender() == Person.Sex.MALE
                         && p.getAge() >= 18
-                        && p.getAge() <= 25
-        );
+                        && p.getAge() <= 25);
         System.out.println();
-
 
         // Approach 7: Use Lamba Expressions Throughout Your Application
         System.out.println("Persons who are eligible for Selective Service " +
@@ -214,8 +196,7 @@ public class RosterTest {
                 p -> p.getGender() == Person.Sex.MALE
                         && p.getAge() >= 18
                         && p.getAge() <= 25,
-                p -> p.printPerson()
-        );
+                p -> p.printPerson());
         System.out.println();
 
         // Approach 7, second example
@@ -227,10 +208,8 @@ public class RosterTest {
                         && p.getAge() >= 18
                         && p.getAge() <= 25,
                 p -> p.getEmailAddress(),
-                email -> System.out.println(email)
-        );
+                email -> System.out.println(email));
         System.out.println();
-
 
         // Approach 8: Use Generics More Extensively
         System.out.println("Persons who are eligible for Selective Service " +
@@ -241,10 +220,8 @@ public class RosterTest {
                         && p.getAge() >= 18
                         && p.getAge() <= 25,
                 p -> p.getEmailAddress(),
-                email -> System.out.println(email)
-        );
+                email -> System.out.println(email));
         System.out.println();
-
 
         // Approach 9: Use Bulk Data Operations That Accept Lambda Expressions
         // as Parameters
