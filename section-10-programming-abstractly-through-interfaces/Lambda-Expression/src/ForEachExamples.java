@@ -7,7 +7,6 @@ Sub-Topic: Using ArrayLists with Lambda Expressions
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.function.Predicate;
 
 public class ForEachExamples {
 
@@ -38,7 +37,7 @@ public class ForEachExamples {
 
 
         // Make an ArrayList out of the array
-        ArrayList<String> alist = new ArrayList<String>(Arrays.asList(stringArray));
+        ArrayList<String> alist = new ArrayList<>(Arrays.asList(stringArray));
         System.out.println(alist + "\n");
 
         // We'll use the stream() method to manipulate the list
@@ -50,9 +49,7 @@ public class ForEachExamples {
                 .forEach(System.out::println);
 
         // Let's sort by the suffix number descending, using a Comparable interface
-        alist.sort((a, b) -> {
-            return Integer.valueOf(b.split("_")[2]).compareTo(Integer.valueOf(a.split("_")[2]));
-        });
+        alist.sort((a, b) -> Integer.valueOf(b.split("_")[2]).compareTo(Integer.valueOf(a.split("_")[2])));
         System.out.println("\n" + alist);
 
         // Let's sort reverse order

@@ -37,7 +37,7 @@ public class SuppliedInterfaceTests {
         // -- Predicate Example
         // Method returns a boolean, accepts one parameter
         Predicate<String> aWords = p -> p.indexOf("A") == 0;
-        ArrayList<String> a = new ArrayList(Arrays.asList(dictionary));
+        ArrayList<String> a = new ArrayList<>(Arrays.asList(dictionary));
         // demonstrate with ArrayList.removeIf method which accepts a
         // Predicate as a parameter
         a.removeIf(aWords);
@@ -53,7 +53,7 @@ public class SuppliedInterfaceTests {
         // -- Supplier Example
         // Method returns an object, accepts no parameter
         Supplier<String> stringSupplier =
-                () -> new String("returning a new String Object");
+                () -> "returning a new String Object";
         System.out.println("stringSupplier.get() = " + stringSupplier.get());
 
         // -- Function Example
