@@ -15,19 +15,20 @@ public class ThrowableExamples {
         ThrowableExamples te = new ThrowableExamples();
         String filename = "This_File_Does_Not_Exist.out";
 
-        te.throwAnError();
+        // Error and RunTimeException are UnChecked exception(it's not checked during compile time);
+        // everything else is checked exception
+        // te.throwAnError();
 
         // Try to open file with filename defined above
         try {
-            FileInputStream f =
-                    new FileInputStream(filename);
+            te.throwAnError();
+            FileInputStream f = new FileInputStream(filename);
 
         }  // This statement catches anything thrown at you.
         catch (Throwable error) {
             // Check to see if it's an IOException and print something
             if (error instanceof IOException) {
-                System.out.println("Something went wrong with the" +
-                        " processing of " + filename);
+                System.out.println("Something went wrong with the" + " processing of " + filename);
             }
 
             printErrorStructure(error);
@@ -45,8 +46,7 @@ public class ThrowableExamples {
             parent = parent.getSuperclass();
             if (parent == null) break;
 
-        }
-        while (parent.getSuperclass() != null);
+        } while (parent.getSuperclass() != null);
     }
 
     // Mocking an IOError ...
