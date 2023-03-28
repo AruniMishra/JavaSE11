@@ -13,3 +13,9 @@ java --module-path .\out\production\  -m MyFirstModule/modular.HelloWorld
 ```shell
 jar --create --file MyFirstModule.jar --main-class modular.HelloWorld -C .\out\production\MyFirstModule\ .
 ```
+
+- Run below to inspect
+
+```shell
+jar -f .\MyFirstModule.jar --list
+```
