@@ -27,7 +27,7 @@ jar --create --file MyFirstModule.jar --main-class modular.HelloWorld -C .\out\p
 - Run below to inspect
 
 ```shell
-jar -f .\MyFirstModule.jar --list
+jar -f MyFirstModule.jar --list
 ```
 
 ---
@@ -35,7 +35,7 @@ jar -f .\MyFirstModule.jar --list
 - Run below to describe
 
 ```shell
-jar -f .\MyFirstModule.jar -d
+jar -f MyFirstModule.jar -d
 ```
 
 or,
@@ -48,4 +48,12 @@ or,
 
 ```shell
 java -p . -d MyFirstModule
+```
+
+---
+
+- Run for jdeps
+
+```shell
+jdeps MyFirstModule.jar
 ```
