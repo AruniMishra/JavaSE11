@@ -19,3 +19,21 @@ jar --create --file MyFirstModule.jar --main-class modular.HelloWorld -C .\out\p
 ```shell
 jar -f .\MyFirstModule.jar --list
 ```
+
+- Run below to describe
+
+```shell
+jar -f .\MyFirstModule.jar -d
+```
+
+or,
+
+```shell
+java --module-path . --describe-module MyFirstModule
+```
+
+or,
+
+```shell
+java -p . -d MyFirstModule
+```
