@@ -8,17 +8,29 @@
 java --module-path .\out\production\  -m MyFirstModule/modular.HelloWorld
 ```
 
+or,
+
+```shell
+ java --module-path . --module MyFirstModule
+```
+
+---
+
 - Run below to generate the .jar
 
 ```shell
 jar --create --file MyFirstModule.jar --main-class modular.HelloWorld -C .\out\production\MyFirstModule\ .
 ```
 
+---
+
 - Run below to inspect
 
 ```shell
 jar -f .\MyFirstModule.jar --list
 ```
+
+---
 
 - Run below to describe
 
