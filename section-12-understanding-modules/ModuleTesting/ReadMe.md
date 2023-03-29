@@ -1,4 +1,4 @@
-# Java
+# Java Module
 
 ## Command
 
@@ -56,4 +56,18 @@ java -p . -d MyFirstModule
 
 ```shell
 jdeps MyFirstModule.jar
+```
+
+or,
+
+```shell
+jdeps --list-reduced-deps MyFirstModule.jar
+```
+
+# Advance
+
+- With multiple modules
+
+```shell
+jar --create --file MyFirstModule.jar --main-class modular.HelloWorld -C out\production\MyFirstModule\ .
 ```
