@@ -71,3 +71,21 @@ jdeps --list-reduced-deps MyFirstModule.jar
 ```shell
 jar --create --file MyFirstModule.jar --main-class modular.HelloWorld -C out\production\MyFirstModule\ .
 ```
+
+- To run
+
+```shell
+java -p "C:\resources\localdata\github\JavaSE11\section-12-understanding-modules\ModuleTesting\out\production\MySecondModule;C:\resources\localdata\github\JavaSE11\section-12-understanding-modules\ModuleTesting\out\production\MyFirstModule" -m MyFirstModule/modular.HelloWorld
+```
+
+or,
+
+```shell
+java -p ".\out\production\;.\out\production\" -m MyFirstModule/modular.HelloWorld
+
+java -p ".\out\;.\out\production\" -m MyFirstModule/modular.HelloWorld
+
+java -p ".;.\out\production\" -m MyFirstModule/modular.HelloWorld 
+
+java -p ".;./out\production/" -m MyFirstModule/modular.HelloWorld
+```
