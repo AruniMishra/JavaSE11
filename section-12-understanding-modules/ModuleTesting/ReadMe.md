@@ -85,7 +85,7 @@ java -p ".\out\production\;.\out\production\" -m MyFirstModule/modular.HelloWorl
 
 java -p ".\out\;.\out\production\" -m MyFirstModule/modular.HelloWorld
 
-java -p ".;.\out\production\" -m MyFirstModule/modular.HelloWorld 
+java -p ".;.\out\production\" -m MyFirstModule
 
-java -p ".;./out\production/" -m MyFirstModule/modular.HelloWorld
+java -p ".;./out/production/" -m MyFirstModule
 ```
