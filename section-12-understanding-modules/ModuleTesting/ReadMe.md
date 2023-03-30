@@ -89,3 +89,17 @@ java -p ".;.\out\production\" -m MyFirstModule
 
 java -p ".;./out/production/" -m MyFirstModule
 ```
+
+---
+
+- Run for Jdeps
+
+```shell
+jdeps --module-path  ".;.\out\production\" .\MyFirstModule.jar
+```
+
+or,
+
+```shell
+jdeps --module-path  ".;.\out\production\" -m MyFirstModule
+```
