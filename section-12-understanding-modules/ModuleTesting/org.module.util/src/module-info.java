@@ -2,7 +2,7 @@ module org.module.util {
     // exports org.pkg.util;
 
     /*
-    limit org.pkg.util to be read only by friend(org.module.base)
+    limit org.pkg.util to be read only by friend
      */
     exports org.pkg.util to org.module.base, org.module.concrete;
 
