@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/part1-section-10-programming-abstractly-through-interfaces/ArrayList/ArrayList.iml" filepath="$PROJECT_DIR$/part1-section-10-programming-abstractly-through-interfaces/ArrayList/ArrayList.iml" />
+      <module fileurl="file://$PROJECT_DIR$/part1-section-04-using-operators-and-decision-constructs/Decisions/Decisions.iml" filepath="$PROJECT_DIR$/part1-section-04-using-operators-and-decision-constructs/Decisions/Decisions.iml" />
+      <module fileurl="file://$PROJECT_DIR$/part1-section-09-resusing-implementations-through-inheritance/Inheritance/Inheritance.iml" filepath="$PROJECT_DIR$/part1-section-09-resusing-implementations-through-inheritance/Inheritance/Inheritance.iml" />
+      <module fileurl="file://$PROJECT_DIR$/part1-section-10-programming-abstractly-through-interfaces/Interfaces/Interfaces.iml" filepath="$PROJECT_DIR$/part1-section-10-programming-abstractly-through-interfaces/Interfaces/Interfaces.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/JavaSE11.iml" filepath="$PROJECT_DIR$/.idea/JavaSE11.iml" />
+      <module fileurl="file://$PROJECT_DIR$/part1-section-03-working-with-java-primitive-data-types-and-string-apis/LVTI/LVTI.iml" filepath="$PROJECT_DIR$/part1-section-03-working-with-java-primitive-data-types-and-string-apis/LVTI/LVTI.iml" />
+      <module fileurl="file://$PROJECT_DIR$/part1-section-10-programming-abstractly-through-interfaces/Lambda-Expression/Lambda-Expression.iml" filepath="$PROJECT_DIR$/part1-section-10-programming-abstractly-through-interfaces/Lambda-Expression/Lambda-Expression.iml" />
+      <module fileurl="file://$PROJECT_DIR$/part1-section-04-using-operators-and-decision-constructs/Loops/Loops.iml" filepath="$PROJECT_DIR$/part1-section-04-using-operators-and-decision-constructs/Loops/Loops.iml" />
+      <module fileurl="file://$PROJECT_DIR$/part1-section-12-understanding-modules/ModuleTesting/MyFirstModule/MyFirstModule.iml" filepath="$PROJECT_DIR$/part1-section-12-understanding-modules/ModuleTesting/MyFirstModule/MyFirstModule.iml" />
+      <module fileurl="file://$PROJECT_DIR$/part1-section-12-understanding-modules/ModuleTesting/MySecondModule/MySecondModule.iml" filepath="$PROJECT_DIR$/part1-section-12-understanding-modules/ModuleTesting/MySecondModule/MySecondModule.iml" />
+      <module fileurl="file://$PROJECT_DIR$/part1-section-04-using-operators-and-decision-constructs/Operators/Operators.iml" filepath="$PROJECT_DIR$/part1-section-04-using-operators-and-decision-constructs/Operators/Operators.iml" />
+      <module fileurl="file://$PROJECT_DIR$/part1-section-09-resusing-implementations-through-inheritance/Polymorphism/Polymorphism.iml" filepath="$PROJECT_DIR$/part1-section-09-resusing-implementations-through-inheritance/Polymorphism/Polymorphism.iml" />
+      <module fileurl="file://$PROJECT_DIR$/part1-section-03-working-with-java-primitive-data-types-and-string-apis/PrimitiveData/PrimitiveData.iml" filepath="$PROJECT_DIR$/part1-section-03-working-with-java-primitive-data-types-and-string-apis/PrimitiveData/PrimitiveData.iml" />
+      <module fileurl="file://$PROJECT_DIR$/part1-section-03-working-with-java-primitive-data-types-and-string-apis/Scope/Scope.iml" filepath="$PROJECT_DIR$/part1-section-03-working-with-java-primitive-data-types-and-string-apis/Scope/Scope.iml" />
+      <module fileurl="file://$PROJECT_DIR$/part1-section-03-working-with-java-primitive-data-types-and-string-apis/Strings/Strings.iml" filepath="$PROJECT_DIR$/part1-section-03-working-with-java-primitive-data-types-and-string-apis/Strings/Strings.iml" />
+      <module fileurl="file://$PROJECT_DIR$/part1-section-12-understanding-modules/ModuleTesting/org.module.base/org.module.base.iml" filepath="$PROJECT_DIR$/part1-section-12-understanding-modules/ModuleTesting/org.module.base/org.module.base.iml" />
+      <module fileurl="file://$PROJECT_DIR$/part1-section-12-understanding-modules/ModuleTesting/org.module.concrete/org.module.concrete.iml" filepath="$PROJECT_DIR$/part1-section-12-understanding-modules/ModuleTesting/org.module.concrete/org.module.concrete.iml" />
+      <module fileurl="file://$PROJECT_DIR$/part1-section-12-understanding-modules/ModuleTesting/org.module.global/org.module.global.iml" filepath="$PROJECT_DIR$/part1-section-12-understanding-modules/ModuleTesting/org.module.global/org.module.global.iml" />
+      <module fileurl="file://$PROJECT_DIR$/part1-section-12-understanding-modules/ModuleTesting/org.module.util/org.module.util.iml" filepath="$PROJECT_DIR$/part1-section-12-understanding-modules/ModuleTesting/org.module.util/org.module.util.iml" />
+      <module fileurl="file://$PROJECT_DIR$/part1-section-01-GettingStarted/part1-section-01-GettingStarted.iml" filepath="$PROJECT_DIR$/part1-section-01-GettingStarted/part1-section-01-GettingStarted.iml" />
+      <module fileurl="file://$PROJECT_DIR$/part1-section-05-working-with-java-arrays/part1-section-05-working-with-java-arrays.iml" filepath="$PROJECT_DIR$/part1-section-05-working-with-java-arrays/part1-section-05-working-with-java-arrays.iml" />
+      <module fileurl="file://$PROJECT_DIR$/part1-section-06-describing-and-using-objects-and-classes/part1-section-06-describing-and-using-objects-and-classes.iml" filepath="$PROJECT_DIR$/part1-section-06-describing-and-using-objects-and-classes/part1-section-06-describing-and-using-objects-and-classes.iml" />
+      <module fileurl="file://$PROJECT_DIR$/part1-section-07-creating-and-using-methods/part1-section-07-creating-and-using-methods.iml" filepath="$PROJECT_DIR$/part1-section-07-creating-and-using-methods/part1-section-07-creating-and-using-methods.iml" />
+      <module fileurl="file://$PROJECT_DIR$/part1-section-08-applying-encapsulation/part1-section-08-applying-encapsulation.iml" filepath="$PROJECT_DIR$/part1-section-08-applying-encapsulation/part1-section-08-applying-encapsulation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/part1-section-11-handling-exception/part1-section-11-handling-exception.iml" filepath="$PROJECT_DIR$/part1-section-11-handling-exception/part1-section-11-handling-exception.iml" />
+    </modules>
+  </component>
+</project>

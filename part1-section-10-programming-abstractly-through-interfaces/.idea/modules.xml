@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/ArrayList/ArrayList.iml" filepath="$PROJECT_DIR$/ArrayList/ArrayList.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Interfaces/Interfaces.iml" filepath="$PROJECT_DIR$/Interfaces/Interfaces.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Lambda-Expression/Lambda-Expression.iml" filepath="$PROJECT_DIR$/Lambda-Expression/Lambda-Expression.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/section-10-programming-abstractly-through-interfaces.iml" filepath="$PROJECT_DIR$/.idea/section-10-programming-abstractly-through-interfaces.iml" />
+    </modules>
+  </component>
+</project>
