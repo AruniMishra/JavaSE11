@@ -24,6 +24,8 @@ you do not have to specify a throws clause in the overridden method
 
 You can overload overridden methods.
 
+Modifier 'static' is redundant for inner interfaces
+
 ## Abstract Class
  - An abstract class(either abstract method or concrete method) can override a method in an interface though it should be public.
 
