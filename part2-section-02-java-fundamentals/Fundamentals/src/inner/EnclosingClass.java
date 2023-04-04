@@ -31,16 +31,13 @@ public class EnclosingClass {
         public String instanceName = "InnerMemberClass.instanceName";
 
         // outerName = "outer"; // invalid here
+        // shadow the outer class attribute
+        public String outerName = "outer";
 
         // instance method
         public String getInstanceName() {
             outerName = "outer"; // valid here
             return "getInstanceName() = " + this.instanceName;
-        }
-
-        public String getOuterName() {
-            System.out.println("EnclosingClass.this.outerName: " + EnclosingClass.this.outerName);
-            return "InnerMemberClass.getOuterName() = " + outerName;
         }
 
 
@@ -65,10 +62,14 @@ public class EnclosingClass {
 
         // public interface NestedInterface {}
 
-
-        // shadow the outer class attribute
-        public String outerName = "outer";
-
+        public String getOuterName() {
+            // Local variable shadows inner class member which in turn
+            // shadows outer class's member.  Here we access all 3
+            String outerName = "local_outerName";
+            return outerName + " : " +
+                    this.outerName + " : " +
+                    EnclosingClass.this.outerName;
+        }
 
 
     }  // Ends declaration of the inner member class
@@ -88,6 +89,9 @@ class TestEnclosingClass {
         EnclosingClass.InnerMemberClass i;
 
         // But instantiating this way does not work...
+        /*
+        an inner member class can't exist without an instance of the enclosing class existing first.
+         */
         // i = new EnclosingClass.InnerMemberClass();
         // i = new e.InnerMemberClass();
 
