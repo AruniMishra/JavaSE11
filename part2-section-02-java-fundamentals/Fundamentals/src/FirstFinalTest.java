@@ -9,7 +9,8 @@ Topic 1: Final modifier used with classes.
 // use it to subclass and we can override methods except final methods
 class ExtendMeOptional {
 
-    private ExtendMeOptional() {}
+    // private not allowed
+    // private ExtendMeOptional() {}
 
     // This method is valid for overriding
     public void doSomething() {
@@ -28,6 +29,9 @@ class ExtendMeOptional {
 // The following class is a class with the final modifier which means we
 // can NOT use it to subclass.
 final class ExtendMeNotAllowed {
+    // creating private prevents creating of the instance
+    // private ExtendMeNotAllowed(){}
+
     public void doSomething() {
         System.out.println("Overriding ExtendMeNotAllowed.doSomething " +
                 "is NOT optional");
