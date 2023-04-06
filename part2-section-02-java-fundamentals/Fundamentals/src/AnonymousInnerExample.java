@@ -30,8 +30,48 @@ public class AnonymousInnerExample {
                         "will doSomething with " + i);
             }
         };  // Declaration occurs in an expression and must end with ';'
-
         a.doSomething();
+
+        // Anonymous class extending Object
+        Object b = new Object() {
+            public String toString() {
+                return "Anonymous object";
+            }
+        };
+        System.out.println(b);
+
+        // Anonymous class implements interface Doable
+        new Doable() {
+            public void doSomething() {
+                System.out.println("Anonymous Doable " +
+                        "will doSomething with " + b);
+            }
+        }.doSomething();
+
+
+        // If you want to pass parameters to your anonymous
+        // class, you can extend abstract class using a local
+        // class
+        abstract class ConcreteClass extends AnAbstractClass {
+            ConcreteClass(int i) {
+                this.i = i;
+            }
+        }
+
+        // This example shows an anonymous class created with an
+        // instance initializer and passing a value to the constructor
+        AnAbstractClass c = new ConcreteClass(5) {
+            {
+                i = 2 * this.i;
+            }
+
+            public void doSomething() {
+                System.out.println("Anonymous AnAbstractClass " +
+                        "will doSomething with " + i);
+            }
+        };
+        c.doSomething();
+
 
     }
 }
