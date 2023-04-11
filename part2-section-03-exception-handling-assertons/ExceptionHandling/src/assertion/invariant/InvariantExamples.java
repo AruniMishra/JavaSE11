@@ -19,7 +19,6 @@ public class InvariantExamples {
             // System.out.println(ex.getPetTypeDietaryNeeds(pt));
 
 
-
             // Check baby animal description...
             System.out.println("A juvenile " + pt + " is called a " +
                     ex.getPetTypeAgeDescription(pt, 0));
@@ -57,6 +56,7 @@ public class InvariantExamples {
 
         String description = "ADULT";
 
+        /*
         if (petType == PetType.CAT || petType == PetType.DOG) {
             if (petAge > 7) description = "SENIOR";
             else if (petAge < 1)
@@ -70,10 +70,34 @@ public class InvariantExamples {
             else if (petAge < 1)
                 description = "PUP";
         }
+        */
+
+        if (petType == PetType.CAT || petType == PetType.DOG) {
+            if (petAge > 7) description = "SENIOR";
+            else if (petAge < 1)
+                description = (petType == PetType.CAT) ? "KITTEN" : "PUPPY";
+        }
+        // Add else if section for PARROT
+        else if (petType == PetType.PARROT) {
+            if (petAge > 45) description = "SENIOR";
+            else if (petAge < 1) description = "CHICK";
+        }
+        // Catch all for everything else
+        else {
+            // ** Internal Invariant Assertion
+            // Assumes if pet not CAT/DOG, must be GERBIL/HAMSTER
+            assert (petType == PetType.GERBIL || petType == PetType.HAMSTER);
+
+            if (petAge > 3) description = "SENIOR";
+            else if (petAge < 1)
+                description = "PUP";
+        }
+
+
 
         // ** Good Practice:  Post-Condition Assertion
         assert (new ArrayList(Arrays.asList(
-                new String[]{"ADULT", "SENIOR", "KITTEN", "PUPPY", "PUP"})).
+                new String[]{"ADULT", "SENIOR", "KITTEN", "PUPPY", "PUP", "CHICK"})).
                 indexOf(description) > -1) : "No Description exists for " +
                 petType + " age " + petAge;
 
