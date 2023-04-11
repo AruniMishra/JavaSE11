@@ -94,12 +94,44 @@ public class InvariantExamples {
         }
 
 
+        /*
 
         // ** Good Practice:  Post-Condition Assertion
         assert (new ArrayList(Arrays.asList(
                 new String[]{"ADULT", "SENIOR", "KITTEN", "PUPPY", "PUP", "CHICK"})).
                 indexOf(description) > -1) : "No Description exists for " +
                 petType + " age " + petAge;
+
+
+
+        //------------------------------------------------------------------
+        // Creating data just for an assertion (not contained in assertion)
+        ArrayList assertArrayList = new ArrayList(Arrays.asList("ADULT", "SENIOR", "KITTEN", "PUPPY", "PUP", "CHICK"));
+
+        // ** Good Practice:  Post-Condition Assertion
+        assert (assertArrayList.indexOf(description) > -1) :
+                "No Description exists for " + petType + " age " + petAge;
+
+
+
+        // run it with and without assertion
+        // when assertion are disabled, then assert conditions are not evaluated, hence petAge ++ has no effect
+        assert (new ArrayList(Arrays.asList(new String[]
+                {"ADULT", "SENIOR", "KITTEN", "PUPPY", "PUP", "CHICK"}))
+                .indexOf(description) > -1 && petAge++ == 0) :
+                "No Description exists for " + petType + " age " + petAge;
+
+        System.out.print("petAge (" + petAge + ") : ");
+
+         */
+
+
+        // ** Good Practice:  Post-Condition Assertion
+        assert (new ArrayList(Arrays.asList(
+                new String[]{"ADULT", "SENIOR", "KITTEN", "PUPPY", "PUP"})).
+                indexOf(description) > -1) : "No Description exists for " +
+                petType + " age " + petAge;
+
 
         return description;
     }

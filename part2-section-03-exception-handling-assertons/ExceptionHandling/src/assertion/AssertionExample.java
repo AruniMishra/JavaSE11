@@ -6,6 +6,8 @@ Topic:  Using assertions
 */
 package assertion;
 
+import assertion.invariant.InvariantExamples;
+
 public class AssertionExample {
 
     static {
@@ -31,6 +33,13 @@ public class AssertionExample {
     }
 
     public static void main(String[] args) {
+
+        /*
+        setting below vm option will disable assertion for InvariantExample class:
+        -ea -da:assertion.invariant.InvariantExamples
+         */
+        InvariantExamples.main(args);
+
         byte s2;
 
         // Value below exceeds Byte Max Value
