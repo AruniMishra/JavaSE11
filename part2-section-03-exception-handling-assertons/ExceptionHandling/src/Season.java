@@ -55,21 +55,30 @@ public class Season implements AutoCloseable {
     public void run() {
         System.out.println("Running Series " + this.seasonNumber);
         if (this.seasonNumber == 1)
-            throw new RuntimeException("Season failed");
+            throw new RuntimeException("Season failed while running");
     }
 
     public static void main(String[] args) {
 
+        Throwable addedSuppressed = null;
         // Main method kicks off the first Season & Episode using basic
         // try-with-resources statement with two AutoCloseable resources...
         try (
                 Season s = new Season(1);
                 Season.Episode e = s.new Episode(1)) {
-            s.run();
+            // Add a nested try/catch
+            try {
+                s.run();
+
+            } catch (Exception ex) {
+                // Set the caught exception to a local variable
+                addedSuppressed = ex;
+            }
             e.run();
         } catch (Exception e) {
             System.out.println("ERROR CAUGHT: " + e);
-
+            // Adding suppressed exceptions..
+            if (addedSuppressed != null) e.addSuppressed(addedSuppressed);
             for (Throwable t : e.getSuppressed()) {
                 System.out.println("SUPPRESSED: " + t);
             }
