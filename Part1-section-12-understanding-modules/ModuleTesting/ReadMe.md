@@ -6,7 +6,9 @@
 
 ```shell
 java --module-path .\out\production\  -m MyFirstModule/modular.HelloWorld
+java --module-path .\out\production\  -m MySecondModule/mod2.GoodbyeWorld 
 ```
+
 
 or,
 
