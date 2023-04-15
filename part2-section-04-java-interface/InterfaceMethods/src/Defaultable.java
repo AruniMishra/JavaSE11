@@ -19,6 +19,10 @@ public interface Defaultable {
     // Default method 'toString' overrides a member of 'java.lang.Object
     // default String toString() { return "This is my own toString() method";}
 
+
+    // this will break the lambda expression call
+    // void anotherAbstractMethod();
+
 }
 
 // Class implements Defaultable interface
@@ -30,8 +34,8 @@ class ImplementingClass implements Defaultable {
 }
 
 // Class which uses the interface in a method as a parameter type.
-class DefaultClass extends BaseClass implements Defaultable {
-    // class DefaultClass implements Defaultable{
+// class DefaultClass extends BaseClass implements Defaultable {
+class DefaultClass implements Defaultable {
 
     public static void main(String[] args) {
         // Instantiate the current class.
@@ -41,6 +45,10 @@ class DefaultClass extends BaseClass implements Defaultable {
         dc.callAbstractMethod(new ImplementingClass());
 
         // Pass lambda expression to method using interface
+        /*
+        lambda expressions require an interface to be a functional interface and contain only one abstractMethod.
+        Default methods allow you to keep this standard but offer additional functionality.
+         */
         dc.callAbstractMethod(() -> System.out.println("Lambda Expression" +
                 " implements interface's abstract method"));
 
