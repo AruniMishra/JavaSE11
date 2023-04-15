@@ -34,8 +34,8 @@ class ImplementingClass implements Defaultable {
 }
 
 // Class which uses the interface in a method as a parameter type.
-// class DefaultClass extends BaseClass implements Defaultable {
-class DefaultClass implements Defaultable {
+class DefaultClass extends BaseClass implements Defaultable {
+    // class DefaultClass implements Defaultable {
 
     public static void main(String[] args) {
         // Instantiate the current class.
