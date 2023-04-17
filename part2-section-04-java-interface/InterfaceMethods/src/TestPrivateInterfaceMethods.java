@@ -12,6 +12,9 @@ interface PrivateAndDefaultTestable {
         System.out.println("This is an interface's public and" +
                 " static method");
         doInterfaceSomethingPrivateAndStatic();
+
+        // doInterfaceSomethingPublic();
+        // doInterfaceSomethingPrivate();
     }
 
     // private static method accessible by static method
@@ -25,6 +28,8 @@ interface PrivateAndDefaultTestable {
         System.out.println("This is interface's public default method");
         // Accesses a private method
         doInterfaceSomethingPrivate();
+        doInterfaceSomethingPublicAndStatic();
+        doInterfaceSomethingPrivateAndStatic();
     }
 
     // private method consolidates code
@@ -82,7 +87,7 @@ public class TestPrivateInterfaceMethods extends TestStatic implements PrivateAn
         // Access static method on interface with interface qualifier
         PrivateAndDefaultTestable.doInterfaceSomethingPublicAndStatic();
 
-        // Can call default method on interface
+        // Can call default method on interface, but only in a non-static context
         doInterfaceSomethingPublic();
 
         // Can use default method with super in a non-static method
