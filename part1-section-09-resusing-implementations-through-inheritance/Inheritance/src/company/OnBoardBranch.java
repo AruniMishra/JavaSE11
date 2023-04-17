@@ -12,6 +12,7 @@ class Employee {
     private String type;
     private String name;
 
+
     Employee(String name, String type) {
         this.name = name;
         this.type = type;
@@ -25,7 +26,7 @@ class Company {
     public static int employeeCount;
 
     static {
-        System.out.println("Company Static Initializer");
+        System.out.println("Company Static Initializer :: branchCount:" + branchCount);
         branchCount = 10;
     }
 
