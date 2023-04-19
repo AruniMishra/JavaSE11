@@ -18,22 +18,24 @@ interface MoreSpecificInterface {
 }
 
 class SuperClass {
+    int a;
+
     public void doSomething() {
         System.out.println("SuperClass: doSomething");
     }
 }
 
-public class MethodSelection implements LessSpecificInterface,
-        MoreSpecificInterface {
+public class MethodSelection extends SuperClass implements MoreSpecificInterface {
     public static void main(String[] args) {
         MethodSelection methodSelection = new MethodSelection();
         methodSelection.callDoSomething();
     }
 
     public void callDoSomething() {
+        System.out.println(a);
         doSomething();
 
-        LessSpecificInterface.super.doSomething();
+        // LessSpecificInterface.super.doSomething();
     }
 
     public void doSomething() {
