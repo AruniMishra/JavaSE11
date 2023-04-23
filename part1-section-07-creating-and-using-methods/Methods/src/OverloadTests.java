@@ -8,14 +8,14 @@ class Calculator {
         return result;
     }
 
-//    public static long add(int...a ) {
-//        System.out.println("int var arg");
-//        int total = 0;
-//        for (long val : a) {
-//            total += val;
-//        }
-//        return total;
-//    }
+    public static long add(int... a) {
+        System.out.println("int var arg");
+        int total = 0;
+        for (long val : a) {
+            total += val;
+        }
+        return total;
+    }
 
     public static long add(int a, long... b) {
         System.out.println("int a, Var args long b");

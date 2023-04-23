@@ -5,6 +5,20 @@ Topic: Create Methods and Constructors
 Sub-Topic: Overloaded Methods
 */
 class WhichOne {
+    /*
+    Phase 1:
+    subtypes are consider to climb up either of the branches
+    - byte, short, int
+    - char, int, long, float, double
+    <br>
+
+    Phase 2:
+    Allows boxing and unboxing
+
+    Phase 3:
+    Allows overloading to be combined with variable arity
+     */
+
     public String thisOne(Integer i) {
         return "Integer matched";
     }
