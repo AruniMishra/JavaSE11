@@ -40,7 +40,6 @@ public class WrapperOperators {
         // Short shortWrapperResult = i + j;
 
 
-
         Integer k = 10;
         // Short s = 10;
         Number s = Short.valueOf("10");
@@ -49,12 +48,12 @@ public class WrapperOperators {
             System.out.println(" m is instance of Integer ");
         }*/
 
+        // instanceof is one example where autoboxing doesn't occur
         if (s instanceof Number) {
             System.out.println(" s is instance of Number ");
             if (s instanceof Integer) {
                 System.out.println(" m is instance of Integer ");
             }
         }
-
     }
 }
