@@ -11,6 +11,10 @@ import java.util.List;
 // A generic class with no generic methods
 class GenericsClass<T> {
 
+    /*
+    cannot use a generic class as type parameters in static field declarations or static method declarations.
+     */
+    // static T aStaticField;
     // instance field set to type of type parameter of the class
     T aGenericField;
 
@@ -19,6 +23,21 @@ class GenericsClass<T> {
         this.aGenericField = aGenericField;
         System.out.println("GenericsClass constructor: " +
                 aGenericField.getClass().getName());
+    }
+
+    /*
+    cannot use a generic class as type parameters in static field declarations or static method declarations.
+     */
+    // public static T aGenericClassStaticMethod() {
+    //     return aStaticField;
+    // }
+
+    // but below is valid
+    // it's very important to remember that the top parameter '<T> T' here again has no relationship
+    // to the type T defined at base level up there on line 12.
+    public static <T> T aGenericClassStaticMethod(T t) {
+        System.out.println("Now this is a generic method");
+        return t;
     }
 
     // method returns result typed to type parameter of the class
