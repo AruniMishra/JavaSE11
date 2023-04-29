@@ -27,13 +27,13 @@ class SpecificallyTypedClass {
 class MyClass<T> {
     T aField;
 
-    class InnerClass{
-        int a;
-        T aField;
-    }
-
     public MyClass(T aField) {
         this.aField = aField;
+    }
+
+    class InnerClass {
+        int a;
+        T aField;
     }
 }
 
@@ -134,9 +134,7 @@ public class TestGenerics {
         // String s3 = generic1.currentObj;
 
 
-        GenericallyTypedClass<Integer> generic4 =
-                new GenericallyTypedClass<Integer>(10);
-
+        GenericallyTypedClass<Integer> generic4 = new GenericallyTypedClass<Integer>(10);
 
         // primitive not allowed
         // GenericallyTypedClass<int> generic4 = new GenericallyTypedClass<int>(10);
