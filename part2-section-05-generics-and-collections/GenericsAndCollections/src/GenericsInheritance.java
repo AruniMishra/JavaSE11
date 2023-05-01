@@ -50,21 +50,21 @@ public class GenericsInheritance {
         ArrayList<Integer> intArray = new ArrayList<>();
 
         // Cannot assign :  Incompatible types
-        // ArrayList<Number> numberList =  intArray;
-
-        // Cannot cast:  Incontrovertible types
-        // ArrayList<Integer> intArray2 =  (ArrayList<Integer>) numberList;
-
-        // Cannot invoke method which expects ArrayList<Number> with
-        // an ArrayList<Integer>
-        // methodTwo(intArray);
-
-
-        methodTwo2(intArray);
+        // ArrayList<Number> numberList =  intArray; // option 1, generates compile error here, and line 1&2
 
         // Generics allow us to express a hierarchical relationship for
         // contained class using wildcards.
-        ArrayList<? extends Number> numberList = intArray;
+        ArrayList<? extends Number> numberList = intArray; //option 2, use with methodTwo2
+
+        // Cannot cast:  Incontrovertible types
+        ArrayList<Integer> intArray2 =  (ArrayList<Integer>) numberList; // line 1
+
+        // Cannot invoke method which expects ArrayList<Number> with
+        // an ArrayList<Integer>
+        // methodTwo(intArray); // line 2
+
+
+        methodTwo2(intArray);
 
 
         // You can assign an ArrayList<Integer> to a List<Integer>
