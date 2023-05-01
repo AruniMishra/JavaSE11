@@ -24,10 +24,19 @@ public class WildcardExample {
     // Method prints elements in a list, restricted to Exception
     // elements and any of its superclasses
     public static void printLowerList(List<? super Exception> list) {
+        // Because superclasses are acceptable for lower bound,
+        // the methods of the declared type exception are not available,
+        // because the type of object actually passed could be something as broad as an object.
         System.out.println("\n----- Using lower bound ------");
         list.forEach((s) -> System.out.println(s));
 
     }
+
+
+    // you can't overload methods using type parameters.
+    // -- public static void printList(List<? extends Exception> list) {}
+    // -- public static void printList(List<? super Exception> list) {}
+
 
     // Method prints elements in a list, with no restrictions on
     // type of element
@@ -106,6 +115,35 @@ public class WildcardExample {
         printObjectList(objectList);
 
         // Object NOT allowed by upper bounded <? extends Exception>
-        //--printUpperList(objectList);
+        // printUpperList(objectList);
+
+
+        // Note: you can always cast a generic type to a raw type.
+        List objectList2 = List.<Integer>of(5, 10, 15);
+        printObjectList(objectList2);
+
+
+        // Now looking at that code we could have replaced that with the following,
+        // which will do the same thing,
+        List objectList3 = integerList;
+
+        // So, you can parse a raw type to any method that has a method argument,
+        // with a type argument even a method that specifies an upper bound,
+        // but you do so at your own peril.
+        printObjectList(objectList3);
+        printObjectList((List) integerList); // raw type
+
+
+        printOpenDoor(objectList3);
+        printLowerList(objectList3);
+        try {
+            // So, you can parse a raw type to any method that has a method argument,
+            // with a type argument even a method that specifies an upper bound,
+            // but you do so at your own peril.
+            printUpperList(objectList3);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
 }
