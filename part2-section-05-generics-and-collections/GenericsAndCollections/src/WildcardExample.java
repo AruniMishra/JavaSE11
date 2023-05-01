@@ -140,10 +140,57 @@ public class WildcardExample {
             // So, you can parse a raw type to any method that has a method argument,
             // with a type argument even a method that specifies an upper bound,
             // but you do so at your own peril.
-            printUpperList(objectList3);
+            // -- printUpperList(objectList3);
         } catch (Exception e) {
             e.printStackTrace();
         }
 
+
+        System.out.println("-------------------------");
+        List<? super Number> ls = new ArrayList<>();
+
+        Integer a = 9;
+        ls.add(a);
+
+        List<? extends Number> list0 = new ArrayList<>();
+        // list0.add(10L);//does not compile
+
+        List<Integer> listOfIntegers = new ArrayList<>();
+        listOfIntegers.add(1);
+        listOfIntegers.add(2);
+        listOfIntegers.add(3);
+        List<? extends Number> list = new ArrayList<>(listOfIntegers);
+        // list.add(10L); //does not compile
+
+        List<Number> listNumber = new ArrayList<>();
+        // List<Number> listNumber2 = listOfIntegers; // not allowed
+        List<? extends Number> listExtendNumber = listOfIntegers; // allowed
+
+        listNumber.add(10L);
+        listNumber.add(12F);
+
+        List<? extends Number> listSingle = new ArrayList<>(listNumber);
+        // listSingle.add(10L);//does not compile
+
+        /*
+        The popular description "list can take a Number or a subclass of Number", is more fitting for:
+        List<Number> listNumber = new ArrayList<>();
+
+
+        Whereas:
+        List<? extends Number> list = new ArrayList<>();
+        can be thought of as "list can take a single type which is a subclass of Number".
+        */
+
+
+        // The lower bound version (lbv):
+        List<? super Number> list2 = new ArrayList<>();
+        list2.add(10L); // compiles fine
+        // has the opposite effect. We can add (write) to it, but we can't read from it
+        // (unless we use Object as the type), eg.
+
+        // Long a2 = list2.get(0); // compiler error
+        Object o = list2.get(0); // compiles fine
+        // because once again, Java doesn't know what type will be returned.
     }
 }
