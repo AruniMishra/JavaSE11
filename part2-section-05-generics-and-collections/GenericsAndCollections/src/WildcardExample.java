@@ -7,6 +7,7 @@ Topic:  Generics, wildcards
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.TreeSet;
 
 public class WildcardExample {
 
@@ -192,5 +193,8 @@ public class WildcardExample {
         // Long a2 = list2.get(0); // compiler error
         Object o = list2.get(0); // compiles fine
         // because once again, Java doesn't know what type will be returned.
+
+
+        TreeSet set ;
     }
 }
