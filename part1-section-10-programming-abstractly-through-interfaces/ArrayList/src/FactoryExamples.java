@@ -23,6 +23,7 @@ public class FactoryExamples {
         System.out.println(originalList);
 
         // Exception: requireNonNull
+        // List.copyOf: The given Collection must not be null, and it must not contain any null elements.
         // copiedList = List.copyOf(originalList);
 
         // but below works
@@ -33,7 +34,7 @@ public class FactoryExamples {
         // Create some test data
         String[] stringArray = {"ABC", "DEF", "GHI", "JKL", "MNO", "PQR", "STU"};
 
-        // List.of can accept an array..
+        // List.of can accept an array.
         copiedList = List.<String>of(stringArray);
         System.out.println(copiedList);
 

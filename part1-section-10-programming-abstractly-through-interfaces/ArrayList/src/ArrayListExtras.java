@@ -31,18 +31,14 @@ public class ArrayListExtras {
         // Trying same thing on object from raw ArrayList is a bit uglier
         ((BaseClass) (rawList.get(0))).setName("aaa");
 
-        // You can add an element at an index that is one larger than
+        // You can "add" an element at an index that is one larger than
         // the # of elements
         typedList.add(typedList.size(), new BaseClass("def"));
 
         System.out.println("2typedList = " + typedList);
         System.out.println("2rawList = " + rawList);
 
-        // You can add an element at an index that is one larger than
-        // the # of elements
-        typedList.add(typedList.size(), new BaseClass("def"));
-
-        // You cannot set an element at an index that is one larger than
+        // You cannot "set" an element at an index that is one larger than
         // the # of elements
         // typedList.set(typedList.size(), new BaseClass("def"));
         // typedList.add(typedList.size() + 1, new BaseClass("def"));
@@ -61,8 +57,8 @@ public class ArrayListExtras {
         typedList.addAll(typedList.size(), typedSubList);
 
         // Typed ArrayList catches mistakes at compile time.. Maybe you
-        // forgot that set does not mean setAll....
-        //        typedList.set(0, typedSubList);
+        // forgot that set does not mean addAll....
+        // typedList.set(0, typedSubList);
         rawList.set(0, typedSubList);
         System.out.println("4typedList = " + typedList);
         System.out.println("4rawList = " + rawList);
@@ -72,11 +68,11 @@ public class ArrayListExtras {
 
         ArrayList<BaseClass> newBaseListWithCapacity = new ArrayList<>(10);
         newBaseListWithCapacity.add(0, new BaseClass("one"));
-        // newBaseListWithCapacity.set(0, new BaseClass("one")); // works only if index 0 is add
+        newBaseListWithCapacity.set(0, new BaseClass("one")); // works only if index 0 is add
 
         ArrayList<BaseClass> newBaseListWithSomeElements = new ArrayList<>(
                 List.of(new BaseClass("one"), new BaseClass("two")));
-        newBaseListWithSomeElements.set(1, new BaseClass("three"));
+        newBaseListWithSomeElements.set(0, new BaseClass("three")); // valid now; "set" with index 0
 
         System.out.println("newBaseListWithSomeElements = " + newBaseListWithSomeElements);
 
