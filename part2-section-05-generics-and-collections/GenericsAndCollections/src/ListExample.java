@@ -57,6 +57,22 @@ public class ListExample {
         System.out.println(namesList);
 
 
+        // Concurrent modification exception and the problem with this is;
+        // once you change the list which the view was based on,
+        // the view is no longer usable.
+        // System.out.println(shortList);
+
+        System.out.println("\n---- copyOf() method copy ----");
+        // Use of copyOf
+        List<String> copiedList = List.copyOf(namesList);
+        System.out.println("copiedList: " + copiedList);
+
+        List newList = new ArrayList(copiedList);
+        newList.add("Ralph");
+        System.out.println("newList: " + newList);
+
+        // UnsupportedOperationException: ImmutableCollections
+        // copiedList.add("Ralph");
 
     }
 
