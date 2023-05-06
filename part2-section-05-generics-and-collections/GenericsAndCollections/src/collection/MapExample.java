@@ -1,4 +1,4 @@
-/*
+package collection;/*
 The Learn Programming Academy
 Java SE 11 Developer 1Z0-819 OCP Course - Part 2
 Section 4: Generics and Collections
@@ -85,6 +85,10 @@ public class MapExample {
         l.remove(null);
         l.remove("Maggie");
         testComputes(l);
+
+
+        System.out.println("\n--- LinkedHashMap: test merge methods ---");
+        testMerges(l);
 
     }
 
@@ -203,4 +207,49 @@ public class MapExample {
                         }));
         System.out.println("m.computeIfPresent(Ralph, (val) * 3): " + m);
     }
+
+
+    private static void testMerges(Map<String, Integer> m) {
+
+        System.out.println("Original State: " + m);
+        //  If Mary exists and is not null, use the function
+        System.out.println("After merge(Mary,100,val/3), return value : " +
+                m.merge("Mary", 100, (key, val) -> val / 3));
+        System.out.println("After merge(Mary,100,val/3): " + m);
+
+        System.out.println("After put(Mary, null), return value : " +
+                m.put("Mary", null));
+        System.out.println("After put(Mary, null); " + m);
+
+        // If Mary exists, and value is null, use the value, not the function
+        System.out.println("After merge(Mary,100,val/3), return value : " +
+                m.merge("Mary", 100, (key, val) -> val / 3));
+        System.out.println("After merge(Mary,100,val/3): " + m);
+
+        // If Mary exists, and value is not null , use the function
+        System.out.println("After merge(Mary,100,val/3), return value : " +
+                m.merge("Mary", 100, (key, val) -> val / 3));
+        System.out.println("After merge(Mary,100,val/3): " + m);
+
+        // If Mary exists, and return value of the function is null, Mary
+        // gets removed from map
+        System.out.println("After merge(Mary,100,null), return value : " +
+                m.merge("Mary", 100, (key, val) -> null));
+        System.out.println("After merge(Mary,100,null): " + m);
+
+        // If Nat does not exist, use the value, not the function
+        System.out.println("After merge(Nat,100,val*2), return value : " +
+                m.merge("Nat", 100, (key, val) -> val * 2));
+        System.out.println("After merge(Nat,100,val*2): " + m);
+
+        m.put("Barry", null);
+        System.out.println("Set value in Barry to null: " + m);
+        m.replaceAll((key, val) -> {
+            if (val == null) return 0;
+            else return val + 1;
+        });
+        System.out.println("replaceAll: null values get 0, " +
+                "otherwise add 1 to existing value: " + m);
+    }
+
 }

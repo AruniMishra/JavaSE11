@@ -1,9 +1,11 @@
-/*
+package collection;/*
 The Learn Programming Academy
 Java SE 11 Developer 1Z0-819 OCP Course - Part 2
 Section 4: Generics and Collections
 Topic:  Collections, Sets TreeSet, HashSet, LinkedHashSet
 */
+
+import collection.CollectionTests;
 
 import java.util.*;
 
@@ -19,7 +21,7 @@ public class SetExample {
         System.out.println("----------- HashSet(order is unpredictable) -----------");
         System.out.println("Original values entered: " + initialData);
 
-        // Call static method on CollectionTests to exercise the Collections methods
+        // Call static method on collection.CollectionTests to exercise the Collections methods
         CollectionTests.doStuffWithCollection(h, 60, 50, 10);
 
 
