@@ -10,12 +10,25 @@ interface Doable {
     void doIt();
 }
 
-public class FunctionalInterface {
+// Extending interfaces
+@java.lang.FunctionalInterface
+interface ExtendedDoable extends Doable {
 
-    // private nested functional interface
-    private interface Shapeable {
-        void shapeIt();
+    // void extendedDoIt(); // adding it makes it non-functional interface
+
+    // void doIt(); // valid, overriding the method
+
+
+    // overriding it with default interface (if only method here), makes it non-functional interface
+    default void doIt() {
+        System.out.println("Default method implementing doIt()");
     }
+
+    void extendedDoIt(); // makes it functional interface again
+}
+
+
+public class FunctionalInterface {
 
     public static void main(String[] args) {
 
@@ -29,6 +42,11 @@ public class FunctionalInterface {
         // Lambda Expression assigned to a Doable local variable
         Doable d2 = () ->
                 System.out.println("Lambda Expression invoking doIt()");
+
+
+        // Lambda Expression assigned to a ExtendedDoable local variable
+        ExtendedDoable exd2 = () ->
+                System.out.println("ExtendedDoable Lambda Expression invoking doIt()");
 
         // Anonymous class implements Shapeable interface
         Shapeable s = new Shapeable() {
@@ -53,8 +71,18 @@ public class FunctionalInterface {
 
         // Execute method passing local variable with lambda expression
         doItWithDoable(d2);
+        doItWithDoable(exd2); // executed the default method doIt(), and not the code in the lambda expression.
         // Execute method passing local variable with lambda expression
         doItWithShapeable(s2);
+
+
+        System.out.println("----------------");
+        // Execute method passing anonymous class
+        doItWithDoable2(d);
+
+        // Execute method passing local variable with lambda expression
+        doItWithDoable2(d2);
+        doItWithDoable2(exd2); // executed the default method do it, and not the code in the lambda expression.
 
     }
 
@@ -64,9 +92,28 @@ public class FunctionalInterface {
         d.doIt();
     }
 
+    private static void doItWithDoable2(Doable d) {
+        if (d instanceof ExtendedDoable) {
+            System.out.print("doItWithDoable executes d.extendedDoIt(): ");
+            ((ExtendedDoable) d).extendedDoIt();
+        } else {
+            System.out.print("doItWithDoable executes d.doIt(): ");
+            d.doIt();
+        }
+    }
+
+
     // Pass through method to execute Interface method
     private static void doItWithShapeable(Shapeable s) {
         System.out.print("doItWithShapeable executes s.shapeIt(): ");
         s.shapeIt();
     }
+
+    // private nested functional interface
+    private interface Shapeable {
+        void shapeIt();
+    }
+
+
 }
+
