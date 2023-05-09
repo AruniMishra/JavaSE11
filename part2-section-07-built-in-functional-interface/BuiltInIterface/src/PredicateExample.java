@@ -67,12 +67,10 @@ public class PredicateExample {
         System.out.println("\tResult = " + bFinal.test(0));
 
 
-
-        //Execute the joined predicates directly as shown:
+        // Execute the joined predicates directly as shown:
         System.out.println("Executing firstTest[i > -10].and(secondTest" +
                 "[i < 10]).test(0)");
         System.out.println("\tResult = " + firstTest.and(secondTest).test(0));
-
 
 
         // Short-circuiting and
@@ -86,12 +84,10 @@ public class PredicateExample {
         System.out.println("\tResult = " + firstTest.or(secondTest).test(0));
 
 
-
         // Add negate...
         System.out.println("Executing firstTest[i > -10].or(secondTest" +
                 "[i < 10]).negate().test(0)");
         System.out.println("\tResult = " + firstTest.or(secondTest).negate().test(0));
-
 
 
         System.out.println("The value of Predicate.isEqual(\"hello\") with " +
