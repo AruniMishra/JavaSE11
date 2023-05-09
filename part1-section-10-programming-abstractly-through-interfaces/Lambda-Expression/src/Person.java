@@ -42,7 +42,7 @@ public class Person {
     String emailAddress;
 
     Person(String nameArg, LocalDate birthdayArg,
-            Sex genderArg, String emailArg) {
+           Sex genderArg, String emailArg) {
         name = nameArg;
         birthday = birthdayArg;
         gender = genderArg;

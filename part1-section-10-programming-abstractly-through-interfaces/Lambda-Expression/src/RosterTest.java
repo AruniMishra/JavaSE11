@@ -36,10 +36,6 @@ import java.util.function.Predicate;
 
 public class RosterTest {
 
-    interface CheckPerson {
-        boolean test(Person p);
-    }
-
     // Approach 1: Create Methods that Search for Persons that Match One
     // Characteristic
     public static void printPersonsOlderThan(List<Person> roster, int age) {
@@ -188,7 +184,7 @@ public class RosterTest {
                         && p.getAge() <= 25);
         System.out.println();
 
-        // Approach 7: Use Lamba Expressions Throughout Your Application
+        // Approach 7: Use Lambda Expressions Throughout Your Application
         System.out.println("Persons who are eligible for Selective Service " +
                 "(with Predicate and Consumer parameters):");
         processPersons(
@@ -235,5 +231,9 @@ public class RosterTest {
                                 && p.getAge() <= 25)
                 .map(p -> p.getEmailAddress())
                 .forEach(email -> System.out.println(email));
+    }
+
+    interface CheckPerson {
+        boolean test(Person p);
     }
 }
