@@ -55,6 +55,7 @@ public class LambdaExample2 {
 
         // Can return result from a method call...
         Calculable c9 = (op1, op2) -> executeSecondMethod();
+        System.out.println(c9.calculate(10,20));
 
         // Void method, any statement will work
         Showable s1 = () -> System.out.println("Doing something");
@@ -74,6 +75,7 @@ public class LambdaExample2 {
         // You can execute a method with return type even with
         // an abstract method that is declared void
         Showable s4 = () -> executeSecondMethod();
+        s4.showIt();
 
         // You can execute use a method reference in place of
         // lambda expression
