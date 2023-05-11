@@ -35,7 +35,6 @@ public class FunctionExample {
                 f3.apply(List.of(10, 20, 30, 40, 50)));
 
 
-
         // Parsing the parts of the lambda expression into pre and post
 
         // First, sublist
@@ -68,7 +67,6 @@ public class FunctionExample {
                         apply(List.of(10, 20, 30, 40, 50)));
 
 
-
         // Executing by chaining Function local variables...
         System.out.println("fResult.compose(fPre).andThen(fPost).apply = " +
                 fResult.andThen(fPost).compose(fPre).andThen(fPost).
@@ -83,8 +81,6 @@ public class FunctionExample {
                 .apply(List.of(10, 20, 30, 40, 50));
 
         System.out.println("Chaining it all together: " + newResult);
-
-
 
 
         System.out.println("---- BiFunction Examples -----");
@@ -106,7 +102,6 @@ public class FunctionExample {
         System.out.println("BiFunction b2.apply(\"Hello my old friend\"," +
                 "\"and world\") = " + b2.apply("Hello my old friend",
                 "and world"));
-
     }
 }
 
