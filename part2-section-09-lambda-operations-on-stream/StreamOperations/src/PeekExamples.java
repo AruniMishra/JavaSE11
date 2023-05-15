@@ -42,6 +42,9 @@ public class PeekExamples {
                 firstList.equals(secondList));
 
 
+        // Generally, if you want to transform data on a stream, it's better
+        // practice to use a mapping function.
+
         List<Student> thirdList =
                 firstList.stream()
                         // What happens if we call a method with side-effect?
