@@ -120,6 +120,9 @@ public class StreamSearches {
         Stream.generate(() -> r.nextInt(20))
                 // limit
                 .limit(10)
+                // The filter method like the allMatch, anyMatch and noneMatch methods
+                // accepts a predicate as a parameter but it is not a terminal operation.
+                // Instead it limits the stream to those elements that match the predicate.
                 .filter((s) -> s > 10)
                 .forEach(System.out::println);
 
