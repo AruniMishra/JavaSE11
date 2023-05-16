@@ -72,8 +72,18 @@ public class StreamSimpleReductions {
                     // Use sum method
                     .sum();
 
-            System.out.println("Limit = " + count + ", average  = " +
-                    average + ", " + "sum = " + sum);
+
+            double sumReduced = randomIntegerList.stream()
+                    .reduce(Integer::sum) // without converting to IntStream
+                    // .reduce((a, b) -> a + b)
+                    // .reduce((total, currentElement) -> total + currentElement)
+                    .orElse(-1);
+
+
+            System.out.println("Limit = " + count + ", average  = " + average
+                    + ", " + "sum = " + sum + ", sumReduced = " + sumReduced);
+
+
         }
     }
 }
