@@ -96,7 +96,6 @@ public class StreamsSorted {
                 .forEach(System.out::println);
 
 
-
         System.out.println("\n---- Stream with multiple sorts/peeks");
         initialData.stream()
                 // Pass a Comparator that sorts by length of String value

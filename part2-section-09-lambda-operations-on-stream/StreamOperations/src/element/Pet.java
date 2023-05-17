@@ -6,6 +6,7 @@ Topic: Stream Grouping
 */
 package element;
 
+import java.util.Objects;
 import java.util.Random;
 
 // This class will support creating a self-constructed Pet object
@@ -86,5 +87,21 @@ public class Pet {
                 ", state='" + state + '\'' +
                 ", age=" + age +
                 '}';
+    }
+
+
+    // StreamExtras.java
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Pet)) return false;
+        Pet pet = (Pet) o;
+        // return getType().equals(pet.getType());
+
+        return getName().equals(pet.getName()) &&
+                getType().equals(pet.getType());
+    }
+
+    public int hashCode() {
+        return Objects.hash(getType());
     }
 }
