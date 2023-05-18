@@ -27,28 +27,45 @@ public class ExecutorExample {
         // Fire and Forget method of execution:  ThreadOne
         executorService.execute(ExecutorExample::doSomethingThreadOne);
 
-        /*
+
         // Fire and Forget method of execution: ThreadTwo
-        executorService.execute(ExecutorExample::doSomethingThreadTwo);
-        // executorService.submit(ExecutorExample::doSomethingThreadTwo); same effect here
+        // executorService.execute(ExecutorExample::doSomethingThreadTwo);
+        // executorService.submit(ExecutorExample::doSomethingThreadTwo); // same effect here
+        // Fire and keep a reference to task
+        var submittedThread = executorService.submit(
+                ExecutorExample::doSomethingThreadTwo);
+
 
         // Output data from the main thread, demonstrating that
         // threads are running asynchronously.
         for (int i = 1; i < 11; i++) {
             System.out.println("Main thread: iteration " + i);
             Thread.sleep(250);
+            if (i == 7) {
+                // Use task reference to cancel the task
+                if (!submittedThread.isDone()) {
+                    submittedThread.cancel(true);
+                    System.out.println("Was able to cancel using " +
+                            submittedThread.getClass().getName());
+                }
+            }
         }
-*/
 
+
+
+        /*
         for (int i = 1; i < 11; i++) {
             System.out.println("Main thread: iteration " + i);
             if (i == 10) executorService.execute(ExecutorExample::doSomethingThreadTwo);
             Thread.sleep(250);
         }
+        */
 
-        // Shutdown the service
+        // Shutdown the service; does not immediately shut down executing task
         executorService.shutdown();
 
+        // Blocks until all tasks have completed execution after a shutdown request, or the timeout occurs,
+        // or the current thread is interrupted, whichever happens first.
         executorService.awaitTermination(2, TimeUnit.SECONDS);
         System.out.println("All done!!");
     }
