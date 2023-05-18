@@ -69,3 +69,31 @@ jar -mcf META-INF/MANIFEST.MF sample.api.jar -C out/production/sample.api .
 ```shell
 java -p . -m sample.api/sample.api.Controller
 ```
+
+## Jdeps
+
+### with modularized jars
+
+```shell
+jdeps sample.core.jar
+```
+
+-- note: But when you're evaluating a modularized jar, you need to call the command with a different syntax, including
+the module path
+-- -p not allowed below.
+
+```shell
+jdeps --module-path . sample.api.jar
+```
+
+or,
+
+```shell
+jdeps --module-path . -m sample.api
+```
+
+### with non-modularized jars
+
+```shell
+jdeps --module-path . -m sample.core
+```
