@@ -98,7 +98,7 @@ jdeps --module-path . -m sample.api
 jdeps --module-path . -m sample.core
 ```
 
-### Additional
+## Additional
 
 - jdeps summary
 
@@ -111,3 +111,12 @@ jdeps -s .\dom4j-1.6.1.jar
 ```shell
 jdeprscan .\dom4j-1.6.1.jar
 ```
+
+### duplicate dependency
+
+```shell
+jar -Mcf com.b.util.jar -C out/production/com.b.util .
+jar -Mcf com.a.util.jar -C out/production/com.a.util . 
+jdeps --module-path . com.a.util
+```
+
