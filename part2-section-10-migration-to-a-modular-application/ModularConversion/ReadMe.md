@@ -97,3 +97,17 @@ jdeps --module-path . -m sample.api
 ```shell
 jdeps --module-path . -m sample.core
 ```
+
+### Additional
+
+- jdeps summary
+
+```shell
+jdeps -s .\dom4j-1.6.1.jar
+```
+
+- jdeprscan
+
+```shell
+jdeprscan .\dom4j-1.6.1.jar
+```
