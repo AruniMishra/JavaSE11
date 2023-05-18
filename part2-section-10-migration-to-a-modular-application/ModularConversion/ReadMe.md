@@ -1,26 +1,71 @@
 # Module
 
-## Run
+## Plain java project
+
+- Create all java file and run below commands
+
+```shell
+# sample.core.jar only works when available inside main src
+# jar -Mcf sample.core.jar -C out/production/ModularConversion sample/core
+
+jar -Mcf sample.entity.jar -C out/production/ModularConversion sample/entity
+
+jar -Mcf sample.service.jar -C out/production/ModularConversion sample/service
+
+jar -mcf META-INF/MANIFEST.MF sample.api.jar -C out/production/ModularConversion sample/api
+```
+
+### Run jar
+
+```shell
+java -jar .\sample.api.jar
+```
+
+## Bottom-up approach
+
+- Create sample.core module (inside parent Modular conversion project)
+- Move src/UtilityClass inside 'sample.core/src/sample.core'
+- create module-info.java
+
+```shell
+jar -Mcf sample.core.jar -C out/production/sample.core/ .
+```
+
+```shell
+jar tf sample.core.jar
+```
+
+```shell
+java -p . --describe-module sample.core
+```
+
+```shell
+java -p . --add-modules sample.core -jar sample.api.jar
+```
+
+## Top-down approach
+
+- Move back sample.core(package) to old src/sample
+- remove sample.core module and then delete the same.
 
 ```shell
 jar -Mcf sample.core.jar -C out/production/ModularConversion sample/core
 ```
 
 ```shell
-jar -Mcf sample.entity.jar -C out/production/ModularConversion sample/entity
+jar tf sample.core.jar
+```
+
+- create new module sample.api, and create 'sample' package inside it.
+- move sample.api from old src to sample.api/src/sample.
+- create module-info.java
+- open module settings, Dependencies and then add 3 jars(core, entity & service).
+- run controller.java
+
+```shell
+jar -mcf META-INF/MANIFEST.MF sample.api.jar -C out/production/sample.api .
 ```
 
 ```shell
-jar -Mcf sample.service.jar -C out/production/ModularConversion sample/service
-```
-
-```shell
-jar -mcf META-INF/MANIFEST.MF sample.api.jar -C out/production/ModularConversion sample/api
-```
-
-
-## Run jar
-
-```shell
-java -jar .\sample.api.jar
+java -p . -m sample.api/sample.api.Controller
 ```
