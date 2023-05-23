@@ -9,6 +9,7 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
+import java.util.function.Supplier;
 
 // Don't forget that Thread implements Runnable interface but
 // Thread itself has a run() method which does nothing in this instance
@@ -66,9 +67,10 @@ public class ThreadInterfacesReview {
         }
 
         // Runnable variable assigned a lambda expression that
-        // throws unchecked exception
+        // throws unchecked exception(RuntimeException)
         Runnable r2 = () -> {
             throw new RuntimeException(
+                    // throw new Exception( // not valid
                     "Runnable chokes in service.submit()");
         };
         // submit method called which returns a Future
@@ -78,17 +80,58 @@ public class ThreadInterfacesReview {
         // throws unchecked exception
         Callable c = () -> {
             throw new RuntimeException(
+                    // throw new Exception( // also valid.
+                    // Cannot override a method that declares an exception in its throws clause
+                    // with a less specific exception that we're trying to do here.
+                    // throw new Throwable(
                     "Callable chokes in service.submit()");
         };
         // submit method called returns a Future
         Future f2 = service.submit(c);
 
+        /*
+        The execute method only takes a Runnable argument
+        and, therefore,the lambda expression has to satisfy the same requirements for the run method,
+        so it's a compiler error to have it throw a checked exception.
+         */
+
+        // service.execute(() -> {
+        //     throw new Exception(
+        //             "Callable chokes in service.submit()");
+        // });
+
+        // this is fine
+        service.submit(() -> {
+            throw new Exception(
+                    "Callable chokes in service.submit()");
+        });
+
+
+        // Supplier
+        Supplier s = () -> {
+            throw new RuntimeException(
+                    "Suppplier::get chokes in service.submit()");
+        };
+        // Future f3 = service.submit(s); // invalid; submit takes callable or runnable
+        Future f3 = service.submit(s::get);
+
+        service.shutdown();
 
         System.out.println(f);
         System.out.println(f1);
         System.out.println(f2);
+        System.out.println(f3);
 
-        service.shutdown();
+        new Thread(() -> {
+            throw new RuntimeException(
+
+            /*
+            a runnable cannot throw an (any)checked
+            Exception and a thread is only constructed with a Runnable, hence the error.
+             */
+                    // throw new Exception(
+                    "Lambda chokes in Thread constructed with Runnable");
+        }).start();
 
     }
 }
