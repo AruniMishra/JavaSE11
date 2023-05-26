@@ -100,7 +100,6 @@ class Pet2 extends Animal2 implements Externalizable { // pet is Serializable, i
         out.writeObject(name);
         out.writeObject(breed);
         out.write(age);
-
     }
 
     // Manually write the code to input same data
