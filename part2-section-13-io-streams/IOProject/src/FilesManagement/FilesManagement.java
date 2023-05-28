@@ -49,28 +49,36 @@ public class FilesManagement {
 
             System.out.println("Creating " + byteFile2);
             // Write bytes to file, truncating data in file if it exists
-            Files.write(byteFile2, "Extra secret sauce\n".getBytes(),
+            Files.write(byteFile2, "Extra secret sauce1\n".getBytes(),
                     StandardOpenOption.CREATE
-                    ,StandardOpenOption.APPEND
+                    , StandardOpenOption.APPEND
                     // ,StandardOpenOption.TRUNCATE_EXISTING
             );
 
-            // Write bytes to file, leaving data intact if file exists
-            Files.write(byteFile2, "Extra secret stuff\n".getBytes(), StandardOpenOption.CREATE);
+            // Write bytes to file,
+            /*
+            overrides, if file exists from 0,0
+             */
+            Files.write(byteFile2, "Extra secret stuff1\n".getBytes(), StandardOpenOption.CREATE);
 
+            // Write a String to file, but do not append it
+            /*
+            this also writes data to the head of the file, and override the data if existed.
+             */
+            Files.writeString(byteFile2, "Secret Ingredient OneTwoThree\n",
+                    StandardOpenOption.WRITE);
 
-            // Write bytes to file, leaving data intact if file exists
-            Files.write(byteFile2, "Extra secret stuff2\n".getBytes(), StandardOpenOption.CREATE);
 
             // Write a String to file, appending it
-            Files.writeString(byteFile2, "Secret Ingredient One\n", StandardOpenOption.APPEND);
+            Files.writeString(byteFile2, "Secret Ingredient One1\n", StandardOpenOption.APPEND);
+
+
+            System.out.println("Appending to " + byteFile2);
+            Files.writeString(byteFile2, "Secret Ingredient Two1\n", StandardOpenOption.APPEND);
 
             // System.out.println("Deleting " + byteFile2);
             // Files.writeString(byteFile2, "Secret Ingredient Two\n", StandardOpenOption.DELETE_ON_CLOSE);
 
-
-            System.out.println("Appending to " + byteFile2);
-            Files.writeString(byteFile2, "Secret Ingredient Two\n", StandardOpenOption.APPEND);
 
         } catch (IOException io) {
             System.out.println(io);
