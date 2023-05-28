@@ -82,7 +82,7 @@ public class PathBasics {
                 "   [toString()]");
 
         // Get filename, in this case, current directory
-        System.out.println("File/Dir of Path object: " +
+        System.out.println("FilesManagement/Dir of Path object: " +
                 path.getFileName() + "   [getFileName()]");
 
         // Parent directory returned as a Path
