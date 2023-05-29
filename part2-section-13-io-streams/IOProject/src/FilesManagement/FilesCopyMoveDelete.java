@@ -10,6 +10,7 @@ Topic: Copy, Move, Delete, and Create directories and paths.
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.StandardCopyOption;
 
 public class FilesCopyMoveDelete {
     public static void main(String[] args) {
@@ -17,8 +18,12 @@ public class FilesCopyMoveDelete {
 
         // Delete elements if they already exist
         doDeletions(p);
+
         // Create the file specified in the Path instance
         testCreationFromPathInstance(p);
+
+        // Copy and Move tests:
+        copyAndMove();
     }
 
     private static void testCreationFromPathInstance(Path p) {
@@ -120,4 +125,39 @@ public class FilesCopyMoveDelete {
             System.out.println("C.  Unable to delete File: " + io);
         }
     }
+
+    private static void copyAndMove() {
+
+        System.out.println("-------- Testing copies --------");
+        Path source = Path.of("testA/testB/testC");
+        Path target = Path.of("testA/testB/testD");
+
+        try {
+            // Copy the testC directory and its contents
+            // to testD (testD will get created)
+            Path result = Files.copy(source, target,
+                    StandardCopyOption.REPLACE_EXISTING);
+            System.out.println("A.  Directory copied successfully: " +
+                    source + " -> " + result);
+        } catch (IOException io) {
+            System.out.println("A.  Unable to copy Directory to source: "
+                    + io);
+        }
+
+
+        source = Path.of("testA/testB/testC/testFile.txt");
+        target = Path.of("testA/testB/testD/testFile.txt");
+        try {
+            // Copy the file testFile.txt in directory testC
+            // to directory testD, keeping the same file name
+            Path result = Files.copy(source, target,
+                    StandardCopyOption.REPLACE_EXISTING);
+            System.out.println("B.  File copied successfully: " +
+                    source + " -> " + result);
+        } catch (IOException io) {
+            System.out.println("B.  Unable to copy File to source: "
+                    + io);
+        }
+    }
+
 }
