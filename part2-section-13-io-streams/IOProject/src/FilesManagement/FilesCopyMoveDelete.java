@@ -151,7 +151,7 @@ public class FilesCopyMoveDelete {
         source = Path.of("testA/testB/testC");
         target = Path.of("testA/testB/testE");
         try {
-            // Copy the testC directory and its contents
+            // Copy the testC directory
             // to testE (testE will get created)
             Path result = Files.move(source, target, StandardCopyOption.REPLACE_EXISTING);
             System.out.println("C.  Directory moved successfully: " + source + " -> " + result);
