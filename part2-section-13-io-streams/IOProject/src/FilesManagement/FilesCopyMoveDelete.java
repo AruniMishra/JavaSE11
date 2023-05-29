@@ -34,8 +34,7 @@ public class FilesCopyMoveDelete {
             // File will not get created if directories do not exist
             p = Path.of("testA/testB/testC/testFile.txt");
             Path createdFile = Files.createFile(p);
-            System.out.println("A.  create File = " +
-                    createdFile.toAbsolutePath());
+            System.out.println("A.  create File = " + createdFile.toAbsolutePath());
         } catch (IOException io) {
             System.out.println("A.  Unable to create File: " + io);
         }
@@ -47,8 +46,7 @@ public class FilesCopyMoveDelete {
             p = Path.of("testA/testB");// invalid
             // p = Path.of("testA");// valid
             Path createdPath = Files.createDirectory(p);
-            System.out.println("B.  createdPath = " +
-                    createdPath.toAbsolutePath());
+            System.out.println("B.  createdPath = " + createdPath.toAbsolutePath());
 
         } catch (Exception io) {
             System.out.println("B.  Unable to create Directory: " + io);
@@ -60,10 +58,8 @@ public class FilesCopyMoveDelete {
             // This creates testFile.txt as a directory as well
             p = Path.of("testA/testB/testC/testFile.txt");
             Path createdPath = Files.createDirectories(p);
-            System.out.println("C.  created Directories = " +
-                    createdPath.toAbsolutePath());
-            System.out.println("C.  The Path created is a directory  = " +
-                    Files.isDirectory(createdPath));
+            System.out.println("C.  created Directories = " + createdPath.toAbsolutePath());
+            System.out.println("C.  The Path created is a directory  = " + Files.isDirectory(createdPath));
 
             // Delete this directory (testFile.txt)
             Files.delete(createdPath);
@@ -76,8 +72,7 @@ public class FilesCopyMoveDelete {
         try {
             // Create the file in testA/testB/testC which should now exist
             Path createdFile = Files.createFile(p);
-            System.out.println("D.  create File = " +
-                    createdFile.toAbsolutePath());
+            System.out.println("D.  create File = " + createdFile.toAbsolutePath());
         } catch (IOException io) {
             System.out.println("D.  Unable to create File: " + io);
         }
@@ -91,8 +86,7 @@ public class FilesCopyMoveDelete {
         // to create the file
         try {
             // First test Files.deleteIfExists
-            if (Files.deleteIfExists(p)) System.out.println("A.  " + p +
-                    " existed and was deleted");
+            if (Files.deleteIfExists(p)) System.out.println("A.  " + p + " existed and was deleted");
             else System.out.println("A.  " + p + " did not exist");
         } catch (IOException io) {
             System.out.println("A.  Unable to delete File: " + io);
@@ -135,13 +129,10 @@ public class FilesCopyMoveDelete {
         try {
             // Copy the testC directory and its contents
             // to testD (testD will get created)
-            Path result = Files.copy(source, target,
-                    StandardCopyOption.REPLACE_EXISTING);
-            System.out.println("A.  Directory copied successfully: " +
-                    source + " -> " + result);
+            Path result = Files.copy(source, target, StandardCopyOption.REPLACE_EXISTING);
+            System.out.println("A.  Directory copied successfully: " + source + " -> " + result);
         } catch (IOException io) {
-            System.out.println("A.  Unable to copy Directory to source: "
-                    + io);
+            System.out.println("A.  Unable to copy Directory to source: " + io);
         }
 
 
@@ -150,14 +141,33 @@ public class FilesCopyMoveDelete {
         try {
             // Copy the file testFile.txt in directory testC
             // to directory testD, keeping the same file name
-            Path result = Files.copy(source, target,
-                    StandardCopyOption.REPLACE_EXISTING);
-            System.out.println("B.  File copied successfully: " +
-                    source + " -> " + result);
+            Path result = Files.copy(source, target, StandardCopyOption.REPLACE_EXISTING);
+            System.out.println("B.  File copied successfully: " + source + " -> " + result);
         } catch (IOException io) {
-            System.out.println("B.  Unable to copy File to source: "
-                    + io);
+            System.out.println("B.  Unable to copy File to source: " + io);
+        }
+
+
+        source = Path.of("testA/testB/testC");
+        target = Path.of("testA/testB/testE");
+        try {
+            // Copy the testC directory and its contents
+            // to testE (testE will get created)
+            Path result = Files.move(source, target, StandardCopyOption.REPLACE_EXISTING);
+            System.out.println("C.  Directory moved successfully: " + source + " -> " + result);
+        } catch (IOException io) {
+            System.out.println("C.  Unable to move Directory to source: " + io);
+        }
+
+        source = Path.of("testA/testB/testD/testFile.txt");
+        target = Path.of("testA/testB/testE/aNewFile.txt");
+        try {
+            // Copy the file testFile.txt in directory testD
+            // to directory testE, but assign it a different name
+            Path result = Files.move(source, target, StandardCopyOption.REPLACE_EXISTING);
+            System.out.println("D.  File moved successfully: " + source + " -> " + result);
+        } catch (IOException io) {
+            System.out.println("D.  Unable to move File to source: " + io);
         }
     }
-
 }
