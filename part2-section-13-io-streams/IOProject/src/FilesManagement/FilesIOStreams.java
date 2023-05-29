@@ -14,6 +14,13 @@ public class FilesIOStreams {
     public static void main(String[] args) {
         Path testFile = Path.of("TestingFile.txt");
         readingAFile(testFile);
+
+        try {
+            Path newFile = Path.of("NewFile.txt");
+            writingAFile(newFile);
+        } catch (IOException e) {
+            System.out.println(e);
+        }
     }
 
     private static void readingAFile(Path testFile) {
