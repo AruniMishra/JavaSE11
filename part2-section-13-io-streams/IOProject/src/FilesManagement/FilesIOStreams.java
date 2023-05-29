@@ -86,6 +86,7 @@ public class FilesIOStreams {
         } catch (IOException io) {
             System.err.println(io);
         }
+        // readAllLines cause out of memory error for a large file.
         Files.readAllLines(testFile)
                 .forEach((s) -> System.out.println("\t" + s));
 
