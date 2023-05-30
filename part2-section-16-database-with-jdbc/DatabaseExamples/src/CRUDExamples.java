@@ -225,12 +225,12 @@ public class CRUDExamples {
             // Iterate backwards through the result set...
             rs.afterLast();
             while (rs.previous()) {
-                if (rs.getInt("PERSON_ID") == 101) {
+                if (rs.getInt("PERSON_ID") == 103) {
 
-                    rs.updateInt("AGE", 99);
-                    rs.updateRow();
-                    System.out.println(rs.getInt("AGE"));
-                    System.out.println("updated");
+                    // rs.updateInt("AGE", 99);
+                    // rs.updateRow();
+                    // System.out.println(rs.getInt("AGE"));
+                    // System.out.println("updated");
                 }
                 data.add(new Person(rs.getInt("PERSON_ID"),
                         rs.getString("NAME"),

@@ -110,7 +110,7 @@ public class ConnectionExamples {
 
         try (Statement stmt = connection.createStatement()) {
 
-            System.out.println(stmt.execute(createSQL));
+            System.out.println("create table PERSON? " + stmt.execute(createSQL));
 
         } catch (Exception e) {
             System.out.println("exception while creating the table: " + e);
@@ -123,7 +123,7 @@ public class ConnectionExamples {
         String dropSQL = "drop table PERSON ";
 
         try (Statement stmt = connection.createStatement()) {
-            stmt.execute(dropSQL);
+            System.out.println("drop table PERSON? " + stmt.execute(dropSQL));
         }
     }
 }
