@@ -21,21 +21,17 @@ public class ConnectionExamples {
     3. CREATE DATABASE testDB;
     4. Intellij: project settings>Libraries>add Maven>mysql:mysql-connector-java:8.0.30
      */
-    // A MySql database named testone, needs to exist.
-    static String mySqlConnectionString =
-            "jdbc:mysql://localhost:3306/testDB";
+    // A MySql database named testDB, needs to exist.
+    static String mySqlConnectionString = "jdbc:mysql://localhost:3306/testDB";
 
     // derby database will get created in current working directory
-    static String derbyFileConnectionString =
-            "jdbc:derby:db/derby/DatabaseDemo;create=true";
+    static String derbyFileConnectionString = "jdbc:derby:db/derby/DatabaseDemo;create=true";
 
     // in memory derby database
-    static String derbyMemoryConnectionString =
-            "jdbc:derby:memory:DatabaseDemo;create=true";
+    static String derbyMemoryConnectionString = "jdbc:derby:memory:DatabaseDemo;create=true";
 
     // SQLite connection, DatabaseDemo.db will get created
-    static String sqliteConnectionString =
-            "jdbc:sqlite:db\\sqlite\\DatabaseDemo.db";
+    static String sqliteConnectionString = "jdbc:sqlite:db\\sqlite\\DatabaseDemo.db";
 
     public static void main(String[] args) throws SQLException {
 
@@ -43,7 +39,7 @@ public class ConnectionExamples {
         // automatically closed
         try (Connection connection = getConnection(mySqlConnectionString)) {
             // Example of DDL - add a table
-            // createTable(connection);
+            createTable(connection);
 
             // Example of DDL - cleanup
             dropTable(connection);
@@ -53,8 +49,7 @@ public class ConnectionExamples {
     }
 
     // Test multiple types of connections
-    public static Connection getConnection(String connectionString)
-            throws SQLException {
+    public static Connection getConnection(String connectionString) throws SQLException {
 
         Connection c;
 
@@ -69,7 +64,7 @@ public class ConnectionExamples {
             e.printStackTrace();
         }
 
-        if (connectionString.indexOf("mysql") > -1) {
+        if (connectionString.contains("mysql")) {
 
             // Adding additional properties - you would not
             // really put database username/password in code
@@ -86,10 +81,9 @@ public class ConnectionExamples {
 
             // Alternate method, would not actually invoke both versions
             // Here as an example.
-            c = DriverManager.getConnection(connectionString,
-                    username, password);
+            c = DriverManager.getConnection(connectionString, username, password);
         } else {
-            if (connectionString.indexOf("sqlite") > -1) {
+            if (connectionString.contains("sqlite")) {
                 // Derby creates directories, sqlite does not.
                 Path p = Paths.get(connectionString.split(":")[2]);
                 try {
@@ -105,31 +99,28 @@ public class ConnectionExamples {
     }
 
     // Create a table in the current database schema
-    public static void createTable(Connection connection)
-            throws SQLException {
+    public static void createTable(Connection connection) throws SQLException {
 
-        String createSQL =
-                "create table " +
-                        "PERSON " +
-                        "(PERSON_ID INTEGER NOT NULL, " +
-                        "NAME varchar(255) NOT NULL," +
-                        "AGE INTEGER NOT NULL, " +
-                        "PRIMARY KEY (PERSON_ID))";
+        String createSQL = "create table "
+                + "PERSON "
+                + "(PERSON_ID INTEGER NOT NULL, "
+                + "NAME varchar(255) NOT NULL,"
+                + "AGE INTEGER NOT NULL, "
+                + "PRIMARY KEY (PERSON_ID))";
 
         try (Statement stmt = connection.createStatement()) {
 
             System.out.println(stmt.execute(createSQL));
 
+        } catch (Exception e) {
+            System.out.println("exception while creating the table: " + e);
         }
-
     }
 
     // Drop a table in the current database schema
-    public static void dropTable(Connection connection)
-            throws SQLException {
+    public static void dropTable(Connection connection) throws SQLException {
 
-        String dropSQL =
-                "drop table PERSON ";
+        String dropSQL = "drop table PERSON ";
 
         try (Statement stmt = connection.createStatement()) {
             stmt.execute(dropSQL);
