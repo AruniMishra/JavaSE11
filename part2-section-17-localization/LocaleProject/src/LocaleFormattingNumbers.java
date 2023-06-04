@@ -183,40 +183,4 @@ public class LocaleFormattingNumbers {
         System.out.println(MessageFormat.format("{0}({1}) : {2, number, 000.##} ",
                 "{2, number, 000.##} ", l, d));
     }
-
-
-    // Print date information using SimpleDateFormat
-    public static void printDateSimpleDateFormat(Date date) {
-
-        System.out.println("--------- SimpleDateFormat ---------");
-        DateFormat dateFormatter = new SimpleDateFormat("MM DD YY");
-        // formatter.setTimeZone(TimeZone.getTimeZone("PST"));
-
-        // MM prints month in year as 0 padded number
-        // DD is day in the year, not day in the month (d)
-        // YY is the year
-        System.out.println(MessageFormat.format("{0}  = {1}",
-                "SimpleDateFormat(\"MM DD YY\")", dateFormatter.format(date)));
-
-        // MM prints month in year as number, 0 left-pads the number
-        // dd prints day in the month as anumber, 0 left-pads the number
-        // YY is the year
-        dateFormatter = new SimpleDateFormat("MM dd YY");
-        System.out.println(MessageFormat.format("{0}  = {1}",
-                "SimpleDateFormat(\"MM dd YY\")", dateFormatter.format(date)));
-
-        // This includes the time
-        // hh prints hour, 0 left-padded
-        // mm print minute in the hour, 0 left-padded
-        // a represents am/pm
-        // zz represents time zone
-        dateFormatter = new SimpleDateFormat("MM dd YY hh:mm a zz");
-
-        // Setting time zone.
-        dateFormatter.setTimeZone(TimeZone.getTimeZone("EST"));
-        System.out.println(MessageFormat.format("{0}  = {1}",
-                "SimpleDateFormat(\"MM/dd/YY hh:mm zz\")", dateFormatter.format(date)));
-    }
-
-
 }
