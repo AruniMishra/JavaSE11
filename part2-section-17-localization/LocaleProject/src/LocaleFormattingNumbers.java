@@ -13,7 +13,7 @@ import java.util.TimeZone;
 public class LocaleFormattingNumbers {
     public static void main(String[] args) throws ParseException {
 
-        Locale.setDefault(new Locale("en", "AU"));
+        Locale.setDefault(new Locale("en", "IN"));
 
         System.out.println("----------- STANDARD FORMATS ------------");
         testNumberFormats(Locale.FRANCE);
@@ -128,6 +128,14 @@ public class LocaleFormattingNumbers {
     // Formatting Numbers using patterns
     public static void testCustomNumberFormats(Locale l) {
         double d = 5.5;
+        /*
+        If you're concerned with the current user's default locale,
+        you can use the MessageFormat.format with multiple format specifiers, as shown.
+
+        If you need to do something with a specific locale,
+        you can use one of the DecimalFormats static factory methods and parse it
+        a specific locale or construct DecimalFormat with a locale.
+         */
 
         // Get a Regional DecimalFormat. apply pattern as a method
         DecimalFormat dfRegional = (DecimalFormat) NumberFormat.getInstance(l);
@@ -150,7 +158,7 @@ public class LocaleFormattingNumbers {
         // Prints out number passed as a percentage
         // (multiplies by 100 and shows percent character)
         System.out.println(MessageFormat.format("{0}({1}) : {2, number, percent} ",
-                "{2, number, percent}  ", l, d));
+                "{2, number, percent1}  ", l, d));
 
         // Prints out number passed as currency
         // with Locale specific currency character
@@ -165,15 +173,15 @@ public class LocaleFormattingNumbers {
         // specific pattern designators.
         // Both # and 0 limit digits on right side of decimal but 0 right-pads
         // number with 0
-        System.out.println(MessageFormat.format("{0}({1}) : {2, number, #.00} ",
-                "{2, number, #.00} ", l, d));
+        System.out.println(MessageFormat.format("{0}({1}) : {2, number, #.000} ",
+                "{2, number, #.000} ", l, d));
 
         // Prints out number passed using the pattern specified, # and 0 are
         // specific pattern designators.
         // Both # and 0 limit digits on left side of decimal but 0 left-pads number
         // with 0
-        System.out.println(MessageFormat.format("{0}({1}) : {2, number, 00.##} ",
-                "{2, number, 00.##} ", l, d));
+        System.out.println(MessageFormat.format("{0}({1}) : {2, number, 000.##} ",
+                "{2, number, 000.##} ", l, d));
     }
 
 
