@@ -17,9 +17,11 @@ import java.util.Set;
 // Specify which Annotations this processor processes
 @SupportedAnnotationTypes(
         {
-                "annotations.MyClassAnnotation",
-                "annotations.MySourceAnnotation",
-                "annotations.MyRuntimeAnnotation"
+                // "annotations.MyClassAnnotation",
+                // "annotations.MySourceAnnotation",
+                // "annotations.MyRuntimeAnnotation"
+
+                "annotations.*"
         })
 @SupportedSourceVersion(SourceVersion.RELEASE_11)
 
