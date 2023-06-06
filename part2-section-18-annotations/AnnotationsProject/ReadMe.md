@@ -17,3 +17,9 @@ javac -d . -cp . -processor AnnotationProcessor ..\..\..\src\TestingAnnotatedCla
 
 - select "TestingAnnotatedClasses.java"
 - Tools > Generate JavaDoc...
+
+## Miscellaneous
+
+https://www.oracle.com/technical-resources/articles/hunter-meta1.html
+
+https://reflectoring.io/java-annotation-processing/#:~:text=SOURCE%20%2D%20The%20annotation%20is%20used,annotation%20is%20retained%20at%20runtime.
