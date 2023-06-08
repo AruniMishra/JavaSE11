@@ -13,6 +13,13 @@
 javac -d . -cp . -processor AnnotationProcessor ..\..\..\src\TestingAnnotatedClasses.java 
 ```
 
+## Out of Ordinary
+
+```shell
+javac -d . -cp . -processor outOfOrdinary.CustomProcessor ..\..\..\src\outOfOrdinary\InheritedAnnotationExample.java
+javac -d . -cp . -processor outOfOrdinary.CustomProcessor ..\..\..\src\outOfOrdinary\AnnotateEverythingExample.java
+```
+
 ## JavaDocs
 
 - select "TestingAnnotatedClasses.java"
