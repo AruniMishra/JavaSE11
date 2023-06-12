@@ -1,7 +1,8 @@
 # Module and Services
 
-## to run
+## to run "gamble" related modules
 
+- build the project (Ctrl + F9)
 - add vm options:
     - "-p out/production"
 
