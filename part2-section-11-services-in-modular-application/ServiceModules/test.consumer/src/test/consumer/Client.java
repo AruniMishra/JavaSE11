@@ -28,7 +28,7 @@ public class Client {
             System.out.println("Found " + providers.size() + " providers");
 
             // Print out each Provider
-            providers.stream().forEach(System.out::println);
+            providers.forEach(System.out::println);
 
             // Use the last one
             serviceImpl = providers.get(providers.size() - 1);

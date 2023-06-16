@@ -8,7 +8,12 @@ Topic:  Service extras
 package test.impl;
 
 // This class implements the TestService interface
-public class TestProviderTwo implements test.spi.TestService {
+public class TestProviderTwo implements
+        // test.spi.TestService {
+
+        // confirms that you can supply a provider that implements
+        // the sub-interface of the interface specified in the provides directive(test.impl.TestProviderTwo).
+        test.impl.EnhancedTestService {
 
     // Public explicit no args constructor
     public TestProviderTwo() {

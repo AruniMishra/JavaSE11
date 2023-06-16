@@ -16,9 +16,14 @@ public class TestProviderFactory {
 
     // This class has a provider method which returns an
     // instance of a TestService
+    /*
+    If you change the provider method signature in any way by changing the
+    access modifier, removing a static keyword or adding a parameter to the
+    method, you'll get a compiler error in the module descriptor when you add the
+    provides directive for this provider.
+     */
     public static TestService provider() {
-        System.out.println("TestProviderFactory provider method" +
-                " being executed");
+        System.out.println("TestProviderFactory provider method being executed\n");
 
         // Maybe you have some logic to figure out which Provider
         // will be used, in this case, it's random

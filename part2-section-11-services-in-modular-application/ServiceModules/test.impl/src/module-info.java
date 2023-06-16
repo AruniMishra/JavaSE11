@@ -1,11 +1,18 @@
 module test.impl {
     requires test.spi;
-    provides test.spi.TestService with test.impl.TestProvider
+    provides test.spi.TestService with
+            // test.impl.TestProvider
             // ; // valid, 1 provider
-            , test.impl.TestProviderTwo
+            // ,
+            test.impl.TestProviderTwo
             // ; // valid, 2 provider
-            , test.impl.TestProviderFactory;
+            ,
+            test.impl.TestProviderFactory;
 
-    // invalid, Duplicate 'provides': test.spi.TestService
+    // invalid, Duplicate 'provides': test.spi.TestService (should be separated by ,)
     // provides test.spi.TestService with test.impl.TestProviderTwo;
+
+
+    // but this is valid!
+    provides test.impl.EnhancedTestService with test.impl.TestProviderTwo;
 }
