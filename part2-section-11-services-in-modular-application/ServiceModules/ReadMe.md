@@ -4,7 +4,7 @@
 
 - build the project (Ctrl + F9)
 - add vm options:
-    - "-p out/production"
+    - "-p out/production" or "--module-path out/production"
 
 ## links
 
