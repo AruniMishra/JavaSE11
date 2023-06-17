@@ -14,6 +14,10 @@ import java.util.ServiceLoader;
 
 public class ClientVariance {
     public static void main(String[] args) {
+        /*
+        From this example, you can see that you can have a single
+        provider that implements multiple service provider interfaces.
+         */
 
         MyService2 s1 = ServiceLoader.load(MyService2.class)
                 // ServiceLoader.findFirst() returns an Optional
