@@ -5,8 +5,6 @@ Section 4: Generics and Collections
 Topic:  Collections, Sets TreeSet, HashSet, LinkedHashSet
 */
 
-import collection.CollectionTests;
-
 import java.util.*;
 
 public class SetExample {

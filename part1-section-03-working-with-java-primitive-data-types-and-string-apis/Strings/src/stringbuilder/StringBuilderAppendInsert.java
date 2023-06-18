@@ -28,10 +28,10 @@ public class StringBuilderAppendInsert {
                 .append(',')
                 .append((Object) " My ")
                 .append("NewNumber ", 3, 9)
-//                .append(" is ")
-//                .appendCodePoint(97)
-//                .append(" float with the value of: ")
-//                .append(204.50f)
+        // .append(" is ")
+        // .appendCodePoint(97)
+        // .append(" float with the value of: ")
+        // .append(204.50f)
         ;
         System.out.println("sb = " + sb);
         System.out.println("sb.length() = " + sb.length());
@@ -61,8 +61,8 @@ public class StringBuilderAppendInsert {
                 .insert(16, "NewNumber ", 3, 10)
                 .insert(sb2.length(), 204.5f);
 
-        System.out.println("sb2 = " + sb);
-        System.out.println("sb2.length() = " + sb.length());
-        System.out.println("sb2.capacity() = " + sb.capacity());
+        System.out.println("sb2 = " + sb2);
+        System.out.println("sb2.length() = " + sb2.length());
+        System.out.println("sb2.capacity() = " + sb2.capacity());
     }
 }

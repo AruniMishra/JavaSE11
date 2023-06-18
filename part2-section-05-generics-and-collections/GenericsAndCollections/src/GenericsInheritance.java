@@ -57,7 +57,7 @@ public class GenericsInheritance {
         ArrayList<? extends Number> numberList = intArray; //option 2, use with methodTwo2
 
         // Cannot cast:  Incontrovertible types
-        ArrayList<Integer> intArray2 =  (ArrayList<Integer>) numberList; // line 1
+        ArrayList<Integer> intArray2 = (ArrayList<Integer>) numberList; // line 1
 
         // Cannot invoke method which expects ArrayList<Number> with
         // an ArrayList<Integer>
