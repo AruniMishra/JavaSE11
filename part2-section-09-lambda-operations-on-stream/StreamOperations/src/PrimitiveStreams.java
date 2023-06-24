@@ -35,7 +35,7 @@ public class PrimitiveStreams {
         System.out.println(doubleStats);
 
 
-        System.out.println("--- Reduction operations ----");
+        System.out.println("\n--- Reduction operations ----");
         System.out.println("Max = " + IntStream.range(1, 10).max());
         System.out.println("Min = " + LongStream.range(100, 1000).min());
         System.out.println("Average = " + DoubleStream.iterate(

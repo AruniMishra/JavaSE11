@@ -9,7 +9,7 @@ package annotations;
 
 import java.lang.annotation.Repeatable;
 
-// Repeatable Annotation Type requires containing annotation
+// Repeatable Annotation Type requires "containing annotation"
 
 /*
 @Repeatable annotation
