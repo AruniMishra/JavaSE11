@@ -56,5 +56,10 @@ public class ComplexEnumExample {
         System.out.println(WeekDays.SATURDAY + " is a " +
                 WeekDays.SATURDAY.printType());
 
+        System.out.println(WeekDays.SUNDAY.ordinal());
+
+        System.out.println(WeekDays.valueOf("SUNDAY").ordinal());
+        // System.out.println(WeekDays.values(0));// invalid
+
     }
 }
