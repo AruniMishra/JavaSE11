@@ -48,6 +48,7 @@ public class PredicateExample {
                 b5.test("hello"));
 
 
+        System.out.println("\n----------------------------");
         Predicate<Integer> firstTest = i -> {
             System.out.println("\tFirst Test");
             return i > -10;
@@ -97,7 +98,5 @@ public class PredicateExample {
         System.out.println("The value of Predicate.not(" +
                 "Predicate.isEqual(\"hello\")) with value of \"hello\" = " +
                 Predicate.not(Predicate.isEqual("hello")).test("hello"));
-
-
     }
 }
