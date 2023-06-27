@@ -3,6 +3,8 @@ package JavaFeatures;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Stream;
 
 public class ListOF {
 
@@ -19,8 +21,7 @@ public class ListOF {
 
         // Set the value of an array element using set method
         colorList.set(0, "cyan");
-        System.out.println("colorList after after changing 1st value : "
-                + colorList.toString());
+        System.out.println("colorList after after changing 1st value : " + colorList.toString());
 
         //-------------------
         // List.of method can take an array and make it a list
@@ -29,25 +30,20 @@ public class ListOF {
         // List.copyOf method takes a list and makes another list
         List thirdColorList = List.copyOf(Arrays.asList(primaryColors));
 
-        System.out.println("\nsecondColorList : "
-                + secondColorList.toString());
+        System.out.println("\nsecondColorList : " + secondColorList.toString());
 
-        System.out.println("thirdColorList : "
-                + thirdColorList.toString());
+        System.out.println("thirdColorList : " + thirdColorList.toString());
 
         //-------------------
 
         // Change value on original array
         primaryColors[0] = "blue";
 
-        System.out.println("\nprimaryColors after making first element blue: "
-                + Arrays.toString(primaryColors));
+        System.out.println("\nprimaryColors after making first element blue: " + Arrays.toString(primaryColors));
 
-        System.out.println("secondColorList after array changed : "
-                + secondColorList.toString());
+        System.out.println("secondColorList after array changed : " + secondColorList.toString());
 
-        System.out.println("thirdColorList after array changed : "
-                + thirdColorList.toString());
+        System.out.println("thirdColorList after array changed : " + thirdColorList.toString());
 
 
         //-------------------
@@ -69,6 +65,51 @@ public class ListOF {
         // Similar to List.copyOf(namesList), more aptly named..
         List<String> newList = Collections.unmodifiableList(colorList);
         System.out.println("\nCopied List using Collections. UnmodifiableList : " + newList);
+
+
+        Map<String, Integer> immutableMap = Map.ofEntries(
+                Map.entry("Joe", 5),
+                Map.entry("John", 10),
+                Map.entry("James", 15));
+        System.out.println(immutableMap);
+
+
+        // Immutable object is modified
+        // immutableMap.putAll(Map.ofEntries(
+        //         Map.entry("Martha", 15),
+        //         Map.entry("Carol", 35)));
+        // System.out.println(immutableMap);
+
+
+        Map immutableMap2 = Map.copyOf(immutableMap);
+        Map immutableMap3 = Map.of(
+                "Carol", 5,
+                "Martha", 46,
+                "Mark", 33);
+
+
+        // Create a stream with a Unary Operator based lambda expression
+        // numbers 5, 10, 15, 20, infinite stream
+        Stream<Integer> infiniteStream = Stream.iterate(5, (t) -> t + 5);
+
+        System.out.println("\n----Infinite Stream created by " +
+                "UnaryOperator limited to 10 ");
+        // Limiting an Infinite Stream in the pipeline
+        infiniteStream.limit(10).forEach((t) -> System.out.print(t + " "));
+
+
+        //-------------------------------
+
+
+        // Stream.ofNullable (if value passed null, empty Stream, otherwise
+        // Stream of one element
+        String argumentString =
+                (args != null && args.length > 0) ? args[0] : null;
+        System.out.println("\nargumentString: " + argumentString);
+
+        Stream<String> argStream = Stream.ofNullable(args[0]);
+
+        argStream.forEach(System.out::println);
 
     }
 }

@@ -21,14 +21,14 @@ public class MapSetExamples {
                 "Ralph", 23,
                 "George", 15,
                 "Kate", 50, "A", 1));
-        System.out.println("Initial Values:\n" + treeMap);
+        System.out.println("Initial Values:\n" + "1:"+ treeMap);
         // This returns a "modifiable View" of the Map, however, you
         // cannot add entries.
         // This set is a view meaning changes to the set actually are changed
         // to the map, although add and add all are not supported here.
         Set entrySet = treeMap.entrySet();
         entrySet.remove("John");
-        System.out.println(treeMap);
+        System.out.println("2:"+ treeMap);
 
         // So why didn't it change?
         // Because our collection is an entrySet, we must match
@@ -39,10 +39,10 @@ public class MapSetExamples {
         // factory method, Map.entry, which was introduced in Java 9.
 
         entrySet.remove(Map.entry("John", 25));
-        System.out.println(treeMap);
+        System.out.println("3:"+ treeMap);
 
         entrySet.remove(Map.entry("John", 35));
-        System.out.println(treeMap);
+        System.out.println("4:"+ treeMap);
 
 
         // Collection of just the values...
@@ -99,6 +99,12 @@ public class MapSetExamples {
                 Map.entry("John", 10),
                 Map.entry("James", 15));
         System.out.println(immutableMap);
+
+        Map immutableMap2 = Map.copyOf(immutableMap);
+        Map immutableMap3 = Map.of(
+                "Carol", 5,
+                "Martha", 46,
+                "Mark", 33);
 
         // Immutable object is modified
         // immutableMap.putAll(Map.ofEntries(
