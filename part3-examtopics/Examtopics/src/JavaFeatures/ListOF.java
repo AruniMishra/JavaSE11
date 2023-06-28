@@ -63,11 +63,26 @@ public class ListOF {
         }
         //-------------------
 
-        // Similar to List.copyOf(namesList), more aptly named..
+        // Similar to List.copyOf(namesList), more aptly named.. Java 10
         List<String> newList = Collections.unmodifiableList(colorList);
         System.out.println("\nCopied List using Collections. UnmodifiableList : " + newList);
 
+        List<String> newUnmodifiableList = colorList.stream()
+                .filter(i -> i.length() > 3)
+                .collect(Collectors.toUnmodifiableList());
 
+        System.out.println(newUnmodifiableList);
+        // newUnmodifiableList.add("red");
+
+        //-------- java 11
+
+        String[] arrayFromList = colorList.toArray(String[]::new); // but array from toArray is not immutable
+        arrayFromList[1] = "new";
+        System.out.println("\n\narrayFromList after\t" + Arrays.toString(arrayFromList));
+        System.out.println("colorList(immutable)\t" + colorList);
+
+
+        //-------- Java 9
         Map<String, Integer> immutableMap = Map.ofEntries(
                 Map.entry("Joe", 5),
                 Map.entry("John", 10),
