@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class ListOF {
@@ -110,6 +111,31 @@ public class ListOF {
         Stream<String> argStream = Stream.ofNullable(args[0]);
 
         argStream.forEach(System.out::println);
+
+
+        //------------------------------------
+
+
+        // Create array of names for testing
+        String[] namesArray = {"Allen", "Bob", "Caleb", "Don", "Fred",
+                "Greg", "Howard", "Ira", "James", "Kevin"};
+
+        System.out.println("dropWhile Example: Drop names until Howard: " +
+                Arrays.stream(namesArray)
+                        // dropWhile uses a Predicate and drops values until
+                        // predicate becomes true
+                        .dropWhile(s -> !s.equals("Howard"))
+                        // collect method returns results in the type
+                        // requested, here as List
+                        .collect(Collectors.toList()));
+
+        System.out.println("takeWhile Example: Add names until Howard: " +
+                Arrays.stream(namesArray)
+                        // takeWhile uses a Predicate and includes values until
+                        // predicate becomes true
+                        .takeWhile(s -> !s.equals("Howard"))
+                        // collect method returns results as List
+                        .collect(Collectors.toList()));
 
     }
 }
