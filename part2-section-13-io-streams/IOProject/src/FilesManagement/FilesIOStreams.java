@@ -30,6 +30,18 @@ public class FilesIOStreams {
         System.out.println("-- Pre - JDK 7 Method of reading a file--");
         String fileName = testFile.toString();
 
+        /*
+        try {
+            char[] chars = new char[100];
+            FileReader fileReader = new FileReader(fileName);
+            fileReader.read(chars);
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        */
+
         // Use BufferedReader to use readLine operation
         try (BufferedReader inStream =
                      new BufferedReader(new FileReader(fileName))) {
