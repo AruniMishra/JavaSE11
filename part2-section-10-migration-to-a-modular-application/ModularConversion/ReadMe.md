@@ -12,7 +12,7 @@ jar -Mcf sample.entity.jar -C out/production/ModularConversion sample/entity
 
 jar -Mcf sample.service.jar -C out/production/ModularConversion sample/service
 
-jar -mcf META-INF/MANIFEST.MF sample.api.jar -C out/production/ModularConversion sample/api
+#jar -mcf META-INF/MANIFEST.MF sample.api.jar -C out/production/ModularConversion sample/api
 ```
 
 ### Run jar
@@ -52,6 +52,7 @@ java -p . --add-modules sample.core -jar sample.api.jar
 
 ## Top-down approach
 
+- refer the other branch "top-down"
 - Move back sample.core(package) to old src/sample
 - remove sample.core module and then delete the same.
 
@@ -60,6 +61,7 @@ jar -Mcf sample.core.jar -C out/production/ModularConversion sample/core
 ```
 
 ```shell
+# no more module.info.class file
 jar tf sample.core.jar
 ```
 
@@ -68,6 +70,8 @@ jar tf sample.core.jar
 - create module-info.java
 - open module settings, Dependencies and then add 3 jars(core, entity & service).
 - run controller.java
+- here the non modular jar are loaded as automatic modules
+- sample.api.Controller is on named module, that is not an automatic module.
 
 ```shell
 jar -mcf META-INF/MANIFEST.MF sample.api.jar -C out/production/sample.api .
