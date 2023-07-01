@@ -61,5 +61,6 @@ public class ComplexEnumExample {
         System.out.println(WeekDays.valueOf("SUNDAY").ordinal());
         // System.out.println(WeekDays.values(0));// invalid
 
+        // WeekDays.valueOf("Fri"); // Invalid: No enum constant WeekDays.Fri
     }
 }

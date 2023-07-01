@@ -18,7 +18,6 @@ public class LocaleFormattingText {
         Date now = new Date();
 
         Locale.setDefault(new Locale("en", "AU"));
-
         Locale.setDefault(Locale.US);
 
         float floatValue = 10.233f;
@@ -35,7 +34,7 @@ public class LocaleFormattingText {
                     .getString("unsure");
 
             // Printing using a concatenated String
-            System.out.println("NOT LOCALIZED :: " + someText + " : " + floatValue
+            System.out.println("NOT LOCALIZED :: " + Locale.getDefault() + " : " + someText + " : " + floatValue
                     + ": " + now);
 
             // Localize each element:

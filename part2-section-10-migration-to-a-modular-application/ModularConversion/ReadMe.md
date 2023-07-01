@@ -6,7 +6,7 @@
 
 ```shell
 # sample.core.jar only works when available inside main src
-# jar -Mcf sample.core.jar -C out/production/ModularConversion sample/core
+jar -Mcf sample.core.jar -C out/production/ModularConversion sample/core
 
 jar -Mcf sample.entity.jar -C out/production/ModularConversion sample/entity
 
@@ -24,14 +24,18 @@ java -jar .\sample.api.jar
 ## Bottom-up approach
 
 - Create sample.core module (inside parent Modular conversion project)
-- Move src/UtilityClass inside 'sample.core/src/sample.core'
+- Move src/UtilityClass(../ModularConversion/src/sample/core/UtilityClass.java) inside 'sample.core/src/sample.core'
+- the original is renamed as 'UtilityClassMoved' for demo
 - create module-info.java
+- this creates error "Cannot resolve symbol 'UtilityClass'" for main src's class
+- to fix it add dependency to ModularConversion
 
 ```shell
 jar -Mcf sample.core.jar -C out/production/sample.core/ .
 ```
 
 ```shell
+#print content of the jar
 jar tf sample.core.jar
 ```
 
@@ -40,6 +44,9 @@ java -p . --describe-module sample.core
 ```
 
 ```shell
+#If your non-modular code depends on artifacts on the module path
+#which is the scenario set up here,
+#you'll need to add them manually with the --add-modules option.
 java -p . --add-modules sample.core -jar sample.api.jar
 ```
 
