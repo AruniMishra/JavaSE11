@@ -21,7 +21,7 @@ public class CyclicBarrierExample {
                         // through the barrier.
                         // new CyclicBarrier(2, // crates traffic jam
                         () -> {
-                            System.out.println("Confirming step is complete");
+                            System.out.println("---Confirming step is complete");
                         });
 
         // Set up a callable local variable

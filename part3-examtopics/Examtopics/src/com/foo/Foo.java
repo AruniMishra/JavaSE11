@@ -10,7 +10,6 @@ public class Foo {
     private int g = 0;
 
     public void foo(int h) {
-
         int i = 0;
     }
 }
@@ -19,6 +18,7 @@ class Bar2 extends com.foo.Foo {
     @Override
     public void foo(int j) {
 
+        int temp = d;
 
     }
 }

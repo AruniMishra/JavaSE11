@@ -13,16 +13,17 @@ import java.util.concurrent.CopyOnWriteArrayList;
 public class CopyOnWriteExample {
     public static void
     testList(List<String> currentList) {
-        System.out.println("----------- Testing " +
-                currentList.getClass().toGenericString());
+        System.out.println("----------- Testing " + currentList.getClass().toGenericString());
         System.out.println("Original State: " + currentList);
+
+
         // Get Iterator
         Iterator<String> it = currentList.iterator();
 
         int i = 0;
 
         // Use iterator
-        System.out.println("Print first three elements: ");
+        System.out.println("\nPrint first three elements: ");
         /* CopyOnWriteArrayList:
         the iterator did not reflect the mutation made while iterating
         nor did it throw a ConcurrentModificationException.
@@ -35,7 +36,7 @@ public class CopyOnWriteExample {
             System.out.println(it.next());
             // Add some elements while iterating over elements
             if (i++ == 0) {
-                // currentList.addAll(List.of("James", "Jim", "Joe"));// valid with CopyOnWriteArrayList
+                currentList.addAll(List.of("James", "Jim", "Joe"));// valid with CopyOnWriteArrayList
                 // it.remove(); // UnsupportedOperationException with CopyOnWriteArrayList
 
                 currentList.remove(it.next()); // valid with CopyOnWriteArrayList
@@ -47,17 +48,16 @@ public class CopyOnWriteExample {
         }
 
         // Print remaining elements on iterator
-        System.out.println("Printing remaining elements");
+        System.out.println("\nPrinting remaining elements");
         it.forEachRemaining(System.out::println);
 
-        System.out.println("Values = " + currentList + "\n");
+        System.out.println("\nValues = " + currentList + "\n");
     }
 
     public static void main(String[] args) {
 
         // Create an ArrayList and initialize with 5 values
-        List<String> alist = new ArrayList<>(List.of("" +
-                "David", "Evan", "Anne", "Bob", "Carol"));
+        List<String> alist = new ArrayList<>(List.of("David", "Evan", "Anne", "Bob", "Carol"));
 
         // Create a CopyOnWriteArrayList using previous list
         List<String> concurrentList = new CopyOnWriteArrayList<>(alist);

@@ -16,28 +16,28 @@ public class InvokeAllExample {
     public static void main(String[] args) {
 
         // Create a collection of Callable lambda expressions
-        // Collection<Callable<IntSummaryStatistics>> tasks = List.of(
-        //         () -> InvokeAllExample
-        //                 .doSomething(1, 1111),
-        //         () -> InvokeAllExample
-        //                 .doSomething(5, 5000),
-        //         () -> InvokeAllExample
-        //                 .doSomething(7, 100),
-        //         () -> InvokeAllExample
-        //                 .doSomething(100, 10000)
-        // );
-
-        // Create a collection of Callable lambda expressions
         Collection<Callable<IntSummaryStatistics>> tasks = List.of(
                 () -> InvokeAllExample
-                        .doSomething(3, 7),
+                        .doSomething(1, 1111),
                 () -> InvokeAllExample
-                        .doSomething(5, 5),
+                        .doSomething(5, 5000),
                 () -> InvokeAllExample
-                        .doSomething(75, 5),
+                        .doSomething(7, 100),
                 () -> InvokeAllExample
-                        .doSomething(100, 5)
+                        .doSomething(100, 10000)
         );
+
+        // Create a collection of Callable lambda expressions
+        // Collection<Callable<IntSummaryStatistics>> tasks = List.of(
+        //         () -> InvokeAllExample
+        //                 .doSomething(3, 7),
+        //         () -> InvokeAllExample
+        //                 .doSomething(5, 5),
+        //         () -> InvokeAllExample
+        //                 .doSomething(75, 5),
+        //         () -> InvokeAllExample
+        //                 .doSomething(100, 5)
+        // );
 
 
         ExecutorService executorService = null;
@@ -53,9 +53,9 @@ public class InvokeAllExample {
             results = executorService.invokeAll(tasks);
 
             // Invoke them all.
-            // comment line 1
+            // comment line 1 below
             // this will throws an exception, if not all task are completed within the specified time.
-            // results = executorService.invokeAll(tasks, 2, TimeUnit.MILLISECONDS);
+            // results = executorService.invokeAll(tasks, 100, TimeUnit.MILLISECONDS);
 
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -63,6 +63,8 @@ public class InvokeAllExample {
             if (executorService != null) {
                 executorService.shutdown();
                 try {
+
+                    System.out.println("");
                     // Wait no longer than 2 seconds for completion confirmation
                     executorService.awaitTermination(2, TimeUnit.SECONDS); // line 1
 
@@ -78,9 +80,7 @@ public class InvokeAllExample {
                     e.printStackTrace();
                 }
             }
-
         }
-
     }
 
     private static IntSummaryStatistics doSomething(int seed, int limit) {
@@ -89,7 +89,7 @@ public class InvokeAllExample {
                 .mapToInt((s) -> s)
                 .peek((s) -> {
                     System.out.print("[" + seed + "'s] " + s + ", ");
-                    if (s == limit * seed) System.out.println("");
+                    if (s == limit * seed) System.out.println("done");
                 })
                 .summaryStatistics();
     }
