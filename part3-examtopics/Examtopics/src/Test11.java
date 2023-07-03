@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
 
@@ -6,6 +8,34 @@ public class Test11 {
     public static void main(String[] args) {
         Test11 test11 = new Test11();
         test11.extracted();
+
+
+        /*
+        If a Lambda expression is like:
+
+        // If a lambda expression just call an instance method of a  ObjectType
+        (obj, args) -> obj.instanceMethod(args)
+
+        Then method reference is like:
+        // Shorthand if a lambda expression just call an instance method of a ObjectType
+
+        ObjectType::instanceMethod
+         */
+        // Creating an empty ArrayList of user defined type
+        // List of person
+        List<String> personList = new ArrayList<>();
+
+        // Adding elements to above object of List
+        // using add() method
+        personList.add("vicky");
+        personList.add("poonam");
+        personList.add("sachin");
+
+        // Method reference to String type
+        Collections.sort(personList,
+                String::compareToIgnoreCase);
+        Collections.sort(personList,
+                (s, str) -> s.compareToIgnoreCase(str));
     }
 
     private static boolean getTest11Boolean(Member member) {

@@ -38,7 +38,7 @@ public class PathMethods {
         System.out.println("--- Results for the normalize() method ---");
         // Directory Structure shown below, -- represents a level
         // ---------------------
-        // part2-section-13-io-streams
+        // part2-section-14-io-streams
         // -- ParallelStreams
         // -- IOProject
         // -- -- out
