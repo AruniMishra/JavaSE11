@@ -9,6 +9,16 @@ import java.io.IOException;
 import java.nio.file.Path;
 
 public class PathMethods {
+    /*
+    1. firstly, ".." two dots is a back reference to the parent directory;
+
+    2. a "." single dot is a reference to the current directory;
+
+    3. a path that starts with a slash is absolute, it is a directory starting at the root;
+
+    4. a path that does not start with a slash is relative,
+    so assume any amount of two dots are available unless otherwise specified in an exam question.
+     */
     public static void main(String[] args) {
         // Testing Path.normalize() method
         testNormalize();
@@ -43,6 +53,7 @@ public class PathMethods {
         // -- IOProject
         // -- -- out
         // -- -- -- production
+        // -- -- -- -- IOProject
         // -- -- src
         Path p = Path.of("IOProject/../ParallelStreams");
         System.out.println("Normalize transforms \n\t" + p.toString()
@@ -52,7 +63,7 @@ public class PathMethods {
         System.out.println("Normalize transforms \n\t" + p.toString()
                 + "\n to: \n\t" + p.normalize() + "\n---------------");
 
-        p = Path.of("resources//localdata//github//JavaSE11//part2-section-13-io-streams/IOProject/src/../../.");
+        p = Path.of("resources//localdata//github//JavaSE11//part2-section-14-io-streams/IOProject/src/../../.");
         System.out.println("Normalize transforms \n\t" + p.toString()
                 + "\n to: \n\t" + p.normalize() + "\n---------------");
 
@@ -61,6 +72,7 @@ public class PathMethods {
         System.out.println("Normalize transforms \n\t" + p.toString()
                 + "\n to: \n\t" + p.normalize() + "\n---------------");
 
+        // this one starts a root
         p = Path.of("/a/../../../b/./../c");
         System.out.println("Normalize transforms \n\t" + p.toString()
                 + "\n to: \n\t" + p.normalize() + "\n---------------");
@@ -71,10 +83,21 @@ public class PathMethods {
 
     // Testing the relativize method, accepts another Path as argument
     public static void testRelativize() {
-        System.out.println("\n\n--- Results for the p1.relativize(p2) method ---");
+        System.out.println("\n\n\n--- Results for the p1.relativize(p2) method ---");
 
-        Path p1 = Path.of("part2-section-13-io-streams/IOProject/out/production");
-        Path p2 = Path.of("part2-section-13-io-streams/ParallelStreams");
+        // Set up test data
+        Path p01 = Path.of("a");
+        String p2String = "b";
+        Path p02 = Path.of(p2String);
+
+        // If Path argument (other) is absolute, method returns passed arg
+        System.out.println("relativize transforms \n\t"
+                + p01.toString() + "\n\t" + p02.toString()
+                + "\n to: \n\t" + p01.relativize(p02) +
+                "\n---------------");
+
+        Path p1 = Path.of("part2-section-14-io-streams/IOProject/out/production");
+        Path p2 = Path.of("part2-section-14-io-streams/ParallelStreams");
         // Relativize p1.relativize(p2)
         pathRelativize(p1, p2);
         // Relativize p2.relativize(p1)
@@ -122,12 +145,25 @@ public class PathMethods {
     // Testing resolve method which accepts a Path or String as argument
     public static void testResolve() {
 
+        System.out.println("\n\n--- Results for the p1.resolve(p2) method ---");
+
+        // Set up test data
+        Path p01 = Path.of("a");
+        String p02String = "b";
+        Path p02 = Path.of(p02String);
+
+        // If Path argument (other) is absolute, method returns passed arg
+        System.out.println("resolve transforms \n\t"
+                + p01.toString() + "\n\t" + p02.toString()
+                + "\n to: \n\t" + p01.resolve(p02) +
+                "\n---------------");
+
+
         // Set up test data
         Path p1 = Path.of("IOProject");
-        String p2String = "/part2-section-13-io-streams";
+        String p2String = "/part2-section-14-io-streams";
         Path p2 = Path.of(p2String);
 
-        System.out.println("\n\n--- Results for the p1.resolve(p2) method ---");
 
         // If Path argument (other) is absolute, method returns passed arg
         System.out.println("resolve transforms \n\t"
@@ -196,14 +232,14 @@ public class PathMethods {
         System.out.println("resolveSibling transforms \n\t"
                 + p1.toString() + "\n\tempty Path/String"
                 + "\n to: \n\t" + p1.resolveSibling(p2String) +
-                "\n---------------");
+                "\n---------------!");
 
         // Two relative paths..
         p2String = "out/production";
         System.out.println("resolveSibling transforms \n\t"
                 + p1.toString() + "\n\t" + p2String
                 + "\n to: \n\t" + p1.resolveSibling(p2String) +
-                "\n---------------");
+                "\n---------------!");
 
         // Two relative path, parent of current Path is null.
         p1 = Path.of("fruit");

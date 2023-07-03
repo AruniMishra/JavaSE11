@@ -80,7 +80,7 @@ public class OptionalTests {
                                 .or(() -> {
                                     System.out.println(
                                             "In Supplier Code for " + s.getName());
-                                    return Optional.of(2.0f);
+                                    return Optional.of(1.0f);
                                 })
                                 .get() >= 2.0f
                                 ? " in good standing" :

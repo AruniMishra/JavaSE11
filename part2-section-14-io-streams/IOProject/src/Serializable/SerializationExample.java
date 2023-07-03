@@ -56,7 +56,7 @@ class Pet extends Animal implements Serializable { // pet is Serializable, is Su
     will not be part of the persistent state of an object serialization
     or deserialization
      */
-    private transient String breed = "Unknown"; // however this works
+    private transient String breed = "Unknown"; // however this works with out.writeUTF(breed);
 
     // No arguments constructor
     Pet() {
@@ -84,6 +84,7 @@ class Pet extends Animal implements Serializable { // pet is Serializable, is Su
                 '}';
     }
 
+
     // overrides default method on Serializable
     private void writeObject(java.io.ObjectOutputStream out)
             throws IOException {
@@ -105,6 +106,8 @@ class Pet extends Animal implements Serializable { // pet is Serializable, is Su
         weight = in.readInt();
         breed = in.readUTF(); // note: transient being read here.
     }
+
+
 }
 
 public class SerializationExample {
@@ -120,6 +123,7 @@ public class SerializationExample {
         System.out.println("\n--------- Original State -----------");
         System.out.println(originalPet);
 
+        System.out.println("\n-- Serializing started...");
         // Use try with resources (automatically closes file) to output
         // the Serializable.Pet object
         try (ObjectOutputStream outputStream = new ObjectOutputStream(
@@ -127,7 +131,9 @@ public class SerializationExample {
             // write the Serializable.Pet to a file
             outputStream.writeObject(originalPet);
         }
+        System.out.println("-- Serializing done.");
 
+        System.out.println("\n\n------- Deserializing started ------");
         Pet deserializedPet = null;
         // Use try with resources (automatically closes file) to input
         // the Serializable.Pet object

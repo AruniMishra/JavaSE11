@@ -34,19 +34,19 @@ public class PathBasics {
         System.out.println(cwd.toAbsolutePath());
 
         // Specifying a full path using windows forward slashes
-        Path currentdir = Paths.get("\\resources\\localdata\\github\\JavaSE11\\part2-section-13-io-streams" +
+        Path currentdir = Paths.get("\\resources\\localdata\\github\\JavaSE11\\part2-section-14-io-streams" +
                 "\\IOProject");
         System.out.println(currentdir.toAbsolutePath());
 
         // Using Paths.get with initial path as first argument and
         // remaining path as a single String, mixing back & forward slashes
-        Path cdir = Paths.get("C://resources//localdata//github//JavaSE11//part2-section-13-io-streams",
+        Path cdir = Paths.get("C://resources//localdata//github//JavaSE11//part2-section-14-io-streams",
                 "IOProject/out/production");
         System.out.println(cdir.toAbsolutePath());
 
         // Using Path.of to get a path using Strings
         Path cdir2 = Path.of("C:", "resources", "localdata", "github", "JavaSE11",
-                "part2-section-13-io-streams", "IOProject",
+                "part2-section-14-io-streams", "IOProject",
                 "out", "production");
         System.out.println(cdir2.toAbsolutePath());
 
@@ -54,7 +54,7 @@ public class PathBasics {
 
         // Use Paths.get to get a file reference with a URI
         Path filePath1 = Paths.get(URI.create(
-                "file:///resources//localdata//github//JavaSE11//part2-section-13-io-streams" +
+                "file:///resources//localdata//github//JavaSE11//part2-section-14-io-streams" +
                         "/IOProject/characterData.txt"));
         System.out.println(filePath1.toAbsolutePath());
 
@@ -62,7 +62,7 @@ public class PathBasics {
         // which has a method getPath
         Path filePath2 = FileSystems.getDefault().getPath("C:",
                 "resources", "localdata", "github", "JavaSE11",
-                "part2-section-13-io-streams", "IOProject",
+                "part2-section-14-io-streams", "IOProject",
                 "characterData.txt");
         System.out.println(filePath2.toAbsolutePath());
     }
