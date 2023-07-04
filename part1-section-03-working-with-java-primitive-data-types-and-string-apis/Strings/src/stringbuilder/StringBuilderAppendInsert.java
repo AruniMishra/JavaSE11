@@ -22,6 +22,12 @@ public class StringBuilderAppendInsert {
             StringBuilder appendCodePoint(int codePoint)
          */
 
+        /*
+        The default capacity of the StringBuilder is 16 bytes.
+        When the capacity of StringBuilder gets full the
+        new capacity of StringBuilder will be (previouscapacity+1)X2.
+         */
+
         StringBuilder sb = new StringBuilder();
         sb.append("Hello ")
                 .append(new char[]{'W', 'o', 'r', 'l', 'd'})
@@ -54,7 +60,8 @@ public class StringBuilderAppendInsert {
         StringBuilder insert(int offset, String str)
      */
 
-        StringBuilder sb2 = new StringBuilder(100);
+        System.out.println();
+        StringBuilder sb2 = new StringBuilder(100); // fixed capacity of 100
         sb2.insert(0, "Hello , is a float with the value of ")
                 .insert(6, new char[]{'W', 'o', 'r', 'l', 'd'})
                 .insert(13, (Object) "My ")
@@ -64,5 +71,12 @@ public class StringBuilderAppendInsert {
         System.out.println("sb2 = " + sb2);
         System.out.println("sb2.length() = " + sb2.length());
         System.out.println("sb2.capacity() = " + sb2.capacity());
+
+        System.out.println();
+        StringBuilder sb3 = new StringBuilder("asd"); // initial capacity = 16 + length of str.
+
+        System.out.println("sb3 = " + sb3);
+        System.out.println("sb3.length() = " + sb3.length());
+        System.out.println("sb3.capacity() = " + sb3.capacity());
     }
 }
