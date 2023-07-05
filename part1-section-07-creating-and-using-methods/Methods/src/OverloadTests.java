@@ -1,6 +1,10 @@
 // The Calculator class demonstrates overloading
 // static methods.  Each method prints a unique message, so we can
 // understand which method was picked by the JVM
+
+/**
+ * Compiler either does implicit casting or Wrapping but not both.
+ */
 class Calculator {
     public static long add(int a, Double f) {
         System.out.println("int + Double");

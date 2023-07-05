@@ -20,6 +20,22 @@ public class TextTransform {
         repeatString = repeatString.repeat(0);
         System.out.println("repeatString *0= " + repeatString);
 
+
+        String text = null;
+        /*
+        If only one operand expression is of type String,
+        then string conversion is performed on the other operand to produce a string at run time.
+         */
+        // System.out.println(text.repeat(3)); // NullPointerException
+        System.out.println(null + "null" + null); // nullnullnull
+        System.out.println(text += "null".repeat(2));// nullnullnull
+        text = null;
+        System.out.println(text + text + text);// nullnullnull
+
+        text += null;
+        // System.out.println((text.concat(null))); // NullPointerException
+
+
         // ---  valueOf methods ---
 
         // Example of : valueOf(char[] data)

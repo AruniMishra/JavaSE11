@@ -1,5 +1,6 @@
 public class SwitchExampleCaseExpression {
 
+    // Object type (String, Integer, Boolean and others): initialized with null
     private static String statictest;
 
     public static void main(String[] args) {
