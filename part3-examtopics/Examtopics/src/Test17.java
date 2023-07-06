@@ -1,5 +1,6 @@
 import java.util.Collection;
 import java.util.List;
+import java.util.function.Function;
 
 // Line 1
 public class Test17<N extends Number, C extends Collection<N>> {
@@ -117,6 +118,33 @@ public class Test17<N extends Number, C extends Collection<N>> {
                 System.out.println("DEFAULT");
         }
 
+
+        System.out.println("------------------------");
+        // code prints 51, as ASCII code of char ‘3’ is 51.
+        int x1 = '3';
+        System.out.println(x1);
+        char c1 = '3';
+        int i01 = '3';
+        System.out.println(c1 == i01); // true
+
+        int day = '3';
+        // you are trying to compare character value '3' (equivalent decimal value is 51).
+        switch (day) {
+            case '3':
+                System.out.println("BUY 2 GET 1 FREE");
+                break;
+            default:
+                System.out.println("SORRY!!! NO SALE");
+        }
+
+
+        System.out.println("------------------------");
+        foo(n -> String.valueOf(n + 1));
+        foo(n -> Integer.toHexString(n));
+        // foo( n -> Integer::toHexString ); // invalid
+        foo(Integer::toHexString);
+
+
     }
 
     private static void add(double d1, double d2) {
@@ -129,6 +157,12 @@ public class Test17<N extends Number, C extends Collection<N>> {
 
     private static void extractInt(Double obj) {
         System.out.println(obj.intValue());
+    }
+
+    public static void foo(Function<Integer, String> fun) {
+
+        System.out.println(fun.apply(2));
+
     }
 
     public double sum(C collection) {

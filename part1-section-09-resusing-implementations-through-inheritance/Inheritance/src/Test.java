@@ -1,7 +1,7 @@
 abstract class AbstractClass {
 
     static void printFamilyTree() {
-
+        System.out.println("static printFamilyTree");
     }
 
     final void myOwnMethod() {  // Line 1
@@ -21,7 +21,14 @@ public abstract class Test extends AbstractClass {  // Line 3
 
 
     protected static void printFamilyTree() {   // Line 4
-//        Test t = new Test();   // Line 5 //cannot create an instance of an abstract class.
-        Test.printFamilyTree();  // Line 6
+        // Test t = new Test();   // Line 5 //cannot create an instance of an abstract class.
+        Test.printFamilyTree();  // Line 6, loop
     }
+
+    /*
+    'myOwnMethod()' cannot override 'myOwnMethod()' in 'AbstractClass'; overridden method is final
+     */
+    // void myOwnMethod() {  // Line 1
+    //     System.out.println("my own");
+    // }
 }

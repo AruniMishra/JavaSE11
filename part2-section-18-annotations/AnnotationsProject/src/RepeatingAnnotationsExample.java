@@ -10,6 +10,8 @@ import java.lang.annotation.RetentionPolicy;
     String name();
 
     String day();
+
+    String date() default "";
 }
 
 // Declaring container for repeatable annotation type

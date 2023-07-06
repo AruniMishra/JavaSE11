@@ -30,21 +30,21 @@ class Company {
         branchCount = 10;
     }
 
+    // public static void addEmployee(Employee e) {
     public void addEmployee(Employee e) {
-        System.out.println("Company addEmployee ");
+        System.out.println("Company addEmployee");
         employeeCount++;
     }
 
     public void addBranch(Branch b) {
-
         branchCount++;
     }
 }
 
 // Company is a subclass of Branch
 class Branch extends Company {
-    public int branchCount; // this hide Company's branchCount
-    public int employeeCount;  // this hide Company's employeeCount
+    public int branchCount; // this hide Company's branchCount, try to comment it
+    public int employeeCount;  // this hide Company's employeeCount, try to comment it
     private String branchName = "unspecified";
 
     {
@@ -53,16 +53,19 @@ class Branch extends Company {
     }
 
     Branch(String branchName) {
+        System.out.println("\nBranch constructor\n");
         this.branchName = branchName;
     }
 
     /*
-    Instance method 'addEmployee(Employee)' in 'company.Branch' cannot override static method 'addEmployee(Employee)' in 'company.Company'
+    Instance method 'addEmployee(Employee)' in 'company.Branch'
+    cannot override static method 'static void addEmployee(Employee e)' in 'company.Company'
      */
     public void addEmployee(Employee e) { // this override the Company's addEmployee
         System.out.println("Branch addEmployee");
         employeeCount++;
     }
+
 }
 
 public class OnBoardBranch {
@@ -80,7 +83,7 @@ public class OnBoardBranch {
         b.addEmployee(e2);
 
         // The static variable defined on Company accessed here
-        System.out.println("Number of Branches = " + Company.branchCount);
+        System.out.println("\nNumber of Branches = " + Company.branchCount);
         System.out.println("Number of Employees = " + Company.employeeCount);
 
         // What does it mean to access the static variables from Branch?

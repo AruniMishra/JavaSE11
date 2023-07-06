@@ -22,6 +22,7 @@ public class AmbiguousExamples extends Confused implements Confusable {
 
 
     public String confuse() {
+        String name = Confusable.name;
         return Confused.name;
     }
 }

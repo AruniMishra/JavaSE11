@@ -11,7 +11,7 @@ abstract class ATest implements ITest {
 
     //abstract void myMethod(); // Line 1
     public void myMethod() {
-
+        System.out.println("ATest: Success");
 
     }
 }

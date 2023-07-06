@@ -2,7 +2,7 @@
 // remember all non-concrete methods are public and abstract
 // implicitly on an interface.
 interface Abstractable {
-    void makeConcrete();
+    public void makeConcrete();
 }
 
 // An abstract class does NOT have to define concrete methods

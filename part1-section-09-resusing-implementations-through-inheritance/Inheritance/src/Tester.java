@@ -32,15 +32,15 @@ public class Tester {
     public static void main(String[] args) {
         B b = new B();
         b.callDisplay();
-        System.out.println("--------");
+        System.out.println("1 end--------\n");
 
         A a1 = new A();
         a1.callDisplay();
-        System.out.println("--------");
+        System.out.println("2 end--------\n");
 
         A a = new B();
         a.callDisplay();
-        System.out.println("--------");
+        System.out.println("3 end--------\n");
 
         a.staticMethod();
 
