@@ -35,14 +35,11 @@ public class ThrowsClauseExample {
                 // Catch clause is inside for loop, so execution of
                 // for loop continues after we catch the exception
             } catch (ACustomThrowable te) {
-                System.out.println("In the catch clause for" +
-                        " ACustomThrowable in main(): " + te);
+                System.out.println("In the catch clause for" + " ACustomThrowable in main(): " + te);
             } catch (AnError ae) {
-                System.out.println("In the catch clause for" +
-                        " AnError in main(): " + ae);
+                System.out.println("In the catch clause for" + " AnError in main(): " + ae);
             } catch (ACustomRuntimeException are) {
-                System.out.println("In the catch clause for" +
-                        " ACustomRuntimeException in main(): " + are);
+                System.out.println("In the catch clause for" + " ACustomRuntimeException in main(): " + are);
             } catch (RuntimeException e) {
                 System.out.println("In the catch clause of main(): " + e);
             }
@@ -62,22 +59,20 @@ public class ThrowsClauseExample {
             System.out.println("In the catch clause of methodTwo(): " + e);
             throw new ACustomRuntimeException("Changed methodTwo to throw ACustomRuntimeException");
         }
-
     }
 
     // Checked - must satisfy catch or specify - here we specify
     // in the throws clause
-    private void methodThree() throws ACustomThrowable, ACustomRuntimeException {
-        if (10 % 3 == 0)
-            throw new ACustomThrowable("Error in methodThree");
-        else
-            throw new ACustomRuntimeException("Error in methodThree");
+    private void methodThree() throws ACustomThrowable // must
+            , ACustomRuntimeException // optional
+    {
+        if (10 % 3 == 0) throw new ACustomThrowable("Error in methodThree");
+        else throw new ACustomRuntimeException("Error in methodThree");
     }
 
     // Unchecked Error thrown
     private void methodFour() {
         throw new AnError("Error in methodFour");
-
     }
 
     // Custom RuntimeException
@@ -93,7 +88,6 @@ public class ThrowsClauseExample {
         ACustomCheckedException(String message) {
             super(message);
         }
-
     }
 
     // Custom Throwable
@@ -101,7 +95,6 @@ public class ThrowsClauseExample {
         ACustomThrowable(String message) {
             super(message);
         }
-
     }
 
     // Custom Error
@@ -109,7 +102,5 @@ public class ThrowsClauseExample {
         AnError(String message) {
             super(message);
         }
-
     }
-
 }

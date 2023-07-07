@@ -30,6 +30,9 @@ public class ThrowableExamples {
             if (error instanceof IOException) {
                 System.out.println("Something went wrong with the" + " processing of " + filename);
             }
+            else{
+                System.out.println("-else-");
+            }
 
             printErrorStructure(error);
         }
