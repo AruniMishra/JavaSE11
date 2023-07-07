@@ -106,21 +106,20 @@ public class CherrySlot {
         // Local variable will be returned from this method
         PayOffService payOffService = null;
 
-        /*
+
         // You cannot directly instantiate a PayOffService, it's an interface
-        payOffService = new PayOffService();
+        // payOffService = new PayOffService();
 
         // You cannot instantiate a ServiceLoader with a no args constructor
-        payOffService = new ServiceLoader().load(PayOffService.class);
+        // payOffService = ServiceLoader().load(PayOffService.class);
 
         // ServiceLoader.load does NOT return a PayOffService instance
-        payOffService = ServiceLoader.load(PayOffService.class);
+        // payOffService = ServiceLoader.load(PayOffService.class);
 
         // ServiceLoader.load returns an instance of ServiceLoader,
         // not a Provider or Optional that supports .get()
-        payOffService = ServiceLoader.load(PayOffService.class).get();
+        // payOffService = ServiceLoader.load(PayOffService.class).get();
 
-        */
 
         switch (whichWay) {
             case (0):
@@ -166,7 +165,6 @@ public class CherrySlot {
                         .get();
                 break;
         }
-
         return payOffService;
     }
 }
