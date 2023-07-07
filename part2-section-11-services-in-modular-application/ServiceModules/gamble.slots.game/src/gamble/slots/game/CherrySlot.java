@@ -41,6 +41,7 @@ public class CherrySlot {
     private PayOffService getService() {
         List<PayOffService> providers = new ArrayList<>();
         ServiceLoader.load(PayOffService.class).forEach(providers::add);
+        providers.forEach(System.out::println);
         if (providers.size() > 0) {
             return providers.get(providers.size() - 1);
         }
@@ -85,6 +86,7 @@ public class CherrySlot {
                 .findFirst();
 
         if (service.isEmpty()) {
+            System.out.println("service empty");
             return providers.stream().findFirst().orElse(null);
         } else return service.get();
     }
@@ -167,8 +169,4 @@ public class CherrySlot {
 
         return payOffService;
     }
-
-
 }
-
-
