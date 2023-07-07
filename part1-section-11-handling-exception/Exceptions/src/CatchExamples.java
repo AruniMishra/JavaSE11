@@ -43,9 +43,22 @@ public class CatchExamples {
         // Exception descendants are checked.
 
         try {
+            extracted();
+        } catch (CustomThrowable e) {
+            // throw new RuntimeException(e);
+        }
+
+        try {
+            extracted1();
+        } catch (CustomException e) {
+            // throw new RuntimeException(e);
+        }
+
+        try {
             SubClass c = new SubClass();
             c.methodSuperClass();
             ce.testError();
+            // int i = 1 / 0;
 
         } catch (ArithmeticException e) {
             e = new ArithmeticException("This works"); // this is permitted, in a single exception catch clause
@@ -55,6 +68,16 @@ public class CatchExamples {
             System.out.println("Inside catch " + e.getClass());
             throw new RuntimeException("So many exceptions, so little time");
         }
+    }
+
+    private static void extracted1() throws CustomException {
+        CustomException CustomException = new CustomException("");
+        throw CustomException;
+    }
+
+    private static void extracted() throws CustomThrowable {
+        CustomThrowable customThrowable = new CustomThrowable("");
+        throw customThrowable;
     }
 
     private void testError() throws IOException {

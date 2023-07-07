@@ -14,7 +14,7 @@ class StaticTest {
 
     // Static Initializer
     static {
-        System.out.println("Initializing class StaticTest");
+        System.out.println("\nInitializing class StaticTest");
         try {
             // We force an error for demonstration purposes
             if ((10 / currentVal) > 0) {
@@ -66,7 +66,7 @@ public class InitializerExceptions {
 
     public static void main(String[] args) {
         System.out.println("Executing main()");
-        System.out.println(StaticTest.currentMessage);
+        System.out.println("\nStaticTest.currentMessage: " + StaticTest.currentMessage);
 
         try {
             InitializerExceptions ie = new InitializerExceptions();
