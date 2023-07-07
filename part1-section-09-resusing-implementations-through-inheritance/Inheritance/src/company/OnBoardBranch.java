@@ -58,8 +58,9 @@ class Branch extends Company {
     }
 
     /*
-    Instance method 'addEmployee(Employee)' in 'company.Branch'
+    Instance method 'public void addEmployee(Employee e)' in 'company.Branch'
     cannot override static method 'static void addEmployee(Employee e)' in 'company.Company'
+    else, needs to be declared as static also.
      */
     public void addEmployee(Employee e) { // this override the Company's addEmployee
         System.out.println("Branch addEmployee");

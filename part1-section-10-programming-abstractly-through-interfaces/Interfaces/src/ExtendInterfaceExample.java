@@ -1,11 +1,11 @@
 // Create an interface with a default method and one
 // abstract method
 interface Extendable {
-    default void defaultMethod() {
+    default public void defaultMethod() {
         System.out.println("Extendable: Default method called.");
     }
 
-    void extend();
+    public abstract void extend();
 }
 
 // an interface can extend another interface

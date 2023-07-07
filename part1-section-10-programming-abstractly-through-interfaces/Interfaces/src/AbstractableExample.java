@@ -13,6 +13,10 @@ abstract class AbstractClass implements Abstractable {
     // Note that this method is NOT public, but package-private
     // and you must declare it abstract.
     abstract void callConcrete();
+
+    public void doNothing() {
+        makeConcrete();
+    }
 }
 
 // AbstractableExample extends AbstractClass (which in turn

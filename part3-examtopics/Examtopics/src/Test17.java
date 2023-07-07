@@ -1,9 +1,15 @@
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.function.Function;
 
 // Line 1
 public class Test17<N extends Number, C extends Collection<N>> {
+
+    private static int i;
+    private static int[] primes = {2, 3, 5, 7};
+    private static String result = "";
+
     public static void main(String... args) {
         var numbers = List.of(5, 4, 6, 3, 7, 2, 8, 1, 9); // Line 5
         Test17<Integer, List<Integer>> c = new Test17<>();
@@ -138,12 +144,38 @@ public class Test17<N extends Number, C extends Collection<N>> {
         }
 
 
-        System.out.println("------------------------");
         foo(n -> String.valueOf(n + 1));
         foo(n -> Integer.toHexString(n));
         // foo( n -> Integer::toHexString ); // invalid
         foo(Integer::toHexString);
 
+
+        System.out.println("------------------------");
+        /*
+        private static int i;
+        private static int[] primes = {2, 3, 5, 7};
+        private static String result = "";
+         */
+        while (i < primes.length) {
+            if (i == 3) {
+                break;
+            }
+            i++;
+            result += primes[i];
+        }
+        System.out.println(result);
+
+
+        System.out.println("------------------------");
+        List<String> list1 = new ArrayList<>(List.of("Earth", "Wind", "Fire"));
+        List<String> list2 = List.copyOf(list1);
+
+        list1.sort((String item1, String item2) -> item1.compareTo(item2));
+        // list2.sort((String item1, String item2) -> item1.compareTo(item2)); // UnsupportedOperationException
+        System.out.println(list2.equals(list1));
+
+
+        System.out.println("------------------------");
 
     }
 
@@ -178,5 +210,31 @@ public class Test17<N extends Number, C extends Collection<N>> {
 class A {
     public String toString() {
         return null;
+    }
+}
+
+
+class Super {
+    final int num; // line nl
+
+    public Super(int num) {
+        this.num = num;
+    }
+
+    final private void method() {
+        System.out.println("Output from Super");
+    }
+}
+
+class Sub extends Super {
+    int num; // line n2
+
+    Sub(short num) { // line n3
+        super(num);
+        method();
+    }
+
+    void method() { // line n4
+        System.out.println("Output from Sub");
     }
 }

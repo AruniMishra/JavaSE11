@@ -1,5 +1,8 @@
 // interface Confusable has a constant name and abstract method
 interface Confusable {
+    /**
+     * all fields in interfaces are public static final
+     */
     String name = "Confusable";
 
     String confuse();
