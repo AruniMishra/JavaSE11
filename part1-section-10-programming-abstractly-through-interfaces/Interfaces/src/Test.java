@@ -1,5 +1,9 @@
 interface ITest {
-    void myMethod();
+    public void myMethod();
+
+    default void defaultMethod() {
+
+    }
 }
 
 abstract class ATest implements ITest {
@@ -12,8 +16,10 @@ abstract class ATest implements ITest {
     //abstract void myMethod(); // Line 1
     public void myMethod() {
         System.out.println("ATest: Success");
-
+        defaultMethod(); // visible here
     }
+
+    
 }
 
 public class Test extends ATest {

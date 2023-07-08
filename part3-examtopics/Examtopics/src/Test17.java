@@ -6,14 +6,24 @@ import java.util.function.Function;
 // Line 1
 public class Test17<N extends Number, C extends Collection<N>> {
 
+    static int myint = 666;
     private static int i;
     private static int[] primes = {2, 3, 5, 7};
     private static String result = "";
 
     public static void main(String... args) {
+
+        int myint = Test17.myint;
+
+        //-----------------
+        System.out.println("------------------------");
+
         var numbers = List.of(5, 4, 6, 3, 7, 2, 8, 1, 9); // Line 5
         Test17<Integer, List<Integer>> c = new Test17<>();
         System.out.println(c.sum(numbers));
+
+        //-----------------
+        System.out.println("------------------------");
 
 
         int ___50 = 0;

@@ -1,4 +1,3 @@
-
 public class Person {
     static String name = "UNKNOWN";  // Class Variable
     String instanceName = "UNKNOWN"; // Instance Variable;
@@ -36,6 +35,7 @@ public class Person {
         // statement
         this.instanceName = Person.name = name;
     }
+
     // Simple setter for age
     public void setAge(String age) {
         // method sets instance variable age to the parameter passed.

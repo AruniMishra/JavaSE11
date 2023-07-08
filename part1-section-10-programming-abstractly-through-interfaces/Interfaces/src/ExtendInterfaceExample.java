@@ -1,6 +1,8 @@
 // Create an interface with a default method and one
 // abstract method
 interface Extendable {
+    public final int a = 1;
+
     default public void defaultMethod() {
         System.out.println("Extendable: Default method called.");
     }

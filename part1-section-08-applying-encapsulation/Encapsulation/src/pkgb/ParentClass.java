@@ -8,7 +8,6 @@ class PackageBClass {
         System.out.println("A non sub-class class in a different package" +
                 " has access only to a public class's public fields ");
         System.out.println("- SuperClass().publicInt = " + c.publicInt);
-
     }
 }
 
@@ -33,9 +32,9 @@ public class ParentClass extends SuperClass {
         System.out.println("- new ParentClass().protectedInt = " +
                 new ParentClass().protectedInt);
 
-//        // What happens if you access through instance of SuperClass here?
-//        System.out.println("- new SuperClass().protectedInt = "
-//                + new SuperClass().protectedInt);
+        // What happens if you access through instance of SuperClass here?
+        // System.out.println("- new SuperClass().protectedInt = "
+        //         + new SuperClass().protectedInt);
 
         // What happens if you access through instance of SuperClass here?
         System.out.println("- new SuperClass().protectedInt not available" +

@@ -1,3 +1,4 @@
+@FunctionalInterface
 interface InterfaceExample {
 
     // Define some variables
@@ -23,7 +24,7 @@ interface InterfaceExample {
 
 
     /**
-     * private methods(java 9), both static and non-static concrete methods can be private
+     * private methods(java 9); both static and non-static concrete methods can be private
      */
     private static String privateStaticMethod() {
         return "private static";
@@ -35,7 +36,7 @@ interface InterfaceExample {
     }
 
     // These methods are private because we declared them private.
-    //For concrete - only private
+    // For concrete - only private
     private String privateMethod() {
         return "private";
     }
@@ -46,15 +47,26 @@ interface InterfaceExample {
         return privateMethod() + " then default";
     }
 
+    /*
+    a functional interface has exactly one abstract method.
+     */
     // This is the public method that would, in theory, be the method
     // that you want all implementing classes to have in common.
     abstract void theImportantMethod();
 
 
     // nested class also permitted
-    class nestedclass {
+    abstract class abstractNestedclass {
+        abstract void abstractNestedClassMethod();
     }
 
+
+    // nested class also permitted
+    class nestedclass {
+        void nestedclassMethod() {
+
+        }
+    }
 
 }
 

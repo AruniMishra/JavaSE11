@@ -3,7 +3,7 @@ public class TestInheritance {
         //Super s = new Super();
         Sub sub = new Sub();
         Super ss = new Sub();
-        //Sub sub1 = (Sub) new Super(); //ClassCastException: class Super cannot be cast to class Sub
+        // Sub sub1 = (Sub) new Super(); //ClassCastException: class Super cannot be cast to class Sub
 
 
         //ss.notDeclaredInSubClass();
