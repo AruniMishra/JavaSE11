@@ -1,3 +1,7 @@
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
 class A {
 
     /*
@@ -17,6 +21,10 @@ class A {
         System.out.println("A.callDisplay");
         display();
     }
+
+    public void foo(Collection arg) {
+        System.out.println(this.getClass().getSimpleName() + "'s Collection foo");
+    }
 }
 
 class B extends A {
@@ -35,6 +43,14 @@ class B extends A {
         System.out.println("B.callDisplay");
         display();
     }
+
+    public void foo(Collection arg) {
+        System.out.println(this.getClass().getSimpleName() + "'s Collection foo");
+    }
+
+    public void foo(List arg) {
+        System.out.println(this.getClass().getSimpleName() + "'s List foo");
+    }
 }
 
 public class Tester {
@@ -44,16 +60,35 @@ public class Tester {
         System.out.println(b.x);
         System.out.println("1 end--------\n");
 
-        A a1 = new A();
-        a1.callDisplay();
-        System.out.println(a1.x);
-        System.out.println("2 end--------\n");
-
-        A a = new B();
+        A a = new A();
         a.callDisplay();
         System.out.println(a.x);
+        System.out.println("2 end--------\n");
+
+        A aToB = new B();
+        aToB.callDisplay();
+        System.out.println(aToB.x);
         System.out.println("3 end--------\n");
 
-        a.staticMethod();
+
+        aToB.staticMethod();
+        System.out.println("4 end--------\n");
+
+
+        b = (B) aToB; // this is ok.
+        System.out.println("5 end--------\n");
+
+
+        List<String> list = new ArrayList<>();
+
+        b.foo(list); // B's List foo
+
+        // because the reference type(Base class) determines which method will be called so
+        // overridden method will be called by the compiler.
+        aToB.foo(list); // B's Collection foo
+        System.out.println("6 end--------\n");
+
+        b = (B) a; // ClassCastException
+        b.callDisplay();
     }
 }

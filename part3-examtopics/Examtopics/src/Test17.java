@@ -79,7 +79,7 @@ public class Test17<N extends Number, C extends Collection<N>> {
         //-----------------
         System.out.println("------------------------");
         String text = null;
-        text = text + new A(); // Line n1
+        text = text + new A1(); // Line n1
         System.out.println(text);
         System.out.println(text.length()); // Line n2
 
@@ -217,7 +217,7 @@ public class Test17<N extends Number, C extends Collection<N>> {
 }
 
 
-class A {
+class A1 {
     public String toString() {
         return null;
     }
@@ -248,3 +248,4 @@ class Sub extends Super {
         System.out.println("Output from Sub");
     }
 }
+

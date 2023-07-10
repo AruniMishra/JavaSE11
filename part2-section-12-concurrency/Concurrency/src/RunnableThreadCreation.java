@@ -82,6 +82,7 @@ public class RunnableThreadCreation {
         while (n.isAlive()) {
             System.out.println("\nWaiting for " + n.getName() + " to terminate");
             Thread.sleep(150);
+            System.out.println(n.isAlive());
         }
 
         System.out.println("\nAll threads interrupted, " + "Terminating main thread");

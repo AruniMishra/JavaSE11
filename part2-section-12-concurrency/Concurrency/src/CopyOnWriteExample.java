@@ -57,7 +57,7 @@ public class CopyOnWriteExample {
     public static void main(String[] args) {
 
         // Create an ArrayList and initialize with 5 values
-        List<String> alist = new ArrayList<>(List.of("David", "Evan", "Anne", "Bob", "Carol"));
+        List<String> alist = new ArrayList<>(List.of("0", "1", "2", "3", "4"));
 
         // Create a CopyOnWriteArrayList using previous list
         List<String> concurrentList = new CopyOnWriteArrayList<>(alist);
