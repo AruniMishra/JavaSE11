@@ -33,7 +33,7 @@ interface ExampleInterface {
         System.out.println("G");
     }
 
-    static void methodF() {
+    private static void methodF() {
         System.out.println("F");
     }
 
@@ -114,3 +114,4 @@ public class Test02 {
         this.gCount = gCount;
     }
 }
+
