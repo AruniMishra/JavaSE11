@@ -46,13 +46,13 @@ public class StreamExtras {
         // Take list of Pet, collect into a Map using toMap
         // chain to stream of Entry and print key,values.
 
-        // petPopulation.stream()
-        //         .collect(
-        //                 // toMap requires at least 2 arguments
-        //                 Collectors.toMap(Pet::getType, p -> p))
-        //         .entrySet()
-        //         .stream()
-        //         .forEach(System.out::println);
+        petPopulation.stream()
+                .collect(
+                        // toMap requires at least 2 arguments
+                        Collectors.toMap(Pet::getType, p -> p))
+                .entrySet()
+                .stream()
+                .forEach(System.out::println);
 
 
         System.out.println("\n\n--- distinct() & Group by Pet using toMap(key=\"type_name\") ---");
