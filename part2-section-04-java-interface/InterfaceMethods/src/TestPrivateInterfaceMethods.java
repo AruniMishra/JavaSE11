@@ -71,6 +71,7 @@ public class TestPrivateInterfaceMethods extends TestStatic implements PrivateAn
 
         // Call non-static method using instance of current class
         new TestPrivateInterfaceMethods().testNonStatic();
+
     }
 
     void testNonStatic() {
@@ -90,14 +91,17 @@ public class TestPrivateInterfaceMethods extends TestStatic implements PrivateAn
         // Can call default method on interface, but only in a non-static context
         doInterfaceSomethingPublic();
 
-        // Can use default method with super in a non-static method
+        // Can use "default method" with super in a "non-static method only"
+        /*
+        If you want to invoke the default method implementation, then the correct syntax is:
+         [Interface_name].super.[default_method_name].
+         */
         PrivateAndDefaultTestable.super.doInterfaceSomethingPublic();
 
         // Cannot call without qualifier even if current class implements interface
         // from non-static context
         // Static method may be invoked on containing interface class only
         // doInterfaceSomethingPublicAndStatic();
-
 
     }
 }

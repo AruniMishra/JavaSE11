@@ -1,5 +1,5 @@
 interface myA {
-    default void action() {
+     default void action() {
         System.out.println("actionA");
     }
 }

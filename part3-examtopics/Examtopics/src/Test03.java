@@ -7,6 +7,7 @@ import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 public class Test03 {
+  private  void Test03 (){}
 
     public static void main(String[] args) {
         /*
