@@ -13,17 +13,17 @@ class A {
         System.out.println("A.staticMethod");
     }
 
-    private void display() {
-        System.out.println("A.display");
+    private void privateADisplay() {
+        System.out.println("A.privateADisplay");
     }
 
     public void callDisplay() {
         System.out.println("A.callDisplay");
-        display();
+        privateADisplay();
     }
 
     public void foo(Collection arg) {
-        System.out.println(this.getClass().getSimpleName() + "'s Collection foo");
+        System.out.println("A's Collection foo");
     }
 }
 
@@ -35,13 +35,13 @@ class B extends A {
         System.out.println("B.staticMethod");
     }
 
-    private void display() {
-        System.out.println("B.display");
+    private void privateBDisplay() {
+        System.out.println("B.privateBDisplay");
     }
 
     public void callDisplay() {
         System.out.println("B.callDisplay");
-        display();
+        privateBDisplay();
     }
 
     public void foo(Collection arg) {
@@ -55,40 +55,38 @@ class B extends A {
 
 public class Tester {
     public static void main(String[] args) {
-        B b = new B();
-        b.callDisplay();
-        System.out.println(b.x);
-        System.out.println("1 end--------\n");
 
         A a = new A();
         a.callDisplay();
+        a.staticMethod();
         System.out.println(a.x);
+        System.out.println("1 end--------\n");
+
+        B b = new B();
+        b.callDisplay();
+        b.staticMethod();
+        System.out.println(b.x);
         System.out.println("2 end--------\n");
 
         A aToB = new B();
         aToB.callDisplay();
+        aToB.staticMethod();
         System.out.println(aToB.x);
         System.out.println("3 end--------\n");
 
 
-        aToB.staticMethod();
+        b = (B) aToB; // this is ok.
         System.out.println("4 end--------\n");
 
 
-        b = (B) aToB; // this is ok.
-        System.out.println("5 end--------\n");
-
-
         List<String> list = new ArrayList<>();
-
         b.foo(list); // B's List foo
-
         // because the reference type(Base class) determines which method will be called so
         // overridden method will be called by the compiler.
         aToB.foo(list); // B's Collection foo
         System.out.println("6 end--------\n");
 
         b = (B) a; // ClassCastException
-        b.callDisplay();
+        // b.callDisplay();
     }
 }

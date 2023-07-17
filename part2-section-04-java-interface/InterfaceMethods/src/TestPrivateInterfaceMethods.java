@@ -55,8 +55,14 @@ public class TestPrivateInterfaceMethods extends TestStatic implements PrivateAn
         // Access static method on class with class qualifier
         TestStatic.doClassPublicAndStatic();
 
+        TestStatic testStatic = new TestStatic();
+        testStatic.doClassPublicAndStatic(); // valid on class
+
         // Access static method on interface with interface qualifier
         PrivateAndDefaultTestable.doInterfaceSomethingPublicAndStatic();
+
+        PrivateAndDefaultTestable privateAndDefaultTestable = new TestPrivateInterfaceMethods();
+        // privateAndDefaultTestable.doInterfaceSomethingPublicAndStatic(); // invalid on interface
 
 
         // Cannot call without qualifier even if current class implements interface
