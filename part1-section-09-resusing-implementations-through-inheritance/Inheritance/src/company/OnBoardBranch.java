@@ -61,6 +61,9 @@ class Branch extends Company {
     Instance method(non-static) 'public void addEmployee(Employee e)' in 'company.Branch'
     cannot override static method 'static void addEmployee(Employee e)' in 'company.Company'
     else, needs to be declared as static also.
+
+    Note: if parent is interface, then the scope of interface is limited to Interface and the
+    child class can have a non-static method
      */
     public void addEmployee(Employee e) { // this override the Company's addEmployee
         System.out.println("Branch addEmployee");

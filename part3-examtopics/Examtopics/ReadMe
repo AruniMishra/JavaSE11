@@ -1,0 +1,3 @@
+# Java
+
+- Correct and only way to access static method of an Interface is by using the name of the interface
