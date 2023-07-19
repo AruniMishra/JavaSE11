@@ -36,11 +36,7 @@ public class ThrowsClauseExample {
                 // for loop continues after we catch the exception
             } catch (ACustomThrowable te) {
                 System.out.println("In the catch clause for" + " ACustomThrowable in main(): " + te);
-            } catch (AnError ae) {
-                System.out.println("In the catch clause for" + " AnError in main(): " + ae);
-            } catch (ACustomRuntimeException are) {
-                System.out.println("In the catch clause for" + " ACustomRuntimeException in main(): " + are);
-            } catch (RuntimeException e) {
+            }  catch (RuntimeException e) {
                 System.out.println("In the catch clause of main(): " + e);
             }
         }

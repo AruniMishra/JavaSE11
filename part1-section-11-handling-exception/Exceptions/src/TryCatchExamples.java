@@ -18,12 +18,13 @@ public class TryCatchExamples {
         } catch (IOException ie) {
             System.out.println("Maybe I want to do something specifically, like" +
                     " populate data as a default if file was properties file " +
-                    (5 / 0));
+                    (5 / 1));
         } catch (Throwable t) {
+            System.out.println("inside Throwable");
             t.printStackTrace(System.out);
             printErrorStructure(t);
         }
-        te.printThreeStatements("After Try/Catch", 0);
+        //te.printThreeStatements("After Try/Catch", 1);
     }
 
     // This method will just print the hierarchy of the exception

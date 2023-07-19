@@ -20,7 +20,7 @@ public class ScannerExamples {
     public static void main(String[] args) throws
             FileNotFoundException, IOException {
 
-        Path path = Paths.get("./SomeData.csv");
+        Path path = Paths.get("SomeData.csv");
 
         // Create the File if it
         createTheFile(path);

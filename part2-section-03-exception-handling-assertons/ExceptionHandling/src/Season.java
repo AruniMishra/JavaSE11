@@ -39,7 +39,7 @@ public class Season implements AutoCloseable {
             System.out.println("Running Episode " + this.episodeNumber);
             // Introduce Exception during the run for episode 1 only
             if (this.episodeNumber == 1)
-                throw new RuntimeException("Episode failed");
+                throw new RuntimeException("Episode failed while running");
         }
     }
 
@@ -71,6 +71,7 @@ public class Season implements AutoCloseable {
                 s.run();
 
             } catch (Exception ex) {
+                System.out.println("--");
                 // Set the caught exception to a local variable
                 addedSuppressed = ex;
             }

@@ -1,3 +1,6 @@
 # Java
 
 - Correct and only way to access static method of an Interface is by using the name of the interface
+
+
+For the purposes of compile-time checking of exceptions, Throwable and any subclass of Throwable that is not also a subclass of either RuntimeException or Error are regarded as checked exceptions.
