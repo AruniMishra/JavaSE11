@@ -20,7 +20,7 @@ public class ScannerExamples {
     public static void main(String[] args) throws
             FileNotFoundException, IOException {
 
-        Path path = Paths.get("SomeData.csv");
+        Path path = Paths.get("./SomeData.csv");
 
         // Create the File if it
         createTheFile(path);
@@ -53,7 +53,7 @@ public class ScannerExamples {
 
         try {
             // Delete test file if it exists
-            Files.deleteIfExists(p);
+            System.out.println(Files.deleteIfExists(p));
 
             List<String> list = List.of(
                     "1,George,ABC",
@@ -66,7 +66,8 @@ public class ScannerExamples {
             );
 
             // Write List<String to the file in a single line
-            Files.write(p, list);
+            Path path = Files.write(p, list);
+            System.out.println(path);
 
         } catch (IOException io) {
             System.out.println(io);
