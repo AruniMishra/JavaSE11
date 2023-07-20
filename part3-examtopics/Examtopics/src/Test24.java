@@ -1,13 +1,14 @@
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Test24 {
     public static void main(String[] args) {
         try (Scanner scan = new Scanner(System.in)) {
-            String s = scan.nextLine();
-            System.out.println(s);
+            // String s = scan.nextLine();
+            // System.out.println(s);
             // Resources used in try-with-resources statement are implicitly final,
             // which means they can't be reassigned.
             // scan = null;
@@ -53,6 +54,24 @@ public class Test24 {
         try (Resource r = null) {
             System.out.println("HELLO here");
         }
+
+
+        System.out.println("\n----------------------------");
+        String arr1[], arr2, arr3 = null; // Line n1
+        arr1 = new String[2];
+        arr1[0] = "A";
+        arr1[1] = "B";
+        // arr2 = arr3 = arr1;
+        arr2 = arr3 = Arrays.toString(arr1); // Line n2
+        System.out.println(arr2);
+        System.out.println(String.join("-", arr2, arr3)); // Line n3
+
+
+        System.out.println("\n----------------------------");
+        byte [] arr = new byte[1];
+        System.out.println(arr[0]);
+
+
     }
 }
 
