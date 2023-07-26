@@ -1,8 +1,7 @@
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
-import java.util.Arrays;
-import java.util.Scanner;
+import java.util.*;
 
 public class Test24 {
     public static void main(String[] args) {
@@ -68,10 +67,53 @@ public class Test24 {
 
 
         System.out.println("\n----------------------------");
-        byte [] arr = new byte[1];
+        byte[] arr = new byte[1];
         System.out.println(arr[0]);
 
 
+        System.out.println("\n----------------------------");
+        List<String> colors = new ArrayList<>();
+        colors.add("RED");
+        colors.add("GREEN");
+        colors.add("BLUE");
+        Iterator<String> iter = colors.iterator();
+        while (iter.hasNext()) {
+            // next() should be called before remove().
+            System.out.println(iter.next());
+            iter.remove();
+        }
+        System.out.println(colors.size());
+
+
+        System.out.println("\n----------------------------");
+        StringBuilder sb = new StringBuilder("Hello");
+        List<StringBuilder> list = new ArrayList<>();
+        list.add(sb);
+        list.add(new StringBuilder("Hello"));
+        list.add(sb);
+        sb.append("World!");
+
+        System.out.println(list);
+
+
+        System.out.println("\n----------------------------");
+        /*
+        String is immutable, which means s.replace("l", "L");
+        creates another String instance "HeLLo" but 's' still refers to "Hello" [s --> "Hello"].
+         */
+        String s = new String("Hello");
+        List<String> list1 = new ArrayList<>();
+        list1.add(s);
+        list1.add(new String("Hello"));
+        list1.add(s);
+        s.replace("l", "L");
+
+        System.out.println(list1);
+
+
+        System.out.println("\n----------------------------");
+        
+        System.out.println(Integer.valueOf(2));
     }
 }
 

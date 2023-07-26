@@ -66,7 +66,23 @@ public class CopyOnWriteExample {
 
         // regular list:
         // ConcurrentModificationException on addAll() & currentList.remove(it.next()); but works on it.remove();
+        // but, note, java.util.ConcurrentModificationException will never be thrown for traditional for loop.
         // testList(alist);
 
+
+        // but, note, java.util.ConcurrentModificationException will never be thrown for traditional for loop.
+        List<StringBuilder> animals = new ArrayList<>();
+        animals.add(new StringBuilder("Walrus"));
+        animals.add(new StringBuilder("Anaconda"));
+        animals.add(new StringBuilder("Alligator"));
+        animals.add(new StringBuilder("Dog"));
+
+        for(int i = 0; i < animals.size(); i++) {
+            if(i == 0) {
+                animals.remove(new StringBuilder("Alligator"));
+            }
+        }
+
+        System.out.println(animals);
     }
 }
