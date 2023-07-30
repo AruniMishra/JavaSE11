@@ -112,8 +112,103 @@ public class Test24 {
 
 
         System.out.println("\n----------------------------");
-        
         System.out.println(Integer.valueOf(2));
+
+
+        System.out.println("\n----------------------------");
+        List<Integer> list2 = new ArrayList<Integer>();
+        list2.add(2);
+        list2.add(1);
+        list2.add(0);
+
+        list2.forEach(System.out::println);
+
+
+        System.out.println("\n----------------------------");
+        /*
+        Two instances of following wrapper objects, created through auto-boxing will always be same,
+        if their primitive values are same:
+        Boolean,
+        Byte,
+        Character from \u0000 to \u007f (7f equals to 127),
+        Short and Integer from -128 to 127.
+         */
+        List<Integer> list3 = new ArrayList<Integer>();
+
+        list3.add(27);
+        list3.add(27);
+
+        list3.add(227); // 3
+        list3.add(227); // 4
+
+        System.out.println(list3.get(0) == list3.get(1));
+
+        /*
+        For 3rd statement, list.add(227); => Auto-boxing creates an integer object for 227.
+        For 4th statement, list.add(227); => As 227 is greater than 127,
+        hence auto-boxing creates another integer object for 227.
+         */
+        System.out.println(list3.get(2) == list3.get(3));
+
+
+        System.out.println("\nstrip()----------------------------");
+        String str = " "; // single space
+        boolean b1 = str.isEmpty();
+        boolean b2 = str.isBlank();
+        System.out.println(b1 + " : " + b2); // Line n1
+
+        str.strip(); // Line n2
+        /*
+        `str.strip();` returns an empty string "". As String is immutable,
+        hence a new String object is created and 'str' still refers to " ".
+         */
+        b1 = str.isEmpty();
+        b2 = str.isBlank();
+        System.out.println(":" + str + ":");
+        System.out.println(b1 + " : " + b2); // Line n3
+
+        System.out.println("\n----------------------------");
+        /*
+        Please note that Strings computed by concatenation at compile time,
+        will be referred by String Pool during execution.
+        Compile time String concatenation happens when both of the operands are compile time constants,
+        such as literal, final variable etc.
+        
+        Whereas, Strings computed by concatenation at run time (if the resultant expression is
+        not constant expression) are newly created and therefore distinct.
+         */
+        final String fName = "James";
+        String lName = "Gosling";
+        /*
+        `fName + lName` is not a constant expression and hence the expression will be computed at run-time
+         and
+        the resultant String object "JamesGosling" will not be referred by String Pool.
+         */
+        String name1 = fName + lName;
+        String name2 = fName + "Gosling";
+        String name3 = "James" + "Gosling";
+        System.out.println(name1 == name2);
+        System.out.println(name2 == name3); // also a constant expression
+
+
+        System.out.println("\n----------------------------");
+        var list4 = new ArrayList<Integer>(); // Line n1 // Interger is must for L3
+        list4.add(7);
+        list4.add(14);
+        list4.add(21);
+
+        var sum = 0; // Line n2
+        for (int i : list4) { // Line n3
+            sum += i;
+        }
+        System.out.println(sum);
+
+
+        System.out.println("\nlist5----------------------------");
+        List list5 = new ArrayList<String>();
+        list5.add(1);
+        list5.add("2");
+        list5.forEach(System.out::print);
     }
 }
 

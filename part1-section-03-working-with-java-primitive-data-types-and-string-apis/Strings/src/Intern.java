@@ -1,7 +1,14 @@
 public class Intern {
     public static void main(String[] args) {
         // S1 refers to Object in the Heap Area
+        /*
+         JVM will create a new string object in normal (non-pool) heap memory
+         and the literal “Welcome” will be placed in the string constant pool.
+         The variable s will refer to the object in the heap (non-pool)
+         */
         String s1 = new String("GFG"); // Line-1
+
+        System.out.println(s1 == "GFG");
 
         // S2 now refers to Object in SCP Area
         String s2 = s1.concat("GFG"); // Line-2

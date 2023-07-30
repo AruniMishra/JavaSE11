@@ -1,9 +1,11 @@
-
 public class ImmutableString {
 
     public static void main(String[] args) {
 
         //  "Hello" exists on the string pool, s1 gets a reference to it
+        /*
+        String objects created without the use of new keyword are stored in the String Constant Pool part of the heap.
+         */
         String s1 = "Hello";
 
         /*
