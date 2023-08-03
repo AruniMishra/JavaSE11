@@ -2,6 +2,8 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.*;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 public class Test24 {
     public static void main(String[] args) {
@@ -219,6 +221,16 @@ public class Test24 {
         list5.add(1);
         list5.add("2");
         list.forEach(System.out::print);
+
+
+        System.out.println("\ncount----------------------------");
+        int[][] a = {{1, 2}, {3, 4}, {5, 6}};
+
+        long count = Stream.of(a).flatMapToInt(IntStream::of)
+                .map(i -> i + 1).filter(i -> i % 2 != 0).peek(System.out::print).count();
+
+        System.out.println(count);
+
     }
 }
 

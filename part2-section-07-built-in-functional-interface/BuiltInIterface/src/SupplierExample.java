@@ -22,6 +22,16 @@ public class SupplierExample {
 
         // Count # of words user entered or words in String default
         System.out.println("# of words entered = " + supplier.get().size());
+
+
+        Empl empl = new Empl();
+        Supplier<Empl> emplSupplier = () -> {
+            empl.age = 1;
+            return empl;
+        };
+
+        empl.age = 5;
+        System.out.println(emplSupplier.get().age);
     }
 
     // Private method splits String into words, returns as list
@@ -29,4 +39,9 @@ public class SupplierExample {
         return new ArrayList<String>(List.of(s.split("\\s")));
 
     }
+}
+
+
+class Empl {
+    int age;
 }

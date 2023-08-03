@@ -31,6 +31,15 @@ class Sub2 extends Super2 {
     }
 
     Son get1() {
+
         return null;
+
+    }
+}
+
+public class Test25 {
+
+    public static void main(String[] args) {
+
     }
 }
