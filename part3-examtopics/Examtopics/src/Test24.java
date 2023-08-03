@@ -192,6 +192,16 @@ public class Test24 {
 
 
         System.out.println("\n----------------------------");
+        var list04 = new ArrayList<>(); // Line n1
+        list04.add("TAKE");
+        list04.add("THE");
+        list04.add("RISK");
+
+        // System.out.println(String.join(".", list04)); //Line n2
+        list04.forEach(System.out::print);
+
+
+        System.out.println("\n----------------------------");
         var list4 = new ArrayList<Integer>(); // Line n1 // Interger is must for L3
         list4.add(7);
         list4.add(14);
@@ -208,7 +218,7 @@ public class Test24 {
         List list5 = new ArrayList<String>();
         list5.add(1);
         list5.add("2");
-        list5.forEach(System.out::print);
+        list.forEach(System.out::print);
     }
 }
 
