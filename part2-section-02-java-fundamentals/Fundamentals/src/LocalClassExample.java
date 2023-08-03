@@ -1,4 +1,8 @@
 public class LocalClassExample {
+
+    public static class TestInner{
+
+    }
     private String defaultName = "Jane";
 
     // local field for last name
