@@ -25,7 +25,7 @@ public class CopyOnWriteExample {
         // Use iterator
         System.out.println("\nPrint first three elements: ");
         /* CopyOnWriteArrayList:
-        the iterator did not reflect the mutation made while iterating
+        the "iterator" did not reflect the mutation made while iterating
         nor did it throw a ConcurrentModificationException.
         Using the iterator after the changes did not reflect the changes made.
         However, the mutation occurred as shown
@@ -37,11 +37,9 @@ public class CopyOnWriteExample {
             // Add some elements while iterating over elements
             if (i++ == 0) {
                 currentList.addAll(List.of("James", "Jim", "Joe"));// valid with CopyOnWriteArrayList
-                // it.remove(); // UnsupportedOperationException with CopyOnWriteArrayList
-
                 currentList.remove(it.next()); // valid with CopyOnWriteArrayList
 
-
+                // it.remove(); // UnsupportedOperationException with CopyOnWriteArrayList
             }
             // break after third element
             else if (i == 3) break;
@@ -77,8 +75,8 @@ public class CopyOnWriteExample {
         animals.add(new StringBuilder("Alligator"));
         animals.add(new StringBuilder("Dog"));
 
-        for(int i = 0; i < animals.size(); i++) {
-            if(i == 0) {
+        for (int i = 0; i < animals.size(); i++) {
+            if (i == 0) {
                 animals.remove(new StringBuilder("Alligator"));
             }
         }

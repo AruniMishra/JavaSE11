@@ -143,6 +143,7 @@ public class CRUDExamples {
                             rs.getMetaData().getColumnName(i)
                             // Get data from result set
                             + " = " + rs.getObject(i));
+                    // rs.getString(0); // invalid, colum starts with 1
                 }
                 System.out.println();
             }
