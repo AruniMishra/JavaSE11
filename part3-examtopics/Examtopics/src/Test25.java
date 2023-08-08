@@ -1,5 +1,8 @@
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.stream.Stream;
 
 interface Equality {
     /*
@@ -26,6 +29,20 @@ interface Display {
 
 interface Operation {
     int operate(int x, int y);
+}
+
+interface Printer1 {
+    String print();
+
+    // Default method 'toString' overrides a member of 'java.lang.Object'
+    // default String toString() {
+    //     return "*";
+    // }
+
+}
+
+interface ObjectCreator<T> {
+    T create(String str);
 }
 
 class Test {
@@ -110,6 +127,19 @@ class Test2 {
         // Printer objy = () -> System.out.println(y);
         // objy.print();
         System.out.println(++y);
+
+        //-------
+
+        Collection<Integer> list = List.of(100, 100, 100); // Line n1
+        Collection<Integer> set = new LinkedHashSet<>(list); // Line n2
+
+        // set.forEach((set) -> System.out.print(set)); //Line n3
+
+
+
+        Stream.of(new StringBuilder())
+                .map(s -> s.reverse())
+                .forEach(System.out::println);
     }
 }
 
@@ -122,5 +152,20 @@ class Test3 {
             return a * b;
         };
         System.out.println(o1.operate(5, 10));
+    }
+}
+
+class Test4 {
+    public static void main(String[] args) {
+        Printer1 obj = () -> "PRINTER";
+        System.out.print(obj);
+        System.out.print(obj.print());
+    }
+}
+
+class Test5 {
+    public static void main(String[] args) {
+        ObjectCreator<Integer> obj = Integer::valueOf;
+        System.out.println(obj.create("603"));
     }
 }

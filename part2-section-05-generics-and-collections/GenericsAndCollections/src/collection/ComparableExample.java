@@ -72,7 +72,7 @@ public class ComparableExample {
         Or, using SmartDogComparator implements Comparator<collection.SmartDog>
          */
 
-        // ArrayList<collection.SmartDog> al = new ArrayList<collection.SmartDog>();
+        // ArrayList<SmartDog> al = new ArrayList<collection.SmartDog>();
         // al.add(new collection.SmartDog(collection.SmartDog.DogType.COLLIE));
         // al.add(new collection.SmartDog(collection.SmartDog.DogType.LABRADOODLE));
         // al.add(new collection.SmartDog(collection.SmartDog.DogType.PUG));
@@ -80,6 +80,7 @@ public class ComparableExample {
         // al.add(new collection.SmartDog(collection.SmartDog.DogType.LABRADOR));
         // Collections.sort(al, new SmartDogComparator());
         // System.out.println("Sorted Dogs " + al);
+        // // al.sort(new SmartDogComparator());
 
         // --Option2 end
     }
