@@ -1,7 +1,6 @@
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.LinkedHashSet;
-import java.util.List;
+import java.util.*;
+import java.util.function.Predicate;
+import java.util.function.UnaryOperator;
 import java.util.stream.Stream;
 
 interface Equality {
@@ -136,10 +135,7 @@ class Test2 {
         // set.forEach((set) -> System.out.print(set)); //Line n3
 
 
-
-        Stream.of(new StringBuilder())
-                .map(s -> s.reverse())
-                .forEach(System.out::println);
+        Stream.of(new StringBuilder()).map(s -> s.reverse()).forEach(System.out::println);
     }
 }
 
@@ -167,5 +163,74 @@ class Test5 {
     public static void main(String[] args) {
         ObjectCreator<Integer> obj = Integer::valueOf;
         System.out.println(obj.create("603"));
+
+        System.out.println("1----------------------------------------------------");
+        Boolean[] booleans = {true, false, true};
+        /*
+        count() is a terminal method, which returns the count of elements in this stream.
+        If result of count() can directly be computed from the stream source,
+        then the implementation may choose to not execute the stream pipeline.
+        In this case, functions map and peek don't change the number of elements in the given stream,
+        hence these are not executed.
+        Program executes successfully but nothing is printed on to the console.
+         */
+        Stream.of(booleans)
+                .map(b -> b.equals(false))
+                .peek(System.out::println)
+                .count();
+
+
+        System.out.println("2----------------------------------------------------");
+        List<Integer> list = Arrays.asList(-80, 100, -40, 25, 200);
+        Predicate<Integer> predicate = num -> {
+            int ctr = 1;
+            boolean result = num > 0;
+            System.out.print(ctr++ + ".");
+            return result;
+        };
+
+        list.stream()
+                .filter(predicate)
+                .count();
+
+
+        System.out.println("\n\n3----------------------------------------------------");
+        List<String> list1 = Arrays.asList("7 Seven", "Lucky 7", "77", "O7ne");
+        list1.stream()
+                .filter(str -> str.contains("7"))
+                .forEach(System.out::println);
+
+
+        System.out.println("\n\n3----------------------------------------------------");
+        UnaryOperator<Character> operator = c -> (char) (c + 1);
+
+
+        System.out.println("\n\n4----------------------------------------------------");
+        class MyString {
+            String str;
+
+            MyString(String str) {
+                this.str = str;
+            }
+        }
+
+        var list3 = List.of(new MyString("Y"),
+                new MyString("E"),
+                new MyString("S"));
+
+        list3.stream()
+                .map(s -> s)
+                .forEach(System.out::print);
+
+
+        Comparator<Integer> comp = (i1, i2) -> i2.compareTo(i1);
+
+
+        System.out.println("\n\n5----------------------------------------------------");
+        Stream<String> stream = Stream.of("d", "a", "mm", "bb", "zzz", "www");
+        Comparator<String> lengthComp = (s1, s2) -> s1.length() - s2.length();
+        // stream.sorted(lengthComp).forEach(System.out::println);
+        System.out.println();
+        stream.sorted(lengthComp.thenComparing(String::compareTo)).forEach(System.out::println);
     }
 }
