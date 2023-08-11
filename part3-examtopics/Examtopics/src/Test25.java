@@ -1,6 +1,7 @@
 import java.util.*;
 import java.util.function.Predicate;
 import java.util.function.UnaryOperator;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 interface Equality {
@@ -232,5 +233,75 @@ class Test5 {
         // stream.sorted(lengthComp).forEach(System.out::println);
         System.out.println();
         stream.sorted(lengthComp.thenComparing(String::compareTo)).forEach(System.out::println);
+
+
+        System.out.println("\n\n6----------------------------------------------------");
+        List<Fruit> list4 = new ArrayList<>();
+        list4.add(new Fruit("Olive", "Middle East"));
+        list4.add(new Fruit("Mango", "India"));
+        list4.add(new Fruit("Cranberry", "North America"));
+        list4.add(new Fruit("Watermelon", "Africa"));
+
+        // list4.stream().sorted(new Fruit()); // compare
+        list4.stream().sorted().forEach(System.out::println); // compareTo
+
+
+        System.out.println("\n\n7----------------------------------------------------");
+        IntStream intStreamstream = new Random()
+                .ints(1, 7)
+                .limit(2);
+        System.out.println(intStreamstream.max().getAsInt());
+
+
+        IntStream.range(1, 6)
+                .mapToObj(i -> "*".repeat(i))
+                .forEach(System.out::println);
+
+
+        IntStream stream1 = IntStream.generate(() -> new Random().nextInt(100)).limit(5);
+        stream1.filter(i -> i > 0 && i < 10)
+                .findFirst()
+                .stream();
+
+
+        class MyException extends Exception{}
+        OptionalInt optional = OptionalInt.empty();
+        try {
+            System.out.println(optional.orElseThrow(MyException::new));
+        } catch (MyException e) {
+            throw new RuntimeException(e);
+        }
+    }
+}
+
+class Fruit implements Comparable<Fruit>, Comparator<Fruit> {
+    String name;
+    String countryOfOrigin;
+
+    Fruit() {
+    }
+
+    Fruit(String name, String countryOfOrigin) {
+        this.name = name;
+        this.countryOfOrigin = countryOfOrigin;
+    }
+
+    public static int comp(String s1, String s2) {
+        return s2.compareToIgnoreCase(s1);
+    }
+
+    public String toString() {
+        return name + ":" + countryOfOrigin;
+    }
+
+    @Override
+    public int compareTo(Fruit o) {
+        System.out.println("compareTo");
+        return this.name.compareToIgnoreCase(o.name);
+    }
+
+    @Override
+    public int compare(Fruit o1, Fruit o2) {
+        return o1.countryOfOrigin.compareToIgnoreCase(o2.countryOfOrigin);
     }
 }

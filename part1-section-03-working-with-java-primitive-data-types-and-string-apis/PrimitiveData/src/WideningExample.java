@@ -15,7 +15,7 @@ public class WideningExample {
         long myLong = 0;   // widening an int to a long
         myDouble = 0.0f;   // widening a float literal to a double
 
-        //Example of Widening with variables
+        // Example of Widening with variables
 
         // Since assignments are right to left..
         //      value in myByte is widened to short when assigned to myShort
@@ -36,12 +36,12 @@ public class WideningExample {
         // conversion (§5.1.2), and then the resulting int is converted to a char by narrowing primitive conversion (§5.1.3).
         // So... This does not work for variables,
         // compiler does not have enough information to determine if the narrowing is ok.
-//        myChar = myByte;
-//
-//        // short and char are the same width but char is unsigned
-//        // so conversion is not allowed
-//        myShort = myChar;
-//        myChar = myShort;
+        //        myChar = myByte;
+        //
+        //        // short and char are the same width but char is unsigned
+        //        // so conversion is not allowed
+        //        myShort = myChar;
+        //        myChar = myShort;
 
         System.out.println("myByte = " + myByte);
 

@@ -24,6 +24,7 @@ public class StringUtility {
 
 
         System.out.println(" ".isBlank());
+        System.out.println(" ".isEmpty());
         System.out.println(" l r ".strip());
         System.out.println(" l r ".stripLeading());
         System.out.println(" l r ".stripTrailing());

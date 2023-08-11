@@ -13,7 +13,7 @@ public interface MoreSpecificDefaultable extends Defaultable {
 
     // override the default method making it abstract in an implementing class or extending interface,
     // forcing implementation to subtypes or implementing types.
-    void defaultNotAbstractMethod();
+    abstract void defaultNotAbstractMethod();
 }
 
 // Class implements both interfaces

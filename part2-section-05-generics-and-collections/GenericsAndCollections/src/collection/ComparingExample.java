@@ -46,6 +46,7 @@ public class ComparingExample {
         // Creating a list of person.
         List<Person> people = new ArrayList<>(List.of(new Person("George", "Ball"),
                 new Person("Cathy", "Hart"),
+                new Person("Bathy", "Hart"),
                 new Person("Anne", "Ball"),
                 new Person("Aruni", "Mishra"),
                 new Person("Marty", "Hart")));

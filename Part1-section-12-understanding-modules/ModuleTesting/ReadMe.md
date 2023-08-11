@@ -18,11 +18,12 @@ or,
 
 ---
 
-- Run below to generate the .jar
+- Run below to generate the .jar (-e or --main-class)
 
 ```shell
 jar --create --file MyFirstModule.jar --main-class modular.HelloWorld -C .\out\production\MyFirstModule\ .
 ```
+-C DIR: Change to the specified directory and include the following file
 
 ---
 
