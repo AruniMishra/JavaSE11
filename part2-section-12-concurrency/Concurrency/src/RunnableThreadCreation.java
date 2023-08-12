@@ -66,6 +66,7 @@ public class RunnableThreadCreation {
 
         // or, You can pass a Lambda Expression or a method reference as a runnable parameter
         // to a thread constructor because Runnable is a functional interface.
+        // Thread n = new Thread(() -> new NumberGenerator(100).run()); // valid
         Thread n = new Thread(new NumberGenerator(100)::run);
 
         // Now we call start() which executes NumberGenerator's run()

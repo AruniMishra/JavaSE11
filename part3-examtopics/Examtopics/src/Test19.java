@@ -124,14 +124,11 @@ class Foo1 {
 
 class Bar1 extends Foo1 {
 
-
-    public ArrayList<Integer> foo(Set<CharSequence> m) {
-
+    public ArrayList<Integer> foo(Set<CharSequence> m1) {
         return null;
     }
 
     public List<Integer> foo(TreeSet<String> m) {
         return null;
-
     }
 }

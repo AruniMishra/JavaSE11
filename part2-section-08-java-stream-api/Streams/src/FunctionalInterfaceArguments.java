@@ -22,8 +22,18 @@ class MyClass implements MyInterface {
 public class FunctionalInterfaceArguments {
     public static void main(String[] args) {
 
+        MyInterface i1 = new MyInterface() {
+            @Override
+            public String doSomething(String s) {
+                return "1.  variable " + s;
+            }
+        };
+        // or,
+
+
         // Create local variable, assign lambda expression to it
         MyInterface i = (s) -> "1.  variable " + s;
+
 
         // Executing operation passing Interface parameter
         executeInterface(i);
@@ -44,17 +54,18 @@ public class FunctionalInterfaceArguments {
         // interface, the method must have the same signature and return
         // type as the functional interface's only qualifying abstract method.
 
-        // So in this example the method I reference returns a MyInterface
-        // interface and not a method that matches the signature of
-        // MyInterface.doSomething, the string doSomething parameter string method.
-        // executeInterface(FunctionalInterfaceArguments::returnInterface);
+        // So in this example the method "returnInterface()" returns a MyInterface
+        // interface and not a method that matches the signature and return type of
+        // MyInterface.doSomething, String doSomething(String s) method.
+        executeInterface(FunctionalInterfaceArguments::returnInterface);
+        executeInterface(s -> returnInterface(s));
 
     }
 
     // to make line 50 valid,
-    // private static String returnInterface(String s) {
-    //     return s;
-    // }
+    private static String returnInterface(String s) {
+        return s;
+    }
 
     // Example operation that accepts functional interface as argument
     private static void executeInterface(MyInterface i) {

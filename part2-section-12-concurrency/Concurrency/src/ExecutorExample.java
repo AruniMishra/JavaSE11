@@ -28,9 +28,11 @@ public class ExecutorExample {
         executorService.execute(ExecutorExample::doSomethingThreadOne);
 
 
-        // Fire and Forget method of execution: ThreadTwo
+        // execute: Fire and Forget method of execution: ThreadTwo
         // executorService.execute(ExecutorExample::doSomethingThreadTwo);
         // executorService.submit(ExecutorExample::doSomethingThreadTwo); // same effect here
+
+
         // Fire and keep a reference to task
         var submittedThread = executorService.submit(
                 ExecutorExample::doSomethingThreadTwo);
@@ -52,17 +54,19 @@ public class ExecutorExample {
         }
 
 
-
         /*
-        for (int i = 1; i < 11; i++) {
-            System.out.println("Main thread: iteration " + i);
-            if (i == 10) executorService.execute(ExecutorExample::doSomethingThreadTwo);
-            Thread.sleep(250);
-        }
-        */
+        uncomment below and comment executorService.awaitTermination & above block,
+        to see the working of awaitTermination
+         */
+        // for (int i = 1; i < 11; i++) {
+        //     System.out.println("#Main thread: iteration " + i);
+        //     if (i == 10) executorService.execute(ExecutorExample::doSomethingThreadTwo);
+        //     Thread.sleep(250);
+        // }
+
 
         // Shutdown the service; does not immediately shut down executing task
-        executorService.shutdown();
+        executorService.shutdown(); // to terminate the program
 
         // Blocks until all tasks have completed execution after a shutdown request, or the timeout occurs,
         // or the current thread is interrupted, whichever happens first.

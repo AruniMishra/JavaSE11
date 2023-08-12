@@ -26,8 +26,7 @@ class MyCustomThread extends Thread {
     public void run() {
 
         // Infinite stream of numbers, defined by seed attribute
-        Stream<Integer> infiniteStream =
-                Stream.iterate(this.seed, (t) -> t + this.seed);
+        Stream<Integer> infiniteStream = Stream.iterate(this.seed, (t) -> t + this.seed);
         try {
             infiniteStream.forEach(s -> {
                 // must satisfy catch/specify for InterruptedException
@@ -44,8 +43,7 @@ class MyCustomThread extends Thread {
 
         } catch (RuntimeException re) {
             // Print a statement and terminate cleanly
-            System.out.println("\nInterrupted " + this.getName() +
-                    "'s execution");
+            System.out.println("\nInterrupted " + this.getName() + "'s execution");
         }
 
     }
@@ -67,7 +65,7 @@ public class CustomThreadCreation {
         t.start();
         v.start();
 
-        // Pauses current thread for 3 seconds allowing other asynchronous
+        // Pauses current thread(main) for 3 seconds allowing other asynchronous
         // tasks time to run a bit
         Thread.sleep(3000);
 
@@ -99,8 +97,7 @@ public class CustomThreadCreation {
         // creating a stream of 10 random numbers between 1 and 100
         Thread n2 = new Thread() {
             public void run() {
-                new Random().ints(10, 1, 100)
-                        .forEach(System.out::println);
+                new Random().ints(10, 1, 100).forEach(System.out::println);
             }
         };
 
