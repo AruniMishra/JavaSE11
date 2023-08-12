@@ -27,6 +27,21 @@ public class ExecutorExample {
         // Fire and Forget method of execution:  ThreadOne
         executorService.execute(ExecutorExample::doSomethingThreadOne);
 
+        // valid
+        // executorService.execute(() -> {
+        //     doSomethingThreadOne();
+        //     return;
+        // });
+
+        Runnable command = () -> doSomethingThreadOne();
+
+        Runnable command1 = new Runnable() {
+            @Override
+            public void run() {
+
+            }
+        };
+
 
         // execute: Fire and Forget method of execution: ThreadTwo
         // executorService.execute(ExecutorExample::doSomethingThreadTwo);
@@ -66,7 +81,7 @@ public class ExecutorExample {
 
 
         // Shutdown the service; does not immediately shut down executing task
-        executorService.shutdown(); // to terminate the program
+        executorService.shutdown(); // request to terminate the program
 
         // Blocks until all tasks have completed execution after a shutdown request, or the timeout occurs,
         // or the current thread is interrupted, whichever happens first.

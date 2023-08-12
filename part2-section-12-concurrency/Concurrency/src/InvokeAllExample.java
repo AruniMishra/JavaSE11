@@ -28,16 +28,16 @@ public class InvokeAllExample {
         );
 
         // Create a collection of Callable lambda expressions
-        // Collection<Callable<IntSummaryStatistics>> tasks = List.of(
-        //         () -> InvokeAllExample
-        //                 .doSomething(3, 7),
-        //         () -> InvokeAllExample
-        //                 .doSomething(5, 5),
-        //         () -> InvokeAllExample
-        //                 .doSomething(75, 5),
-        //         () -> InvokeAllExample
-        //                 .doSomething(100, 5)
-        // );
+        Collection<Callable<IntSummaryStatistics>> tasks1 = List.of(
+                () -> InvokeAllExample
+                        .doSomething(3, 5),
+                () -> InvokeAllExample
+                        .doSomething(5, 5),
+                () -> InvokeAllExample
+                        .doSomething(75, 5),
+                () -> InvokeAllExample
+                        .doSomething(100, 5)
+        );
 
 
         ExecutorService executorService = null;
@@ -46,8 +46,8 @@ public class InvokeAllExample {
         List<Future<IntSummaryStatistics>> results = null;
 
         try {
-            // executorService = Executors.newSingleThreadExecutor(); // sequential execution of task
-            executorService = Executors.newFixedThreadPool(2); // 2 task execute concurrently
+            executorService = Executors.newSingleThreadExecutor(); // sequential execution of task
+            // executorService = Executors.newFixedThreadPool(2); // 2 task execute concurrently
 
             // Pass all tasks to ExecutorService
             results = executorService.invokeAll(tasks);
@@ -55,7 +55,7 @@ public class InvokeAllExample {
             // Invoke them all.
             // comment line 1 below
             // this will throws an exception, if not all task are completed within the specified time.
-            // results = executorService.invokeAll(tasks, 100, TimeUnit.MILLISECONDS);
+            // results = executorService.invokeAll(tasks, 2, TimeUnit.MILLISECONDS);
 
         } catch (InterruptedException e) {
             e.printStackTrace();

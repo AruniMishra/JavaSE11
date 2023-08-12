@@ -29,8 +29,13 @@ public class CyclicBarrierExample {
 
             // All threads execute step 1
             step(1);
-            // cyclicBarrier.await();
 
+            // add this so that all step 1 are finished and then step 2 starts
+            cyclicBarrier.await();
+
+
+            // add this if newFixedThreadPool(2)
+            /*
             try {
                 // update newFixedThreadPool to 2
                 cyclicBarrier.await(5, TimeUnit.SECONDS);
@@ -39,6 +44,7 @@ public class CyclicBarrierExample {
                         + cyclicBarrier.isBroken());
                 System.out.println("Waited but then released...");
             }
+            */
 
             // All threads execute step 2
             step(2);
@@ -47,6 +53,7 @@ public class CyclicBarrierExample {
         };
 
         // Fixed Threads = Will be parties on CyclicBarrier
+        // passing 2 created deadlock, unless we call cyclicBarrier.await
         ExecutorService service = Executors.newFixedThreadPool(4);
         // Invoke four callable tasks, all the same
         service.invokeAll(List.of(r, r, r, r));

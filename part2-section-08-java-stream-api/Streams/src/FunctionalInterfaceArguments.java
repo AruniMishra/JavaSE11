@@ -30,7 +30,6 @@ public class FunctionalInterfaceArguments {
         };
         // or,
 
-
         // Create local variable, assign lambda expression to it
         MyInterface i = (s) -> "1.  variable " + s;
 

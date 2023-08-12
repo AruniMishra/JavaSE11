@@ -24,7 +24,7 @@ public class ScheduleMultiples {
         Runnable r1 = () -> {
             IntSummaryStatistics sums = ScheduleMultiples
                     .doSomething(3, 15);
-            System.out.println(sums);
+            System.out.println(sums + " ; " + sums.getCount());
             // Each task increments talley by 5
             ScheduleMultiples.addToTalley(sums.getCount());
         };
