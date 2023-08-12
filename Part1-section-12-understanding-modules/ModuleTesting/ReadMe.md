@@ -12,6 +12,9 @@ java --module-path .\out\production\  -m MySecondModule/mod2.GoodbyeWorld
 
 or,
 
+- telling the java virtual machine to look for a module jar file or exploded module directory using the --module-path 
+or -p directory then pass the module name using the -m or --module option.
+
 ```shell
  java --module-path . --module MyFirstModule
 ```
@@ -21,6 +24,7 @@ or,
 - Run below to generate the .jar (-e or --main-class)
 
 ```shell
+jar --create --file MySecondModule.jar -C .\out\production\MySecondModule\ .
 jar --create --file MyFirstModule.jar --main-class modular.HelloWorld -C .\out\production\MyFirstModule\ .
 ```
 -C DIR: Change to the specified directory and include the following file
@@ -58,13 +62,21 @@ java -p . -d MyFirstModule
 - Run for jdeps
 
 ```shell
-jdeps MyFirstModule.jar
+jdeps --module-path . .\MyFirstModule.jar
 ```
 
 or,
 
+- when MySecondModule.jar present(at root)
+- 
 ```shell
 jdeps --list-reduced-deps MyFirstModule.jar
+```
+
+- when MySecondModule.jar is not available(at root)
+-
+```shell
+jdeps --module-path ".;.\out\production\" .\MyFirstModule.jar
 ```
 
 # Advance
@@ -87,6 +99,8 @@ or,
 java -p ".\out\production\;.\out\production\" -m MyFirstModule/modular.HelloWorld
 
 java -p ".\out\;.\out\production\" -m MyFirstModule/modular.HelloWorld
+
+java -p ".;.\out\production\" -m MyFirstModule/modular.HelloWorld
 
 java -p ".;.\out\production\" -m MyFirstModule
 
