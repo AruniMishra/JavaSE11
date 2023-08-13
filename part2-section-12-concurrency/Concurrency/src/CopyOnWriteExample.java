@@ -30,6 +30,10 @@ public class CopyOnWriteExample {
         Using the iterator after the changes did not reflect the changes made.
         However, the mutation occurred as shown
         by the print statement on the concurrent list variable at the bottom of the output.
+
+        i.e.
+        CopyOnWriteArrayList allows add/set/remove while iterating through the list. On every modification,
+        a fresh copy of underlying array is created, leaving the iterator object unchanged.
         */
 
         while (it.hasNext()) {
