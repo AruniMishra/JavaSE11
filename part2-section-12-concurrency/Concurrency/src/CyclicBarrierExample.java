@@ -15,14 +15,13 @@ public class CyclicBarrierExample {
         // Construct a CyclicBarrier,
         // First arg # of parties (tasks)
         // Second arg Action is a Runnable
-        CyclicBarrier cyclicBarrier =
-                new CyclicBarrier(4,
-                        // CyclicBarrier executes twice, once for each set of 2 threads which pass
-                        // through the barrier.
-                        // new CyclicBarrier(2, // crates traffic jam
-                        () -> {
-                            System.out.println("---Confirming step is complete");
-                        });
+        CyclicBarrier cyclicBarrier = new CyclicBarrier(4,
+                // CyclicBarrier executes twice, once for each set of 2 threads which pass
+                // through the barrier.
+                // new CyclicBarrier(2, // crates partial traffic jam
+                () -> {
+                    System.out.println("---Confirming step is complete");
+                });
 
         // Set up a callable local variable
         Callable<Boolean> r = () -> {
@@ -34,7 +33,11 @@ public class CyclicBarrierExample {
             cyclicBarrier.await();
 
 
-            // add this if newFixedThreadPool(2)
+            /* if newFixedThreadPool(2)
+            CyclicBarrier needs 4 threads (new CyclicBarrier(4,**)) to call await() method
+            but as this is not going to happen, hence the program waits endlessly.
+            To resolve this, add below code
+             */
             /*
             try {
                 // update newFixedThreadPool to 2
@@ -65,12 +68,10 @@ public class CyclicBarrierExample {
 
     public static void step(int stepNo) throws Exception {
         int ms = new Random().nextInt(5) * 1000;
-        System.out.println(Thread.currentThread().getName() +
-                " waiting for " + ms + " milliseconds to start step " + stepNo);
+        System.out.println(Thread.currentThread().getName() + " waiting for " + ms + " milliseconds to start step " + stepNo);
         Thread.sleep(ms);
 
-        System.out.println(Thread.currentThread().getName() +
-                " completed step " + stepNo);
+        System.out.println(Thread.currentThread().getName() + " completed step " + stepNo);
 
     }
 

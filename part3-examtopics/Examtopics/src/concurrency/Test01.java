@@ -1,5 +1,7 @@
 package concurrency;
 
+import java.time.LocalTime;
+import java.time.temporal.ChronoUnit;
 import java.util.Arrays;
 import java.util.concurrent.*;
 import java.util.stream.Collectors;
@@ -169,5 +171,112 @@ class Test18 {
         ForkJoinPool pool = new ForkJoinPool(4);
         pool.invoke(adder);
         System.out.println(adder.total);
+    }
+}
+
+
+class Test20 {
+    private static long LIMIT = 1000000000;
+    private static final int THREADS = 100;
+
+    static class AdderTask extends RecursiveTask<Long> {
+        long from, to;
+
+        public AdderTask(long from, long to) {
+            this.from = from;
+            this.to = to;
+        }
+
+        @Override
+        protected Long compute() {
+            if ((to - from) <= LIMIT / THREADS) {
+                long localSum = 0;
+                for (long i = from; i <= to; i++) {
+                    localSum += i;
+                }
+                return localSum;
+            } else {
+                long mid = (from + to) / 2;
+                AdderTask first = new AdderTask(from, mid);
+                AdderTask second = new AdderTask(mid + 1, to);
+                first.fork();
+                /*INSERT*/
+
+                /*
+                After invoking fork() on 1st subtask,
+                it is necessary to invoke join() on 1st subtask and compute() on 2nd subtask.
+
+                The order of execution of calling join() and compute() on divided subtasks is important in a fork/join framework.
+                First invoke compute() on 2nd subtask and then join() on 1st subtask.
+                 */
+                // return first.join() + second.compute();
+                return second.compute() + first.join();
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        LocalTime start = LocalTime.now();
+        ForkJoinPool pool = new ForkJoinPool(THREADS);
+        long sum = pool.invoke(new AdderTask(1, LIMIT));
+        System.out.printf("sum of the number from %d to %d is %d %n", 1, LIMIT, sum);
+        LocalTime end = LocalTime.now();
+        System.out.println(ChronoUnit.NANOS.between(start, end));
+    }
+}
+
+
+class Counter implements Runnable {
+
+    /*
+    static variables may be cached for individual threads.
+    In multi-threaded environment if one thread modifies its cached data,
+    that may not reflect for other threads as they have a copy of it.
+
+    volatile declaration makes sure that threads won't cache the data and uses the shared copy only.
+     */
+    private static int i = 3;
+
+    /*
+    // Atomic integer containing the next thread ID to be assigned
+    private static final AtomicInteger nextId = new AtomicInteger(0);
+
+    // Thread local variable containing each thread's ID
+    private static final ThreadLocal<Integer> threadId =
+            new ThreadLocal<Integer>() {
+                @Override protected Integer initialValue() {
+                    return nextId.getAndIncrement();
+                }
+            };
+
+    // Returns the current thread's unique ID, assigning it if necessary
+    public static int get() {
+        return threadId.get();
+    }
+
+     */
+    public void run() {
+        // System.out.print(get());
+        // System.out.print(get() + ": " + i--);
+        System.out.println(i--);
+
+    }
+}
+
+class Test26 {
+    public static void main(String[] args) {
+        var t1 = new Thread(new Counter());
+        var t2 = new Thread(new Counter());
+        var t3 = new Thread(new Counter());
+        var threads = new Thread[]{t1, t2, t3};
+
+        /*
+        each thread has its own copy of the static member variable of the class
+        Given program will print 3 digits but all 3 digits can be different or same
+        as variable i is not accessed in synchronized manner.
+         */
+        for (var thread : threads) {
+            thread.start();
+        }
     }
 }
