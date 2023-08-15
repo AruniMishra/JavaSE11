@@ -280,3 +280,54 @@ class Test26 {
         }
     }
 }
+
+
+class Test31 {
+    public static void main(String [] args) throws InterruptedException, ExecutionException, TimeoutException {
+        var es = Executors.newSingleThreadExecutor();
+        var f1 = es.submit(() -> {});
+        var f2 = es.submit(() -> 2);
+        var f3 = es.submit(() -> {}, 3);
+        System.out.println(f1.get(1, TimeUnit.HOURS));
+        System.out.println(f2.get(2, TimeUnit.HOURS));
+        System.out.println(f3.get(3, TimeUnit.HOURS));
+        es.shutdown();
+    }
+}
+
+
+class Player extends Thread {
+    CyclicBarrier cb;
+
+    public Player(){
+        super();
+    }
+
+    public Player(CyclicBarrier cb) {
+        this.cb = cb;
+        this.start();
+    }
+
+    public void run() {
+        try {
+            // System.out.println("run: "+ cb.await());
+            System.out.println("run: "+  cb.getParties() + ": " + cb.await());
+        } catch (InterruptedException | BrokenBarrierException e) {}
+    }
+}
+
+class Match implements Runnable {
+    public void run() {
+        System.out.println("Match is starting...");
+    }
+}
+
+class Test32 {
+    public static void main(String[] args) throws BrokenBarrierException, InterruptedException {
+        var match = new Match();
+        var cb = new CyclicBarrier(2, match);
+        var p1 = new Player(cb);
+        /*INSERT*/
+        System.out.println( cb.getParties() + ": " + cb.await());
+    }
+}
