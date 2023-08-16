@@ -2,7 +2,9 @@ package concurrency;
 
 import java.time.LocalTime;
 import java.time.temporal.ChronoUnit;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.concurrent.*;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -354,6 +356,55 @@ class Test33 {
         cb.await(); //Line n2
         var tour = new Tour(cb); //Line n3
         System.out.println("END..."); //Line n4
+    }
+}
+
+
+class Test35 {
+    public static void main(String[] args) throws InterruptedException {
+        String s1 = "LOCK1";
+        String s2 = "LOCK2";
+        List<String> list = new ArrayList<>();
+        Runnable r1 = new Runnable() {
+            @Override
+            public void run() {
+                synchronized (s2) {
+                    synchronized (s1) {
+                        list.add("IN");
+                        try {
+                            Thread.sleep(1000);
+                        } catch (InterruptedException e) {
+                            throw new RuntimeException(e);
+                        }
+
+                    }
+                }
+            }
+        };
+
+        Runnable r2 = new Runnable() {
+            @Override
+            public void run() {
+                synchronized (s1) {
+                    synchronized (s2) {
+                        list.add("OUT");
+                        try {
+                            Thread.sleep(1000);
+                        } catch (InterruptedException e) {
+                            throw new RuntimeException(e);
+                        }
+                    }
+                }
+            }
+        };
+
+        var es = Executors.newFixedThreadPool(4);
+        es.submit(r2);
+        es.submit(r1);
+        es.shutdown();
+        es.awaitTermination(1, TimeUnit.NANOSECONDS);
+        System.out.println(String.join("-", list).isBlank() ?
+                "BLANK" : String.join("-", list));
     }
 }
 
