@@ -283,11 +283,13 @@ class Test26 {
 
 
 class Test31 {
-    public static void main(String [] args) throws InterruptedException, ExecutionException, TimeoutException {
+    public static void main(String[] args) throws InterruptedException, ExecutionException, TimeoutException {
         var es = Executors.newSingleThreadExecutor();
-        var f1 = es.submit(() -> {});
+        var f1 = es.submit(() -> {
+        });
         var f2 = es.submit(() -> 2);
-        var f3 = es.submit(() -> {}, 3);
+        var f3 = es.submit(() -> {
+        }, 3);
         System.out.println(f1.get(1, TimeUnit.HOURS));
         System.out.println(f2.get(2, TimeUnit.HOURS));
         System.out.println(f3.get(3, TimeUnit.HOURS));
@@ -299,7 +301,7 @@ class Test31 {
 class Player extends Thread {
     CyclicBarrier cb;
 
-    public Player(){
+    public Player() {
         super();
     }
 
@@ -311,8 +313,9 @@ class Player extends Thread {
     public void run() {
         try {
             // System.out.println("run: "+ cb.await());
-            System.out.println("run: "+  cb.getParties() + ": " + cb.await());
-        } catch (InterruptedException | BrokenBarrierException e) {}
+            System.out.println("run:: getNumberWaiting():" + cb.getNumberWaiting() + ": " + cb.await());
+        } catch (InterruptedException | BrokenBarrierException e) {
+        }
     }
 }
 
@@ -326,8 +329,31 @@ class Test32 {
     public static void main(String[] args) throws BrokenBarrierException, InterruptedException {
         var match = new Match();
         var cb = new CyclicBarrier(2, match);
+        System.out.println("main:: getNumberWaiting():" + cb.getNumberWaiting());
         var p1 = new Player(cb);
         /*INSERT*/
-        System.out.println( cb.getParties() + ": " + cb.await());
+        System.out.println("main:: getNumberWaiting():" + cb.getNumberWaiting() + ": " + cb.await());
     }
 }
+
+class Tour {
+    CyclicBarrier cb;
+
+    Tour(CyclicBarrier cb) {
+        this.cb = cb;
+        try {
+            cb.await();
+        } catch(InterruptedException | BrokenBarrierException e) {}
+    }
+}
+
+class Test33 {
+    public static void main(String[] args) throws InterruptedException, BrokenBarrierException {
+        var cb = new CyclicBarrier(2, () -> System.out.println("START...")); //Line n1
+        System.out.println(cb.getNumberWaiting());
+        cb.await(); //Line n2
+        var tour = new Tour(cb); //Line n3
+        System.out.println("END..."); //Line n4
+    }
+}
+
