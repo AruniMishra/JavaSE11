@@ -128,6 +128,7 @@ public class CRUDExamples {
 
             if (rs != null) {
                 // Use meta data to get information about the result set
+                // returns number of columns
                 columnCount = rs.getMetaData().getColumnCount();
             }
 

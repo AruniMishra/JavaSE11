@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.*;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
@@ -345,17 +346,18 @@ class Tour {
         this.cb = cb;
         try {
             cb.await();
-        } catch(InterruptedException | BrokenBarrierException e) {}
+        } catch (InterruptedException | BrokenBarrierException e) {
+        }
     }
 }
 
 class Test33 {
     public static void main(String[] args) throws InterruptedException, BrokenBarrierException {
-        var cb = new CyclicBarrier(2, () -> System.out.println("START...")); //Line n1
+        var cb = new CyclicBarrier(2, () -> System.out.println("START...")); // Line n1
         System.out.println(cb.getNumberWaiting());
-        cb.await(); //Line n2
-        var tour = new Tour(cb); //Line n3
-        System.out.println("END..."); //Line n4
+        cb.await(); // Line n2
+        var tour = new Tour(cb); // Line n3
+        System.out.println("END..."); // Line n4
     }
 }
 
@@ -408,3 +410,62 @@ class Test35 {
     }
 }
 
+
+class Util {
+    int ctr = 0;
+    private static Util obj;
+
+    private Util() {
+        ++ctr;
+    }
+
+    static synchronized Util get() {
+        if (obj == null)
+            obj = new Util();
+        return obj;
+    }
+}
+
+class Test38 {
+    public static void main(String[] args) {
+        var es = Executors.newFixedThreadPool(100);
+        IntStream.rangeClosed(1, 10000)
+                .parallel()
+                .forEach(x -> es.submit(() -> Util.get()));
+        es.shutdown();
+        // Line n1
+    }
+}
+
+
+class Test39 {
+    public static void main(String[] args) {
+        var ai = new AtomicInteger(10);
+        /*INSERT*/
+
+        System.out.println(ai.getAndAdd(1));
+        System.out.println(ai.addAndGet(1));
+        System.out.println(ai.incrementAndGet());
+    }
+}
+
+
+class Counter40 implements Runnable {
+    private static AtomicInteger ai = new AtomicInteger(3);
+
+    public void run() {
+        System.out.print(ai.getAndDecrement());
+    }
+}
+
+class Test40 {
+    public static void main(String[] args) {
+        var t1 = new Thread(new Counter40());
+        var t2 = new Thread(new Counter40());
+        var t3 = new Thread(new Counter40());
+        Thread[] threads = {t1, t2, t3};
+        for(var thread : threads) {
+            thread.start();
+        }
+    }
+}
