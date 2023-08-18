@@ -19,8 +19,16 @@ public class ConnectionExamples {
     1. docker run --name some-mysql -e MYSQL_ROOT_PASSWORD=pass123 -dp 3306:3306 --rm mysql
     2. sudo mysql -h 127.0.0.1 -P 3306 -u root -p
     3. CREATE DATABASE testDB;
-    4. Intellij: project settings>Libraries>add Maven>mysql:mysql-connector-java:8.0.30
+    4. use testdb;
+    5.  create table
+        PERSON
+        (PERSON_ID INTEGER NOT NULL,
+        NAME varchar(255) NOT NULL,
+        AGE INTEGER NOT NULL,
+        PRIMARY KEY (PERSON_ID));
+    6. Intellij: project settings>Libraries>add Maven>mysql:mysql-connector-java:8.0.30
      */
+
     // A MySql database named testDB, needs to exist.
     static String mySqlConnectionString = "jdbc:mysql://localhost:3306/testDB";
 
