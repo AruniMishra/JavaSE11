@@ -21,6 +21,9 @@ public class ConsoleExamples {
         // Represents name typed in by user.
         String name;
 
+        /*
+        java -classpath "C:\\resources\\localdata\\github\\JavaSE11\\out\\production\\part2-section-14-io-streams" ConsoleExamples
+         */
         // console may be null, for example within the IntelliJ IDE
         if ((console = System.console()) != null) {
 
