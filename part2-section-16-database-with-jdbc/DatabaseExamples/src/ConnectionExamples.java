@@ -61,9 +61,14 @@ public class ConnectionExamples {
 
         Connection c;
 
-        // Prior to JDBC 4.0 (Java 6), code required to for classloader to
-        // to load driver class, using Class.forName. Code does nothing here,
-        // but exam may test you on it, note, exception may occur if no derby.
+        /*
+        Prior to JDBC 4.0 (Java 6), code required to for classloader to
+        to load driver class, using Class.forName. Code does nothing here,
+        but exam may test you on it, note, exception may occur if no derby.
+
+        Starting with JDBC 4, there is no need to manually load the driver class.
+        For JDBC 3 drivers, java.lang.Class.forName method is used to load the driver class.
+         */
         try {
 
             // Class.forName("org.apache.derby.iapi.jdbc.InternalDriver");

@@ -196,6 +196,13 @@ public class CRUDExamples {
         List<Person> data = new ArrayList<>();
         // try (Statement stmt = connection.createStatement()) {
 
+        /*
+        There are 3 ResultSet types: TYPE_FORWARD_ONLY, TYPE_SCROLL_INSENSITIVE and TYPE_SCROLL_SENSITIVE.
+
+        Note:
+        `con.createStatement();` would return the Statement object of type TYPE_FORWARD_ONLY
+        and have a concurrency level of CONCUR_READ_ONLY. Hence, by default ResultSet is not updatable.
+         */
         try (Statement stmt = connection.createStatement(
                 ResultSet.TYPE_SCROLL_INSENSITIVE,
                 // ResultSet.CONCUR_READ_ONLY)) { // Result Set not updatable.
@@ -204,6 +211,7 @@ public class CRUDExamples {
             // ResultSet will be closed automatically when statement is
             // closed
             ResultSet rs = stmt.executeQuery(retrieveSQL);
+
 
             /*
 
