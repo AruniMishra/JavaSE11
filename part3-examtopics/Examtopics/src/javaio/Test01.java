@@ -59,3 +59,19 @@ class Test20 {
         }
     }
 }
+
+class Test23 {
+    public static void main(String[] args) {
+        try (var pw = new PrintWriter("C:\\A\\test.txt")) {
+            pw.close();
+
+            /*
+            public methods of PrintWriter don't throw IOException.
+            In case of IOException, internal flag variable, 'trouble' is set to true.
+             */
+            pw.write(1);
+        } catch (IOException e) {
+            System.out.println("IOException");
+        }
+    }
+}

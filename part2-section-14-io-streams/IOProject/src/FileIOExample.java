@@ -13,8 +13,10 @@ import java.util.Random;
 
 public class FileIOExample {
     /*
-    Constructors of FileWriter and PrintWriter can create a new file but not directory.
-     */
+     Constructors of FileWriter
+     and
+     PrintWriter can create a new file but not directory.
+    */
 
     public static void main(String[] args) throws IOException {
         writeRandomNumbersToFile("characterData.txt");
