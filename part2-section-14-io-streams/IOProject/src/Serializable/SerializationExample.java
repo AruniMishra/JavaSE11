@@ -154,3 +154,11 @@ public class SerializationExample {
 
     }
 }
+
+
+/*
+
+Only 4 methods are used to serialize/de-serialize objects:
+Object readObject(ObjectInputStream ois), void writeObject(ObjectOutputStream oos),
+Object writeReplace() & Object readResolve().
+ */
