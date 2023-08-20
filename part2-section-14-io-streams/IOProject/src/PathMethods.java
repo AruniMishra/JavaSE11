@@ -199,6 +199,9 @@ public class PathMethods {
     public static void testResolveSibling() {
 
         /*
+        file1.resolveSibling(file2) resolves file2 against parent path of file1.
+         */
+        /*
          return (parent == null) ? other : parent.resolve(other);
          */
 
@@ -243,7 +246,7 @@ public class PathMethods {
 
         // Two relative path, parent of current Path is null.
         p1 = Path.of("fruit");
-        System.out.println("Parent = " + p1.getParent());
+        System.out.println("Parent of Path.of(\"fruit\") = " + p1.getParent());
         p2String = "fruit/apple";
         System.out.println("resolveSibling transforms \n\t"
                 + p1.toString() + "\n\t" + p2String

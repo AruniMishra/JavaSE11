@@ -43,6 +43,10 @@ class Pet extends Animal implements Serializable { // pet is Serializable, is Su
     You can see that count will be whatever pet.count's current value is
     upon deserialization.
     Remember static values are not part of an object state, but the classes.
+
+    and,
+    While de-serializing, transient fields are initialized to default values
+    (null for reference type and respective Zeros for primitive types) and static fields refer to current value.
      */
     static int count;
     private String name;

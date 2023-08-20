@@ -1,6 +1,7 @@
 package javaio;
 
 import java.io.*;
+import java.nio.file.Paths;
 import java.util.stream.IntStream;
 
 class Test01 {
@@ -73,5 +74,35 @@ class Test23 {
         } catch (IOException e) {
             System.out.println("IOException");
         }
+    }
+}
+
+
+class Test40 {
+    public static void main(String[] args) {
+        var file = Paths.get("F:\\A\\.\\B\\C\\D\\..\\Book.java");
+        try {
+            System.out.println(file.toRealPath());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+}
+
+class Test44 {
+    public static void main(String[] args) {
+        var file1 = Paths.get("F:\\A\\B\\C");
+        var file2 = Paths.get("Book.java");
+        System.out.println(file1.resolve(file2));
+        System.out.println(file1.resolveSibling(file2));
+    }
+}
+
+class Test55 {
+    public static void main(String[] args) {
+        var path1 = Paths.get("F:\\A\\B\\C");
+        var path2 = Paths.get("F:\\A");
+        System.out.println(path1.relativize(path2));
+        System.out.println(path2.relativize(path1));
     }
 }
