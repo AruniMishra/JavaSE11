@@ -1,7 +1,9 @@
 package javaio;
 
 import java.io.*;
+import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 import java.util.stream.IntStream;
 
 class Test01 {
@@ -143,5 +145,34 @@ class Test59 {
          */
         var path1 = Paths.get("F:", "..", ".", "..").normalize();
         System.out.println(path1);
+    }
+}
+
+
+class Test69 {
+    public static void main(String[] args) throws IOException {
+        var src = Paths.get("C:\\A\\B\\C\\test.txt");
+        var tgt = Paths.get("C:\\A\\C");
+        Files.copy(src, tgt);
+    }
+}
+
+class Test71 {
+    public static void main(String[] args) {
+        try {
+            new File("C:\\A\\t1.txt"); // Line n1
+            new FileWriter("C:\\A\\t2.txt"); // Line n2
+            new PrintWriter("C:\\A\\t3.txt"); // Line n3
+            new BufferedWriter(new FileWriter(new File("C:\\A\\t4.txt"))); // Line n4
+            Files.newBufferedWriter(Paths.get("C:", "A", "t5.txt")); // Line n5
+            Files.newBufferedWriter(Paths.get("C:", "A", "t6.txt"), StandardOpenOption.CREATE); // Line n6
+            Files.newBufferedWriter(Paths.get("C:", "A", "t7.txt"), StandardOpenOption.CREATE_NEW); // Line n7
+            Files.newBufferedWriter(Paths.get("C:", "A", "t8.txt"), StandardOpenOption.WRITE); // Line n8
+        } catch (Exception e) {
+
+            System.out.println(e);
+        }
+
+        System.out.println(new File("C:\\A").listFiles().length);
     }
 }

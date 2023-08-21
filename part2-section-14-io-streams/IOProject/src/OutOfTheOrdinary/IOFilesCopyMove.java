@@ -310,7 +310,7 @@ public class IOFilesCopyMove {
 
 
     public static void main(String[] args) throws IOException {
-        // testFileToFile();
+        testFileToFile();
 
         // testFileToDir();
 
@@ -318,7 +318,7 @@ public class IOFilesCopyMove {
 
         // copyPathToOutputStream();
 
-        copyInputStreamToPath();
+        // copyInputStreamToPath();
     }
 }
 
