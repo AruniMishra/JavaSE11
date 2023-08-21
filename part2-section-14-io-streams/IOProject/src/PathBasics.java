@@ -29,6 +29,12 @@ public class PathBasics {
 
         //--- Using Path as a reference to a directory
 
+        /*
+        toAbsolutePath() method doesn't care if given path elements are physically available or not and
+        hence it doesn't declare to throw IOException.
+        It just returns the absolute path without any normalization.
+         */
+
         // Path object to current working directory
         Path cwd = Paths.get("");
         System.out.println(cwd.toAbsolutePath());
@@ -70,6 +76,13 @@ public class PathBasics {
 
     // Print Information about a Path object using path methods
     public static void showData(String pathName) {
+
+        /*
+        Given methods doesn't need actual path to physically exist and hence no exception is thrown at Runtime.
+        path.getName(2);
+        path.getNameCount() and
+        path.getFileName()
+         */
 
         System.out.println("---- Path data for '" + pathName + "' ----");
 

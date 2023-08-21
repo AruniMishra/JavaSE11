@@ -75,6 +75,11 @@ public class FilesInformationGathering {
 
         try {
 
+            /*
+            static method Files.size(path) method is equivalent to
+            instance method file.length() defined in java.io.File class.
+             */
+
             // get File size in bytes
             System.out.println("Files.size(p) = "
                     + Files.size(p) + " bytes");

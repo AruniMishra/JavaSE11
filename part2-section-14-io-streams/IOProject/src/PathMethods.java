@@ -113,6 +113,10 @@ public class PathMethods {
 
 
         /*
+        For 'path1.relativize(path2)' both path1 and path2 should be of same type.
+        Both should either be relative or absolute.
+        & IllegalArgumentException : if roots are different
+
         both attempts to use an absolute path
         either as the path invoking the method or the path passed as an argument
         throws an IllegalArgumentException

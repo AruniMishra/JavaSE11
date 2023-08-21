@@ -98,11 +98,50 @@ class Test44 {
     }
 }
 
+class Test54 {
+    public static void main(String[] args) {
+        var file1 = new File("F:\\A\\B\\D\\..\\C\\Book.java");// without normalizing the path objects
+        var file2 = new File("F:\\A\\B\\.\\.\\C\\Book.java");
+        System.out.println(file1 + " & " + file2);
+        System.out.println(file1.toPath().equals(file2.toPath())); // false
+    }
+}
+
 class Test55 {
     public static void main(String[] args) {
         var path1 = Paths.get("F:\\A\\B\\C");
         var path2 = Paths.get("F:\\A");
         System.out.println(path1.relativize(path2));
         System.out.println(path2.relativize(path1));
+    }
+}
+
+
+class Test59 {
+    public static void main(String[] args) {
+        /*
+        ".." represents parent directory in Windows/Linux environment.
+        If a ".." is preceded by a non-".." name, then both names are considered redundant.
+         */
+
+
+        /*
+        In the given case, First ".." is preceded by "A" and
+        second ".." is preceded by B, therefore, these are removed and path.normalize() returns 'Path[""]',
+        which represents an empty path.
+         */
+        var path = Paths.get("A", "..", "B", "..").normalize();
+        System.out.println(path);
+        System.out.println(path.getNameCount()); // For the empty path, `path.getNameCount()` returns 1
+        System.out.println(path.getName(0).toString().length()); // 0
+
+
+
+        /*
+        Again, ".." is preceded by a non-".." name, but "F:" represents root,
+        therefore only ".." is removed, it returns 'Path["F:\\.."]'.
+         */
+        var path1 = Paths.get("F:", "..", ".", "..").normalize();
+        System.out.println(path1);
     }
 }
