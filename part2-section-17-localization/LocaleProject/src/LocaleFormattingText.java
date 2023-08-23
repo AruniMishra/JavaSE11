@@ -34,7 +34,8 @@ public class LocaleFormattingText {
                     .getString("unsure");
 
             // Printing using a concatenated String
-            System.out.println("NOT LOCALIZED :: " + Locale.getDefault() + " : " + someText + " : " + floatValue
+            System.out.println("NOT LOCALIZED :: " + Locale.getDefault() + " : "
+                    + someText + " : " + floatValue
                     + ": " + now);
 
             // Localize each element:
