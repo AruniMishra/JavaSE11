@@ -46,7 +46,8 @@ public class LocaleResources {
         System.out.println("\n\t---Key/Values in properties file---");
 
         // Iterate through keys and do something
-        localeData.keySet().forEach((s) -> System.out.println("\t|" + s + " = " + localeData.getObject(s)));
+        localeData.keySet().forEach(
+                (s) -> System.out.println("\t|" + s + " = " + localeData.getObject(s)));
 
     }
 }

@@ -18,6 +18,13 @@ import java.util.stream.Stream;
 
 public class IOFilesCopyMove {
 
+    /*
+    Files.list(Path) returns the object of Stream<Path> containing all the paths
+    (files and directories) of current directory. It is not recursive.
+    
+    For recursive access, use overloaded Files.walk() methods.
+     */
+
     // Use File walker to print information about Directory
     private static void printDir(Path p) throws IOException {
         System.out.println(p + " is directory? " +

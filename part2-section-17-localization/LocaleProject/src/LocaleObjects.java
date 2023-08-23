@@ -8,6 +8,18 @@ Topic:  Creating instance of a Locale class
 import java.util.Locale;
 
 public class LocaleObjects {
+    /*
+    Locale class has overloaded constructors:
+
+    Locale(String language)
+    Locale(String language, String country)
+    Locale(String language, String country, String variant)
+
+    For the exam, you should know that Locale instance can be created by passing incorrect country and
+    language and in fact, getLanguage(), getCountry() and toString() method returns the passed strings.
+
+    NOTE: It may cause problem later on, when you try to retrieve resource bundle.
+     */
     public static void main(String[] args) {
 
         // Using Locale constructors -1
@@ -67,7 +79,6 @@ public class LocaleObjects {
         // IETF BCP 47 language are delimited with a dash, not underscore
         // System.out.println("\nLocale.forLanguageTag(\"en_US\") =" +
         //         Locale.forLanguageTag("en_US"));
-
 
 
         // takes a invalid tag

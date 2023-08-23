@@ -2,8 +2,11 @@ package javaio;
 
 import java.io.*;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
+import java.nio.file.attribute.BasicFileAttributes;
+import java.util.function.BiPredicate;
 import java.util.stream.IntStream;
 
 class Test01 {
@@ -174,5 +177,55 @@ class Test71 {
         }
 
         System.out.println(new File("C:\\A").listFiles().length);
+    }
+}
+
+
+class Test75 {
+
+    /*
+        F:.
+        └───Parent
+            │   a.txt
+            │   b.txt
+            │
+            └───Child
+                    c.txt
+                    d.txt
+     */
+    public static void main(String[] args) throws IOException {
+        var root = Paths.get("C:\\A");
+        /*
+        Even though endsWith(String) accepts String but it should evaluate to pathname,
+        such as "Child" OR "a.txt" but not just a part of pathname, such as "txt".
+
+        NOTE: If you want to find the files ending with "txt" then use
+        'p.toString().endsWith("txt")' in the lambda expression.
+         */
+        BiPredicate<Path, BasicFileAttributes> predicate = (p, a) -> p.endsWith("t2.txt");
+        try (var paths = Files.find(root, 2, predicate)) {
+            paths.forEach(System.out::println);
+        }
+
+        System.out.println("-----------");
+
+        BiPredicate<Path, BasicFileAttributes> predicate1 = (p, a) -> p.toString().endsWith("txt");
+        try (var paths = Files.find(root, 2, predicate1)) {
+            paths.forEach(System.out::println);
+        }
+
+    }
+}
+
+
+class Test78 {
+    public static void main(String[] args) throws IOException {
+        /*INSERT*/
+
+        Files.readAllLines(Paths.get("C:\\A\\t2.txt")).forEach(System.out::println);
+
+        Files
+                .lines(Paths.get("C:\\A\\t2.txt"))
+                .forEach(System.out::println);
     }
 }
