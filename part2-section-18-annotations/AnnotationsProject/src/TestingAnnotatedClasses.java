@@ -42,7 +42,7 @@ abstract class ParentClass {
     public abstract void abstractMethod();
 }
 
-
+//If the name of the attribute is 'value', then only its name can be omitted
 // -----------------------------------------------------------------------------------------------------------------
 // Apply annotations to the class
 // @MyClassAnnotation() // this becomes invalid if 'MyClassAnnotation' annotated with @Target(ElementType.FIELD)
@@ -51,6 +51,7 @@ abstract class ParentClass {
 
 // --Marker Annotation,  Repeatable
 @MyRepeatableAnnotation // first occurrence
+@MyRepeatableAnnotation() // first occurrence, also valid
 
 // --Single Element Annotation,  Repeatable
 // Do not have to specify element name if it is 'value'
