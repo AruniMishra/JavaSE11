@@ -11,7 +11,7 @@ javac -d . -cp . -processor AnnotationProcessor ..\..\..\src\TestingAnnotatedCla
 
 import annotations.*;
 
-import java.lang.annotation.Annotation;
+import java.lang.annotation.*;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.Arrays;
@@ -25,6 +25,12 @@ interface SomeInterface {
 
     @MySecondInheritedAnnotation
     void interfaceMethod();
+}
+
+@Retention(RetentionPolicy.RUNTIME)
+@Target(ElementType.TYPE)
+@interface TrafficLight {
+    String[] value();
 }
 
 /*
@@ -42,7 +48,7 @@ abstract class ParentClass {
     public abstract void abstractMethod();
 }
 
-//If the name of the attribute is 'value', then only its name can be omitted
+// If the name of the attribute is 'value', then only its name can be omitted
 // -----------------------------------------------------------------------------------------------------------------
 // Apply annotations to the class
 // @MyClassAnnotation() // this becomes invalid if 'MyClassAnnotation' annotated with @Target(ElementType.FIELD)
@@ -58,6 +64,7 @@ abstract class ParentClass {
 @MyRepeatableAnnotation(10) // value passed is 10; 2nd occurrence
 @MyRepeatableAnnotation(2) // 3rd occurrence
 @MyRepeatableAnnotation(value = 132)
+@TrafficLight({"R", "G", "B"})
 public class TestingAnnotatedClasses
         extends ParentClass
         implements SomeInterface {
@@ -66,11 +73,15 @@ public class TestingAnnotatedClasses
     String MyField = "AnnotatedField";
 
     public static void main(String[] args) {
+
         new TestingAnnotatedClasses().printRuntimeAnnotations();
+        System.out.println("-----------------");
 
         MyRepeatableAnnotation[] myRepeatableAnnotations =
                 TestingAnnotatedClasses.class.getAnnotationsByType(MyRepeatableAnnotation.class);
-        Arrays.stream(myRepeatableAnnotations).map(myRepeatableAnnotation -> "value: " + myRepeatableAnnotation.value()).forEach(System.out::println);
+        Arrays.stream(myRepeatableAnnotations)
+                .map(myRepeatableAnnotation -> "value: " + myRepeatableAnnotation.value())
+                .forEach(System.out::println);
     }
 
     // reflection methods used to get information about class, methods,
