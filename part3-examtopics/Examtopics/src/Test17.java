@@ -39,9 +39,13 @@ public class Test17<N extends Number, C extends Collection<N>> {
         System.out.println(b1 + i1 + b2);
 
 
+        final int i03 = 10;
+        short s03 = i03;
+
         // with final variable and the value is within the range,
         // then final variable is implicitly casted to target type.
         final int i4 = 32767;
+        // final int i4 = 327670; // invalid
         short s3 = i4;
 
         int i7 = 10;

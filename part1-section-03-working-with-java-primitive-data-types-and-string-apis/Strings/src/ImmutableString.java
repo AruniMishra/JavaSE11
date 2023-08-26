@@ -4,14 +4,15 @@ public class ImmutableString {
 
         //  "Hello" exists on the string pool, s1 gets a reference to it
         /*
-        String objects created without the use of new keyword are stored in the String Constant Pool part of the heap.
+        String objects created without the use of new keyword are stored in
+        the String Constant Pool part of the heap.
          */
         String s1 = "Hello";
 
         /*
         The following code does not change the value of "Hello" on the
         string pool, it creates a new string with value of "Hello World" and
-         passes the reference to this new string to s1;
+        passes the reference to this new string to s1;
 
         "Hello World" not added to the string pool unless intern() called
         */

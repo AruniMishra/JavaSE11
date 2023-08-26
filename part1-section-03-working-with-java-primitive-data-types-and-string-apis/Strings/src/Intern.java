@@ -1,11 +1,12 @@
 public class Intern {
     public static void main(String[] args) {
-        // S1 refers to Object in the Heap Area
+
         /*
          JVM will create a new string object in normal (non-pool) heap memory
          and the literal “Welcome” will be placed in the string constant pool.
          The variable s will refer to the object in the heap (non-pool)
          */
+        // S1 refers to Object in the Heap Area
         String s1 = new String("GFG"); // Line-1
 
         System.out.println(s1 == "GFG");
@@ -18,6 +19,8 @@ public class Intern {
 
         System.out.println(s2 == s3);
 
+        // String literals automatically interned so all "hello" literals
+        // point to same reference in memory, in the string pool
         // S4 refers to Object in the SCP Area
         String s4 = "GFGGFG"; // Line-4
 
