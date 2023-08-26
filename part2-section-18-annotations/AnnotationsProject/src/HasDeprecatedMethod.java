@@ -7,6 +7,12 @@ Topic:  Using annotations in java.lang package.
 
 // Create a class with a method marked as deprecated
 public class HasDeprecatedMethod {
+    /*
+    @Deprecated annotation has 2 attributes: 'since' and 'forRemoval'.
+    Default value of 'since' is empty string "" and  default value of 'forRemoval' is false.
+     */
+
+
     /**
      * Using javadoc tag @deprecated
      *
@@ -41,6 +47,11 @@ public class HasDeprecatedMethod {
 class JavaLangAnnotations {
 
     @SuppressWarnings({"deprecation", "removal"})
+    // @SuppressWarnings({"deprecated", "removal"}) // valid, but "deprecated" is not a valid value.
+    /*
+    @SuppressWarnings("deprecation") => As we are passing just one value, "deprecation" to String [],
+    hence {} can be omitted
+     */
     // @SuppressWarnings({"removal"})
     // @SuppressWarnings({"deprecation"})
     public static void main(String[] args) {

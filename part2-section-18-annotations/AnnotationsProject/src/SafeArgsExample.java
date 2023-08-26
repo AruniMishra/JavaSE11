@@ -40,3 +40,9 @@ public class SafeArgsExample {
                 .forEach(System.out::println);
     }
 }
+
+    /*
+    @SafeVarargs annotation can be applied to methods and constructors only it causes error if:
+    - If it is applied to a fixed arity method/constructor
+    - If it is applied to a variable arity method that is neither static nor final nor private
+     */
