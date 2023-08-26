@@ -9,6 +9,12 @@ public class StringBuilderCreation {
         it increases the capacity by (oldcapacity*2)+2.
          */
 
+            /*
+            StringBuilder(String str):
+            This constructor is used for creating a StringBuilder object with
+            initial content the same as str characters
+            and initial capacity = 16 + length of str.
+             */
         // creates empty builder
         // An empty StringBuilder always has initial capacity of 16
         StringBuilder sb = new StringBuilder();
@@ -33,7 +39,7 @@ public class StringBuilderCreation {
 
         sb3.append("abcdefghijklmnopqrstuvwxyz");
         System.out.println("\nsb3.length2 = " + sb3.length());
-        System.out.println("sb3.capacity2 = " + sb3.capacity()); //now (34*2)+2=70
+        System.out.println("sb3.capacity2 = " + sb3.capacity()); // now (34*2)+2=70
 
         // You can set initial capacity manually
         StringBuilder sb4 = new StringBuilder(26);
