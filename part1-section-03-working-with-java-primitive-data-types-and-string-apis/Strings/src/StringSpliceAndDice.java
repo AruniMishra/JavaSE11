@@ -1,4 +1,3 @@
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.StringJoiner;
@@ -45,7 +44,7 @@ public class StringSpliceAndDice {
         System.out.println(Arrays.toString(splitWords));
 
 
-        //first create a sentence with multiple white space
+        // first create a sentence with multiple white space
         sentence = String.join("\u0020\t\u0020\n", wordList);
         System.out.println("Our sentence with spaces and tabs and carriage returns: " + sentence);
 
@@ -58,5 +57,10 @@ public class StringSpliceAndDice {
         // 2 array elements as the result...
         splitWords = sentence.split(" ", 2);
         System.out.println(Arrays.toString(splitWords));
+
+        /*
+        Variable 'str' refers to "BEVERAGE".
+        str.split("E", 3); returns ["B","V","RAGE"] as pattern is applied 3 - 1 = 2 times.
+         */
     }
 }
