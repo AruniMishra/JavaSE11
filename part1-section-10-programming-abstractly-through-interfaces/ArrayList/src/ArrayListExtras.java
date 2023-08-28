@@ -43,7 +43,7 @@ public class ArrayListExtras {
         // typedList.set(typedList.size(), new BaseClass("def"));
         // typedList.add(typedList.size() + 1, new BaseClass("def"));
 
-        System.out.println("3typedList = " + typedList);
+        System.out.println("\n3typedList = " + typedList);
         System.out.println("3rawList = " + rawList);
 
         // Next, we create a typed List which we'll try to add to our
@@ -60,7 +60,7 @@ public class ArrayListExtras {
         // forgot that set does not mean addAll....
         // typedList.set(0, typedSubList);
         rawList.set(0, typedSubList);
-        System.out.println("4typedList = " + typedList);
+        System.out.println("\n4typedList = " + typedList);
         System.out.println("4rawList = " + rawList);
 
         ArrayList<BaseClass> newBaseList = new ArrayList<>();
@@ -68,7 +68,7 @@ public class ArrayListExtras {
 
         ArrayList<BaseClass> newBaseListWithCapacity = new ArrayList<>(10);
         newBaseListWithCapacity.add(0, new BaseClass("one"));
-        newBaseListWithCapacity.set(0, new BaseClass("one")); // works only if index 0 is add
+        newBaseListWithCapacity.set(0, new BaseClass("one")); // works only if index 0 is added
 
         ArrayList<BaseClass> newBaseListWithSomeElements = new ArrayList<>(
                 List.of(new BaseClass("one"), new BaseClass("two")));

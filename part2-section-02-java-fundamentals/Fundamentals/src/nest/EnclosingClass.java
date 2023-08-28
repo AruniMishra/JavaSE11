@@ -20,8 +20,10 @@ public class EnclosingClass {
         // invoke nested class's method via instance reference
         new NestedStaticClass().getInstanceName();
 
-        // invalid: invoke nested class's method via class reference
+        // invalid: invoke nested class's non-static method via class reference
         // NestedStaticClass.getInstanceName();
+
+        NestedStaticClass.getStaticName();
     }
 
     // Begin declaration of static nested class named NestedStaticClass
@@ -50,6 +52,7 @@ public class EnclosingClass {
             return "getInstanceName() = " + this.instanceName;
         }
 
+        // enum and interface implicit are static
         public enum Colors {
             RED, BLUE, YELLOW
         }

@@ -48,7 +48,7 @@ public class EnclosingClass {
          */
 
         // invalid: static field
-        // public static String staticName = "staticName";
+        // public static String staticName1 = "staticName";
 
         // invalid: static method
         // public static String getStaticName() { return "getStaticName() = " + staticName; }

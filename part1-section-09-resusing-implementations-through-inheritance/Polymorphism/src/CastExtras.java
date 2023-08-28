@@ -71,9 +71,9 @@ public class CastExtras {
          * below code will compile, but will JVM won't allow.
          */
         BaseClass baseClass1 = new BaseClass();
-        NextClass nextClass1 = (NextClass) baseClass1;
+        NextClass nextClass1 = (NextClass) baseClass1; // ClassCastException
 
-        BaseClass baseClass2 = new NextClass();
+        BaseClass baseClass2 = new NextClass(); // valid
     }
 
     static class BaseClass {
