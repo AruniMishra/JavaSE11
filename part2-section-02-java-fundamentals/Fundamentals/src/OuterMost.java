@@ -10,6 +10,8 @@ public class OuterMost {
 
     // public inner class member
     public class PublicInner {
+
+        static final String myStatic = "";
         private String InnerString = "Attribute of Public inner class";
 
         // Constructor

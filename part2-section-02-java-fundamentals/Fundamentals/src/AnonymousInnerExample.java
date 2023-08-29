@@ -22,7 +22,8 @@ public class AnonymousInnerExample {
         AnAbstractClass a = new AnAbstractClass() {
 
             // static fields, initializers, methods not allowed
-            // static int a =0;
+            // static int a0 =0;
+            static final int a1 = 0; // valid with final
 
             // Implementing the abstract method on AnAbstractClass
             public void doSomething() {
