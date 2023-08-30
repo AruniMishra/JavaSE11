@@ -27,6 +27,7 @@ public class ExecutorExample {
         // Fire and Forget method of execution:  ThreadOne
         executorService.execute(ExecutorExample::doSomethingThreadOne);
 
+        ExecutorExample.doSomethingThreadOne();
         // valid
         // executorService.execute(() -> {
         //     doSomethingThreadOne();

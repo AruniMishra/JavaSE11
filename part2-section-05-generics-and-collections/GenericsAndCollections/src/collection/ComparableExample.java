@@ -5,6 +5,8 @@ Section 4: Generics and Collections
 Topic:  Comparable interface
 */
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -72,14 +74,14 @@ public class ComparableExample {
         Or, using SmartDogComparator implements Comparator<collection.SmartDog>
          */
 
-        // ArrayList<SmartDog> al = new ArrayList<collection.SmartDog>();
-        // al.add(new collection.SmartDog(collection.SmartDog.DogType.COLLIE));
-        // al.add(new collection.SmartDog(collection.SmartDog.DogType.LABRADOODLE));
-        // al.add(new collection.SmartDog(collection.SmartDog.DogType.PUG));
-        // al.add(new collection.SmartDog(collection.SmartDog.DogType.POODLE));
-        // al.add(new collection.SmartDog(collection.SmartDog.DogType.LABRADOR));
-        // Collections.sort(al, new SmartDogComparator());
-        // System.out.println("Sorted Dogs " + al);
+        ArrayList<SmartDog> al = new ArrayList<collection.SmartDog>();
+        al.add(new collection.SmartDog(collection.SmartDog.DogType.COLLIE));
+        al.add(new collection.SmartDog(collection.SmartDog.DogType.LABRADOODLE));
+        al.add(new collection.SmartDog(collection.SmartDog.DogType.PUG));
+        al.add(new collection.SmartDog(collection.SmartDog.DogType.POODLE));
+        al.add(new collection.SmartDog(collection.SmartDog.DogType.LABRADOR));
+        Collections.sort(al, new SmartDogComparator());
+        System.out.println("Sorted Dogs " + al);
         // // al.sort(new SmartDogComparator());
 
         // --Option2 end

@@ -28,11 +28,12 @@ public class EnclosingClass {
 
     // Begin declaration of static nested class named NestedStaticClass
     public static class NestedStaticClass {
+
         // static field
         public static String staticName = "NestedStaticClass.staticName";
-
         // instance field
         public String instanceName = "NestedStaticClass.instanceName";
+        int a = 0;// non-static
 
         // static method
         public static String getStaticName() {
@@ -53,11 +54,15 @@ public class EnclosingClass {
         }
 
         // enum and interface implicit are static
-        public enum Colors {
+        public static enum Colors {
             RED, BLUE, YELLOW
         }
 
         public interface NestedInterface {
+
+        }
+
+        class AnotherNestedClassInNestedStaticClass { // non-static
 
         }
     }  // Ends declaration of the static nested class

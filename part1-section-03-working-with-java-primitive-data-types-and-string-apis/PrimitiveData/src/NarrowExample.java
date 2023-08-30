@@ -19,24 +19,36 @@ public class NarrowExample {
         char c = 65535;
         short s = 32767;
 
+
+
+        /*
+        Implicit narrowing occurs only between for byte, char, short, and int.
+        Remember that it does not occur for long, float, or double. So, this will not compile: int i = 129L;
+        However, an implicit widening conversion from long to a float or a double is valid:
+
+        long l = 10L;
+        float f = l; //valid
+        double d = l; //valid
+         */
+
         // Implicit narrowing can no longer be done because the literal does not fit the container it is assigned to.
-//        byte b1 = 128;
-//        char c1 = 65536;
-//        short s1 = 32768;
+        // byte b1 = 128;
+        // char c1 = 65536;
+        // short s1 = 32768;
 
-        double d1 =0.0;
-//        float f2 = 0.0;
-//        byte b2 = 0.0;
-//        char c2 = 0.0;
-//        short s2 = 0.0;
-//        int i2 = 0.0;
-//        long l2 = 0.0;
+        double d1 = 0.0;
+        // float f2 = 0.0;
+        // byte b2 = 0.0;
+        // char c2 = 0.0;
+        // short s2 = 0.0;
+        // int i2 = 0.0;
+        // long l2 = 0.0;
 
-        int myIntVariable = 1;
 
-//        byte b2 = myIntVariable;
-//        char c2 = myIntVariable;
-//        short s2 = myIntVariable;
+        int myIntVariable = 1; // below is valid, if this is declared as final int
+        // byte b2 = myIntVariable;
+        // char c2 = myIntVariable;
+        // short s2 = myIntVariable;
 
     }
 }

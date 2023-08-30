@@ -53,7 +53,7 @@ public class BinaryOperatorExamples {
             ex.printStackTrace(System.out);
         }
 
-        //Modulus with zero divisor using  double operands
+        // Modulus with zero divisor using  double operands
         try {
             System.out.println("Modulus with zero divisor (10.0 % 0.0) = "
                     + (10.0 % 0.0));
@@ -77,6 +77,11 @@ public class BinaryOperatorExamples {
                 + String.format("%8s", Integer.toBinaryString(0b10001000 >> 3)).
                 replace(' ', '0'));
 
+
+        /*
+        For left shifts there is no difference between shifting signed and unsigned values
+        so there is only one leftshift '<<' in java
+         */
 
         // >>>  right shift unsigned
         System.out.println("result of unsigned right shift (" +
@@ -106,7 +111,7 @@ public class BinaryOperatorExamples {
                 + e + ", and f = " + f);
 
         e = 0;
-        f  = 0;
+        f = 0;
         if ((e++ <= f) || (++e < f)) {
             System.out.println("Evaluation [(e++ <= f) || (++e < f)] met");
         }

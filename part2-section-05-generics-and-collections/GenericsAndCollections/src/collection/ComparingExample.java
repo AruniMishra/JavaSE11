@@ -59,5 +59,21 @@ public class ComparingExample {
                                 Comparator.comparing(Person::getFirstName)));
 
         people.forEach(System.out::println);
+
+
+
+        /*
+        Manipulating a stream doesn't manipulate the backing source of the stream.
+        Here, when you chain the sorted method to a stream, it returns a reference to a Stream that appears sorted.
+        The original List which was used to create the stream will remain as it is.
+        If you want to sort a List permanently, you should use one of the Collections.sort methods.
+
+        2. There is another issue with this code. Stream.sorted is an intermediate operation.
+        It will not be executed until a terminal operation is invoked on the stream.
+        Therefore, in this case, the sorted method will not even be invoked.
+         */
+        people.stream().sorted(Comparator.comparing(Person::getLastName)
+                .thenComparing(
+                        Comparator.comparing(Person::getFirstName)));
     }
 }

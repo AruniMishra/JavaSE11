@@ -14,6 +14,8 @@ or,
 
 - telling the java virtual machine to look for a module jar file or exploded module directory using the --module-path 
 or -p directory then pass the module name using the -m or --module option.
+  - -p c:\modules, or
+  - -p c:\modules\movies.jar
 
 ```shell
  java --module-path . --module MyFirstModule

@@ -21,14 +21,15 @@ public class MapSetExamples {
                 "Ralph", 23,
                 "George", 15,
                 "Kate", 50, "A", 1));
-        System.out.println("Initial Values:\n" + "1:"+ treeMap);
+        System.out.println("Initial Values:\n" + "1:" + treeMap);
         // This returns a "modifiable View" of the Map, however, you
         // cannot add entries.
         // This set is a view meaning changes to the set actually are changed
         // to the map, although add and add all are not supported here.
         Set entrySet = treeMap.entrySet();
         entrySet.remove("John");
-        System.out.println("2:"+ treeMap);
+        System.out.println("2:" + treeMap);
+
 
         // So why didn't it change?
         // Because our collection is an entrySet, we must match
@@ -39,11 +40,17 @@ public class MapSetExamples {
         // factory method, Map.entry, which was introduced in Java 9.
 
         entrySet.remove(Map.entry("John", 25));
-        System.out.println("3:"+ treeMap);
+        System.out.println("3:" + treeMap);
 
         entrySet.remove(Map.entry("John", 35));
-        System.out.println("4:"+ treeMap);
+        System.out.println("4:" + treeMap);
 
+
+        // remove on Map directly
+        treeMap.remove("A");
+        System.out.println("5:" + treeMap);
+
+        System.out.println("-----------------------------");
 
         // Collection of just the values...
         Collection<Integer> values = treeMap.values();
@@ -55,6 +62,7 @@ public class MapSetExamples {
         keySet.remove("Mary");
         System.out.println(treeMap);
 
+        System.out.println("-----------------------------");
 
         // Add some more values to original Map.
         treeMap.putAll(Map.of(
@@ -65,10 +73,12 @@ public class MapSetExamples {
         System.out.println("Size of keySet Set: " + keySet.size());
 
 
+        System.out.println("retainAll(Set.of(\"Carol\", \"Kate\", \"Mary\", \"Andrew\")");
         keySet.retainAll(Set.of("Carol", "Kate", "Mary", "Andrew"));
         System.out.println(treeMap);
 
 
+        System.out.println("-----------------------------");
         // ConcurrentModificationException
         // iterating through the keySet collection & retrieved from
         // this source, hence, the error.
@@ -90,7 +100,7 @@ public class MapSetExamples {
 
         tCopyMutable.put("Ralph", 25);
         System.out.println(tCopyMutable);
-        // tCopyMutable.entrySet().add(Map.entry("John", 35));
+        // tCopyMutable.entrySet().add(Map.entry("John", 35)); // UnsupportedOperationException
         // System.out.println(tCopyMutable);
 
 

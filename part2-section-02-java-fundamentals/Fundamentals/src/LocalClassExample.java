@@ -1,10 +1,7 @@
 public class LocalClassExample {
 
-    public static class TestInner{
-
-    }
+    static int myOuterStatic;
     private String defaultName = "Jane";
-
     // local field for last name
     private String lastName = "Doe";
 
@@ -26,10 +23,13 @@ public class LocalClassExample {
         class LocalClass {
             // local class can have all the same members as an outer class
             // (with the exception of static members).
+            static final int myOuterStatic = 1; // valid though
             String name;
+            private String lastName = "Doe";
 
             // Constructor on local class
             private LocalClass(String name) {
+
                 if (name == null) {
                     this.name = defaultName;
                 } else {
@@ -63,5 +63,9 @@ public class LocalClassExample {
 
 
         new LocalClass(null).performSomeAction();
+    }
+
+    public static class TestInner {
+
     }
 }

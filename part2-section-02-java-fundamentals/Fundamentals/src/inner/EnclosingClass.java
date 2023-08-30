@@ -50,7 +50,7 @@ public class EnclosingClass {
         // invalid: static field
         // public static String staticName1 = "staticName";
 
-        // invalid: static method
+        // invalid: static method: Inner(non-static) classes can't have static methods though
         // public static String getStaticName() { return "getStaticName() = " + staticName; }
 
 
