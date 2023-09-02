@@ -75,11 +75,11 @@ public class ComparableExample {
          */
 
         ArrayList<SmartDog> al = new ArrayList<collection.SmartDog>();
-        al.add(new collection.SmartDog(collection.SmartDog.DogType.COLLIE));
-        al.add(new collection.SmartDog(collection.SmartDog.DogType.LABRADOODLE));
-        al.add(new collection.SmartDog(collection.SmartDog.DogType.PUG));
-        al.add(new collection.SmartDog(collection.SmartDog.DogType.POODLE));
-        al.add(new collection.SmartDog(collection.SmartDog.DogType.LABRADOR));
+        al.add(new SmartDog(collection.SmartDog.DogType.COLLIE));
+        al.add(new SmartDog(collection.SmartDog.DogType.LABRADOODLE));
+        al.add(new SmartDog(collection.SmartDog.DogType.PUG));
+        al.add(new SmartDog(collection.SmartDog.DogType.POODLE));
+        al.add(new SmartDog(collection.SmartDog.DogType.LABRADOR));
         Collections.sort(al, new SmartDogComparator());
         System.out.println("Sorted Dogs " + al);
         // // al.sort(new SmartDogComparator());

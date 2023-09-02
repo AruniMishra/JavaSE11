@@ -21,10 +21,8 @@ public class WrapperLimits {
         // a double array
         double[] doubleArray = new double[]{32.0f};
 
-        System.out.println("Primitive assignment, float to double: "
-                + d);
-        System.out.println("Primitive array initialization assignment," +
-                " float to double: " + Arrays.toString(doubleArray));
+        System.out.println("Primitive assignment, float to double: " + d);
+        System.out.println("Primitive array initialization assignment," + " float to double: " + Arrays.toString(doubleArray));
 
 
         // An autoboxed float -> Float cannot be assigned to a Double

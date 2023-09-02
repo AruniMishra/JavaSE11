@@ -3,7 +3,6 @@
 Implicit narrowing(for final constant) occurs only for byte, char, short, and int. 
 Remember that it does not occur for long, float, or double.
 
-Implicit narrowing occurs only for byte, char, short, and int. Remember that it does not occur for long, float, or double.
 
 
 

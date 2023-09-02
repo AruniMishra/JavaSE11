@@ -5,7 +5,10 @@ Section 4: Generics and Collections
 Topic:  Comparator interface
 */
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.List;
 
 // Create a comparator to sort names using last names
 class LastNameComparator implements Comparator<String> {
@@ -74,7 +77,8 @@ public class ComparatorExample {
         LastNameComparator l = new LastNameComparator();
 
         // Passing custom Comparator to List.sort
-        namesList.sort(l);
+        // namesList.stream().sorted(l); // Result of 'Stream.sorted()' is ignored, no change to original list
+        namesList.sort(l); // valid
         // Collections.sort(namesList, l); // valid: but Collections.sort could be replaced with List.sort
         System.out.println("--- ArrayList.sort(collection.LastNameComparator) ---");
         namesList.forEach(System.out::println);
