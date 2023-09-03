@@ -60,12 +60,12 @@ public class CheckedExamples {
         System.out.println("-----------------------------------------------------");
 
         try {
-            System.out.println("---- Custom Throwable Thrown/Caught -------");
+            System.out.println("\n---- Custom Throwable Thrown/Caught -------");
             cex.throwThrowable(0);
         } catch (CustomThrowable c) {
             c.printStackTrace(System.out);
         }
-        System.out.println("-----------------------------------------------------");
+        System.out.println("\n-----------------------------------------------------");
         System.out.println("---- Custom Throwable Thrown/Not Caught -----");
         // cex.throwThrowable(1);
 
@@ -75,12 +75,12 @@ public class CheckedExamples {
 
 
         CheckedExamples cex1 = new CheckedExamples();
-        System.out.println("------- Custom Throwable Handled -------");
+        System.out.println("\n------- Custom Throwable Handled -------");
         // try/catch not required since method handles exception
         cex1.handleThrowable();
 
         try {
-            System.out.println("---- Custom Exception Thrown/Caught -------");
+            System.out.println("\n---- Custom Exception Thrown/Caught -------");
             cex1.testExceptionNotHandled(0);
         } catch (CustomException c) {
             c.printStackTrace(System.out);
@@ -129,8 +129,8 @@ public class CheckedExamples {
         } catch (Exception e) {
             // Calls constructor on CustomException that takes message
             // and originating Exception object, and boolean for stack trace
-            if (i == 0) throw new CustomException("Custom Exception", e, false);
-            else throw new CustomException("Custom Exception", e, true);
+            if (i == 0) throw new CustomException("Custom Exception- false", e, false);
+            else throw new CustomException("Custom Exception- true", e, true);
         }
     }
 }

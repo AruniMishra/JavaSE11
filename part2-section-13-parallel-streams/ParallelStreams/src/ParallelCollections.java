@@ -79,6 +79,7 @@ public class ParallelCollections {
                 "groupingByConcurrent() are " + c4.characteristics());
 
 
+        System.out.println("---------------");
         // Create a List of randomly generated Persons.
         Set<Person> personList = Stream.generate(Person::new)
                 // .limit(500_000)
@@ -87,12 +88,13 @@ public class ParallelCollections {
         testToMap(personList);
 
 
+        System.out.println("---------------");
         // Create a List of randomly generated Persons.
         Set<Person> personList1 = Stream.generate(Person::new)
-                .limit(2_000_000)
+                .limit(5_000_000)
                 .collect(Collectors.toSet());
 
-        testToMap(personList1);
+        testGroupingBy(personList1);
 
     }
 

@@ -7,6 +7,7 @@ Topic:  Extract stream data using map, peek and flatMap
 
 import element.Student;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -54,6 +55,19 @@ public class PeekExamples {
 
         System.out.println("firstList = " + firstList);
         System.out.println("thirdList = " + thirdList);
+
+
+        System.out.println("\n\n----------------------");
+
+        List<Character> ratings = Arrays.asList('U', 'R', 'A');
+        ratings.stream()
+                .filter(x -> x == 'A')  // 1
+                .peek(x -> System.out.println("Old Rating " + x)) // 2
+                .map(x -> x == 'A' ? 'R' : x) // 3
+                // .peek(x->System.out.println("New Rating "+x)
+                .forEach(x -> System.out.println("New Rating " + x)
+
+                ); // 4
 
     }
 }

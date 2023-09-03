@@ -86,7 +86,14 @@ public class Tester {
         aToB.foo(list); // B's Collection foo
         System.out.println("6 end--------\n");
 
+
+        // a = (A) b; // valid, comment this for below code
+
         b = (B) a; // ClassCastException
         // b.callDisplay();
     }
 }
+
+
+
+
