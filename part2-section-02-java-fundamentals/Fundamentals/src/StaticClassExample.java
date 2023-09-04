@@ -3,6 +3,9 @@
 // import nest.EnclosingClass;
 
 // Option2, static here is optional
+
+import nest.EnclosingClass;
+
 import static nest.EnclosingClass.NestedStaticClass;
 
 public class StaticClassExample {
@@ -11,17 +14,17 @@ public class StaticClassExample {
         Option1
          */
 
-        // // Reference static field on static nested class directly:
-        // System.out.println(EnclosingClass.NestedStaticClass.staticName);
-        //
-        // // Reference static method on static nested class directly:
-        // System.out.println(EnclosingClass.NestedStaticClass.getStaticName());
-        //
-        // // Reference enum on static nested class directly:
-        // System.out.println(EnclosingClass.NestedStaticClass.Colors.BLUE);
-        //
-        // // Local variable declaration using a nested class's interface
-        // EnclosingClass.NestedStaticClass.NestedInterface n;
+        // Reference static field on static nested class directly:
+        System.out.println(EnclosingClass.NestedStaticClass.staticName);
+
+        // Reference static method on static nested class directly:
+        System.out.println(EnclosingClass.NestedStaticClass.getStaticName());
+
+        // Reference enum on static nested class directly:
+        System.out.println(EnclosingClass.NestedStaticClass.Colors.BLUE);
+
+        // Local variable declaration using a nested class's interface
+        EnclosingClass.NestedStaticClass.NestedInterface n;
         //____________________________________________________________
 
         /*
@@ -37,7 +40,7 @@ public class StaticClassExample {
         System.out.println(NestedStaticClass.Colors.BLUE);
 
         // Local variable declaration using a nested class's interface
-        NestedStaticClass.NestedInterface n;
+        NestedStaticClass.NestedInterface n1;
 
         //____________________________________________________________
 
@@ -45,6 +48,8 @@ public class StaticClassExample {
         // Create an instance of the static class
         NestedStaticClass nInstance = new NestedStaticClass();
         System.out.println(nInstance.getInstanceName());
+
+        NestedStaticClass nInstance1 = new EnclosingClass.NestedStaticClass(); // also valid
 
     }
 }

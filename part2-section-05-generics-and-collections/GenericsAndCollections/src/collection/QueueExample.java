@@ -67,11 +67,11 @@ public class QueueExample {
         // Retrieve an element using element or peek
         System.out.println("element() returns : " + q.element() + " : " + q);
 
-        System.out.println("peek() returns : " + q.peek() + " : " + q);
+        System.out.println("peek() returns(no exception) : " + q.peek() + " : " + q);
 
         // Retrieve and remove an element from the queue
         // using poll and remove
-        System.out.println("poll() returns : " + q.poll() + " : " + q);
+        System.out.println("poll() returns(no exception) : " + q.poll() + " : " + q);
 
         System.out.println("remove() returns : " + q.remove() + " : " + q);
     }

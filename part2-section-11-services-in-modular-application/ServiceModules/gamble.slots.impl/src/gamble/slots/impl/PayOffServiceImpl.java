@@ -17,6 +17,8 @@ public class PayOffServiceImpl implements PayOffService {
 
     // This is a static provider method, one of the two ways to
     // configure a Provider
+
+
     public static PayOffService provider() {
         System.out.println("PayOffServiceImpl is getting loaded" +
                 " by provider method");
@@ -34,5 +36,35 @@ public class PayOffServiceImpl implements PayOffService {
 
     public void twoInRow(SlotType s) {
         System.out.println(className + "10 Credits to keep betting");
+    }
+}
+
+
+/*
+Also,
+If a service provider has public static provider() method, then it is not required for the service provider to be
+a subtype of the service type. Only the provider method should return a subtype of the service type
+ */
+class PayOffServiceImpl2 {
+
+    public static PayOffService provider() {
+        System.out.println("PayOffServiceImpl is getting loaded" +
+                " by provider method");
+        return new PayOffService() {
+            @Override
+            public void hitTheJackPot() {
+
+            }
+
+            @Override
+            public void threeInRow(SlotType s) {
+
+            }
+
+            @Override
+            public void twoInRow(SlotType s) {
+
+            }
+        };
     }
 }

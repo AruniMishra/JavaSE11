@@ -1,13 +1,12 @@
 package standardTest;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.Reader;
+import java.io.*;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.TreeMap;
+import java.util.concurrent.Callable;
+import java.util.concurrent.Future;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -163,7 +162,7 @@ class InitClass {
     }
 }
 
-class Test14{
+class Test14 {
     public static void main(String[] args) {
         HashMap<?, List<String>> box = new HashMap<String, List<String>>();
 
@@ -172,17 +171,114 @@ class Test14{
 }
 
 
-class TestClass18{
-    public static Integer wiggler(Integer x){
+class TestClass18 {
+    public static Integer wiggler(Integer x) {
         Integer y = x + 10;
         x++;
         System.out.println(x);
         return y;
     }
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         Integer dataWrapper = new Integer(5);
         Integer value = wiggler(dataWrapper);
-        System.out.println(dataWrapper+value);
+        System.out.println(dataWrapper + value);
     }
 }
+
+class BreakTest {
+    public static void main(String[] args) {
+
+
+        int i = 0, j = 5;
+        lab1:
+        for (; ; i++) {
+            for (; ; --j) if (i > j) break lab1;
+        }
+        System.out.println(" i = " + i + ", j = " + j);
+    }
+}
+
+class IOTest {
+    public static void main(String[] args) throws IOException {
+        try (BufferedReader bfr = new BufferedReader(
+                new FileReader("c:\\works\\a.java"))) {
+            String line = null;
+            while ((line = bfr.readLine()) != null) {
+                System.out.println(line);
+            }
+        }
+
+        // NoSuchFileException and AccessDeniedException are subclasses of IOException.
+        // You cannot include classes that are related by inheritance in the same multi-catch block.
+        // catch(
+        //         // NoSuchFileException | IOException | AccessDeniedException e){
+        //     e.printStackTrace();
+        // }
+    }
+}
+
+class Test26 {
+    public static void main(String[] args) {
+        AtomicInteger ai = new AtomicInteger();
+        Stream<String> stream = Stream.of("old", "king", "cole", "was", "a",
+                "merry", "old", "soul").parallel();
+        stream.filter(e -> {
+            ai.incrementAndGet();
+            return e.contains("o");
+        }).allMatch(x -> x.indexOf("o") > 0);
+
+        System.out.println("AI = " + ai);
+    }
+
+}
+
+
+class test34{
+
+    public static void main(String[] args) {
+        var numA = new Integer[]{1, 4, 3}; //1
+
+        /*
+        The list/set returned by the of/copyOf methods is completely independent of the original collection.
+         */
+        var list1 = List.of(numA); //2
+        var list2 = Collections.unmodifiableList(list1); //3
+        numA[1] = 2; //4
+        System.out.println(list1+" "+list2);
+    }
+}
+
+
+
+ class PortConnector{
+    public PortConnector(int port) throws IOException{
+
+    }
+}
+
+class CleanConnector extends PortConnector {
+    public CleanConnector(int port) throws Exception {
+        super(port);
+    }
+}
+
+
+class A{
+    public A() throws IOException{ }
+    void m() throws IOException{ }
+}
+
+class B extends A{
+    //IOException is valid here, but FileNotFoundException is invalid
+    public B() throws IOException {
+
+    }
+
+    //FileNotFoundException is valid here, but Exception is invalid
+    @Override
+    void m() throws FileNotFoundException { }
+}
+
+
+

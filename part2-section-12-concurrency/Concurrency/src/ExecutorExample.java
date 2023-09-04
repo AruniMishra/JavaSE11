@@ -34,12 +34,14 @@ public class ExecutorExample {
         //     return;
         // });
 
-        Runnable command = () -> doSomethingThreadOne();
+        Runnable command = () -> {
+            doSomethingThreadOne();
+        };
 
         Runnable command1 = new Runnable() {
             @Override
             public void run() {
-
+                System.out.println("--");
             }
         };
 

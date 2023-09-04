@@ -83,8 +83,10 @@ public class ThreadInterfacesReview {
                     // throw new Exception( // also valid.
                     // Cannot override a method that declares an exception in its throws clause
                     // with a less specific exception that we're trying to do here.
+                    // i.e An overriding method cannot throw a superclass exception,
                     // throw new Throwable(
                     "Callable chokes in service.submit()");
+            // return null;
         };
         // submit method called returns a Future
         Future f2 = service.submit(c);
@@ -100,12 +102,33 @@ public class ThreadInterfacesReview {
         //             "Callable chokes in service.submit()");
         // });
 
+
         // this is fine
+        service.execute(() -> {
+            try {
+                throw new Exception(
+                        "Callable chokes in service.submit()");
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+        });
+
+        // this is fine too, callable's call throws Exception
         service.submit(() -> {
             throw new Exception(
                     "Callable chokes in service.submit()");
         });
 
+
+        class MyTask implements Callable<String> {
+            public String call()
+                    // throws Exception // valid, but can be commented
+            {
+
+                // do something
+                return "Data from callable";
+            }
+        }
 
         // Supplier
         Supplier s = () -> {

@@ -113,12 +113,31 @@ public class CRUDExamples {
     // get data from a table
     public static void getData(Connection connection) throws SQLException {
 
+        /*
+        The type of the resource must be specified in the try itself. i.e.
+        it should be: try(Statement stmt = c.createStatement())
+
+        The try-with-resource was enhanced in Java 9 and it now allows you to use a variable declared before
+        the try statement in the try-with-resource block as long as it is final or effectively final.
+
+        For example, the following is valid since Java 9:
+        Statement stmt = c.createStatement();
+        try(stmt){
+          ...
+        }
+
+
+        However, try(stmt = c.createStatement();) is still invalid.
+         */
+
+
+
         // Wild card * in select statement selects all column's data
         // for a record
         String retrieveSQL =
                 "select * from PERSON ";
 
-        try (Statement stmt = connection.createStatement()) {
+        try (Statement stmt = connection.createStatement();) {
 
             // ResultSet will be closed automatically when statement is
             // closed
@@ -144,6 +163,7 @@ public class CRUDExamples {
                             rs.getMetaData().getColumnName(i)
                             // Get data from result set
                             + " = " + rs.getObject(i));
+
                     // rs.getString(0); // invalid, colum starts with 1
                 }
                 System.out.println();
