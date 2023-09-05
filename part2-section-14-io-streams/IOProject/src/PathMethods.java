@@ -90,7 +90,6 @@ public class PathMethods {
         String p2String = "b";
         Path p02 = Path.of(p2String);
 
-        // If Path argument (other) is absolute, method returns passed arg
         System.out.println("relativize transforms \n\t"
                 + p01.toString() + "\n\t" + p02.toString()
                 + "\n to: \n\t" + p01.relativize(p02) +

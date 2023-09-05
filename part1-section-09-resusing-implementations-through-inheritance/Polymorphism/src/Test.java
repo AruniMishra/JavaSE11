@@ -30,7 +30,7 @@ public class Test {
          * to class Flower1
          * line 6 and 7 & 8
          **/
-        Plant1 plantC = (Flower1) o; // Line 6
+        // Plant1 plantC = (Flower1) o; // Line 6
         Flower1 flower = (Flower1) o; // Line 7
 
         Plant1 plant1 = new Plant1();

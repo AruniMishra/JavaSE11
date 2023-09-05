@@ -31,6 +31,7 @@ public class VarTest {
         Object nullObject = null;
         var var = nullObject;
         var var1 = nullObject = null;
+        // var var2 = null; // invalid
 
         // Invalid var declarations:
 

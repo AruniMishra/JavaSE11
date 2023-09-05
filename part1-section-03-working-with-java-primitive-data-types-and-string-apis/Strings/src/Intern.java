@@ -14,6 +14,8 @@ public class Intern {
         // S2 now refers to Object in SCP Area
         String s2 = s1.concat("GFG"); // Line-2
 
+        System.out.println(s2);
+
         // S3 refers to Object in SCP Area
         String s3 = s2.intern(); // Line-3
 

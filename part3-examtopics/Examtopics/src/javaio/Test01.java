@@ -6,8 +6,17 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.nio.file.attribute.BasicFileAttributes;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashSet;
 import java.util.function.BiPredicate;
 import java.util.stream.IntStream;
+
+interface AmazingInterface {
+    static final String value = "amazing";
+
+    void amazingMethod(String arg);
+}
 
 class Test01 {
     public static void main(String[] args) throws IOException {
@@ -82,7 +91,6 @@ class Test23 {
     }
 }
 
-
 class Test40 {
     public static void main(String[] args) {
         var file = Paths.get("F:\\A\\.\\B\\C\\D\\..\\Book.java");
@@ -121,7 +129,6 @@ class Test55 {
     }
 }
 
-
 class Test59 {
     public static void main(String[] args) {
         /*
@@ -151,7 +158,6 @@ class Test59 {
     }
 }
 
-
 class Test69 {
     public static void main(String[] args) throws IOException {
         var src = Paths.get("C:\\A\\B\\C\\test.txt");
@@ -179,7 +185,6 @@ class Test71 {
         System.out.println(new File("C:\\A").listFiles().length);
     }
 }
-
 
 class Test75 {
 
@@ -217,7 +222,6 @@ class Test75 {
     }
 }
 
-
 class Test78 {
     public static void main(String[] args) throws IOException {
         /*INSERT*/
@@ -227,5 +231,91 @@ class Test78 {
         Files
                 .lines(Paths.get("C:\\A\\t2.txt"))
                 .forEach(System.out::println);
+    }
+}
+
+class Base {
+    public <T> Collection<T> transform(Collection<T> list) {
+        return new ArrayList<T>();
+    }
+}
+
+class Derived extends Base {
+    public <T> Collection<T> transform(Collection<T> list) {
+        return new HashSet<T>();
+    }
+
+    ; // 5
+}
+
+class Test43 {
+    public static void main(String[] args) {
+        {
+            // var i=0, j =0;
+        }
+    }
+}
+
+abstract class AmazingClass implements AmazingInterface {
+    static String value = "awesome";
+
+    abstract void amazingMethod(String arg1, String arg2);
+}
+
+class Awesome extends AmazingClass implements AmazingInterface {
+    public static void main(String[] args) {
+        AmazingInterface ai = new Awesome();
+        // INSERT CODE HERE
+
+
+        // ai.amazingMethod(value);
+        ai.amazingMethod("x1");
+
+
+        // ((AmazingClass)ai).amazingMethod("x1", "value");
+
+
+        ai.amazingMethod(AmazingInterface.value);
+
+        // ai.amazingMethod(AmazingInterface.value, AmazingClass.value);
+
+
+    }
+
+    public void amazingMethod(String arg1) {
+    }
+
+    public void amazingMethod(String arg1, String arg2) {
+    }
+
+}
+
+
+ class Flyer{
+     String getName() {
+         return "Flyer";
+     }
+ }
+
+class Bird extends Flyer{
+    public String name;
+    public Bird(String name){
+        this.name = name;
+    }
+    public String getName(){ return name; }
+}
+
+class Eagle extends Bird {
+    public Eagle(String name){
+        super(name);
+    }
+}
+
+class TestClass {
+    public static void main(String[] args) throws Exception {
+        Flyer f = new Eagle("American Bald Eagle");
+        //PRINT NAME HERE
+
+        System.out.println(((Bird)f).getName());
     }
 }

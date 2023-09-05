@@ -100,6 +100,7 @@ public class CherrySlot {
         // an Iterable whose iterator is made up of PayOffService objects
         ServiceLoader<PayOffService> loader = ServiceLoader.load(PayOffService.class);
 
+
         // Print out type of the result of load()
         System.out.println("Result of load method = " + loader.getClass());
 
@@ -119,6 +120,12 @@ public class CherrySlot {
         // ServiceLoader.load returns an instance of ServiceLoader,
         // not a Provider or Optional that supports .get()
         // payOffService = ServiceLoader.load(PayOffService.class).get();
+
+
+        // also valid
+        for (PayOffService payOffService1 :  loader) {
+
+        }
 
 
         switch (whichWay) {

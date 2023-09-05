@@ -60,7 +60,7 @@ public class MapExample {
         }
 
         // Print out data, the entire set, then each element of set.
-        System.out.println("--- HashMap: " + h);
+        System.out.println("\n--- HashMap: " + h);
         h.entrySet().forEach((s) ->
                 System.out.println(s.getClass().getName() + " : " + s));
 

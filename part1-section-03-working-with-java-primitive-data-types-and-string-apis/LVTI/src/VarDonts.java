@@ -14,6 +14,11 @@ public class VarDonts {
 
     public static void main(String[] args) {
         var instanceVariable = 20;
+
+        var i0=10;
+        for (;i0>0 ; i0--) { ;}
+
+        for (int i=0, j=10; i<j; i++, --j) {;}
     }
 
     // Invalid, cannot have a method return type of var
@@ -25,4 +30,8 @@ public class VarDonts {
     // public static String[] returnThat(var args) {
     //     return args;
     // }
+
+
+
+
 }

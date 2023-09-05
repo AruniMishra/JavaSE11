@@ -125,6 +125,10 @@ public class LocaleFormattingDateTime {
         System.out.println(MessageFormat.format("{0}  = {1}",
                 "SimpleDateFormat(\"MM dd YY\")", dateFormatter.format(date)));
 
+        dateFormatter = new SimpleDateFormat("MM dd yy");
+        System.out.println(MessageFormat.format("{0}  = {1}",
+                "SimpleDateFormat(\"MM dd yy\")", dateFormatter.format(date)));
+
         // This includes the time
         // hh prints hour, 0 left-padded
         // mm print minute in the hour, 0 left-padded
@@ -185,6 +189,10 @@ public class LocaleFormattingDateTime {
         // Print LocalTime using the Locale specific formatter
         System.out.println("specificDateTime::DateTimeFormatter.ofPattern(\"yyy-MMM-dd\", Locale.US): " +
                 dformatter.format(specificDateTime));
+
+
+        DateTimeFormatter sdf = DateTimeFormatter.ofPattern("MM/'Week' w YYYY");
+        System.out.println(sdf.format(LocalDate.now()));
 
         // Print LocalTimeDate using predefined formatter, static attribute
         // on DateTimeFormatter.ISO_WEEK_DATE
