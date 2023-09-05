@@ -36,6 +36,7 @@ class Animal {
 // class Serializable.Pet implements Serializable {
 class Pet extends Animal implements Serializable { // pet is Serializable, is Super class is Serializable
 
+    public static final long serialVersionUID  = 3557208886180634314L;
     /*
     We're going to comment out the code that's writing the file again.
     We're going to go back and change the value of pet.count from 10 to 55.
@@ -52,8 +53,9 @@ class Pet extends Animal implements Serializable { // pet is Serializable, is Su
     private String name;
 
     // add below field once "Brandy.ser" is created,
-    // and then comment outputStream.writeObject(originalPet);
-    // private String breed = "Unknown"; // then deserialization fails
+    // and then comment outputStream.writeObject(originalPet);, with entire try() block
+    // but if you specify a correct public static final long serialVersionUID  = 3557208886180634314L; then it will succeed
+    private String breed1 = "Unknown"; // then deserialization fails
     private String type;
     /*
     the transient modifier indicates that the attribute
@@ -133,7 +135,7 @@ public class SerializationExample {
         try (ObjectOutputStream outputStream = new ObjectOutputStream(
                 new FileOutputStream(fileName))) {
             // write the Serializable.Pet to a file
-            outputStream.writeObject(originalPet);
+            outputStream.writeObject(originalPet); // Line 136
         }
         System.out.println("-- Serializing done.");
 
@@ -150,6 +152,7 @@ public class SerializationExample {
                 // Need to check for EOFException
             } catch (EOFException e) {
                 // Ignore, end of file
+                System.out.println(e);
             }
         }
 
