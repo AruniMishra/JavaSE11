@@ -8,6 +8,8 @@ public class Test {
 
     public static void main(String[] args) {
 
+        float f = 10; // int values can be assigned to float variable without any cast.
+
         // Primitive Casting
         float f1 = (float) 10.0; // Line 1
         float f2 = (float) 10.0f; // Line 2

@@ -1,5 +1,5 @@
-import java.util.List;
 import java.util.Arrays;
+import java.util.List;
 
 public class ArrayComparison {
     public static void main(String[] args) {
@@ -52,7 +52,7 @@ public class ArrayComparison {
 
 
         // More examples of Arrays.compare
-        System.out.println("\n------------- More Arrays.compare ------------");
+        System.out.println("\n4------------- More Arrays.compare ------------");
         System.out.println(" (Arrays.compare(firstString,firstStringUnsorted)) = "
                 + Arrays.compare(firstString, firstStringUnsorted));
 
@@ -71,7 +71,7 @@ public class ArrayComparison {
 
 
         // Comparing subsets of elements in arrays
-        System.out.println("\n----  Arrays.compare for Element Ranges ----");
+        System.out.println("\n5----  Arrays.compare for Element Ranges ----");
 
         // Set up arrays - note that both arrays contain "abc", "def", "ghi"
         String[] stringArray = {"abc", "def", "ghi", "jkl", "mno",
@@ -92,5 +92,16 @@ public class ArrayComparison {
         System.out.println("\n------------- List.equals ------------");
         System.out.println(" (firstList.equals(secondList)) = "
                 + firstList.equals(secondList));
+
+
+        System.out.println("\n------------- misc ------------");
+
+        var a = new int[]{1, 2, 3, 4, 6};
+        var b = new int[]{1, 2, 3, 4, 5, 3};
+        var c = new int[]{1, 2, 3, 4, 5, 6};
+
+        int x = Arrays.compare(a, c); // length is not the criteria here
+        int y = Arrays.compare(b, c);
+        System.out.println(x + " " + y);
     }
 }

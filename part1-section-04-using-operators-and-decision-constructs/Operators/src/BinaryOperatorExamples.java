@@ -136,7 +136,6 @@ public class BinaryOperatorExamples {
         if ((++a > b) & (++a >= b)) {
             System.out.println("Evaluation [(++a > b) & (++a >= b)] met");
         }
-
         System.out.println("Logical & (AND) will evaluate both expressions: a = "
                 + a + ", and b = " + b);
 
@@ -145,7 +144,6 @@ public class BinaryOperatorExamples {
         if ((++a > b) && (++a >= b)) {
             System.out.println("Evaluation [(++a > b) && (++a >= b)] met");
         }
-
         System.out.println("Conditional && (AND) will evaluate only first " +
                 "expression if it evaluates to false: a = "
                 + a + ", and b = " + b);

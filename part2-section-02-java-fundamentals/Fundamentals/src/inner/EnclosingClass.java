@@ -125,3 +125,23 @@ class TestEnclosingClass {
     }
 }
 
+class TestClass {
+    public static void main(String args[]) {
+        class C {
+        }
+
+        new TestClass().new A();
+        // new TestClass().new B();
+        // new TestClass.A();
+        new C();
+        // new TestClass.C();
+
+    }
+
+    public static class B {
+    }
+
+    public class A {
+    }
+}
+

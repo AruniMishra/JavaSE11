@@ -20,6 +20,10 @@ public class ImmutableString {
 
         System.out.println(s1);
 
+
+        String s2 = "Hello World";
+        System.out.println(s1 == s2); // false
+
         // Let's reset s1 and show another example using String's concat
         // method which we'll discuss later
         s1 = "Hello";
