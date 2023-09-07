@@ -16,7 +16,7 @@ import java.util.stream.Stream;
 public class FilesAndStreams {
     public static void main(String[] args) {
 
-        Path src = Paths.get("src");
+        Path src = Paths.get("part2-section-14-io-streams/IOProject/src");
         System.out.println("-----------------------------------");
         System.out.println("Listing of " + src + " Directory");
         System.out.println("-----------------------------------");
@@ -26,13 +26,13 @@ public class FilesAndStreams {
         // listing is not recursive, and list only the entries at the first level if the entry is itself a directory
         try (Stream<Path> str = Files.list(src)) {
             str
-                    .limit(10)  // Can use any stream operation
+                    .limit(50)  // Can use any stream operation
                     .forEach(System.out::println);
         } catch (IOException io) {
             System.out.println("Problem with listing " + io);
         }
 
-        Path out = Paths.get("testA");
+        Path out = Paths.get("part2-section-14-io-streams/IOProject/src");
         System.out.println("-----------------------------------");
         System.out.println("Walk of " + out + " Directory");
         System.out.println("-----------------------------------");
@@ -45,7 +45,7 @@ public class FilesAndStreams {
             str
                     // Only get regular files (not directories)
                     // .filter((s) -> Files.isRegularFile(s))
-                    .limit(10) // Can use any stream operation, this limit the number of rows and not depth
+                    .limit(20) // Can use any stream operation, this limit the number of rows and not depth
                     .forEach(System.out::println);
         } catch (IOException io) {
             System.out.println("Problem with walk " + io);
@@ -58,8 +58,9 @@ public class FilesAndStreams {
         implementBreadthWalk(out);
 
 
+        System.out.println("######################################");
         System.out.println("\n-----------------------------------");
-        System.out.println("Find results for " + src +
+        System.out.println("Find results for \"" + src +
                 " Directory, Regular files starting with 'F'");
         System.out.println("-----------------------------------");
         // Need to wrap in try/resources or try/catch so that directory
@@ -114,7 +115,6 @@ public class FilesAndStreams {
         } catch (IOException io) {
             System.out.println("Problem with find " + io);
         }
-
 
     }
 

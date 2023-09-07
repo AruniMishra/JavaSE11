@@ -179,7 +179,7 @@ public class MapExample {
         int defaultVal = 30;
 
         // Mary will get added with value result of computation
-        System.out.println("Mary gets added with value = " +
+        System.out.println("\nMary gets added with value = " +
                 m.computeIfAbsent("Mary", (val) -> defaultVal * 3));
         System.out.println("m.computeIfAbsent(Mary, (30) * 3): " + m);
 
@@ -189,7 +189,7 @@ public class MapExample {
         System.out.println("m.computeIfAbsent(Mary, (30) * 3): " + m);
 
         // Mary exists, computation made and value updated
-        System.out.println("Mary gets updated using computeIfPresent" +
+        System.out.println("\nMary gets updated using computeIfPresent" +
                 " with value = " +
                 m.computeIfPresent(
                         "Mary", (key, val) -> {
@@ -211,7 +211,7 @@ public class MapExample {
 
     private static void testMerges(Map<String, Integer> m) {
 
-        System.out.println("Original State: " + m);
+        System.out.println("\nOriginal State: " + m);
         //  If Mary exists and is not null, use the function
         System.out.println("After merge(Mary,100,val/3), return value : " +
                 m.merge("Mary", 100, (key, val) -> val / 3));

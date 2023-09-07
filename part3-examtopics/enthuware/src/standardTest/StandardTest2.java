@@ -8,6 +8,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
+import java.util.concurrent.Callable;
+import java.util.concurrent.Executors;
+import java.util.function.Consumer;
 import java.util.function.Function;
 
 import static java.lang.annotation.ElementType.TYPE_PARAMETER;
@@ -117,7 +120,7 @@ class MyProcessor {
     }
 }
 
- class TestClass28 {
+class TestClass28 {
 
     public static void main(String[] args) {
         List<Integer> ls = Arrays.asList(1, 2, 3);
@@ -151,5 +154,82 @@ class MyProcessor {
         ls.stream()
                 .forEach(x -> MyProcessor::new);
         */
+    }
+}
+
+
+class Student29 {
+    private String name;
+    private int marks;
+
+    public Student29(String s1, int m) {
+        this.marks += m;
+        this.name = s1;
+    }
+
+    // constructor and getters and setters not shown
+
+    public void addMarks(int m) {
+        this.marks += m;
+    }
+
+    public void debug() {
+        System.out.println(name + ":" + marks);
+    }
+}
+
+class s2Test29 {
+
+    public static void main(String[] args) {
+        List<Student29> slist = Arrays.asList(new Student29("S1", 40), new Student29("S2", 35),
+                new Student29("S3", 30));
+        Consumer<Student29> increaseMarks = s -> s.addMarks(10);
+        slist.forEach(increaseMarks);
+        slist.stream().forEach(Student29::debug);
+    }
+}
+
+
+class StringArrayTest {
+    public static void main(String args[]) {
+        String[][][] arr = {{{"a", "b", "c"}, {"d", "e", null}},
+                {{"x"}, null}, {{"y"}}, {{"z", "p"}, {}}
+        };
+        System.out.println(arr[0][1][2]);
+    }
+}
+
+
+class myExc {
+
+    public String callex() throws IOException{
+
+        return "";
+    }
+}
+
+class extended extends myExc{
+
+    @Override
+    public String callex(){
+        return "";
+    }
+}
+
+class MyCallable implements Callable<String> {
+    public String call()  {
+        //Thread.sleep(5000);
+        return "DONE";
+    }
+}
+
+class s2TestClass38 {
+
+    // Future's get() will block until there is a value to return or there is an exception
+    public static void main(String[] args) throws Exception {
+        var es = Executors.newSingleThreadExecutor();
+        var future = es.submit(new MyCallable());
+        System.out.println(future.get()); // 1
+        es.shutdownNow(); // 2
     }
 }
