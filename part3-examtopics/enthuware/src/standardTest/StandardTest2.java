@@ -4,10 +4,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.lang.annotation.Retention;
 import java.lang.annotation.Target;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.List;
+import java.util.*;
 import java.util.concurrent.Callable;
 import java.util.concurrent.Executors;
 import java.util.function.Consumer;
@@ -202,23 +199,23 @@ class StringArrayTest {
 
 class myExc {
 
-    public String callex() throws IOException{
+    public String callex() throws IOException {
 
         return "";
     }
 }
 
-class extended extends myExc{
+class extended extends myExc {
 
     @Override
-    public String callex(){
+    public String callex() {
         return "";
     }
 }
 
 class MyCallable implements Callable<String> {
-    public String call()  {
-        //Thread.sleep(5000);
+    public String call() {
+        // Thread.sleep(5000);
         return "DONE";
     }
 }
@@ -231,5 +228,61 @@ class s2TestClass38 {
         var future = es.submit(new MyCallable());
         System.out.println(future.get()); // 1
         es.shutdownNow(); // 2
+
+
+        var b1 = false;
+        var b2 = false;
+        if (b2 = b1 == false) {
+            System.out.println("true");
+        } else {
+            System.out.println("false");
+        }
+    }
+
+    public <T extends CharSequence> List<T> transform(Collection<T> list) {
+        return new ArrayList<T>();
     }
 }
+
+
+class Base {
+    public <T extends CharSequence> Collection<String> transform(Collection<T> list) {
+        return new ArrayList<String>();
+    }
+}
+
+class Derived extends Base {
+    // public Collection<String> transform(Collection<String> list) {
+    //     return new HashSet<String>();
+    // }
+
+    ; // 1
+
+
+    // public <T extends String> Collection<T> transform(Collection<T> list) {
+    //     return new HashSet<T>();
+    // }
+
+    ; // 2
+
+
+    // public <T extends CharSequence> List<T> transform(Collection<T> list) {
+    //     return new ArrayList<T>();
+    // }
+
+    ; // 3
+
+    // public <T extends CharSequence> Collection<T> transform(List<T> list) {
+    // return new HashSet<T>(); }; //4
+
+    // public <T super String> Collection<T> transform(List<String> list) {
+    //     return new HashSet<T>();
+    // }
+
+    ;// 5
+
+    // public  Collection<CharSequence> transform(Collection<CharSequence> list) {
+    // return new HashSet<CharSequence>();}; //6
+}
+
+

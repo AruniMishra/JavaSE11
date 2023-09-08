@@ -1,6 +1,6 @@
 // Very simple interface with one method
 interface Laughable {
-    String laugh();
+    public abstract String laugh();
 
     static void doNoting1(){
 

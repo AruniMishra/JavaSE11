@@ -3,6 +3,8 @@ package interfaces;
 // Create an interface to support the countMyInstances method
 interface Countable {
     public abstract void countMyInstances();
+
+
 }
 
 

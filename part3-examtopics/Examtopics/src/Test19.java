@@ -131,4 +131,9 @@ class Bar1 extends Foo1 {
     public List<Integer> foo(TreeSet<String> m) {
         return null;
     }
+
+
+    // public List<Integer> foo(Set<String> m) {
+    //     return null;
+    // }
 }

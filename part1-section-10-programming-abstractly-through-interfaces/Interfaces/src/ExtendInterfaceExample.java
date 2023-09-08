@@ -33,4 +33,6 @@ public class ExtendInterfaceExample implements SubExtendable {
     public void append() {
         System.out.println("Appending functionality ");
     }
+
+
 }

@@ -29,13 +29,14 @@ public class StreamGrouping {
                         .count());
 
 
+
+        System.out.println("\n\n--- Counts by Pet Type: ---");
         // Count Pet Population by each Pet Type
         Map<String, Long> petTypeCounts = petPopulation.stream()
                 // Collects to Map<String,Long> where key=pet type
                 .collect(Collectors.groupingBy(Pet::getType,
                         Collectors.counting())); // line 1
 
-        System.out.println("\n\n--- Counts by Pet Type: ---");
         // Create a stream from Map.entrySet()
         petTypeCounts.entrySet().stream()
                 // Sort stream by pet type (key for Map)
@@ -165,3 +166,4 @@ public class StreamGrouping {
                 .forEach(System.out::println);
     }
 }
+

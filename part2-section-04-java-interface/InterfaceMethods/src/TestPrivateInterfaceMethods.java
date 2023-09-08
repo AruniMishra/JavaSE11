@@ -7,6 +7,10 @@ Topic: Default, Static, Private methods
 
 // This interface has new features for interfaces:
 interface PrivateAndDefaultTestable {
+
+    
+
+
     // static method
     public static void doInterfaceSomethingPublicAndStatic() {
         System.out.println("This is an interface's public and" +
@@ -31,6 +35,7 @@ interface PrivateAndDefaultTestable {
         doInterfaceSomethingPublicAndStatic();
         doInterfaceSomethingPrivateAndStatic();
     }
+
 
     // private method consolidates code
     private void doInterfaceSomethingPrivate() {

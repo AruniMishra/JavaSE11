@@ -6,9 +6,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.nio.file.attribute.BasicFileAttributes;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashSet;
+import java.util.*;
 import java.util.function.BiPredicate;
 import java.util.stream.IntStream;
 
@@ -241,11 +239,15 @@ class Base {
 }
 
 class Derived extends Base {
-    public <T> Collection<T> transform(Collection<T> list) {
+    public <T> Set<T> transform(Collection<T> list) {
         return new HashSet<T>();
     }
+}
 
-    ; // 5
+class Derived2 extends Base {
+    public <T> ArrayList<T> transform(Collection<T> list) {
+        return new ArrayList<T>();
+    }
 }
 
 class Test43 {
