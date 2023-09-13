@@ -135,18 +135,42 @@ class Book {
 }
 
 
-class s4TestClass18{
-    public void method(Object o){
+class s4TestClass18 {
+    public void method(Object o) {
         System.out.println("Object Version");
     }
+
     // public void method(java.io.FileNotFoundException s){
     //     System.out.println("java.io.FileNotFoundException Version");
     // }
     // public void method(java.io.IOException s){
     //     System.out.println("IOException Version");
     // }
-    public static void main(String args[]){
+    public static void main(String args[]) {
         s4TestClass18 tc = new s4TestClass18();
         tc.method(null);
+    }
+}
+
+interface Tone {
+    void up();
+}
+
+class Speak {
+    public static void main(String[] args) {
+        Speak s = new GoodSpeak();
+
+//        s.up();
+        ((Tone) s).up();
+        ((GoodSpeak) s).up();
+        ((Tone) (GoodSpeak) s).up();
+
+
+    }
+}
+
+class GoodSpeak extends Speak implements Tone {
+    public void up() {
+        System.out.println("UP UP UP");
     }
 }
