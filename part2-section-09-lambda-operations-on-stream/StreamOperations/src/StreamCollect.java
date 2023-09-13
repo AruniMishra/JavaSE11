@@ -17,7 +17,8 @@ public class StreamCollect {
                 new ArrayList<>(List.of("First", "Second", "Third"));
 
         // Using stream to add 'ish' to all elements,creating another list
-        List<String> firstList = originalList.stream().map((s) -> s + "ish")
+        List<String> firstList = originalList.stream()
+                .map((s) -> s + "ish")
                 .collect(Collectors.toList());
 
         // Add another element to list returned from collect

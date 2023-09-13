@@ -122,19 +122,15 @@ class TestClass28 {
     public static void main(String[] args) {
         List<Integer> ls = Arrays.asList(1, 2, 3);
 
-        ls.stream()
-                .map(MyProcessor::new)
-                .forEach(MyProcessor::process);
+        ls.stream().map(MyProcessor::new).forEach(MyProcessor::process);
 
 
-        ls.stream()
-                .map(x -> {
-                    // referring to MyProcessor's constructor that takes one Integer argument.
-                    Function<Integer, MyProcessor> f = MyProcessor::new;
+        ls.stream().map(x -> {
+            // referring to MyProcessor's constructor that takes one Integer argument.
+            Function<Integer, MyProcessor> f = MyProcessor::new;
 
-                    return f.apply(x); // passing the actual Integer argument.
-                })
-                .forEach(MyProcessor::process);
+            return f.apply(x); // passing the actual Integer argument.
+        }).forEach(MyProcessor::process);
 
         /*
 
@@ -178,8 +174,7 @@ class Student29 {
 class s2Test29 {
 
     public static void main(String[] args) {
-        List<Student29> slist = Arrays.asList(new Student29("S1", 40), new Student29("S2", 35),
-                new Student29("S3", 30));
+        List<Student29> slist = Arrays.asList(new Student29("S1", 40), new Student29("S2", 35), new Student29("S3", 30));
         Consumer<Student29> increaseMarks = s -> s.addMarks(10);
         slist.forEach(increaseMarks);
         slist.stream().forEach(Student29::debug);
@@ -189,9 +184,7 @@ class s2Test29 {
 
 class StringArrayTest {
     public static void main(String args[]) {
-        String[][][] arr = {{{"a", "b", "c"}, {"d", "e", null}},
-                {{"x"}, null}, {{"y"}}, {{"z", "p"}, {}}
-        };
+        String[][][] arr = {{{"a", "b", "c"}, {"d", "e", null}}, {{"x"}, null}, {{"y"}}, {{"z", "p"}, {}}};
         System.out.println(arr[0][1][2]);
     }
 }
@@ -252,12 +245,16 @@ class Base {
 }
 
 class Derived extends Base {
+
+    // It will not compile because the parameters of the overridden and overriding methods are incompatible.
     // public Collection<String> transform(Collection<String> list) {
     //     return new HashSet<String>();
     // }
 
     ; // 1
 
+
+    // It will not compile because the bounds of T are different in overridden and overriding methods.
 
     // public <T extends String> Collection<T> transform(Collection<T> list) {
     //     return new HashSet<T>();
@@ -266,23 +263,34 @@ class Derived extends Base {
     ; // 2
 
 
+    // It will not compile because of bad return type. List<T> is not a valid subtype of Collection<String>.
+
     // public <T extends CharSequence> List<T> transform(Collection<T> list) {
     //     return new ArrayList<T>();
     // }
 
     ; // 3
 
-    // public <T extends CharSequence> Collection<T> transform(List<T> list) {
-    // return new HashSet<T>(); }; //4
+    // 4 correctly overloads the method in Base
+    public <T extends CharSequence> Collection<T> transform(List<T> list) {
+        return new HashSet<T>();
+    }
 
+    ; // 4
+
+
+    // It will not compile because super is not allowed while defining bounded types. So, <T super String> is invalid
     // public <T super String> Collection<T> transform(List<String> list) {
     //     return new HashSet<T>();
     // }
 
     ;// 5
 
+    // It will not compile because the parameters of the overridden and overriding methods are incompatible.
     // public  Collection<CharSequence> transform(Collection<CharSequence> list) {
     // return new HashSet<CharSequence>();}; //6
+
+
 }
 
 

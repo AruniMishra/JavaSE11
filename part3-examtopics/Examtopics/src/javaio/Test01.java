@@ -6,7 +6,10 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.nio.file.attribute.BasicFileAttributes;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.function.BiPredicate;
 import java.util.stream.IntStream;
 
@@ -153,13 +156,23 @@ class Test59 {
          */
         var path1 = Paths.get("F:", "..", ".", "..").normalize();
         System.out.println(path1);
+
+
+        System.out.println("------------");
+
+        Path p1 = Paths.get("photos\\..\\beaches\\.\\calangute\\a.txt");
+        Path p2 = p1.normalize();
+        Path p3 = p1.relativize(p2);
+        Path p4 = p2.relativize(p1);
+
+        System.out.println(p2);
     }
 }
 
 class Test69 {
     public static void main(String[] args) throws IOException {
         var src = Paths.get("C:\\A\\B\\C\\test.txt");
-        var tgt = Paths.get("C:\\A\\C");
+        var tgt = Paths.get("C:\\A\\C"); // creates a file(if not exists), without extension
         Files.copy(src, tgt);
     }
 }
@@ -293,22 +306,26 @@ class Awesome extends AmazingClass implements AmazingInterface {
 }
 
 
- class Flyer{
-     String getName() {
-         return "Flyer";
-     }
- }
+class Flyer {
+    String getName() {
+        return "Flyer";
+    }
+}
 
-class Bird extends Flyer{
+class Bird extends Flyer {
     public String name;
-    public Bird(String name){
+
+    public Bird(String name) {
         this.name = name;
     }
-    public String getName(){ return name; }
+
+    public String getName() {
+        return name;
+    }
 }
 
 class Eagle extends Bird {
-    public Eagle(String name){
+    public Eagle(String name) {
         super(name);
     }
 }
@@ -316,8 +333,8 @@ class Eagle extends Bird {
 class TestClass {
     public static void main(String[] args) throws Exception {
         Flyer f = new Eagle("American Bald Eagle");
-        //PRINT NAME HERE
+        // PRINT NAME HERE
 
-        System.out.println(((Bird)f).getName());
+        System.out.println(((Bird) f).getName());
     }
 }

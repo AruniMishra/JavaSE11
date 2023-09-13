@@ -50,6 +50,9 @@ public class GenericsConfusion {
         CardboardContainer<String> n3 =
                 new <Integer>CardboardContainer<String>(3);
 
+        CardboardContainer<Integer> n4 =
+                new <Integer>CardboardContainer<Integer>(3);
+
         // invalid; Cannot use diamonds with explicit type parameters for constructor
         // new <Integer>CardboardContainer<>(3);
 

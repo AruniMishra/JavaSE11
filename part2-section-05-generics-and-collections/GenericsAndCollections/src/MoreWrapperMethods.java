@@ -7,9 +7,9 @@ Topic:  Using  wrapper classes, methods
 
 public class MoreWrapperMethods {
     public static void main(String[] args) {
-        // testInstanceMethods();
+        testInstanceMethods();
 
-        testStaticMethods();
+        // testStaticMethods();
 
     }
 

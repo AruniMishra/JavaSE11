@@ -80,8 +80,15 @@ public class CRUDExamples {
             stmt.setInt(1, 102);
             stmt.setObject(2, "JOE2");
             stmt.setInt(3, 30);
+            // stmt.setNull(3, Types.INTEGER); // also valid, or
+            // stmt.setString(2, null); // valid too, note: STRING is not a valid constant in this class.
             System.out.println("records inserted = " +
                     stmt.executeUpdate());
+
+
+            /*
+            The second parameter to the setNull method is of type int and it expects the value to be one of the constants defined in java.sql.Types class. Among other constants, it has INTEGER and VARCHAR for int and String values respectively. STRING is not a valid constant in this class.
+             */
         }
     }
 
@@ -129,7 +136,6 @@ public class CRUDExamples {
 
         However, try(stmt = c.createStatement();) is still invalid.
          */
-
 
 
         // Wild card * in select statement selects all column's data

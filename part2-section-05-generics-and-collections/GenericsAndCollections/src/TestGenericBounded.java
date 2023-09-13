@@ -105,6 +105,9 @@ public class TestGenericBounded {
 // Comparable and Serializable interfaces
 class GenericMixedBounded<T extends Number & Comparable & Serializable> {
 
+    public int getValue(Comparable c) {
+        return c.compareTo(c);
+    }
 }
 
 // Order matter, Interface expected at the end

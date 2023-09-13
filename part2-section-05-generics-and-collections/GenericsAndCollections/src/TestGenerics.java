@@ -96,7 +96,8 @@ public class TestGenerics {
         you cannot guarantee that the object type you expected
         is actually the type of the object that you'll get using a raw type
          */
-        // StringBuilder s1 = (StringBuilder) o;
+        // String cannot be cast to class java.lang.StringBuilder
+        // StringBuilder s0 = (StringBuilder) o;
 
         // valid
         String s1 = (String) o;

@@ -46,7 +46,7 @@ class GenericsClass<T> {
     }
 
     public <E> T genericStaticMethod(E aGenericParameter) {
-        System.out.println("NonGenericClass: static generic method: " +
+        System.out.println("GenericClass: non static generic method: " +
                 aGenericParameter.getClass().getName());
         return this.aGenericField;
     }
@@ -148,7 +148,7 @@ class CombinedClass<T extends Comparable, U> {
     <V extends Number> CombinedClass(U instanceField, V instanceNumber) {
         this.instanceField = instanceField;
         this.instanceNumberField = instanceNumber;
-        //int a = (int) instanceNumber;
+        // int a = (int) instanceNumber; // ClassCastException
         System.out.println("CombinedClass: instanceField (" +
                 instanceField.getClass().getName() + ") : " + instanceField);
         System.out.println("CombinedClass: instanceNumber (" +

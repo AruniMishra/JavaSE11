@@ -5,8 +5,6 @@ Section 4: Generics and Collections
 Topic:  Collections, Queue: ArrayDeque, LinkedList
 */
 
-import collection.CollectionTests;
-
 import java.util.*;
 
 public class QueueExample {
@@ -85,7 +83,8 @@ public class QueueExample {
         System.out.println("After push(199) : " + q);
 
         // Dequeue has a pop method that retrieves element at
-        // the head of the queue (opposite of remove/poll
+        // the head of the queue
+        // There is no difference. In fact, pop() and remove() methods both call removeFirst.
         System.out.println("pop() returns : " + q.pop() + " : " + q);
 
         // Adding Methods, addFirst, offerFirst, addLast, offerLast

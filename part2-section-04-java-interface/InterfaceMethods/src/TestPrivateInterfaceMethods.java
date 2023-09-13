@@ -8,8 +8,6 @@ Topic: Default, Static, Private methods
 // This interface has new features for interfaces:
 interface PrivateAndDefaultTestable {
 
-    
-
 
     // static method
     public static void doInterfaceSomethingPublicAndStatic() {
@@ -17,7 +15,7 @@ interface PrivateAndDefaultTestable {
                 " static method");
         doInterfaceSomethingPrivateAndStatic();
 
-        // doInterfaceSomethingPublic();
+        // doInterfaceSomethingPublicDefaultdoInterfaceSomethingPublicDefault();
         // doInterfaceSomethingPrivate();
     }
 
@@ -28,7 +26,7 @@ interface PrivateAndDefaultTestable {
     }
 
     // default method
-    default void doInterfaceSomethingPublic() {
+    default void doInterfaceSomethingPublicDefault() {
         System.out.println("This is interface's public default method");
         // Accesses a private method
         doInterfaceSomethingPrivate();
@@ -60,8 +58,8 @@ public class TestPrivateInterfaceMethods extends TestStatic implements PrivateAn
         // Access static method on class with class qualifier
         TestStatic.doClassPublicAndStatic();
 
-        TestStatic testStatic = new TestStatic();
-        testStatic.doClassPublicAndStatic(); // valid on class
+        new TestStatic().doClassPublicAndStatic(); // valid on class, but invalid on Interface
+        new TestPrivateInterfaceMethods().doClassPublicAndStatic(); // valid on class, but invalid on Interface
 
         // Access static method on interface with interface qualifier
         PrivateAndDefaultTestable.doInterfaceSomethingPublicAndStatic();
@@ -77,11 +75,17 @@ public class TestPrivateInterfaceMethods extends TestStatic implements PrivateAn
         // Cannot use interface with super in a static method
         // PrivateAndDefaultTestable.super.doInterfaceSomethingPublicAndStatic();
 
-        // Can not call default method in static method
-        // doInterfaceSomethingPublic();
 
         // Call non-static method using instance of current class
         new TestPrivateInterfaceMethods().testNonStatic();
+
+
+        // Non-static method 'doInterfaceSomethingPublicDefault()' cannot be referenced from a static context
+        // doInterfaceSomethingPublicDefault();
+
+
+        // calling default from static with class object.
+        new TestPrivateInterfaceMethods().doInterfaceSomethingPublicDefault();
 
     }
 
@@ -96,18 +100,20 @@ public class TestPrivateInterfaceMethods extends TestStatic implements PrivateAn
         // Access static method on class with class qualifier
         TestStatic.doClassPublicAndStatic();
 
+        new TestStatic().doClassPublicAndStatic();// also valid,
+
         // Access static method on interface with interface qualifier
         PrivateAndDefaultTestable.doInterfaceSomethingPublicAndStatic();
 
         // Can call default method on interface, but only in a non-static context
-        doInterfaceSomethingPublic();
+        doInterfaceSomethingPublicDefault();
 
         // Can use "default method" with super in a "non-static method only"
         /*
         If you want to invoke the default method implementation, then the correct syntax is:
          [Interface_name].super.[default_method_name].
          */
-        PrivateAndDefaultTestable.super.doInterfaceSomethingPublic();
+        PrivateAndDefaultTestable.super.doInterfaceSomethingPublicDefault();
 
         // Cannot call without qualifier even if current class implements interface
         // from non-static context

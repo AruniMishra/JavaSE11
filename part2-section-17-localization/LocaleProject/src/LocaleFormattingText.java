@@ -17,8 +17,14 @@ public class LocaleFormattingText {
 
         Date now = new Date();
 
+        // Locale.setDefault(Locale.EN_US); // invalid, EN_US is not a valid Locale.
+        // Locale.setDefault("en", "US");// invalid
+        // Locale.setDefault("en_US"); // invalid
+
+        Locale.setDefault(Locale.Category.FORMAT, Locale.US); // valid
         Locale.setDefault(new Locale("en", "AU"));
         Locale.setDefault(Locale.US);
+
 
         float floatValue = 10.233f;
         Locale[] locales = {new Locale("en", "AU"),

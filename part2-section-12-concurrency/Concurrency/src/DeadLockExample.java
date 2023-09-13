@@ -33,6 +33,8 @@ class Neighbor {
         because the thread cannot lock the current neighbor because it's already locked.
          */
         neighbor.respond(this);
+
+
     }
 
     // synchronized method cannot execute if the instance is locked,

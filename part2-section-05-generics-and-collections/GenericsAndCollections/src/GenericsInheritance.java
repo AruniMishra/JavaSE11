@@ -50,7 +50,7 @@ public class GenericsInheritance {
         ArrayList<Integer> intArray = new ArrayList<>();
 
         // Cannot assign :  Incompatible types
-        // ArrayList<Number> numberList =  intArray; // option 1, generates compile error here, and line 1&2
+        // ArrayList<Number> numberList0 =  intArray; // option 1, generates compile error here, and line 1&2
 
         // Generics allow us to express a hierarchical relationship for
         // contained class using wildcards.

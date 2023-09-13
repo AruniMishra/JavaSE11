@@ -13,7 +13,7 @@ public class Test extends SuperTest {
 
     public Test(int x, int y) {
         //there is an implicit call to super() in the two parameter Test constructor so you need to add both.
-        //super();
+        // super();
         first = x;
         second = y;
     }

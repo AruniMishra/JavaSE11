@@ -41,7 +41,7 @@ class Test22 implements Flyable {
         /*
         Correct and only way to access static method of an Interface is by using the name of the interface
          */
-        // (new Test22()).shrinkPercentage();
+        // (new Test22()).shrinkPercentage(); // invalid
 
         // Test22.super.fly(); // super' cannot be referenced from a static context
         // Flyable.super.fly(); // super' cannot be referenced from a static context

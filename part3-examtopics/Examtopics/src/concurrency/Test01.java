@@ -34,6 +34,10 @@ public class Test01 {
 }
 
 class Test05 {
+    public static void main(String[] args) throws InterruptedException, ExecutionException {
+        new Test05().increment(0, 25);
+    }
+
     private void increment(int start, int end) throws InterruptedException, ExecutionException {
         var es = Executors.newFixedThreadPool(10);
         var results = new Future<?>[26];
@@ -47,10 +51,6 @@ class Test05 {
         }));
         System.out.println(results[0].get());
         es.shutdown();
-    }
-
-    public static void main(String[] args) throws InterruptedException, ExecutionException {
-        new Test05().increment(0, 25);
     }
 }
 
@@ -141,9 +141,9 @@ class Test16 {
 
 
 class Adder extends RecursiveAction {
+    int total = 0;
     private int from;
     private int to;
-    int total = 0;
 
     Adder(int from, int to) {
         this.from = from;
@@ -179,8 +179,17 @@ class Test18 {
 
 
 class Test20 {
-    private static long LIMIT = 1000000000;
     private static final int THREADS = 100;
+    private static long LIMIT = 1000000000;
+
+    public static void main(String[] args) {
+        LocalTime start = LocalTime.now();
+        ForkJoinPool pool = new ForkJoinPool(THREADS);
+        long sum = pool.invoke(new AdderTask(1, LIMIT));
+        System.out.printf("sum of the number from %d to %d is %d %n", 1, LIMIT, sum);
+        LocalTime end = LocalTime.now();
+        System.out.println(ChronoUnit.NANOS.between(start, end));
+    }
 
     static class AdderTask extends RecursiveTask<Long> {
         long from, to;
@@ -216,15 +225,6 @@ class Test20 {
                 return second.compute() + first.join();
             }
         }
-    }
-
-    public static void main(String[] args) {
-        LocalTime start = LocalTime.now();
-        ForkJoinPool pool = new ForkJoinPool(THREADS);
-        long sum = pool.invoke(new AdderTask(1, LIMIT));
-        System.out.printf("sum of the number from %d to %d is %d %n", 1, LIMIT, sum);
-        LocalTime end = LocalTime.now();
-        System.out.println(ChronoUnit.NANOS.between(start, end));
     }
 }
 
@@ -412,8 +412,8 @@ class Test35 {
 
 
 class Util {
-    int ctr = 0;
     private static Util obj;
+    int ctr = 0;
 
     private Util() {
         ++ctr;
@@ -441,7 +441,7 @@ class Test38 {
 class Test39 {
     public static void main(String[] args) {
         var ai = new AtomicInteger(10);
-        /*INSERT*/
+
 
         System.out.println(ai.getAndAdd(1));
         System.out.println(ai.addAndGet(1));
@@ -464,8 +464,28 @@ class Test40 {
         var t2 = new Thread(new Counter40());
         var t3 = new Thread(new Counter40());
         Thread[] threads = {t1, t2, t3};
-        for(var thread : threads) {
+        for (var thread : threads) {
             thread.start();
         }
     }
 }
+
+class s3T16 {
+    public static void main(String[] args) {
+        Object t = new Integer(106);
+        int k = ((Integer) t).intValue() / 10;
+        System.out.println(k);
+
+        System.out.println(100 / 9.9);
+
+        System.out.println(100 / 10.0);
+
+        System.out.println(100 / 10);
+
+        // will be parsed as: 3 + (100/10)*2-13. This is because the precedence of / and * is same
+        // (and is higher than + and -) and since the expression is evaluated from
+        // left to right, the operands are grouped on first come first served basis.
+        System.out.println(3 + 100 / 10 * 2 - 13);
+    }
+}
+

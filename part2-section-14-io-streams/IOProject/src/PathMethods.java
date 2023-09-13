@@ -111,6 +111,21 @@ public class PathMethods {
         pathRelativize(p2, p1);
 
 
+        p1 = Path.of("a/b");
+        p2 = Path.of("c/d");
+        try {
+            pathRelativize(p1, p2);
+        } catch (IllegalArgumentException ise) {
+            System.out.println(ise);
+        }
+        try {
+            // Relativize p2.relativize(p1)
+            pathRelativize(p2, p1);
+        } catch (IllegalArgumentException ise) {
+            System.out.println(ise);
+        }
+
+
         /*
         For 'path1.relativize(path2)' both path1 and path2 should be of same type.
         Both should either be relative or absolute.
@@ -134,6 +149,9 @@ public class PathMethods {
         } catch (IllegalArgumentException ise) {
             System.out.println(ise);
         }
+
+
+
     }
 
     private static void pathRelativize(Path p1, Path p2) {
