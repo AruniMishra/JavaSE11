@@ -105,6 +105,16 @@ class Test13 {
 
 class Test15 {
     public static void main(String[] args) {
+        /*
+        Variable 'list' infers to CopyOnWriteArrayList<String> type.
+        removeIf method accepts Predicate, hence no compilation error.
+
+        Enhanced for loop uses an internal iterator and as CopyOnWriteArrayList is used, add/set/remove operations while iterating doesn't cause any exception.
+
+        In first iteration, removeIf method removes 'Melon' and 'Mango' from the list. On every modification, a fresh copy of underlying array is created, leaving the iterator object unchanged. 'Melon' is printed on to the console.
+
+        In 2nd iteration, removeIf method doesn't remove anything as list doesn't contain any element starting with 'M'. But iterator still has 4 elements. 2nd iteration prints 'Apple' on to the console. And so on.
+         */
         var list = new CopyOnWriteArrayList<String>();
         list.add("Melon");
         list.add("Apple");
@@ -114,6 +124,8 @@ class Test15 {
             System.out.println(list.removeIf(str -> str.startsWith("M")));
             System.out.println(s);
         }
+        System.out.println("-----");
+        list.forEach(System.out::println);
     }
 }
 

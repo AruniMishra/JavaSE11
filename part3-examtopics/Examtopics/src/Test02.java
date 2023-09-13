@@ -73,7 +73,7 @@ public class Test02 {
             } catch (InterruptedException e) {
                 System.out.println(e);
             }
-            c.set(3, "four");
+            c.set(3, "four1");
             System.out.print(c + "-");
         };
         Thread t = new Thread(r);

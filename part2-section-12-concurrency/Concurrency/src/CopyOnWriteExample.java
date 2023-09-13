@@ -81,7 +81,7 @@ public class CopyOnWriteExample {
 
         for (int i = 0; i < animals.size(); i++) {
             if (i == 0) {
-                animals.remove(new StringBuilder("Alligator"));
+                System.out.println(animals.remove(0));
             }
         }
 
