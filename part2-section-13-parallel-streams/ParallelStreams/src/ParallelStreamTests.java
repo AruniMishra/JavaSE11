@@ -15,6 +15,10 @@ import java.util.stream.Stream;
 public class ParallelStreamTests {
     public static void main(String[] args) {
 
+        /*
+        You can do either stream().parallel() or parallelStream(). There is no difference between the two approaches.
+         */
+
         int tests = 10;
 
         // Local variable to house random list of Integer

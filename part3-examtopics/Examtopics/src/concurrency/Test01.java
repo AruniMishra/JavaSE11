@@ -72,13 +72,15 @@ class Test07 {
         System.out.println(s.get());
         es.shutdown();
 
+        System.out.println(ctr);
+
         System.out.println("-------------------------------");
         var es1 = Executors.newSingleThreadExecutor();
         var f = es1.submit(() -> "HELLO"); // Callable
         System.out.println(f.get());
         var f1 = es1.submit(() -> System.out.println()); // Runnable
         System.out.println(f1.get());
-        es.shutdown();
+        es1.shutdown();
 
 
     }

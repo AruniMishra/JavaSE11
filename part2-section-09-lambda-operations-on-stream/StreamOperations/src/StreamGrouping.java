@@ -58,7 +58,7 @@ public class StreamGrouping {
                 .forEach(System.out::println);
 
 
-        System.out.println("\n\n--- Average Age by State, PetType: ---");
+        // System.out.println("\n\n--- Average Age by State, PetType: ---");
         Map<List, Double> petMaps = petPopulation.stream()
                 // Collect data into a Map<List,Double>
                 .collect(
@@ -68,7 +68,7 @@ public class StreamGrouping {
                                 // Get average age of pet
                                 Collectors.averagingInt(Pet::getAge)));
 
-        // petMaps.entrySet().forEach(System.out::println); // valid
+        // petMaps.entrySet().forEach(System.out::println); // valid , [GA, Dog]=3.0
 
         // Can get very specific about requesting information from Map
         System.out.println(String.format(

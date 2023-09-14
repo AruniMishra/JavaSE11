@@ -15,7 +15,7 @@ interface PrivateAndDefaultTestable {
                 " static method");
         doInterfaceSomethingPrivateAndStatic();
 
-        // doInterfaceSomethingPublicDefaultdoInterfaceSomethingPublicDefault();
+        // doInterfaceSomethingPublicDefault();
         // doInterfaceSomethingPrivate();
     }
 
@@ -61,7 +61,12 @@ public class TestPrivateInterfaceMethods extends TestStatic implements PrivateAn
         new TestStatic().doClassPublicAndStatic(); // valid on class, but invalid on Interface
         new TestPrivateInterfaceMethods().doClassPublicAndStatic(); // valid on class, but invalid on Interface
 
-        // Access static method on interface with interface qualifier
+
+        /*
+        Remember that static method of an interface can only be accessed by using the name of that interface.
+        This is unlike a static method of a class, which can be accessed using a subclass name or a variable name as well.
+         */
+        // Access static method on interface with interface qualifier only
         PrivateAndDefaultTestable.doInterfaceSomethingPublicAndStatic();
 
         PrivateAndDefaultTestable privateAndDefaultTestable = new TestPrivateInterfaceMethods();

@@ -5,10 +5,7 @@ Section 8: Lambda Operations on Stream
 Topic: Sorting Streams
 */
 
-import java.util.Comparator;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Stream;
 
 // class Guest { // line 1
@@ -105,6 +102,10 @@ public class StreamsSorted {
                 // no argument
                 .sorted(Comparator.naturalOrder())
                 .forEach((s) -> System.out.print(s + ", "));
+
+
+        List<String> al = Arrays.asList("aa", "aaa", "b", "cc", "ccc", "ddd", "a");
+        long count = al.stream().filter((str)->str.compareTo("c")<0).count();
 
     }
 }

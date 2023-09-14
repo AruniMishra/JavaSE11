@@ -2,6 +2,7 @@ package standardTest;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.function.Function;
 
 interface House {
     public default String getAddress() {
@@ -20,6 +21,10 @@ interface Bungalow extends House {
     int id() default 0;
 
     String name();
+}
+
+interface Tone {
+    void up();
 }
 
 public class S4 {
@@ -134,12 +139,7 @@ class Book {
     }
 }
 
-
 class s4TestClass18 {
-    public void method(Object o) {
-        System.out.println("Object Version");
-    }
-
     // public void method(java.io.FileNotFoundException s){
     //     System.out.println("java.io.FileNotFoundException Version");
     // }
@@ -150,10 +150,10 @@ class s4TestClass18 {
         s4TestClass18 tc = new s4TestClass18();
         tc.method(null);
     }
-}
 
-interface Tone {
-    void up();
+    public void method(Object o) {
+        System.out.println("Object Version");
+    }
 }
 
 class Speak {
@@ -172,5 +172,18 @@ class Speak {
 class GoodSpeak extends Speak implements Tone {
     public void up() {
         System.out.println("UP UP UP");
+    }
+}
+
+
+class Calculator {
+    public static void main(String[] args) {
+        double principle = 100;
+        int interestrate = 5;
+        double amount = compute(principle, x -> x * interestrate);
+    }
+
+    public static double compute(double base, Function<Integer, Integer> func) {
+        return func.apply((int) base);
     }
 }
