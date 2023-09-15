@@ -6,7 +6,7 @@ public class StringBuilderCreation {
 
         /*
         If the number of the character increases from its current capacity,
-        it increases the capacity by (oldcapacity*2)+2.
+        it increases the capacity by (oldcapacity*2)+2 = (previouscapacity+1)X2.
          */
 
             /*
@@ -45,7 +45,15 @@ public class StringBuilderCreation {
         StringBuilder sb4 = new StringBuilder(26);
         // Add 26 character string at beginning
         sb4.append("abcdefghijklmnopqrstuvwxyz");
-        System.out.println("\nsb4.length = " + sb4.length());
-        System.out.println("sb4.capacity = " + sb4.capacity());
+        System.out.println("\nsb4.length = " + sb4.length()); // 26
+        System.out.println("sb4.capacity = " + sb4.capacity()); // 26
+
+
+        // adding character instead of capacity
+        StringBuilder sb5 = new StringBuilder("26");
+        // Add 26 character string at beginning
+        sb5.append("abcdefghijklmnopqrstuvwxyz");
+        System.out.println("\nsb4.length = " + sb5.length()); // 28
+        System.out.println("sb4.capacity = " + sb5.capacity()); // 38
     }
 }
