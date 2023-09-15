@@ -1,5 +1,6 @@
 package standardTest;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.function.Function;
@@ -119,18 +120,9 @@ class Book {
     public static void main(String[] args) {
 
 
-        List<List<Book>> books = Arrays.asList(
-                Arrays.asList(
-                        new Book("Windmills of the Gods", 7.0),
-                        new Book("Tell me your dreams", 9.0)),
-                Arrays.asList(
-                        new Book("There is a hippy on the highway", 5.0),
-                        new Book("Easy come easy go", 5.0)));
+        List<List<Book>> books = Arrays.asList(Arrays.asList(new Book("Windmills of the Gods", 7.0), new Book("Tell me your dreams", 9.0)), Arrays.asList(new Book("There is a hippy on the highway", 5.0), new Book("Easy come easy go", 5.0)));
 
-        double d = books.stream()
-                .flatMap(bs -> bs.stream())
-                .mapToDouble(book -> book.getPrice())
-                .sum();
+        double d = books.stream().flatMap(bs -> bs.stream()).mapToDouble(book -> book.getPrice()).sum();
         System.out.println(d);
     }
 
@@ -181,9 +173,36 @@ class Calculator {
         double principle = 100;
         int interestrate = 5;
         double amount = compute(principle, x -> x * interestrate);
+
+
+        List s1 = new ArrayList();
+        try {
+            s1.add("sdfa");
+
+        } catch (RuntimeException e) {
+            e.printStackTrace();
+        }
+        System.out.println(s1.size());
     }
 
     public static double compute(double base, Function<Integer, Integer> func) {
         return func.apply((int) base);
     }
+
+}
+
+interface s4Device51 {
+    public abstract void switchOn();
+}
+
+abstract class Router implements s4Device51 {
+    /* LOCATION 2 */
+    public void switchOn(){    }
+
+    public abstract void reset();
+}
+
+class MimoRouter extends Router implements s4Device51{
+    public void switchOn(){ } //at location 2 and 3
+    public void reset(){ }
 }
