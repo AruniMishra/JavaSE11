@@ -120,9 +120,18 @@ class Book {
     public static void main(String[] args) {
 
 
-        List<List<Book>> books = Arrays.asList(Arrays.asList(new Book("Windmills of the Gods", 7.0), new Book("Tell me your dreams", 9.0)), Arrays.asList(new Book("There is a hippy on the highway", 5.0), new Book("Easy come easy go", 5.0)));
+        List<List<Book>> books = Arrays.asList(
+                Arrays.asList(
+                        new Book("Windmills of the Gods", 7.0),
+                        new Book("Tell me your dreams", 9.0)),
+                Arrays.asList(
+                        new Book("There is a hippy on the highway", 5.0),
+                        new Book("Easy come easy go", 5.0)));
 
-        double d = books.stream().flatMap(bs -> bs.stream()).mapToDouble(book -> book.getPrice()).sum();
+        double d = books.stream()
+                .flatMap(bs -> bs.stream())
+                .mapToDouble(book -> book.getPrice())
+                .sum();
         System.out.println(d);
     }
 
@@ -188,21 +197,17 @@ class Calculator {
     public static double compute(double base, Function<Integer, Integer> func) {
         return func.apply((int) base);
     }
-
 }
 
-interface s4Device51 {
-    public abstract void switchOn();
-}
 
-abstract class Router implements s4Device51 {
-    /* LOCATION 2 */
-    public void switchOn(){    }
+class Test {
 
-    public abstract void reset();
-}
-
-class MimoRouter extends Router implements s4Device51{
-    public void switchOn(){ } //at location 2 and 3
-    public void reset(){ }
+    public static void main(String[] args) {
+        var arr = new Boolean[1];
+        if(arr[0]) {
+            System.out.println(true);
+        } else {
+            System.out.println(false);
+        }
+    }
 }
