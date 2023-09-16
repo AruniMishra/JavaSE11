@@ -37,7 +37,7 @@ public class AndThenExamples {
 
         function.apply("Test");
 
-        System.out.println("Adding on .....");
+        System.out.println("\nAdding on .....");
 
         String result = function.compose(s -> s + " COMPOSED")
                 .andThen(s -> {
@@ -53,7 +53,7 @@ public class AndThenExamples {
         result = unary.compose(s -> "---> " + s)
                 .andThen(s -> s + " <----")
                 .apply("hello");
-        System.out.println("Result of UnaryOperator: " + result);
+        System.out.println("\nResult of UnaryOperator: " + result);
 
 
         // Using BiFunction with andThen()

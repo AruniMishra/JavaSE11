@@ -51,6 +51,10 @@ public class QueueExample {
 
     public static void testBasicQueueMethods(Queue<Integer> q) {
 
+        /*
+        add() will throw an IllegalStateException if no space is currently available in the Queue,
+        otherwise add method will return true. offer() method will return false if the element cannot be inserted due to capacity restrictions.
+         */
         // Add elements using both add and offer
         System.out.println("After add(100) : " + q.add(100) + " : " + q);
 
@@ -64,13 +68,11 @@ public class QueueExample {
 
         // Retrieve an element using element or peek
         System.out.println("element() returns : " + q.element() + " : " + q);
-
         System.out.println("peek() returns(no exception) : " + q.peek() + " : " + q);
 
         // Retrieve and remove an element from the queue
         // using poll and remove
         System.out.println("poll() returns(no exception) : " + q.poll() + " : " + q);
-
         System.out.println("remove() returns : " + q.remove() + " : " + q);
     }
 
