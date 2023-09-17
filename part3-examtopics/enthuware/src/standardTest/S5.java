@@ -1,6 +1,8 @@
 package standardTest;
 
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.function.BiFunction;
 import java.util.function.DoubleFunction;
@@ -76,5 +78,10 @@ class BankAccount extends Account {
         myAccts.computeIfPresent("222", bif);//2
         BankAccount ba = (BankAccount) myAccts.get("222");
         System.out.println(ba.getBalance());
+
+
+
+        List<Double> dList = Arrays.asList(10.0, 12.0);
+        dList.stream().forEach(x->{ x = x+10; return;});
     }
 }
