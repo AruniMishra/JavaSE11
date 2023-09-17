@@ -89,7 +89,7 @@ public class LocaleObjects {
         l = Locale.forLanguageTag("en-U&S");
         System.out.println(l);  // en
 
-        // IllformedLocaleException
+        // IllformedLocaleException`
         l = new Locale.Builder().setRegion("U&S")
                 .setLanguage("en")
                 .build();

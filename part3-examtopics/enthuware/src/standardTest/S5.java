@@ -1,13 +1,11 @@
 package standardTest;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.function.BiFunction;
 import java.util.function.DoubleFunction;
 import java.util.function.DoubleUnaryOperator;
 import java.util.stream.DoubleStream;
+import java.util.stream.Stream;
 
 public class S5 {
 }
@@ -80,8 +78,70 @@ class BankAccount extends Account {
         System.out.println(ba.getBalance());
 
 
-
         List<Double> dList = Arrays.asList(10.0, 12.0);
-        dList.stream().forEach(x->{ x = x+10; return;});
+        dList.stream().forEach(x -> {
+            x = x + 10;
+            return;
+        });
+    }
+}
+
+class s5T29 {
+    public static void main(String[] args) {
+        List<String> l1 = Arrays.asList("a", "b");
+        List<String> l2 = Arrays.asList("1", "2");
+        Stream.of(l1, l2).flatMap((x) -> Stream.of(x)).forEach((x) -> System.out.println(x));
+        Stream.of(l1, l2).flatMap((x) -> x.stream()).forEach((x) -> System.out.println(x));
+//        Stream.of(l1, l2).flatMap((x)->x.iterator()).forEach((x)->System.out.println(x));
+
+    }
+}
+
+
+class s5Book31 {
+    private String title;
+    private String genre;
+
+    public s5Book31(String title, String genre) {
+        this.title = title;
+        this.genre = genre;
+    }
+    //accessors and toString code not shown
+
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getGenre() {
+        return genre;
+    }
+
+    public void setGenre(String genre) {
+        this.genre = genre;
+    }
+
+    @Override
+    public String toString() {
+        return "s5Book31{" +
+                ", genre='" + genre + '\'' +
+                "title='" + title + '\'' +
+                '}';
+    }
+
+    public static void main(String[] args) {
+        var books = new ArrayList<s5Book31>(List.of(
+                new s5Book31("The Outsider", "fiction"),
+                new s5Book31("Becoming", "non-fiction"),
+                new s5Book31("Uri", "non-fiction")));
+
+        books.sort(Comparator.comparing(s5Book31::getGenre)
+                .thenComparing(s5Book31::getTitle).reversed());
+        System.out.println(books);
+
     }
 }

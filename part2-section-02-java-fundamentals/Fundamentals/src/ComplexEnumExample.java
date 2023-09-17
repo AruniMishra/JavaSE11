@@ -5,6 +5,11 @@ Section 2: Java Fundamentals
 Topic : Enum Type
 */
 
+/*
+An enum's constructor is private by default. You cannot apply public or protected  to the constructor.
+private is allowed but is redundant.
+*/
+
 enum WeekDays {
     // The values after the constants enclosed in parentheses are
     // the values used in the constructor(s)
@@ -22,7 +27,7 @@ enum WeekDays {
 
 
     // You can define zero to many constructors on an enum
-    WeekDays(String abbreviation) {
+     WeekDays(String abbreviation) {
         this.abbreviation = abbreviation;
     }
 
@@ -59,6 +64,7 @@ public class ComplexEnumExample {
         System.out.println(WeekDays.SUNDAY.ordinal());
 
         System.out.println(WeekDays.valueOf("SUNDAY").ordinal());
+        System.out.println(WeekDays.valueOf("SUNDAY"));
         // System.out.println(WeekDays.values(0));// invalid
 
         // WeekDays.valueOf("Fri"); // Invalid: No enum constant WeekDays.Fri

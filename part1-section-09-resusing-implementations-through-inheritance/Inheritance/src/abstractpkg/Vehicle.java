@@ -34,7 +34,16 @@ public abstract class Vehicle {
     public abstract void makeNoise();
 
     // We create an enum which describes possible subclasses
+
+    /*
+    An enum's constructor is private by default. You cannot apply public or protected  to the constructor.
+    private is allowed but is redundant.
+     */
     protected enum VehicleType {
-        Automobile, Motorcycle, Moped, Bicycle, Scooter
+        Automobile, Motorcycle, Moped, Bicycle, Scooter;
+
+        VehicleType() {
+
+        }
     }
 }
