@@ -43,7 +43,7 @@ class Account {
         this.id = id;
         System.out.println("Account: " + id);
     }
-    //accessors not shown
+    // accessors not shown
 }
 
 class BankAccount extends Account {
@@ -59,7 +59,7 @@ class BankAccount extends Account {
         System.out.println("BankAccount: " + id + "::" + balance);
     }
 
-    //accessors not shown
+    // accessors not shown
 
 
     public static void main(String[] args) {
@@ -71,9 +71,9 @@ class BankAccount extends Account {
 
         BiFunction<String, Account, Account> bif =
                 (a1, a2) -> a2 instanceof BankAccount ?
-                        new BankAccount(a1, 300.0) : new Account(a1); //1
+                        new BankAccount(a1, 300.0) : new Account(a1); // 1
 
-        myAccts.computeIfPresent("222", bif);//2
+        myAccts.computeIfPresent("222", bif);// 2
         BankAccount ba = (BankAccount) myAccts.get("222");
         System.out.println(ba.getBalance());
 
@@ -106,7 +106,7 @@ class s5Book31 {
         this.title = title;
         this.genre = genre;
     }
-    //accessors and toString code not shown
+    // accessors and toString code not shown
 
 
     public String getTitle() {
@@ -145,3 +145,29 @@ class s5Book31 {
 
     }
 }
+
+
+class Game {
+    public void play() throws Exception {
+        System.out.println("Playing...");
+    }
+}
+
+class Soccer extends Game {
+    public void play(String ball) {
+        System.out.println("Playing Soccer with " + ball);
+    }
+}
+
+class s5TestClass44 {
+    /*
+    demo
+     */
+    public static void main(String[] args) throws Exception {
+        Game g = new Soccer();
+        // 1
+        Soccer s = (Soccer) g;
+        // 2
+    }
+}
+
