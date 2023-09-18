@@ -53,6 +53,9 @@ public class MapSetExamples {
         System.out.println("-----------------------------");
 
         // Collection of just the values...
+        /*
+        map.values() method of Map returns a Collection containing all the values contained in that Map
+         */
         Collection<Integer> values = treeMap.values();
         values.remove(23);
         System.out.println(treeMap);

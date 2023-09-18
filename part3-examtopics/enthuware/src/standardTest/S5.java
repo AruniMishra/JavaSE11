@@ -171,3 +171,7 @@ class s5TestClass44 {
     }
 }
 
+class Transaction<T, S extends T> {
+    public Transaction(T t, S s) {
+    }
+}
