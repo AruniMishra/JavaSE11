@@ -24,13 +24,13 @@ public class LocaleResources {
 
         // The JVM picked the firstBundle_Fr.properties file
         // because it's the next best match.
-        testProperties(Locale.CANADA_FRENCH);
+        testProperties(Locale.CANADA_FRENCH); // fr_CA
 
-        // firstBundle_en_US_slang.properties: the JVM did not match it. and picked default file
-        testProperties(Locale.US);
+        testProperties(Locale.US); // en_US
 
         testProperties(Locale.GERMANY);
 
+        // firstBundle_en_US_slang.properties: the JVM did not match it. and picked default file
         testProperties(new Locale("en", "US", "slang"));
 
         // firstBundle_en_CA.java loaded

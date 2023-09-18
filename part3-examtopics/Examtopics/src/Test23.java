@@ -9,7 +9,7 @@ enum Flags {
 
 public class Test23 {
     public static void main(String[] args) {
-        System.out.println(Flags.valueOf("TRUE"));
+        System.out.println("--" + Flags.valueOf("TRUE"));
 
         Flags flags = Flags.TRUE;
         System.out.println(flags);
