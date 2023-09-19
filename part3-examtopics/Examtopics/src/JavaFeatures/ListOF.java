@@ -63,10 +63,15 @@ public class ListOF {
         }
         //-------------------
 
-        // Similar to List.copyOf(namesList), more aptly named.. Java 10
+        // Returns an unmodifiable view.. Java 10
         List<String> newList = Collections.unmodifiableList(colorList);
         System.out.println("\nCopied List using Collections. UnmodifiableList : " + newList);
+        colorList.set(0,"black");
+        System.out.println("colorList : " + colorList);
+        System.out.println("UnmodifiableList : " + newList);
 
+
+        System.out.println();
         List<String> newUnmodifiableList = colorList.stream()
                 .filter(i -> i.length() > 3)
                 .collect(Collectors.toUnmodifiableList());
@@ -123,7 +128,7 @@ public class ListOF {
                 (args != null && args.length > 0) ? args[0] : null;
         System.out.println("\nargumentString: " + argumentString);
 
-        Stream<String> argStream = Stream.ofNullable(args[0]);
+        Stream<String> argStream = Stream.ofNullable(argumentString);
 
         argStream.forEach(System.out::println);
 

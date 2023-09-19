@@ -4,6 +4,7 @@ import java.util.*;
 import java.util.function.BiFunction;
 import java.util.function.DoubleFunction;
 import java.util.function.DoubleUnaryOperator;
+import java.util.stream.Collectors;
 import java.util.stream.DoubleStream;
 import java.util.stream.Stream;
 
@@ -49,18 +50,11 @@ class Account {
 class BankAccount extends Account {
     private double balance;
 
-    public double getBalance() {
-        return balance;
-    }
-
     public BankAccount(String id, double balance) {
         super(id);
         this.balance = balance;
         System.out.println("BankAccount: " + id + "::" + balance);
     }
-
-    // accessors not shown
-
 
     public static void main(String[] args) {
         Map<String, Account> myAccts = new HashMap<>();
@@ -83,6 +77,12 @@ class BankAccount extends Account {
             x = x + 10;
             return;
         });
+    }
+
+    // accessors not shown
+
+    public double getBalance() {
+        return balance;
     }
 }
 
@@ -108,6 +108,17 @@ class s5Book31 {
     }
     // accessors and toString code not shown
 
+    public static void main(String[] args) {
+        var books = new ArrayList<s5Book31>(List.of(
+                new s5Book31("The Outsider", "fiction"),
+                new s5Book31("Becoming", "non-fiction"),
+                new s5Book31("Uri", "non-fiction")));
+
+        books.sort(Comparator.comparing(s5Book31::getGenre)
+                .thenComparing(s5Book31::getTitle).reversed());
+        System.out.println(books);
+
+    }
 
     public String getTitle() {
         return title;
@@ -131,18 +142,6 @@ class s5Book31 {
                 ", genre='" + genre + '\'' +
                 "title='" + title + '\'' +
                 '}';
-    }
-
-    public static void main(String[] args) {
-        var books = new ArrayList<s5Book31>(List.of(
-                new s5Book31("The Outsider", "fiction"),
-                new s5Book31("Becoming", "non-fiction"),
-                new s5Book31("Uri", "non-fiction")));
-
-        books.sort(Comparator.comparing(s5Book31::getGenre)
-                .thenComparing(s5Book31::getTitle).reversed());
-        System.out.println(books);
-
     }
 }
 
@@ -173,5 +172,54 @@ class s5TestClass44 {
 
 class Transaction<T, S extends T> {
     public Transaction(T t, S s) {
+    }
+}
+
+
+class s5Movie53 {
+    private String title;
+    private String genre;
+
+    public s5Movie53(String title, String genre) {
+        this.title = title;
+        this.genre = genre;
+    }
+    // accessors not shown
+
+    public static void main(String[] args) {
+        Stream<s5Movie53> sm = Stream.of(
+                new s5Movie53("a1", "a"), new s5Movie53("a2", "a"),
+                new s5Movie53("b1", "b"), new s5Movie53("c1", null));
+
+        int count = sm.collect(Collectors.groupingBy(movie -> Optional.ofNullable(
+                movie.getGenre()))).get(Optional.empty()).size();
+
+
+        System.out.println(count);
+
+
+
+        // int count2 = sm.collect(Collectors.groupingBy(s5Movie53::getGenre)).get(null).size(); // invalid
+        // int count3 = sm.collect(Collectors.groupingBy(movie -> movie.getGenre()))
+        //         .get(Optional.empty()).size();
+        // int count4 = sm.collect(Collectors.groupingBy(s5Movie53::getGenre))
+        //         .get(Optional.empty()).size();
+
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getGenre() {
+        return genre;
+    }
+
+    public void setGenre(String genre) {
+        this.genre = genre;
     }
 }

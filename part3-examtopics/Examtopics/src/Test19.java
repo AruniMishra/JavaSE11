@@ -124,10 +124,12 @@ class Foo1 {
 
 class Bar1 extends Foo1 {
 
+    // overrides: Same method signature including return type
     public ArrayList<Integer> foo(Set<CharSequence> m1) {
         return null;
     }
 
+    // overloads: Same method signature including return type, overloads with a subclass as method parameter
     public List<Integer> foo(TreeSet<String> m) {
         return null;
     }

@@ -13,6 +13,7 @@ class Test49 {
 
         String s = "*";
         s.repeat(4);
+        System.out.println(s);
 
 
         String str = "BEVERAGE";
@@ -31,5 +32,37 @@ class Test56 {
         String place = "faraway";
         System.out.println(place.indexOf("a", 3));
         System.out.println(arr[place.indexOf("a", 3)]); // Line n1
+    }
+}
+
+
+class Test43 {
+    public static void main(String[] args) {
+        String str = " "; //single space
+        boolean b1 = str.isEmpty();
+        boolean b2 = str.isBlank();
+        System.out.println(b1 + " : " + b2); //Line n1
+
+
+        // str.strip();` returns an empty string "". As String is immutable,
+        // hence a new String object is created and 'str' still refers to " ".
+        str.strip(); //Line n2
+        b1 = str.isEmpty();
+        b2 = str.isBlank();
+        System.out.println(b1 + " : " + b2); //Line n3
+    }
+}
+
+
+class Test37 {
+    public static void main(String[] args) {
+        String str = "Think"; // Line n3
+        change(str); // Line n4
+        System.out.println(str); // Line n5
+    }
+
+    private static void change(String s) {
+        s = s.concat("_Twice"); // Line n9
+        System.out.println(s);
     }
 }
