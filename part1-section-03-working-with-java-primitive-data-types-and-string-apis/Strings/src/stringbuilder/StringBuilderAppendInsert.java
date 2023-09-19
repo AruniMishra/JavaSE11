@@ -29,6 +29,7 @@ public class StringBuilderAppendInsert {
          */
 
         StringBuilder sb = new StringBuilder();
+        System.out.println("sb length & capacity = " + sb.length() + " & " + sb.capacity());
         sb.append("Hello ")
                 .append(new char[]{'W', 'o', 'r', 'l', 'd'})
                 .append(',')
@@ -62,6 +63,7 @@ public class StringBuilderAppendInsert {
 
         System.out.println();
         StringBuilder sb2 = new StringBuilder(100); // fixed capacity of 100
+        System.out.println("sb2 length & capacity = " + sb2.length() + " & " + sb2.capacity());
         sb2.insert(0, "Hello , is a float with the value of ")
                 .insert(6, new char[]{'W', 'o', 'r', 'l', 'd'})
                 .insert(13, (Object) "My ")
