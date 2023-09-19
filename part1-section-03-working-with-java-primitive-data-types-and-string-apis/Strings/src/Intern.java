@@ -6,8 +6,12 @@ public class Intern {
          and the literal “Welcome” will be placed in the string constant pool.
          The variable s will refer to the object in the heap (non-pool)
          */
+
+        String s0 = new String("GFG"); // Line-1
+
         // S1 refers to Object in the Heap Area
         String s1 = new String("GFG"); // Line-1
+        System.out.println(s1 == s0);
 
         System.out.println(s1 == "GFG");
 
@@ -31,9 +35,29 @@ public class Intern {
         // S5 refers to Object in the SCP Area
         String s5 = s1.intern(); // Line-2
 
-        // S3 refers to Object in the SCP Area
+        // S6 refers to Object in the SCP Area
         String s6 = "GFG"; // Line-3
 
         System.out.println(s5 == s6);
+
+
+
+        /*
+        's1' refers to non-pool String object.
+        Below is the definition of toString() method of String class:
+            public String toString() {
+                return this;
+            }
+
+        It returns the same instance, on which toString() method is invoked.
+        Hence, `s1.toString();` returns the same object referred by s1.
+
+        s2 and s1 both refer to same non-pool String object.
+         */
+        String s7 = new String("ALL IS WELL");
+        String s8 = s1.toString();
+        // s7==s8 // true
+
+
     }
 }
