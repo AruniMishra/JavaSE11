@@ -4,10 +4,10 @@ import java.util.List;
 
 class A {
 
-    A() {
-        System.out.println("A' constructor");
-        callDisplay();
-    }
+    // A() {
+    //     System.out.println("A' constructor");
+    //     callDisplay();
+    // }
 
     /*
     instance variables CANNOT be overridden in Java. In Java, only methods can be overridden.
@@ -34,10 +34,10 @@ class A {
 
 class B extends A {
 
-    B() {
-        System.out.println("B' constructor");
-        callDisplay();
-    }
+    // B() {
+    //     System.out.println("B' constructor");
+    //     callDisplay();
+    // }
 
     public int x = 1;
 

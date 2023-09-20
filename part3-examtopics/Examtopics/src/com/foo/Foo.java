@@ -5,7 +5,7 @@ public class Foo {
     static final int A = 0;
     private static final int C = 0;
     public int f = 0;
-    protected int e = 0;
+    protected int e = 0; // Protected, visible outside package by subclass only
     int d = 0;
     private int g = 0;
 
