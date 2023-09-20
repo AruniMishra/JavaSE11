@@ -90,6 +90,7 @@ public class WildcardExample {
         // Exception allowed by unbounded <?>
         printOpenDoor(exceptionList);
 
+        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
         // Exception NOT allowed by type arg <Object>
         //-- printObjectList(exceptionList);
 

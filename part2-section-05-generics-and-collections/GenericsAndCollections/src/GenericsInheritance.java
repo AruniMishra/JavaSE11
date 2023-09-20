@@ -54,9 +54,9 @@ public class GenericsInheritance {
 
         // Generics allow us to express a hierarchical relationship for
         // contained class using wildcards.
-        ArrayList<? extends Number> numberList = intArray; //option 2, use with methodTwo2
+        ArrayList<? extends Number> numberList = intArray; // option 2, use with methodTwo2
 
-        // Cannot cast:  Incontrovertible types
+        // Cannot cast:  Incontrovertible types without casting
         ArrayList<Integer> intArray2 = (ArrayList<Integer>) numberList; // line 1
 
         // Cannot invoke method which expects ArrayList<Number> with

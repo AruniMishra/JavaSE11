@@ -1,6 +1,7 @@
 package dataTypes;
 
 import java.util.Arrays;
+import java.util.Collection;
 
 public class Test01 {
 }
@@ -126,10 +127,26 @@ class Test79 {
 
 class Test85 {
     public static void main(String[] args) {
-        var m = 10; //Line n1
-        var n = 20; //Line n2
+        var m = 10; // Line n1
+        var n = 20; // Line n2
         byte b = 10;
-        float p = m = n = 30; //Line n3
-        System.out.println(m + n + p); //Line n4
+        float p = m = n = 30; // Line n3
+        System.out.println(m + n + p); // Line n4
+    }
+}
+
+
+class Computator<N extends Number, C extends Collection<N>> {
+
+    public <N extends Number> N sum(C collection) {
+
+        Double sum = 0.0;
+
+        return (N) sum;
+    }
+
+    public static void main(String[] args) {
+
+
     }
 }
