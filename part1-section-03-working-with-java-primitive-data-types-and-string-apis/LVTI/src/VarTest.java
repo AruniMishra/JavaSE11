@@ -9,10 +9,14 @@ import com.WordyCompanyName.ALongPackageName.AClassWithAVeryLongName;
 import java.util.ArrayList;
 
 public class VarTest {
+
+    // var a0 = 0;
+
     public static void main(String[] args) {
         var aClassWithAVeryLongName = new AClassWithAVeryLongName();
         aClassWithAVeryLongName.setName("Testing");
         System.out.println(aClassWithAVeryLongName);
+        var a = 0;
 
         // Adding some other var declarations:
         // i is inferred to be an int, since it's assigned a literal int
@@ -23,6 +27,8 @@ public class VarTest {
 
         var varry = new ArrayList<>(); // valid
         varry.add(0, "b");
+
+        var list2 = new ArrayList();
 
         // Valid to assign a method return value to an LVTI variable
         var methodVal = aClassWithAVeryLongName.getName();

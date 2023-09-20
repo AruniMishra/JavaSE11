@@ -22,7 +22,7 @@ public class NarrowExample {
 
 
         /*
-        Implicit narrowing occurs only between for byte, char, short, and int.
+        Implicit narrowing occurs only between for byte, char, short, and int (for literals and final variable).
         Remember that it does not occur for long, float, or double. So, this will not compile: int i = 129L;
         However, an implicit widening conversion from long to a float or a double is valid:
 

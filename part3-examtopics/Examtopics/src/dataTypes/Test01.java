@@ -88,13 +88,13 @@ class Test65 {
 
 class Test66 {
     public static void main(String[] args) {
-        String str = "Game on"; //Line n1
-        StringBuilder sb = new StringBuilder(str); //Line n2
+        String str = "Game on"; // Line n1
+        StringBuilder sb = new StringBuilder(str); // Line n2
 
-        System.out.println(str.contentEquals(sb)); //Line n3
+        System.out.println(str.contentEquals(sb)); // Line n3
         // System.out.println(sb.contentEquals(str)); //Line n4
-        System.out.println(sb.equals(str)); //Line n5
-        System.out.println(str.equals(sb)); //Line n6
+        System.out.println(sb.equals(str)); // Line n5
+        System.out.println(str.equals(sb)); // Line n6
     }
 }
 
@@ -111,5 +111,25 @@ class Test68 {
         String str2 = "Breathe Deeply";
 
         System.out.println(str1 == str2);
+    }
+}
+
+class Test79 {
+    static String var = "FRIENDS"; // Line n1
+
+    public static void main(String[] args) {
+        int var = (var = Test79.var.length()); // Line n2
+        System.out.println(var); // Line n3
+    }
+}
+
+
+class Test85 {
+    public static void main(String[] args) {
+        var m = 10; //Line n1
+        var n = 20; //Line n2
+        byte b = 10;
+        float p = m = n = 30; //Line n3
+        System.out.println(m + n + p); //Line n4
     }
 }

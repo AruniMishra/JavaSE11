@@ -4,6 +4,8 @@ Section 3: Working with Java Primitive Data Types and String APIs
 Topic: Local Variable Type Inference
 */
 
+import java.util.ArrayList;
+
 public class VarDonts {
 
     // Invalid - Static class variables cannot be declared with var
@@ -15,10 +17,20 @@ public class VarDonts {
     public static void main(String[] args) {
         var instanceVariable = 20;
 
-        var i0=10;
-        for (;i0>0 ; i0--) { ;}
+        var i0 = 10;
+        for (; i0 > 0; i0--) {
+            ;
+        }
 
-        for (int i=0, j=10; i<j; i++, --j) {;}
+        for (int i = 0, j = 10; i < j; i++, --j) {
+            ;
+        }
+
+        var list2 = new ArrayList(); // Line n4
+
+
+        // var type cannot be the target type of lambda expressions and method references.
+        // var lambda1 = () -> System.out.println("Hello"); // invalid
     }
 
     // Invalid, cannot have a method return type of var
@@ -30,8 +42,6 @@ public class VarDonts {
     // public static String[] returnThat(var args) {
     //     return args;
     // }
-
-
 
 
 }
