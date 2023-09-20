@@ -51,6 +51,7 @@ public class CyclicBarrierExample {
 
             // All threads execute step 2
             step(2);
+            cyclicBarrier.await();
 
             return true;
         };
