@@ -1,4 +1,4 @@
-package com.foo;
+package foo;
 
 public class Foo {
     public static final int B = 0;
@@ -14,7 +14,7 @@ public class Foo {
     }
 }
 
-class Bar2 extends com.foo.Foo {
+class Bar2 extends Foo {
     @Override
     public void foo(int j) {
 

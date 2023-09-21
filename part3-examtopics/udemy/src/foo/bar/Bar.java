@@ -1,6 +1,8 @@
-package com.foo.bar;
+package foo.bar;
 
-public class Bar extends com.foo.Foo {
+import foo.Foo;
+
+public class Bar extends Foo {
     @Override
     public void foo(int j) {
         int temp = e;
