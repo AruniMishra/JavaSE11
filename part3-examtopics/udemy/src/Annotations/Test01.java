@@ -62,7 +62,7 @@ class Test38 {
     @SafeVarargs
     final void Test(String... strings) {} //Line n1
 
-    // @SafeVarargs public Test(String msg) {} //Line n2
+    // @SafeVarargs public void Test2(String msg) {} //Line n2
     //
     // // @SafeVarargs public void greet(String... msg) {} //Line n3
     //
