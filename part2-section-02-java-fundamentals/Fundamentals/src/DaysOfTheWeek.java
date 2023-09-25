@@ -16,9 +16,11 @@ class TestDaysOfTheWeek {
         // Example of using the valueOf() static method
         System.out.println(DaysOfTheWeek.valueOf("WEDNESDAY"));
 
+        System.out.println("---------------------------------");
+
         // We can loop through the list of values..
         for (DaysOfTheWeek day : DaysOfTheWeek.values()) {
-            System.out.println(day.ordinal() + " is " + day);
+            System.out.println(day.ordinal() + " is " + day + " & name:" + day.name());
             switch (day) {
                 case MONDAY:
                 case TUESDAY:
