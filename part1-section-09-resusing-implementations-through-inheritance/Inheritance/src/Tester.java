@@ -86,7 +86,7 @@ public class Tester {
         System.out.println("3 end--------\n");
 
 
-        b = (B) aToB; // this is ok.
+        b = (B) aToB; // ok, superclass reference cannot be assigned to subclass reference without explicit cast.
         System.out.println("4 end--------\n");
 
 
@@ -99,6 +99,7 @@ public class Tester {
 
 
         // a = (A) b; // valid, comment this for below code
+        // a = b; // valid, without casting, comment this for below code
 
         b = (B) a; // ClassCastException
         // b.callDisplay();
