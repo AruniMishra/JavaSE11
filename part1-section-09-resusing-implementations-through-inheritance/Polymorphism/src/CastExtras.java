@@ -70,7 +70,7 @@ public class CastExtras {
         /**
          * below code will compile, but will JVM won't allow.
          */
-        BaseClass baseClass1 = new BaseClass();
+        BaseClass baseClass1 = new BaseClass(); // new CastExtras.BaseClass() also valid
         NextClass nextClass1 = (NextClass) baseClass1; // ClassCastException
 
         BaseClass baseClass2 = new NextClass(); // valid
