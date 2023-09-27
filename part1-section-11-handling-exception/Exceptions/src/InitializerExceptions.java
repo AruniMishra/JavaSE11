@@ -1,4 +1,3 @@
-import java.io.FileNotFoundException;
 import java.io.IOException;
 
 /*
@@ -96,6 +95,8 @@ public class InitializerExceptions {
         //         throw new RuntimeException(e);
         //     }
         // }
+
+        // Remember: Constructor call using this(...) or super(...) must be the first statement inside the constructor.
 
     }
 }
