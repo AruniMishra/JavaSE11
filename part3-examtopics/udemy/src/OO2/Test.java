@@ -54,3 +54,4 @@ class Wall {
         System.out.println(model2); // valid, with else
     }
 }
+
