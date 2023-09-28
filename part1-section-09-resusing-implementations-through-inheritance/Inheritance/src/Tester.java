@@ -86,6 +86,13 @@ public class Tester {
         System.out.println("3 end--------\n");
 
 
+        // superclass object cannot be assigned to subclass
+        // i.e. subtype can't refer to an instance of super type
+        // B b1 = (B) new A(); // invalid, ClassCastException
+        // b = (B) new A(); // invalid, ClassCastException
+        // b = (B) a; // invalid, ClassCastException
+
+        // note: below, superclass reference points to subclass object.
         b = (B) aToB; // ok, superclass reference cannot be assigned to subclass reference without explicit cast.
         System.out.println("4 end--------\n");
 

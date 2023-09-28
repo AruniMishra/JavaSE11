@@ -52,6 +52,49 @@ class Wall {
             model2 = "Tesla Model S";
         }
         System.out.println(model2); // valid, with else
+
+
+        String h1 = "hello";
+
+        String replace = h1.replace('h', 'h');
+
+        System.out.println(h1 == replace);
     }
 }
 
+
+class Parent {
+    int var = 1000; // Line n1
+
+    int getVar() {
+        return var;
+    }
+}
+
+class Child extends Parent {
+    int var = 2000; // Line n2
+
+    int getVar() {
+        return super.var; // Line n3
+    }
+}
+
+class Test1232 {
+    public static void main(String[] args) {
+        Child obj = new Child(); // Line n4
+        System.out.println(obj.var); // Line n5
+    }
+}
+
+
+class M {
+    public void main(String[] args) { // Line n1
+        System.out.println("M");
+    }
+}
+
+class N extends M {
+    public void main(String[] args) { // Line n2
+        new M().main(args); // Line n3
+    }
+}
