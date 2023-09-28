@@ -10,7 +10,7 @@ Sub-topic:  Suppressed Exceptions
 public class Season implements AutoCloseable {
 
     /*
-    If an exception is thrown within the try-with-resources block, then that is the exception
+    If an exception is thrown within the "try-with-resources" block, then that is the exception
     that the caller gets. But before the try block returns, the resource's close() method is
     called and if the close() method throws an exception as well, then this exception is added
     to the original exception as a supressed exception.
@@ -36,13 +36,14 @@ public class Season implements AutoCloseable {
                 s.run();
 
             } catch (Exception ex) {
+                System.out.println("Exception: " + ex);
                 System.out.println("--");
                 // Set the caught exception to a local variable
                 addedSuppressed = ex;
             }
             e.run();
         } catch (Exception e) {
-            System.out.println("ERROR CAUGHT: " + e);
+            System.out.println("\n-------\nERROR CAUGHT: " + e);
             // Adding suppressed exceptions..
             if (addedSuppressed != null) e.addSuppressed(addedSuppressed);
             for (Throwable t : e.getSuppressed()) {
