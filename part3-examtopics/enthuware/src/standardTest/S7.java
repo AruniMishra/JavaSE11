@@ -1,5 +1,10 @@
 package standardTest;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 public class S7 {
 }
 
@@ -71,5 +76,16 @@ class s7T22 {
         System.out.println(gc.transform("hello")); // 2
         MyGenericClass<String> gcStr = new MyGenericClass<String>();
         System.out.println(gcStr.transform(1.0)); // 3
+    }
+}
+
+class s7T25 {
+
+    public static void main(String[] args) {
+        ArrayList<String> als = new ArrayList<>(List.of("a", "b", "c"));
+        Set<String> ss = new HashSet();
+        ss.addAll(als); // 1
+        als.clear();    // 2
+        System.out.println(ss.size());
     }
 }
