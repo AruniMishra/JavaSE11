@@ -37,7 +37,7 @@ class Account8 {
     }
 }
 
-class s7T20{
+class s7T20 {
 
     public static void main(String[] args) {
         int x = 1;
@@ -47,7 +47,29 @@ class s7T20{
         int b = z--;
         b += ++z;
 
-        int answ = x>a?y>b?y:b:x>z?x:z;
+        int answ = x > a ? y > b ? y : b : x > z ? x : z;
         System.out.println(answ);
+    }
+}
+
+//-----------------------------------
+class MyGenericClass<T> {
+    public <T> String transform(T t) {
+        return t.toString() + "-" + t.hashCode();
+    }
+}
+
+class s7T22 {
+    public static void main(String[] args) {
+
+        Integer a = 1;
+
+        System.out.println(a.hashCode());
+
+        MyGenericClass gc = new MyGenericClass();
+        System.out.println(gc.transform(a)); // 1
+        System.out.println(gc.transform("hello")); // 2
+        MyGenericClass<String> gcStr = new MyGenericClass<String>();
+        System.out.println(gcStr.transform(1.0)); // 3
     }
 }

@@ -123,6 +123,7 @@ Finally, 4 is printed.
  */
 
 class A1 {
+    int a = 1;
     A1() {
         print();
     }
@@ -133,15 +134,18 @@ class A1 {
 }
 
 class B1 extends A1 {
+
+
     int i = 4; // Try this code after declaring i in class B as final and observe the output.
 
     public static void main(String[] args) {
         A1 a = new B1();
+        System.out.println(a.a);
         a.print();
     }
 
     void print() {
-        System.out.print(i + " ");
+        System.out.println("B: " + i + " ");
     }
 }
 
