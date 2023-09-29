@@ -89,3 +89,20 @@ class s7T25 {
         System.out.println(ss.size());
     }
 }
+
+
+class s7TestClass42 {
+    public void testRefs(String str, StringBuilder sb) {
+        str = str + sb.toString();
+        sb.append(str);
+        str = null;
+        sb = null;
+    }
+
+    public static void main(String[] args) {
+        String s = "aaa";
+        StringBuilder sb = new StringBuilder("bbb");
+        new s7TestClass42().testRefs(s, sb);
+        System.out.println("s=" + s + " sb=" + sb);
+    }
+}
