@@ -106,3 +106,54 @@ class s7TestClass42 {
         System.out.println("s=" + s + " sb=" + sb);
     }
 }
+
+
+class NewException extends Exception {
+}
+
+class AnotherException extends Exception {
+}
+
+class ExceptionTest implements AutoCloseable{
+    public static void main(String[] args) throws Exception {
+        try(ExceptionTest exceptionTest = new ExceptionTest()) {
+            m2();
+        } catch (NewException e){
+
+        }
+        finally {
+            //m3();
+        }
+    }
+
+    public static void m2() throws NewException {
+        throw new NewException();
+    }
+
+    public static void m3() throws AnotherException {
+        throw new AnotherException();
+    }
+
+    @Override
+    public void close() throws Exception {
+        System.out.println("closed");
+        throw new RuntimeException("rte");
+
+    }
+}
+
+
+class OuterWorld
+{
+    public InnerPeace i = new InnerPeace("none"); //1
+    static class InnerPeace
+    {
+        private String reason = "none";
+        InnerPeace(String reason){ this.reason = reason; }
+    }
+    public static void main(String[] args){
+        var ip = new InnerPeace("yoga"); //2
+        var out = new OuterWorld();
+        System.out.println(out.i.reason); //3
+    }
+}

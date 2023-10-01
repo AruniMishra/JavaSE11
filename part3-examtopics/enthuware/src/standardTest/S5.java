@@ -17,8 +17,8 @@ class s5T54 {
     public static void main(String[] args) {
         DoubleStream ds = DoubleStream.of(1.0, 2.0, 3.0);
 
-       /*
-       6.0
+        /*
+        6.0
         7.0
         8.0
         */
@@ -196,7 +196,6 @@ class s5Movie53 {
 
 
         System.out.println(count);
-
 
 
         // int count2 = sm.collect(Collectors.groupingBy(s5Movie53::getGenre)).get(null).size(); // invalid
