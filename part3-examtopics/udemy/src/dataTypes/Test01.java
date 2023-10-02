@@ -138,15 +138,20 @@ class Test85 {
 
 class Computator<N extends Number, C extends Collection<N>> {
 
-    public <N extends Number> N sum(C collection) {
+    public Number sum(C collection) {
 
         Double sum = 0.0;
 
-        return (N) sum;
+        return sum;
     }
 
     public static void main(String[] args) {
 
+        char d = 100, e = 'e'; // line 1
+        int x = d;
+
+        int a = 0;
+        char b = 0;
 
     }
 }

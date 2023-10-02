@@ -32,6 +32,10 @@ public class Intern {
 
         System.out.println(s3 == s4);
 
+        String S40 = s4;
+        System.out.println(S40 == s4);
+
+
         // S5 refers to Object in the SCP Area
         String s5 = s1.intern(); // Line-2
 

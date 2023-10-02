@@ -13,7 +13,7 @@ public class firstBundle_en_CA extends ListResourceBundle {
         return new Object[][]{
                 {"yes", "Yea"},
                 {"no", "Nah"},
-                {"unsure", "Not sure"}
+                {"unsure", "Not sure!"}
         };
     }
 }

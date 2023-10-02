@@ -168,7 +168,38 @@ Module options applicable only for javac:
 Module options applicable only for java:
 --list-modules has no shortcut. It lists observable modules and exits.
 --show-module-resolution has no shortcut. It shows module resolution output during startup.
+  
 --describe-module or -d: It describes a module and exits.
 
 Note that -d works differently in java and javac. Further, -d is very different from -D, which is used while running a java program to specify name-value pairs of properties at the command line.
+```
+
+```notes
+--show-module-resolution
+This option shows all the dependencies of a module and how they are resolved while execution of a class. 
+For example, lets say you have a moduleA that requires moduleB and moduleB requires moduleC. Now, if you run the following command:
+
+java --module-path out --show-module-resolution --module moduleA/test.A
+
+the following output is produced:
+
+root moduleA file://C:/test/java/out/moduleA/
+moduleA requires moduleB file://C:/test/java/out/moduleB/
+moduleB requires moduleC file://C:/test/java/out/moduleC/
+java.base binds java.xml.crypto jrt:/java.xml.crypto
+...
+...
+java.rmi requires java.logging jrt:/java.logging
+test.A
+
+Observe the top three lines of the output. They show how moduleA, moduleB, and moduleC are resolved.
+
+
+###########################################################################################
+###########################################################################################
+
+
+--describe-module
+The --describe-module option shows the information given in the module-info of a particular module. 
+It does not traverse the dependency graph. For example, if moduleA requires moduleB and moduleB requires moduleC, then the command java --describe-module moduleA will only show moduleB.
 ```

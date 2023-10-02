@@ -124,6 +124,7 @@ Finally, 4 is printed.
 
 class A1 {
     int a = 1;
+
     A1() {
         print();
     }
