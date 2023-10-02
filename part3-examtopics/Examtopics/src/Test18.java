@@ -42,3 +42,61 @@ class ExSub extends ExSuper {
         }
     }
 }
+
+
+@FunctionalInterface
+interface InterfaceE {
+    public boolean equals(Object o);
+
+    int breed(int x);
+}
+
+@FunctionalInterface
+interface InterfaceB {
+    int GERM = 13;
+
+    public default int getGERM() {
+        return get();
+    }
+
+    private int get() {
+        return GERM;
+    }
+
+    public boolean equals(Object o);
+
+    int breed(int x);
+}
+
+
+class X {
+    public String name;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String toString() {
+        return getName();
+    }
+}
+
+class Y extends X {
+    public Y(String name) {
+        super();
+        setName(name);
+    }
+
+    public static void main(String... args) {
+        Y y = new Y("HH");
+        System.out.println(y);
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+}
