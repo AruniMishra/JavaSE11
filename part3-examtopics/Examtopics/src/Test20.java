@@ -81,3 +81,4 @@ java: log() in Log cannot implement log() in ILog
   therefore class MyLogger fails to compile.
  */
 // class MyLogger extends Log implements ILog {}
+
