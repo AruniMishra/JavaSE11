@@ -1,5 +1,7 @@
 package OO3;
 
+import java.io.FileNotFoundException;
+
 public class Test {
     public static void main(String[] args) {
         System.out.println("--");
@@ -73,5 +75,51 @@ class Test16 {
     public static void main(String[] args) {
         Sub sub = null;
         System.out.println(sub.name); // Line n3
+    }
+}
+
+
+class Test46 {
+    public static void main(String[] args) {
+        try {
+            System.out.println(args[1].length());
+        } catch (RuntimeException ex) {
+            System.out.println("ONE");
+        }
+        // Java doesn't allow to catch specific checked exceptions
+        // if these are not thrown by the statements inside try block.
+        /* catch (FileNotFoundException ex) {
+            System.out.println("TWO");
+        } */
+        System.out.println("THREE");
+    }
+}
+
+
+class Test47 {
+    public static void main(String[] args) {
+        StringBuilder sb = new StringBuilder();
+        try {
+            for (; ; ) {
+                sb.append("1Z0-819");
+            }
+        } catch (Exception e) {
+            System.out.println("Exception!!!");
+        } finally {
+            System.out.println("Finally : Main ends!!!");
+        }
+    }
+}
+
+class Test48 {
+    public static void main(String[] args) {
+        try {
+            main(args);
+        } catch (Exception ex) {
+            System.out.println("CATCH-"); // Line n1
+        } finally {
+            System.out.println("Finally : Main ends!!!");
+        }
+        System.out.println("OUT"); // Line n2
     }
 }
