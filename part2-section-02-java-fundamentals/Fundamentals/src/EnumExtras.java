@@ -32,13 +32,15 @@ enum PrimaryColor {
         System.out.println("Enum Class Initialization");
     }
 
-    // initializer for all of the anonymous class constants
+    // initializer for
+    // all the anonymous class constants
     {
-        System.out.println("Enum Body Initialization for " + this);
+        System.out.println("---\nEnum Body Initialization for " + this);
     }
 
     // Constructor
     PrimaryColor(int rating) {
+        // Enum constructor is invoked once for every constant.
         System.out.println("Primary Color constructor for " + this);
         this.rating = rating;
     }
