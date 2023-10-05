@@ -89,6 +89,22 @@ class Test16 {
     }
 }
 
+class Test54 {
+    private static String s;
+
+    public static void main(String[] args) {
+        try {
+            System.out.println(s.length());
+        } catch (RuntimeException ex) {
+            System.out.println("DONE");
+        }
+    }
+
+    void nothing() {
+        System.out.println(s.length());
+    }
+}
+
 class C1 implements I1 {
     /*
     Even though class C1 implements I1, it doesn't have static print(String) method in its scope,
