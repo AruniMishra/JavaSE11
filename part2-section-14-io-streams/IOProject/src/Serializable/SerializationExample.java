@@ -17,8 +17,12 @@ but the constructor is called during deserialization.
 class Animal {
     int age;
     int weight;
-
-    // default no-args constructor is must, if this class doesn't "implements Serializable"
+    /*
+    When reading the object back (i.e. deserializing), the constructors of serializable classes are not called.
+    Their data members are set directly from the values present in serialized data.
+    Constructor for unserializable classes is called
+     */
+    // default no-args constructor is must, "if this class doesn't "implements Serializable""
     // even if this is not invoked.
     Animal() {
         System.out.println("Inside no args Serializable.Animal no args constructor");
@@ -36,7 +40,7 @@ class Animal {
 // class Serializable.Pet implements Serializable {
 class Pet extends Animal implements Serializable { // pet is Serializable, is Super class is Serializable
 
-    public static final long serialVersionUID  = 3557208886180634314L;
+    public static final long serialVersionUID = 3557208886180634314L;
     /*
     We're going to comment out the code that's writing the file again.
     We're going to go back and change the value of pet.count from 10 to 55.

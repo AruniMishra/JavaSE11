@@ -42,6 +42,7 @@ public class EnclosingClass {
 
         // instance method
         public String getInstanceName() {
+            // If the inner class is non static, all the static and non-static members of the outer class are accessible (otherwise only static are accessible)
             // System.out.println(outerName); // not valid if static nested class
 
             // Reference a non-static method from the enclosing class...

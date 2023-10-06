@@ -93,7 +93,7 @@ public class Tester {
         // b = (B) a; // invalid, ClassCastException
 
         // note: below, superclass reference points to subclass object.
-        b = (B) aToB; // ok, superclass reference cannot be assigned to subclass reference without explicit cast.
+        b = (B) aToB; // ok, superclass reference cannot be assigned to subclass(or interface) reference without explicit cast.
         System.out.println("4 end--------\n");
 
 
