@@ -96,10 +96,13 @@ public class ArrayComparison {
 
         System.out.println("\n------------- misc ------------");
 
-        var a = new int[]{1, 2, 3, 4, 6};
-        var b = new int[]{1, 2, 3, 4, 5, 3};
-        var c = new int[]{1, 2, 3, 4, 5, 6};
+        var a = new int[]{1, 2, 3, 4, 2};
+        var b = new int[]{1, 2, 3, 4, 8, 3};
+        var c = new int[]{1, 2, 3, 4, 5, 6, 7};
 
+        // If one array is the proper prefix of the other, then compare method returns a.length - b.length, where a refers to 1st array and b refers to 2nd array.
+        // For Character, Byte & Short; compare method returns x - y.
+        // For Integer and Long; compare method returns -1 if x < y, it returns 1 if x > y and it returns 0 if x == y.
         int x = Arrays.compare(a, c); // length is not the criteria here
         int y = Arrays.compare(b, c);
         System.out.println(x + " " + y);
