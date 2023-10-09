@@ -8,7 +8,7 @@ interface A {
 }
 
 
-interface B extends A {
+abstract interface B extends A {
     public Collection a();
 }
 
@@ -30,6 +30,7 @@ interface Worker {
 public class Test01 {
 
     static int myvar;
+
     public static void main(String[] args) {
         int x = 0, y = 6;
         for (; x < y; x++, y--) {
@@ -61,7 +62,7 @@ class Cheater implements Worker {
 class Main1<T extends Worker> extends Thread { // Line 1
     private List<T> processes = new ArrayList<>();
 
-    public void addProcess(HardWorker w) {
+    public void addProcess(HardWorker w) { // or,  public void addProcess(T w) {
         processes.add((T) w);
     }
 
