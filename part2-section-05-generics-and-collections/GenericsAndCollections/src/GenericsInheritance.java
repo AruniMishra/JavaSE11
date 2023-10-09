@@ -54,6 +54,7 @@ public class GenericsInheritance {
 
         // Generics allow us to express a hierarchical relationship for
         // contained class using wildcards.
+        // we know that A<S> is a valid subtype of A<? extends T> (where S is a subtype of T).
         ArrayList<? extends Number> numberList = intArray; // option 2, use with methodTwo2
 
         // Cannot cast:  Incontrovertible types without casting

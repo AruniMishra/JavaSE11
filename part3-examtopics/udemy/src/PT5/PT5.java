@@ -130,3 +130,46 @@ class Test64 {
         System.out.println(str);
     }
 }
+
+
+class Animal65 {}
+
+class Dog65 extends Animal65 {}
+
+class Cat65 extends Animal65 {}
+
+class A65<T> {
+    T t;
+    void set(T t) {
+        this.t = t;
+    }
+
+    T get() {
+        return t;
+    }
+}
+
+class Test65 {
+    public static <T> void print1(A65<? extends Animal65> obj) {
+        // obj.set(new Dog65()); //Line n1
+        System.out.println(obj.get().getClass());
+    }
+
+    public static <T> void print2(A65<? super Dog65> obj) {
+        obj.set(new Dog65()); //Line n2
+        System.out.println(obj.get().getClass());
+    }
+
+    public static void main(String[] args) {
+        A65<Dog65> obj = new A65<Dog65>();
+        print1(obj); //Line n3
+        print2(obj); //Line n4
+
+        A65<Animal65> obj3 = new A65<Animal65>();
+        print2(obj3);
+
+
+        A65<? super Dog65> obj4 = new A65<Dog65>();
+
+    }
+}
