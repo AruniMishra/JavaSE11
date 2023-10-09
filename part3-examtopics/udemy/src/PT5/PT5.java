@@ -3,7 +3,9 @@ package PT5;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class PT5 {
 }
@@ -171,5 +173,17 @@ class Test65 {
 
         A65<? super Dog65> obj4 = new A65<Dog65>();
 
+    }
+}
+
+
+class Test69 {
+    public static void main(String[] args) {
+        List<? super String> list = new ArrayList<>();
+        list.add("A");
+        list.add("B");
+        for(Object str : list) {
+            System.out.print(str);
+        }
     }
 }

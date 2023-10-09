@@ -142,9 +142,10 @@ public class WildcardExample {
             // So, you can parse a raw type to any method that has a method argument,
             // with a type argument even a method that specifies an upper bound,
             // but you do so at your own peril.
-            // -- printUpperList(objectList3);
+            printUpperList(objectList3);
         } catch (Exception e) {
-            e.printStackTrace();
+            // e.printStackTrace();
+            System.out.println(e); // ClassCastException
         }
 
 
@@ -153,7 +154,10 @@ public class WildcardExample {
 
         Integer a = 9;
         ls.add(a);
+        // for (int a1 : ls) { }// type of read objects is 'Object' and type of write objects are Number and its subclasses
 
+
+        // as upper-bounded wildcard is used, hence add operation is not supported.
         List<? extends Number> list0 = new ArrayList<>();
         // list0.add(10L);//does not compile
 
@@ -196,6 +200,6 @@ public class WildcardExample {
         // because once again, Java doesn't know what type will be returned.
 
 
-        TreeSet set ;
+        TreeSet set;
     }
 }
