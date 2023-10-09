@@ -57,7 +57,8 @@ class demo {
 
 class Printer56<String> {
     private String t;
-    Printer56(String t){
+
+    Printer56(String t) {
         this.t = t;
     }
 }
@@ -71,16 +72,61 @@ class Test56 {
 
 class Printer57<String> {
     private String t;
-    Printer57(String t){
+
+    Printer57(String t) {
         this.t = t;
     }
+
     public <String> String toString1() {
         return null;
     }
 }
- class Test57 {
+
+class Test57 {
     public static void main(String[] args) {
         Printer57<Integer> obj = new Printer57<>(100);
         System.out.println(obj);
+    }
+}
+
+
+class Test51 {
+    public static void main(String[] args) {
+        String[][] arr = {{"7", "6", "5"}, {"4", "3"}, {"2", "1"}};
+        for (int i = 0; i < arr.length; i++) { // Line n1
+            for (int j = 0; j < arr[i].length; j++) { // Line n2
+                switch (arr[i][j]) { // Line n3
+                    case "2":
+                    case "4":
+                    case "6":
+                        break; // Line n4
+                    default:
+                        continue; // Line n5
+                }
+                System.out.print(arr[i][j]); // Line n6
+            }
+        }
+    }
+}
+
+
+class GenericPrinter<T> {
+}
+
+abstract class AbstractGenericPrinter<X, Y, T> extends GenericPrinter<T> {
+}
+
+abstract class AbstractGenericPrinter2<X, Y> extends GenericPrinter<String> {
+}
+
+
+class Test64 {
+    public static <T> T get(T t) {
+        return t;
+    }
+
+    public static void main(String[] args) {
+        String str = get("HELLO");
+        System.out.println(str);
     }
 }
