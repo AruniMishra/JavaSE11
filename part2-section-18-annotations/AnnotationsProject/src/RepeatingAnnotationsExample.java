@@ -22,7 +22,7 @@ import java.lang.annotation.RetentionPolicy;
 
 //----------------------------------------------------------
 @interface Resource {
-    String[] value();
+    String[] value() default "";
 }
 
 //----------------------------------------------------------
@@ -49,7 +49,9 @@ import java.lang.annotation.RetentionPolicy;
 
 
 // @Resource({"Customer1", "Customer2", "Customer3", "Customer4"}) //valid, this is not part of Repeatable annotation
-@Resource("Customer1") // this is also valid with array of length 1, you may omit the { }.
+// @Resource("Customer1") // this is also valid with array of length 1, you may omit the { }.
+// @Resource() // valid, if default is specified
+@Resource // valid, if default is specified
 
 public class RepeatingAnnotationsExample {
     public static void main(String[] args) {

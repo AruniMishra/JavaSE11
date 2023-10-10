@@ -19,6 +19,10 @@ public class Bar extends Foo {
     }
 
     public void foo(List arg) {
-        System.out.println("Hello world!");
+        System.out.println("Bar Hello world!");
+    }
+
+    public void foo(Collection arg) {
+        System.out.println("Bar Bonjour le monde!");
     }
 }
