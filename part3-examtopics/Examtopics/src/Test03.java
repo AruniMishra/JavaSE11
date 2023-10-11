@@ -49,6 +49,7 @@ public class Test03 {
                         .filter(p)
                         .collect(Collectors.groupingBy(f));
         r3.entrySet().forEach(System.out::println);
+
     }
 }
 
@@ -91,5 +92,15 @@ class Employee {
 
     public void setSalary(int salary) {
         this.salary = salary;
+    }
+
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "name='" + name + '\'' +
+                ", neighborhood='" + neighborhood + '\'' +
+                ", salary=" + salary +
+                '}';
     }
 }
