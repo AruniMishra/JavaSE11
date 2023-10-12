@@ -1,6 +1,9 @@
 package stringbuilder;
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class StringBuilderCreation {
     public static void main(String[] args) {
 
@@ -9,24 +12,24 @@ public class StringBuilderCreation {
         it increases the capacity by (oldcapacity*2)+2 = (previouscapacity+1)X2.
          */
 
-            /*
-            StringBuilder(String str):
-            This constructor is used for creating a StringBuilder object with
-            initial content the same as str characters
-            and initial capacity = 16 + length of str.
-             */
+        /*
+        StringBuilder(String str):
+        This constructor is used for creating a StringBuilder object with
+        initial content the same as str characters
+        and initial capacity = 16 + length of str.
+         */
+
         // creates empty builder
         // An empty StringBuilder always has initial capacity of 16
         StringBuilder sb = new StringBuilder();
 
         // adds 5 character string at beginning
         sb.append("Hello");
-        System.out.println("sb.length =" + sb.length());
+        System.out.println("sb.length = " + sb.length());
         System.out.println("sb.capacity = " + sb.capacity());
 
         StringBuilder sb2 = new StringBuilder("Hello678");
         System.out.println("\nsb2.length = " + sb2.length());
-
         // Capacity is the initial capacity (16) + "Hello678".length()
         System.out.println("sb2.capacity = " + sb2.capacity());
 
@@ -53,7 +56,7 @@ public class StringBuilderCreation {
         StringBuilder sb5 = new StringBuilder("26");
         // Add 26 character string at beginning
         sb5.append("abcdefghijklmnopqrstuvwxyz");
-        System.out.println("\nsb4.length = " + sb5.length()); // 28
-        System.out.println("sb4.capacity = " + sb5.capacity()); // 38
+        System.out.println("\nsb5.length = " + sb5.length()); // 28
+        System.out.println("sb5.capacity = " + sb5.capacity()); // 38 now (18*2)+2=38
     }
 }
