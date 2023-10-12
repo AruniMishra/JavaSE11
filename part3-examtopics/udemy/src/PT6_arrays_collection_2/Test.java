@@ -16,3 +16,14 @@ class Test3 {
         List<String> list5 = new ArrayList<>(); // Line n9
     }
 }
+
+class Test53 {
+    public static void main(String[] args) {
+        var list = new ArrayList<String>(); //Line n1
+        list.add("A");
+        list.add("M");
+        var list_of_list = List.of(list); //Line n2
+        list_of_list.get(0).set(1, "N"); //Line n3
+        list_of_list.get(0).forEach(System.out::print); //Line n4
+    }
+}

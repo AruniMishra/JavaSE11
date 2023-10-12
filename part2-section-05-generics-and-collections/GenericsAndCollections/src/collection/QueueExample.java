@@ -89,6 +89,9 @@ public class QueueExample {
         // There is no difference. In fact, pop() and remove() methods both call removeFirst.
         System.out.println("pop() returns : " + q.pop() + " : " + q);
 
+        // .addFirst() throws an (unchecked) exception,
+        // .offerFirst() returns false.
+
         // Adding Methods, addFirst, offerFirst, addLast, offerLast
         q.addFirst(200);
         System.out.println("After addFirst(200) : " + q);
@@ -118,6 +121,11 @@ public class QueueExample {
         System.out.println("removeLast() returns : " + q.removeLast() + " : " + q);
     }
 }
+
+// exception:
+// 1. addFirst
+// 2. getFirst
+// 3. removeFirst
 
 
 

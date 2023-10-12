@@ -13,8 +13,15 @@ import java.util.TreeMap;
 public class MapExample {
 
     public static void main(String[] args) {
-        // Create three maps with String keys and Integer values.
 
+        /*
+        HashMap and LinkedHashMap can accept 1 null key but TreeMap cannot accept null keys.
+
+        LinkedHashMap by default keeps an insertion order so every time you iterate the map, you get same result.
+         */
+
+
+        // Create three maps with String keys and Integer values.
 
         // NonOrdered; allows "null" key; allows "null" value
         Map<String, Integer> h = new HashMap<>();
