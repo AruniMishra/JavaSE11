@@ -43,5 +43,12 @@ class T87 {
         var carList = new ArrayList<>(Arrays.asList(cats));
         carList.sort((a, b) -> -a.compareTo(b));
         carList.forEach(System.out::println);
+
+        byte b = 10;
+        nothing(b);
+    }
+
+    static void  nothing(Object a){
+        return;
     }
 }
