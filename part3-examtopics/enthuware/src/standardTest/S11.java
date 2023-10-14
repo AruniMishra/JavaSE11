@@ -1,5 +1,10 @@
 package standardTest;
 
+
+import java.time.LocalDate;
+
+import static java.time.DayOfWeek.*;
+
 public class S11 {
 }
 
@@ -34,6 +39,27 @@ class AccountT2 {
             System.out.println(e.getMessage());
         } catch (Exception e) {
             System.out.println(e.getMessage());
+        }
+    }
+}
+
+
+class TestClass14 {
+    public static void main(String[] args) {
+        var day = LocalDate.now().with(SATURDAY).getDayOfWeek();
+        System.out.println(day);
+
+        switch (day) {
+            case MONDAY:
+                TUESDAY:
+                WEDNESDAY:
+                THURSDAY:
+                FRIDAY:
+                System.out.println("working");
+            case SATURDAY:
+                System.out.println("SATURDAY off");
+                SUNDAY:
+                System.out.println("off");
         }
     }
 }
