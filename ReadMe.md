@@ -27,3 +27,7 @@ a method local inner class can access local variables and parameters of the encl
 - The class Exception and any subclasses that are not also subclasses of RuntimeException are checked exceptions. Checked exceptions need to be declared in a method or constructor's throws clause if they can be thrown by the execution of the method or constructor and propagate outside the method or constructor boundary.
 
 - java.lang.Exception is a checked Exception
+
+
+# Interface
+- Though an interface is allowed to have overriding abstract methods [equals(Object) method, toString() method etc.] from Object class but default methods of an interface cannot override the methods of the Object class.
