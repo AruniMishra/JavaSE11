@@ -1,6 +1,8 @@
 package part2.PT1_lambda;
 
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
@@ -38,3 +40,19 @@ class Test71 {
     }
 }
 
+
+class Test100 {
+    public static void main(String[] args) {
+        Integer i = 10;
+        List<Integer> list = new ArrayList<>();
+        list.add(i);
+        list.add(i *= 2);
+        list.add(i);
+
+        System.out.println(list);
+
+        list.removeIf(a -> a == 10);
+
+        System.out.println(list);
+    }
+}

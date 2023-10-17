@@ -235,7 +235,7 @@ public class MapExample {
 
         // If Mary exists, and value is not null , use the function
         System.out.println("After merge(Mary,100,val/3), return value : " +
-                m.merge("Mary", 100, (key, val) -> val / 3));
+                m.merge("Mary", 33, (key, val) -> val / 3));
         System.out.println("-After merge(Mary,100,val/3): " + m);
 
         // If Mary exists, and return value of the function is null, Mary
@@ -249,6 +249,10 @@ public class MapExample {
                 m.merge("Nat", 100, (key, val) -> val * 2));
         System.out.println("After merge(Nat,100,val*2): " + m);
 
+        System.out.println("After merge(Nat,100,val*2), return value : " +
+                m.merge("Nat", 100, (key, val) -> val * 2));
+        System.out.println("After merge(Nat,100,val*2): " + m);
+
         m.put("Barry", null);
         System.out.println("Set value in Barry to null: " + m);
         m.replaceAll((key, val) -> {
@@ -257,6 +261,30 @@ public class MapExample {
         });
         System.out.println("replaceAll: null values get 0, " +
                 "otherwise add 1 to existing value: " + m);
+
+
+
+        System.out.println("-----------------");
+
+        var map = new LinkedHashMap<Integer, String>();
+        map.put(1,  null);
+        map.put(2,  "TWO");
+        map.put(3, "THREE");
+        map.merge(1, "ONE", String::concat); //Line n1
+        map.merge(2, "2-", (s1, s2) -> s2 + ":" + s1); //Line n2
+        map.merge(3, "3-", (s1, s2) -> null); //Line n3
+        System.out.println(map);
+
+        System.out.println("-----------------");
+        var map2 = new LinkedHashMap<String, String>();
+        map2.put("1",  null);
+        map2.put("2",  "John");
+        map2.put("3", "Evelyn");
+        map2.merge("1", "Harper", String::concat); //Line n1
+        map2.merge("2", "Lucy", (s1, s2) -> s2 + ":" + s1); //Line n2
+        map2.merge("3", "Juliet", (s1, s2) -> s1.concat(":").concat(s2)); //Line n3
+        System.out.println(map2);
+
     }
 
 }

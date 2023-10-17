@@ -31,6 +31,7 @@ public class OperatorExamples {
         map.put("Carol", new Integer[]{21, 30, 43, 31, 55});
         System.out.println(map.keySet());
 
+
         // Declaring lambda expressions using Generic Interfaces
 
         // UnaryOperator using Integer(accepts one argument of type
