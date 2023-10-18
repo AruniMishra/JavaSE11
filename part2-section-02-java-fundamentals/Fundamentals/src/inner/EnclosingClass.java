@@ -97,6 +97,7 @@ class TestEnclosingClass {
 
         // You must use the instance new operator, much like a method.
         i = e.new InnerMemberClass();
+        i = new EnclosingClass("e's instance").new InnerMemberClass();
 
 
         System.out.println("-----------------------------------------");
@@ -114,7 +115,7 @@ class TestEnclosingClass {
         System.out.println("Invoking j.getOuterName: " + j.getOuterName());
 
 
-        // invalid
+        // invalid with class name (InnerMemberClass)
         // e.InnerMemberClass.instanceName = "Testing";
         // System.out.println(e.InnerMemberClass.getInstanceName());
 

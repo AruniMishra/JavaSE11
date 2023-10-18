@@ -52,7 +52,9 @@ public class StaticClassExample {
         // create object of static class
         NestedStaticClass nInstance1 = new EnclosingClass.NestedStaticClass(); // also valid
 
-        // new EnclosingClass().new NestedStaticClass(); // NestedStaticClass is static inner class and can be instantiated like this
+
+
+        // new EnclosingClass().new NestedStaticClass(); // NestedStaticClass is static inner class and cannot be instantiated like this
 
     }
 }
