@@ -3,7 +3,7 @@ package nest;
 // Enclosing Class
 public class EnclosingClass {
     // static field on enclosing class
-    public static String staticOuterName = "OUTER";
+    private static String staticOuterName = "OUTER";
     // instance field on enclosing class
     public String outerName = "outer";
 
@@ -28,6 +28,7 @@ public class EnclosingClass {
 
     // Begin declaration of static nested class named NestedStaticClass
     public static class NestedStaticClass {
+        // A static nested class can contain non-static member variables
 
         // static field
         public static String staticName = "NestedStaticClass.staticName";

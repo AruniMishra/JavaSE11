@@ -52,8 +52,7 @@ public class StaticClassExample {
         // create object of static class
         NestedStaticClass nInstance1 = new EnclosingClass.NestedStaticClass(); // also valid
 
-
-
+        // Since static nested class is a static class, it does not have an instance of the outer class associated with it
         // new EnclosingClass().new NestedStaticClass(); // NestedStaticClass is static inner class and cannot be instantiated like this
 
     }

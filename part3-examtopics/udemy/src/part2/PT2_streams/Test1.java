@@ -66,5 +66,11 @@ class Test {
                 new Rope(10, "green"), new Rope(7, "Blue"));
 
         list.stream().filter(new Rope.RedRopeFilter()::filter).forEach(System.out::println); //Line n1
+
+        if (false); else ;
     }
 }
+
+
+
+
