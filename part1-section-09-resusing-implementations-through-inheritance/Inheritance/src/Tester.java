@@ -111,6 +111,8 @@ public class Tester {
         b = (B) a; // ClassCastException
         // b.callDisplay();
     }
+
+
 }
 
 
@@ -150,6 +152,33 @@ class B1 extends A1 {
     }
 }
 
+
+interface A2 {
+    static int a = 0;
+    static void method(){
+        System.out.println(a);
+    }
+}
+
+interface B2 extends A2{
+    // int a = 2;
+
+    public default void method(){
+        System.out.println(a);
+    }
+}
+
+class C2 implements B2{
+    public void method(){
+        System.out.println(a);
+    }
+}
+
+class C3 extends C2{
+    public void method(){
+        System.out.println(a);
+    }
+}
 
 
 
