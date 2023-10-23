@@ -244,7 +244,8 @@ public class PathMethods {
 
         // If Path argument (other) does not have root component,
         // joins the given path to the parent's path
-        p2 = Path.of("/LearningAcademyOrg/IOProject");
+        p2 = Path.of("/LearningAcademyOrg/IOProject1");
+        System.out.println("Parent of Path.of(\"/LearningAcademyOrg/IOProject1\") = " + p2.getParent());
         System.out.println("resolveSibling transforms \n\t"
                 + p2.toString() + "\n\t" + p1.toString()
                 + "\n to: \n\t" + p2.resolveSibling(p1) +
