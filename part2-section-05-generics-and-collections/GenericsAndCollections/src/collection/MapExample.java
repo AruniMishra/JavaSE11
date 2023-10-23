@@ -234,9 +234,9 @@ public class MapExample {
         System.out.println("After merge(Mary,100,val/3): " + m);
 
         // If Mary exists, and value is not null , use the function
-        System.out.println("After merge(Mary,100,val/3), return value : " +
+        System.out.println("After merge(Mary,33,val/3), return value : " +
                 m.merge("Mary", 33, (key, val) -> val / 3));
-        System.out.println("-After merge(Mary,100,val/3): " + m);
+        System.out.println("-After merge(Mary,33,val/3): " + m);
 
         // If Mary exists, and return value of the function is null, Mary
         // gets removed from map
