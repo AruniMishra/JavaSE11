@@ -204,10 +204,85 @@ class Test {
 
     public static void main(String[] args) {
         var arr = new Boolean[1];
-        if(arr[0]) {
+        if (arr[0]) {
             System.out.println(true);
         } else {
             System.out.println(false);
         }
     }
 }
+
+class A17 {
+    private String s;
+
+    // 1
+    public boolean equals(A17 a) { // override the equals methods
+        return this.s != null && this.s.equals(a.s);
+    }
+}
+
+class A25 {
+    A25() {
+        print();
+    }
+
+    void print() {
+        System.out.print("A ");
+    }
+}
+
+class B25 extends A25 {
+    final int i = 4;
+
+    public static void main(String[] args) {
+        A25 a = new B25();
+        a.print();
+    }
+
+    void print() {
+        System.out.print(i + " ");
+    }
+}
+
+class TestClass31 {
+
+    static int count2 = 0;
+
+    public static void main(String[] args) {
+        List<String> al = Arrays.asList("aa", "aaa", "b", "cc", "ccc", "ddd", "a");
+        // INSERT CODE HERE
+        long count = al.stream().filter((str) -> str.compareTo("c") < 0).count();
+
+
+        /*
+        This code would have been valid but for the fact that non-final or non-effectively final local variables cannot
+        be used inside lambda expressions. Since count is being changed in this code, it is not effectively final.
+        If count were a static field of TestClass, this code would have been valid even if it was not declared final.
+         */
+        al.stream().forEach(s -> {
+            count2 = (s.compareTo("c") < 0) ? count2 + 1 : count2;
+        });
+
+        System.out.println(count);
+    }
+}
+
+class TestClass46 {
+
+    /*
+    A local variable needs to be final or effectively final to be accessed from an inner class or lambda expression.
+     */
+    public double process(double payment, int rate) {
+        final double defaultrate = 0.10;        // 1
+        // if(rate>10) defaultrate = rate;  //2
+        class Implement {
+            public int apply(double data) {
+                Function<Integer, Integer> f = x -> x + (int) (x * defaultrate);  // 3
+                return f.apply((int) data); // 4
+            }
+        }
+        Implement i = new Implement();
+        return i.apply(payment);
+    }
+}
+

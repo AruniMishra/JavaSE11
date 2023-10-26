@@ -218,10 +218,11 @@ public class MapExample {
 
     private static void testMerges(Map<String, Integer> m) {
 
+        // key is an old value
         System.out.println("\nOriginal State: " + m);
         //  If Mary exists and is not null, use the function
-        System.out.println("After merge(Mary,100,val/3), return value : " +
-                m.merge("Mary", 100, (key, val) -> val / 3));
+        System.out.println("After merge(Mary,100,key/3), return value : " +
+                m.merge("Mary", 100, (key, val) -> key / 3));
         System.out.println("After merge(Mary,100,val/3): " + m);
 
         System.out.println("After put(Mary, null), return value : " +
@@ -249,9 +250,9 @@ public class MapExample {
                 m.merge("Nat", 100, (key, val) -> val * 2));
         System.out.println("After merge(Nat,100,val*2): " + m);
 
-        System.out.println("After merge(Nat,100,val*2), return value : " +
-                m.merge("Nat", 100, (key, val) -> val * 2));
-        System.out.println("After merge(Nat,100,val*2): " + m);
+        System.out.println("After merge(Nat,150,val*2), return value : " +
+                m.merge("Nat", 150, (key, val) -> val * 2));
+        System.out.println("After merge(Nat,150,val*2): " + m);
 
         m.put("Barry", null);
         System.out.println("Set value in Barry to null: " + m);
@@ -270,7 +271,7 @@ public class MapExample {
         map.put(1,  null);
         map.put(2,  "TWO");
         map.put(3, "THREE");
-        map.merge(1, "ONE", String::concat); //Line n1
+        map.merge(1, "ONE", (s1, s2) -> s1.concat(s2)); //Line n1
         map.merge(2, "2-", (s1, s2) -> s2 + ":" + s1); //Line n2
         map.merge(3, "3-", (s1, s2) -> null); //Line n3
         System.out.println(map);
@@ -284,6 +285,7 @@ public class MapExample {
         map2.merge("2", "Lucy", (s1, s2) -> s2 + ":" + s1); //Line n2
         map2.merge("3", "Juliet", (s1, s2) -> s1.concat(":").concat(s2)); //Line n3
         System.out.println(map2);
+
 
     }
 

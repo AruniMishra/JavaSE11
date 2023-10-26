@@ -46,6 +46,7 @@ public class HasDeprecatedMethod {
 
 class JavaLangAnnotations {
 
+    // @SuppressWarnings must support three values: unchecked, deprecation, and removal
     @SuppressWarnings({"deprecation", "removal"})
     // @SuppressWarnings({"deprecated", "removal"}) // valid, but "deprecated" is not a valid value.
     /*
