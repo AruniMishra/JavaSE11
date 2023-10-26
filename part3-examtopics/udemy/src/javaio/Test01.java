@@ -162,6 +162,7 @@ class Test59 {
 
         Path p1 = Paths.get("photos\\..\\beaches\\.\\calangute\\a.txt");
         Path p2 = p1.normalize();
+        System.out.println(p2);
         Path p3 = p1.relativize(p2);
         Path p4 = p2.relativize(p1);
 
