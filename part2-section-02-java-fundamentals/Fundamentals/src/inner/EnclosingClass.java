@@ -132,6 +132,7 @@ class TestClass {
         }
 
         new TestClass().new A();
+        new B();
         // new TestClass().new B();
         // new TestClass.A();
         new C();
@@ -139,10 +140,10 @@ class TestClass {
 
     }
 
-    public static class B {
+     static class B {
     }
 
-    public class A {
+     class A {
     }
 }
 

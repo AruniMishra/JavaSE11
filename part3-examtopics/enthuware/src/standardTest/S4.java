@@ -286,3 +286,16 @@ class TestClass46 {
     }
 }
 
+
+class Pow{
+    static void wow(){
+        System.out.println("In Pow.wow");
+    }
+}
+class Pow2 extends Pow{
+     private void wow1(){
+        System.out.println("In Pow.wow");
+         wow();
+    }
+}
+
