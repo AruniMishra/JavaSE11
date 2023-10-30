@@ -1,9 +1,6 @@
 package standardTest;
 
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 public class S6 {
 }
@@ -22,7 +19,7 @@ class s6T22 {
 
 class s6T48FunWithOptional {
     public static String getValue() {
-        return null;
+        return "null";
     }
 
     public static void main(String[] args) {
@@ -30,7 +27,7 @@ class s6T48FunWithOptional {
         // Optional.of method throws NullPointerException if you try to create an Optional with a null value.
         // If you expect the argument to be null, you should use Optional.ofNullable method,
         // which returns an empty Optional if the argument is null.
-        Optional<String> stro = Optional.of(getValue());// 1
+        Optional<String> stro = Optional.of(getValue());// 1 // NLP
 
         System.out.println(stro.isPresent());// 2
 
@@ -40,5 +37,11 @@ class s6T48FunWithOptional {
 
         // This method never throws any exception, not even if the argument is null.
         System.out.println(stro.orElse(null));// 4
+
+
+        List<Integer> names = Arrays.asList(1, 2, 3);
+        System.out.println(names.stream().mapToInt(x -> x).sum());
+
     }
 }
+
