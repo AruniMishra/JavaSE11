@@ -1,5 +1,7 @@
 package standardTest;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.*;
 
 public class S6 {
@@ -45,3 +47,13 @@ class s6T48FunWithOptional {
     }
 }
 
+
+class Great {
+    public void doStuff() throws IOException {
+    }
+}
+
+class Amazing extends Great {
+    public void doStuff() throws FileNotFoundException {
+    }
+}

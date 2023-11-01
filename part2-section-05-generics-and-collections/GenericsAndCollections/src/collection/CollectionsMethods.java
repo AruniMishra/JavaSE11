@@ -76,10 +76,10 @@ public class CollectionsMethods {
         // Create an ArrayList passing the results of
         // Collections.singletonList.
         List<String> l2 = new ArrayList<>(Collections.singletonList("One"));
-        // l2.add("Four"); // if commented(this line only), copy() throws IndexOutOfBoundsException
-        // List<String> l1 = new ArrayList<>(List.of("Two", "Three"));
-        // Collections.copy(l2, l1); // l1 to l2
-        // System.out.println("\nCopied List using Collections.copy l2: " + l2);
+        l2.add("Four"); // if commented(this line only), copy() throws IndexOutOfBoundsException
+        List<String> l01 = new ArrayList<>(List.of("Two", "Three"));
+        Collections.copy(l2, l01); // l01 to l2
+        System.out.println("\nCopied List using Collections.copy l2: " + l2);
         // l2.add("Five");
         // System.out.println("After adding Five : " + l2);
 

@@ -37,14 +37,20 @@ public class ListOF {
 
         //-------------------
 
+
         // Change value on original array
+        /*
+        The list/set returned by the of/copyOf methods is completely independent of the original collection.
+        Thus, if you modify the original collection after passing it to of/copyOf methods,
+        those changes will not be reflected in the list returned by the of/copyOf methods.
+         */
         primaryColors[0] = "blue";
 
         System.out.println("\nprimaryColors after making first element blue: " + Arrays.toString(primaryColors));
 
-        System.out.println("secondColorList after array changed : " + secondColorList.toString());
+        System.out.println("secondColorList after array changed : " + secondColorList);
 
-        System.out.println("thirdColorList after array changed : " + thirdColorList.toString());
+        System.out.println("thirdColorList after array changed : " + thirdColorList);
 
 
         //-------------------
@@ -66,7 +72,7 @@ public class ListOF {
         // Returns an unmodifiable view.. Java 10
         List<String> newList = Collections.unmodifiableList(colorList);
         System.out.println("\nCopied List using Collections. UnmodifiableList : " + newList);
-        colorList.set(0,"black");
+        colorList.set(0, "black");
         System.out.println("colorList : " + colorList);
         System.out.println("UnmodifiableList : " + newList);
 
@@ -81,9 +87,12 @@ public class ListOF {
 
         //-------- java 11
 
+        System.out.println("\n\n-----------------------------");
+        System.out.println("colorList : " + colorList);
+
         String[] arrayFromList = colorList.toArray(String[]::new); // but array from toArray is not immutable
         arrayFromList[1] = "new";
-        System.out.println("\n\narrayFromList after\t" + Arrays.toString(arrayFromList));
+        System.out.println("arrayFromList after\t" + Arrays.toString(arrayFromList));
         System.out.println("colorList(immutable)\t" + colorList);
 
 

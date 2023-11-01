@@ -73,6 +73,7 @@ class s3T9 {
     @Author()
     @Author("bob") // id has default, and "value" can be skipped
     @Author(id = 1)
+    // @Author(1) // invalid
     @Author(id = 1, value = "null")
         // @Author(id = 1, "null") // invalid
     void someMethod(int index) {
