@@ -132,7 +132,8 @@ class TestClass {
         }
 
         new TestClass().new A();
-        new B();
+        // new A();
+        new B(); // for static allowed
         // new TestClass().new B();
         // new TestClass.A();
         new C();

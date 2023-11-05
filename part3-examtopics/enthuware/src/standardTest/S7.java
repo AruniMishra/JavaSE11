@@ -92,18 +92,18 @@ class s7T25 {
 
 
 class s7TestClass42 {
-    public void testRefs(String str, StringBuilder sb) {
-        str = str + sb.toString();
-        sb.append(str);
-        str = null;
-        sb = null;
-    }
-
     public static void main(String[] args) {
         String s = "aaa";
         StringBuilder sb = new StringBuilder("bbb");
         new s7TestClass42().testRefs(s, sb);
         System.out.println("s=" + s + " sb=" + sb);
+    }
+
+    public void testRefs(String str, StringBuilder sb) {
+        str = str + sb.toString();
+        sb.append(str);
+        str = null;
+        sb = null;
     }
 }
 
@@ -114,15 +114,14 @@ class NewException extends Exception {
 class AnotherException extends Exception {
 }
 
-class ExceptionTest implements AutoCloseable{
+class ExceptionTest implements AutoCloseable {
     public static void main(String[] args) throws Exception {
-        try(ExceptionTest exceptionTest = new ExceptionTest()) {
+        try (ExceptionTest exceptionTest = new ExceptionTest()) {
             m2();
-        } catch (NewException e){
+        } catch (NewException e) {
 
-        }
-        finally {
-            //m3();
+        } finally {
+            // m3();
         }
     }
 
@@ -143,17 +142,27 @@ class ExceptionTest implements AutoCloseable{
 }
 
 
-class OuterWorld
-{
-    public InnerPeace i = new InnerPeace("none"); //1
-    static class InnerPeace
-    {
-        private String reason = "none";
-        InnerPeace(String reason){ this.reason = reason; }
-    }
-    public static void main(String[] args){
-        var ip = new InnerPeace("yoga"); //2
+class OuterWorld {
+    public InnerPeace i = new InnerPeace("none"); // 1
+
+    public static void main(String[] args) {
+        var ip = new InnerPeace("yoga"); // 2
         var out = new OuterWorld();
-        System.out.println(out.i.reason); //3
+        System.out.println(out.i.reason); // 3
     }
+
+    void nonStatic() {
+        var ip = new InnerPeace("yoga");
+        var out = new OuterWorld();
+        System.out.println(out.i.reason);
+    }
+
+    static class InnerPeace {
+        private String reason = "none";
+
+        InnerPeace(String reason) {
+            this.reason = reason;
+        }
+    }
+
 }

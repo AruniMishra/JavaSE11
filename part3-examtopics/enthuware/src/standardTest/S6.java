@@ -3,6 +3,7 @@ package standardTest;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class S6 {
 }
@@ -55,5 +56,18 @@ class Great {
 
 class Amazing extends Great {
     public void doStuff() throws FileNotFoundException {
+    }
+}
+
+
+class s6T51 {
+    public static void main(String[] args) {
+        List<String> cities = List.of("USA", "Netherlands",
+                "UK", "India", "France");
+        Comparator<String> c = (a, b)->a.compareTo(b); //1
+        Comparator<String> cr = c.reversed();//2
+        String joined = cities.stream().sorted(cr)
+                .collect(Collectors.joining(", "));//3
+        System.out.println(joined);
     }
 }

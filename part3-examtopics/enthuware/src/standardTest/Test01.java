@@ -4,8 +4,6 @@ import java.io.*;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
-import java.util.concurrent.Callable;
-import java.util.concurrent.Future;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.Function;
 import java.util.stream.Collectors;
@@ -234,25 +232,36 @@ class Test26 {
 }
 
 
-class test34{
+class test34 {
 
     public static void main(String[] args) {
-        var numA = new Integer[]{1, 4, 3}; //1
+        var numA = new Integer[]{1, 4, 3}; // 1
 
         /*
         The list/set returned by the of/copyOf methods is completely independent of the original collection.
          */
-        var list1 = List.of(numA); //2
-        var list2 = Collections.unmodifiableList(list1); //3
-        numA[1] = 2; //4
-        System.out.println(list1+" "+list2);
+        var list1 = List.of(numA); // 2
+        var list2 = Collections.unmodifiableList(list1); // 3
+        numA[1] = 2; // 4
+        System.out.println(list1 + " " + list2);
+
+
+        byte b = 1;
+        char c = 1;
+        short s = 1;
+        int i = 1;
+
+        // s  = (s *  b); // invalid
+        s *= b;
+
+        c += b;
+
     }
 }
 
 
-
- class PortConnector{
-    public PortConnector(int port) throws IOException{
+class PortConnector {
+    public PortConnector(int port) throws IOException {
 
     }
 }
@@ -264,20 +273,24 @@ class CleanConnector extends PortConnector {
 }
 
 
-class A{
-    public A() throws IOException{ }
-    void m() throws IOException{ }
+class A {
+    public A() throws IOException {
+    }
+
+    void m() throws IOException {
+    }
 }
 
-class B extends A{
-    //IOException is valid here, but FileNotFoundException is invalid
+class B extends A {
+    // IOException is valid here, but FileNotFoundException is invalid
     public B() throws IOException {
 
     }
 
-    //FileNotFoundException is valid here, but Exception is invalid
+    // FileNotFoundException is valid here, but Exception is invalid
     @Override
-    void m() throws FileNotFoundException { }
+    void m() throws FileNotFoundException {
+    }
 }
 
 

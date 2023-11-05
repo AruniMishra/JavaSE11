@@ -46,7 +46,7 @@ public class MapSetExamples {
         System.out.println("4:" + treeMap);
 
 
-        //valid: remove on Map directly
+        //valid: remove directly on Map directly
         treeMap.remove("A");
         System.out.println("5:" + treeMap);
 
