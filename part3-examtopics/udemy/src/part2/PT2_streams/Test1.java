@@ -25,16 +25,16 @@ class Test12 {
     public static void main(String[] args) {
         var list = List.of(10, 20, 8);
 
-        System.out.println(list.stream().max(Comparator.comparing(a -> a)).get()); //Line 1
+        System.out.println(list.stream().max(Comparator.comparing(a -> a)).get()); // Line 1
 
-        System.out.println(list.stream().max(Integer::compareTo).get()); //Line 2
+        System.out.println(list.stream().max(Integer::compareTo).get()); // Line 2
 
-        System.out.println(list.stream().max(Integer::max).get()); //Line 3
+        System.out.println(list.stream().max(Integer::max).get()); // Line 3
 
         Stream<String> stream = Stream.of("ocp");
 
         stream.flatMapToInt(s -> s.chars())
-                .forEach(i -> System.out.print((char)i));
+                .forEach(i -> System.out.print((char) i));
     }
 }
 
@@ -53,7 +53,7 @@ class Rope {
     }
 
     static class RedRopeFilter {
-        boolean  filter(Rope rope) {
+        boolean filter(Rope rope) {
             return rope.color.equalsIgnoreCase("Red");
         }
     }
@@ -65,12 +65,30 @@ class Test {
                 new Rope(10, "Red"), new Rope(7, "RED"),
                 new Rope(10, "green"), new Rope(7, "Blue"));
 
-        list.stream().filter(new Rope.RedRopeFilter()::filter).forEach(System.out::println); //Line n1
+        list.stream().filter(new Rope.RedRopeFilter()::filter).forEach(System.out::println); // Line n1
+        /*
+        If 'filter(Rope)' is declared as static, then to achieve same output,
+        you will have to change the method reference syntax to: `filter(Rope.RedRopeFilter::filter)`.
+         */
 
-        if (false); else ;
+        if (false) ;
+        else ;
     }
 }
 
+
+class Test32 {
+    public static void main(String[] args) {
+        List<String> list = new ArrayList<>(Arrays.asList("Z", "Y", "X"));
+        list.stream()
+                .sorted()
+                .findFirst()
+                .get();
+        System.out.println(list.get(2));
+
+
+    }
+}
 
 
 

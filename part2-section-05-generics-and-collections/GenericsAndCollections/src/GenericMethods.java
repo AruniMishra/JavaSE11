@@ -1,4 +1,3 @@
-
 /*
 The Learn Programming Academy
 Java SE 11 Developer 1Z0-819 OCP Course - Part 2
@@ -40,33 +39,6 @@ class GreenApple extends Apple {
 }
 
 public class GenericMethods {
-
-    // Method to compare any type of object passed
-    public int compareObjects(Object a, Object b) {
-
-        // Include custom type checking, not extensible or easily maintainable
-        if (a instanceof Comparable && b instanceof Comparable) {
-            return compareComparables((Comparable) a, (Comparable) b);
-        }
-        return -1;
-    }
-
-    // Method to compare any object implementing Comparable
-    public int compareComparables(Comparable a, Comparable b) {
-        // Include custom type checking, but does not work with subclasses
-        if (a instanceof Apple)
-            return ((Apple) a).compareTo((Apple) b);
-        else if (a instanceof Orange)
-            return ((Orange) a).compareTo((Orange) b);
-        else
-            return -1;
-    }
-
-    // Method type parameters used in arguments enforce objects passed are
-    // the same (or subclasses of) the same type and implement Comparable
-    public <T extends Comparable> int compareMatchingTypes(T a, T b) {
-        return a.compareTo(b);
-    }
 
     public static void main(String[] args) {
         GenericMethods g = new GenericMethods();
@@ -113,6 +85,36 @@ public class GenericMethods {
         //         new Orange(1), new Apple(1)) == 0));
 
 
+    }
 
+    // Method to compare any type of object passed
+    public int compareObjects(Object a, Object b) {
+
+        // Include custom type checking, not extensible or easily maintainable
+        if (a instanceof Comparable && b instanceof Comparable) {
+            return compareComparables((Comparable<?>) a, (Comparable<?>) b);
+        }
+        return -1;
+    }
+
+    // Method to compare any object implementing Comparable
+    public int compareComparables(Comparable a, Comparable b) {
+        // Include custom type checking, but does not work with subclasses
+        if (a instanceof Apple)
+            return ((Apple) a).compareTo((Apple) b);
+        else if (a instanceof Orange)
+            return ((Orange) a).compareTo((Orange) b);
+        else
+            return -1;
+    }
+
+    public <T extends Comparable<T>> int compareComparablesAdvance(T a, T b) {
+        return a.compareTo(b);
+    }
+
+    // Method type parameters used in arguments enforce objects passed are
+    // the same (or subclasses of) the same type and implement Comparable
+    public <T extends Comparable> int compareMatchingTypes(T a, T b) {
+        return a.compareTo(b);
     }
 }
