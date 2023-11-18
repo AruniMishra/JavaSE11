@@ -1,9 +1,6 @@
 package standardTest;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class S7 {
 }
@@ -165,4 +162,57 @@ class OuterWorld {
         }
     }
 
+}
+
+
+class s7Book48 {
+    private int id;
+    private String title;
+    private String genre;
+    private String author;
+
+    public s7Book48(String title, String genre, String author) {
+        this.title = title;
+        this.genre = genre;
+        this.author = author;
+    }
+
+    public static void main(String[] args) {
+        List<s7Book48> books = Arrays.asList(new s7Book48("30 Days", "fiction", "K Larsen"),
+                new s7Book48("Fast Food Nation", "non-fiction", "Eric Schlosser"),
+                new s7Book48("Wired", "fiction", "D Richards"));
+
+        books.stream()
+
+                // .filter(new s7Book48.BookFilter()) // LINE 10
+
+                .filter(BookFilter::isFiction)
+
+                .forEach((s7Book48 b) -> System.out.print(b.getTitle() + ", "));
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getGenre() {
+        return genre;
+    }
+
+    // accessors for instance fields not shown here
+
+    public void setGenre(String genre) {
+        this.genre = genre;
+    }
+
+    public static class BookFilter {
+        public static boolean isFiction(s7Book48 b) {
+            return b.getGenre().equals("fiction");
+        }
+
+    }
 }

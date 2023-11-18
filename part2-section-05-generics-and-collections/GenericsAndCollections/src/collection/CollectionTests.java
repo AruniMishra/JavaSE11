@@ -38,7 +38,7 @@ public class CollectionTests {
         if (addedValue1 instanceof String) {
             performBulkFunctionsString((Collection<String>) h);
         } else if (addedValue1 instanceof Integer) {
-            performBulkFunctions((Collection<Integer>) h);
+            performBulkFunctions((`Collection<Integer>) h);
         }
 
     }

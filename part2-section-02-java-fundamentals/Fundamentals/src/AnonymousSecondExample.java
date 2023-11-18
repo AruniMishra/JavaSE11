@@ -11,18 +11,18 @@ public class AnonymousSecondExample {
         // Note that we are passing an anonymous class expression as a
         // parameter to the invokeSummable method .
         invokeSummable(
-                new Summable() {  // Begin anonymous class expression
+                new Summable() { // Begin anonymous class expression
 
                     // implement Summable.getTotal(float[]) method
                     public double getTotal(float[] values) {
                         double total = 0.0;
-                        for (float value : values) total += value;
+                        for (float value : values)
+                            total += value;
                         return total;
                     } // end of getTotal method
 
-                }  // End of anonymous class expression
-                , new float[]{12.4f, 13.4f, 5f, 12.0f, 11f, 7.5f}
-        );  // End of method invocation
+                } // End of anonymous class expression
+                , new float[] { 12.4f, 13.4f, 5f, 12.0f, 11f, 7.5f }); // End of method invocation
     }
 
     // You can define a private interface in your class

@@ -90,5 +90,8 @@ class TestEnclosingClass {
         // Local variable declaration using a nested class's interface
         EnclosingClass.NestedStaticClass.NestedInterface n;
 
+
+        EnclosingClass.NestedStaticClass nInstance = new EnclosingClass.NestedStaticClass();
+
     }
 }
