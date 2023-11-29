@@ -9,6 +9,7 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.TreeMap;
+import java.util.function.BiFunction;
 
 public class MapExample {
 
@@ -160,12 +161,26 @@ public class MapExample {
     private static void testComputes(Map<String, Integer> m) {
         System.out.println("Original State: " + m);
         // If John exist and value is not null, apply function
-        System.out.println(m.compute("John", (key, val) -> (val == null) ? 0 : val * 100));
+        System.out.println(m.compute("John",
+                (key, val) ->
+                {
+                    System.out.println("key: " + key + "; val:" + val);
+                    return (val == null) ? 0 : val * 100;
+                }
+        ));
+
+
+        BiFunction<String, Integer, Integer> biFunction = (key, val) -> (val == null) ? 0 : val * 100;
+
+
         System.out.println("compute(John, val*100): " + m);
 
         try {
             // Ilene does not exist
-            m.compute("Ilene", (key, val) -> (val == null) ? 0 : val * 100);
+            m.compute("Ilene", (key, val) -> {
+                System.out.println("key: " + key + "; val:" + val);
+                return (val == null) ? 0 : val * 100;
+            });
             System.out.println(m);
         } catch (Exception e) {
             System.out.println("Using compute(Ilene) threw error: " + e);
@@ -222,8 +237,8 @@ public class MapExample {
         System.out.println("\nOriginal State: " + m);
         //  If Mary exists and is not null, use the function
         System.out.println("After merge(Mary,100,key/3), return value : " +
-                m.merge("Mary", 100, (key, val) -> key / 3));
-        System.out.println("After merge(Mary,100,val/3): " + m);
+                m.merge("Mary", 100, (oldValue, newValue) -> oldValue / 3));
+        System.out.println("After merge(Mary,100,oldValue/3): " + m);
 
         System.out.println("After put(Mary, null), return value : " +
                 m.put("Mary", null));
@@ -264,26 +279,25 @@ public class MapExample {
                 "otherwise add 1 to existing value: " + m);
 
 
-
         System.out.println("-----------------");
 
         var map = new LinkedHashMap<Integer, String>();
-        map.put(1,  null);
-        map.put(2,  "TWO");
+        map.put(1, null);
+        map.put(2, "TWO");
         map.put(3, "THREE");
-        map.merge(1, "ONE", (s1, s2) -> s1.concat(s2)); //Line n1
-        map.merge(2, "2-", (s1, s2) -> s2 + ":" + s1); //Line n2
-        map.merge(3, "3-", (s1, s2) -> null); //Line n3
+        map.merge(1, "ONE", (s1, s2) -> s1.concat(s2)); // Line n1
+        map.merge(2, "2-", (s1, s2) -> s2 + ":" + s1); // Line n2
+        map.merge(3, "3-", (s1, s2) -> null); // Line n3
         System.out.println(map);
 
         System.out.println("-----------------");
         var map2 = new LinkedHashMap<String, String>();
-        map2.put("1",  null);
-        map2.put("2",  "John");
+        map2.put("1", null);
+        map2.put("2", "John");
         map2.put("3", "Evelyn");
-        map2.merge("1", "Harper", String::concat); //Line n1
-        map2.merge("2", "Lucy", (s1, s2) -> s2 + ":" + s1); //Line n2
-        map2.merge("3", "Juliet", (s1, s2) -> s1.concat(":").concat(s2)); //Line n3
+        map2.merge("1", "Harper", String::concat); // Line n1
+        map2.merge("2", "Lucy", (s1, s2) -> s2 + ":" + s1); // Line n2
+        map2.merge("3", "Juliet", (s1, s2) -> s1.concat(":").concat(s2)); // Line n3
         System.out.println(map2);
 
 

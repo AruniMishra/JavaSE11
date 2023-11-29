@@ -1,6 +1,8 @@
 package part2.PT2_streams;
 
 import java.util.*;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
@@ -90,5 +92,246 @@ class Test32 {
     }
 }
 
+class Test40 {
+    public static void main(String[] args) {
+        var names = List.of("John", "william", "Claire", "HOPE", "Clark", "Hunter", "Kirk");
+
+        search(names, "jack")
+                .or(() -> search(names, "John"))
+                .or(() -> search(names, "hope"))
+                .or(() -> search(names, "Clark"))
+                .ifPresent(System.out::print);
+    }
+
+    static Optional<String> search(List<String> list, String textToSearch) {
+        return list.stream()
+                .filter(s -> s.equalsIgnoreCase(textToSearch))
+                .findFirst();
+    }
+}
+
+class Test46 {
+    public static void main(String[] args) {
+        Stream<String> stream = Stream.of("d", "cc", "bbb", "aaaa");
+        stream.sorted()
+                .forEach(System.out::println);
+    }
+}
 
 
+class Test47 {
+    public static void main(String[] args) {
+        var list = List.of("MANGO", "BANANA", "ORANGE", "PEARS", "GRAPES");
+        Predicate<String> predicate = str -> {
+            int ctr = 1;
+            boolean result = str.indexOf("N") != -1;
+            System.out.print(ctr++ + "." + result);
+            return result;
+        };
+
+        // List<String> collect =
+        list.stream()
+                .filter(predicate)
+                .sorted() // sorted() is an intermediate operation
+        // .collect(Collectors.toList())
+        ;
+
+        System.out.println("---");
+        // collect.forEach(System.out::println);
+    }
+}
+
+
+class Fruit implements Comparable<Fruit>, Comparator<Fruit> {
+    String name;
+    String countryOfOrigin;
+
+    Fruit() {
+    }
+
+    Fruit(String name, String countryOfOrigin) {
+        this.name = name;
+        this.countryOfOrigin = countryOfOrigin;
+    }
+
+    public static int comp(String s1, String s2) {
+        return s2.compareToIgnoreCase(s1);
+    }
+
+    public String toString() {
+        return name + ":" + countryOfOrigin;
+    }
+
+    @Override
+    public int compareTo(Fruit o) {
+        System.out.println("-compareTo-");
+        return this.name.compareToIgnoreCase(o.name);
+    }
+
+    @Override
+    public int compare(Fruit o1, Fruit o2) {
+        System.out.println("-compare-");
+        return o1.countryOfOrigin.compareToIgnoreCase(o2.countryOfOrigin);
+    }
+}
+
+class Test51 {
+    public static void main(String[] args) {
+        List<Fruit> list = new ArrayList<>();
+        list.add(new Fruit("Olive", "Middle East"));
+        list.add(new Fruit("Mango", "India"));
+        list.add(new Fruit("Cranberry", "North America"));
+        list.add(new Fruit("Watermelon", "Africa"));
+        list.add(new Fruit("Peach", "China"));
+        list.add(new Fruit("Fig", "Middle East"));
+        list.add(new Fruit("Blueberry", "North America"));
+
+        /* INSERT */
+
+        list.stream().sorted(new Fruit()).forEach(System.out::println);
+
+        System.out.println("------------------");
+
+        list.stream().sorted(Comparator.comparing(f -> f.countryOfOrigin, Fruit::comp))
+                .forEach(System.out::println);
+    }
+}
+
+class Test61 {
+    public static void main(String[] args) {
+        IntStream stream = IntStream.generate(() -> new Random().nextInt(100)).limit(5);
+        stream.filter(i -> i > 0 && i < 10).findFirst().ifPresent(System.out::println);
+    }
+}
+
+class MyException extends Exception {
+}
+
+class Test62 {
+    public static void main(String[] args) throws MyException {
+        OptionalInt optional = OptionalInt.empty();
+        System.out.println(optional);
+        System.out.println(optional.orElse(12));
+
+        Arrays.asList(1, 2, 3, 4, 5).stream()
+                .mapToInt(s -> s)
+                .sum();
+
+    }
+}
+
+class Test76 {
+    public static void main(String[] args) {
+        String text = "I am going to pass OCP exam in first attempt";
+        Stream<String> stream = Arrays.stream(text.split(" "));
+        IntSummaryStatistics stat = stream.mapToInt(String::length)
+                .summaryStatistics();
+        System.out.println(stat);
+        System.out.println(stat.getMax());
+
+
+        int res = 1;
+        IntStream intStream = IntStream.rangeClosed(1, 5);
+        System.out.println(intStream.reduce(1, Integer::sum));
+
+
+        Boolean.valueOf(null);
+
+        Stream<Integer> integerStream = Arrays.asList(1, 2, 9, 4, 5, 8).stream();
+        System.out.println(integerStream.max(Comparator.comparingInt(o -> o)));
+
+        Stream<Double> doubleStream = Stream.of(9.8, 2.3, -3.0);
+        System.out.println(doubleStream.min(Double::compareTo));
+
+
+        int res2 = 1;
+        IntStream stream2 = IntStream.rangeClosed(1, 4);
+
+        System.out.println(stream2.reduce(res++, (i, j) -> i * j));
+
+
+        Stream<Double> doubleStream1 = Arrays.asList(1.8, 2.2, 3.5).stream();
+        doubleStream1.mapToDouble(a -> a).sum();
+
+
+        Stream<Double> doubleStream2 = Arrays.asList(1.8, 2.2, 3.5).stream();
+        System.out.println(doubleStream2.reduce((d1, d2) -> d1 + d2)); // Line n1
+    }
+}
+
+class Certification {
+    String studId;
+    String test;
+    int marks;
+
+    Certification(String studId, String test, int marks) {
+        this.studId = studId;
+        this.test = test;
+        this.marks = marks;
+    }
+
+    public String toString() {
+        return "{" + studId + ", " + test + ", " + marks + "}";
+    }
+
+    public String getStudId() {
+        return studId;
+    }
+
+    public String getTest() {
+        return test;
+    }
+
+    public int getMarks() {
+        return marks;
+    }
+}
+
+class Test93 {
+    public static void main(String[] args) {
+        Certification c1 = new Certification("S001", "OCA", 87);
+        Certification c2 = new Certification("S002", "OCA", 82);
+        Certification c3 = new Certification("S001", "OCP", 79);
+        Certification c4 = new Certification("S002", "OCP", 89);
+        Certification c5 = new Certification("S003", "OCA", 60);
+        Certification c6 = new Certification("S004", "OCA", 88);
+
+        Stream<Certification> stream = Stream.of(c1, c2, c3, c4, c5, c6);
+        Map<Boolean, List<Certification>> map =
+                stream.collect(Collectors.partitioningBy(s -> s.equals("OCA")));
+        System.out.println(map.get(true));
+    }
+}
+
+
+class Book {
+    String title;
+    String author;
+    double price;
+
+    public Book(String title, String author, double price) {
+        this.title = title;
+        this.author = author;
+        this.price = price;
+    }
+
+    public String getAuthor() {
+        return this.author;
+    }
+
+    public String toString() {
+        return "{" + title + "," + author + "," + price + "}";
+    }
+}
+
+class Test95 {
+    public static void main(String[] args) {
+        List<Book> books = Arrays.asList(
+                new Book("Head First Java", "Kathy Sierra", 24.5),
+                new Book("OCP", "Udayan Khattry", 20.99),
+                new Book("OCA", "Udayan Khattry", 14.99));
+        books.stream()
+                .collect(Collectors.groupingBy(Book::getAuthor))
+                .forEach((a, b) -> System.out.println(a));
+    }
+}

@@ -249,6 +249,8 @@ class TestClass31 {
     static int count2 = 0;
 
     public static void main(String[] args) {
+
+
         List<String> al = Arrays.asList("aa", "aaa", "b", "cc", "ccc", "ddd", "a");
         // INSERT CODE HERE
         long count = al.stream().filter((str) -> str.compareTo("c") < 0).count();
@@ -287,15 +289,16 @@ class TestClass46 {
 }
 
 
-class Pow{
-    static void wow(){
+class Pow {
+    static void wow() {
         System.out.println("In Pow.wow");
     }
 }
-class Pow2 extends Pow{
-     private void wow1(){
+
+class Pow2 extends Pow {
+    private void wow1() {
         System.out.println("In Pow.wow");
-         wow();
+        wow();
     }
 }
 

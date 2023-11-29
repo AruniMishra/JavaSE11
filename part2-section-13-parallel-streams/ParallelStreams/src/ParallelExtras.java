@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
 public class ParallelExtras {
     public static void main(String[] args) {
 
-        Set<String> set = new TreeSet<>(Set.of("b", "c", "d"));
+        Set<String> set = new TreeSet<>(Set.of("b", "c", "d", "e", "f"));
 
         // Using reduce with String
         String firstResult = set
@@ -27,12 +27,14 @@ public class ParallelExtras {
 
         // Using reduce with String
         String firstResult2 = set
-                .stream()
+                // .stream()
+                .parallelStream()
                 // Requires Identity(String here), and BinaryOperator
                 // .reduce("", String::concat);
                 // Requires Identity(String), BiFunction, BinaryOperator
-                .reduce("", String::concat, String::concat);
-        System.out.println("firstResult2 = " + firstResult2);
+                .reduce("-", String::concat,
+                        (s, t) -> ">> " + s + t);
+        System.out.println("firstResult2: = " + firstResult2);
 
 
         /*

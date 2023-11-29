@@ -40,7 +40,7 @@ public class ArrayComparison {
         System.out.println(" (Arrays.compare(firstString,copyOfFirstString)) = "
                 + Arrays.compare(firstString, copyOfFirstString));
         System.out.println(" (Arrays.compare(firstString,firstStringReference)) = " +
-                "" + Arrays.compare(firstString, firstStringReference));
+                + Arrays.compare(firstString, firstStringReference));
         System.out.println(" (Arrays.compare(firstString,firstStringUnsorted)) = "
                 + Arrays.compare(firstString, firstStringUnsorted));
         System.out.println(" (Arrays.compare(firstStringUnsorted,firstString)) = "
@@ -55,6 +55,8 @@ public class ArrayComparison {
         System.out.println("\n4------------- More Arrays.compare ------------");
         System.out.println(" (Arrays.compare(firstString,firstStringUnsorted)) = "
                 + Arrays.compare(firstString, firstStringUnsorted));
+
+        System.out.println("abc".compareTo("jkl"));
 
         // If we compare the first elements, we get the same result as comparing the full arrays...
         System.out.println("firstString[0].compareTo(firstStringUnsorted[0]  = "
