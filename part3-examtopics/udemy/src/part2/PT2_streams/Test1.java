@@ -6,6 +6,10 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
+enum Color {
+    RED, YELLOW, GREEN
+}
+
 public class Test1 {
 }
 
@@ -39,7 +43,6 @@ class Test12 {
                 .forEach(i -> System.out.print((char) i));
     }
 }
-
 
 class Rope {
     int length;
@@ -77,7 +80,6 @@ class Test {
         else ;
     }
 }
-
 
 class Test32 {
     public static void main(String[] args) {
@@ -118,7 +120,6 @@ class Test46 {
     }
 }
 
-
 class Test47 {
     public static void main(String[] args) {
         var list = List.of("MANGO", "BANANA", "ORANGE", "PEARS", "GRAPES");
@@ -140,7 +141,6 @@ class Test47 {
         // collect.forEach(System.out::println);
     }
 }
-
 
 class Fruit implements Comparable<Fruit>, Comparator<Fruit> {
     String name;
@@ -303,7 +303,6 @@ class Test93 {
     }
 }
 
-
 class Book {
     String title;
     String author;
@@ -333,5 +332,79 @@ class Test95 {
         books.stream()
                 .collect(Collectors.groupingBy(Book::getAuthor))
                 .forEach((a, b) -> System.out.println(a));
+    }
+}
+
+class TrafficLight {
+    String msg;
+    Color color;
+
+    TrafficLight(String msg, Color color) {
+        this.msg = msg;
+        this.color = color;
+    }
+
+    public String getMsg() {
+        return msg;
+    }
+
+    public Color getColor() {
+        return color;
+    }
+
+    public String toString() {
+        return "{" + color + ", " + msg + "}";
+    }
+}
+
+class Test96 {
+
+
+    static StringBuilder RES = new StringBuilder();
+    public static void main(String[] args) {
+        TrafficLight tl1 = new TrafficLight("Go", Color.GREEN);
+        TrafficLight tl2 = new TrafficLight("Go Now!", Color.GREEN);
+        TrafficLight tl3 = new TrafficLight("Ready to stop", Color.YELLOW);
+        TrafficLight tl4 = new TrafficLight("Slow Down", Color.YELLOW);
+        TrafficLight tl5 = new TrafficLight("Stop", Color.RED);
+
+        List<TrafficLight> list = Arrays.asList(tl1, tl2, tl3, tl4, tl5);
+
+        Map<Color, List<String>> map = list.stream()
+                .collect(Collectors.groupingBy(TrafficLight::getColor,
+                        Collectors.mapping(TrafficLight::getMsg, Collectors.toList())));
+
+        map.entrySet().forEach(System.out::println);
+        System.out.println("---------------------");
+
+        System.out.println(map.get(Color.YELLOW));
+
+
+        System.out.println("---------------------");
+        var list1 = List.of("A", "B", "C", "D", "E", "F", "G", "H", "I", "J");
+        list1.parallelStream().forEach(RES::append);
+        System.out.println(RES);
+
+        System.out.println("\n---------------------");
+
+        for (int i =0; i<1; i++){
+            var s1 = List.of("A", "E", "I", "O", "U").stream()
+                    .reduce("_", String::concat);
+            var s2 = List.of("A", "E", "I", "O", "U").parallelStream()
+                    .reduce("_", String::concat);
+            System.out.println(s1);
+            System.out.println(s2);
+            System.out.println(s1.equals(s2));
+        }
+
+        var str1 = List.of("S", "P", "O", "R", "T").stream()
+                .reduce("", String::concat);
+        var str2 = List.of("S", "P", "O", "R", "T").parallelStream()
+                .reduce("", String::concat);
+        System.out.println();
+        System.out.println(str1);
+        System.out.println(str2);
+        System.out.println(str1.equals(str2));
+
     }
 }

@@ -85,6 +85,7 @@ public class ParallelExtras {
         System.out.println("secondResult = " + secondResult);
 
 
+        System.out.println("--------------------");
         // Using collect with String
         String secondResult2 = set
                 .stream()

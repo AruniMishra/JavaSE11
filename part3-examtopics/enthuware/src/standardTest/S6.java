@@ -46,6 +46,8 @@ class s6T48FunWithOptional {
         System.out.println(names.stream().mapToInt(x -> x).sum());
 
     }
+
+
 }
 
 

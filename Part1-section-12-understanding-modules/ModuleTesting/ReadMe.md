@@ -169,7 +169,7 @@ Module options applicable only for java:
 --list-modules has no shortcut. It lists observable modules and exits.
 --show-module-resolution has no shortcut. It shows module resolution output during startup.
   
---describe-module or -d: It describes a module and exits.
+--describe-module or -d: It describes a module and exits(java).
 
 Note that -d works differently in java and javac. Further, -d is very different from -D, which is used while running a java program to specify name-value pairs of properties at the command line.
 ```
