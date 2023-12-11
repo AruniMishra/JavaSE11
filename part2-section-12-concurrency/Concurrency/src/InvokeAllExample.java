@@ -50,7 +50,7 @@ public class InvokeAllExample {
             // executorService = Executors.newFixedThreadPool(2); // 2 task execute concurrently
 
             // Pass all tasks to ExecutorService
-            results = executorService.invokeAll(tasks);
+            results = executorService.invokeAll(tasks1);
 
             // Invoke them all.
             // comment line 1 below

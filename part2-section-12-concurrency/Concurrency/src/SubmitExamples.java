@@ -40,8 +40,8 @@ public class SubmitExamples {
             Future<String> secondResult = executorService.submit(
                     () -> new Random().ints(1, 1000)
                             .limit(5)
-                            .forEach(System.out::println)
-                    , "Thread is finished");
+                            .forEach(System.out::println),
+                    "Thread is finished");
 
             // Allow thread to complete before proceeding using while loop
             //  and checking Future.isDone() method
@@ -74,7 +74,5 @@ public class SubmitExamples {
         } finally {
             if (executorService != null) executorService.shutdown();
         }
-
-
     }
 }

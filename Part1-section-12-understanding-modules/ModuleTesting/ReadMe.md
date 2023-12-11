@@ -62,6 +62,8 @@ java -p . -d MyFirstModule
 ---
 
 - Run for jdeps
+- '--generate-module-info' option is available with jdeps command only,
+  - It generates "mod-descriptors" directory containing module-info.java file
 
 ```shell
 jdeps --module-path . .\MyFirstModule.jar

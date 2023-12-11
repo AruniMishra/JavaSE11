@@ -62,7 +62,7 @@ public class RunnableThreadCreation {
 
         // Create a Thread, pass a Runnable object, in this case an instance
         // of NumberGenerator class
-        // Thread n = new Thread(new NumberGenerator(100));
+        Thread n0 = new Thread(new NumberGenerator(100));
 
         // or, You can pass a Lambda Expression or a method reference as a runnable parameter
         // to a thread constructor because Runnable is a functional interface.

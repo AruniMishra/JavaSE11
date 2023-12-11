@@ -7,7 +7,10 @@ Topic:  Using CyclicBarrier
 
 import java.util.List;
 import java.util.Random;
-import java.util.concurrent.*;
+import java.util.concurrent.Callable;
+import java.util.concurrent.CyclicBarrier;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class CyclicBarrierExample {
     public static void main(String[] args) throws Exception {
@@ -15,13 +18,15 @@ public class CyclicBarrierExample {
         // Construct a CyclicBarrier,
         // First arg # of parties (tasks)
         // Second arg Action is a Runnable
-        CyclicBarrier cyclicBarrier = new CyclicBarrier(4,
+        CyclicBarrier cyclicBarrier =
+                new CyclicBarrier(4,
+
                 // CyclicBarrier executes twice, once for each set of 2 threads which pass
                 // through the barrier.
                 // new CyclicBarrier(2, // crates partial traffic jam
-                () -> {
-                    System.out.println("---Confirming step is complete");
-                });
+                        () -> {
+                            System.out.println("---Confirming step is complete");
+                        });
 
         // Set up a callable local variable
         Callable<Boolean> r = () -> {
@@ -51,7 +56,7 @@ public class CyclicBarrierExample {
 
             // All threads execute step 2
             step(2);
-            cyclicBarrier.await();
+            // cyclicBarrier.await();
 
             return true;
         };

@@ -1,4 +1,3 @@
-
 /*
 The Learn Programming Academy
 Java SE 11 Developer 1Z0-819 OCP Course - Part 2
@@ -15,7 +14,6 @@ public class ScheduleMultiples {
 
     private static void addToTalley(long count) {
         talley += count;
-
     }
 
     public static void main(String[] args) throws InterruptedException, ExecutionException {
@@ -43,12 +41,15 @@ public class ScheduleMultiples {
 
             // When talley = 25, 5 tasks were executed
             while (ScheduleMultiples.talley < 25) {
+                System.out.println("-sleep-");
                 Thread.sleep(3000);
             }
 
         } finally {
             if (scheduledService != null) {
                 scheduledService.shutdown();
+
+                System.out.println("--shutting down--");
 
                 // Wait no longer than 4 seconds for completion confirmation
                 scheduledService.awaitTermination(4, TimeUnit.SECONDS);

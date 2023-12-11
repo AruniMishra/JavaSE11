@@ -12,7 +12,7 @@ import java.util.stream.Stream;
 class MyCustomThread extends Thread {
     // Passing a seed value, code will print numbers in increments
     // of the seed value
-    private int seed;
+    private int seed = 0;
 
     // Constructor accepts a seed value
     MyCustomThread(String threadName, int seed) {
@@ -40,12 +40,10 @@ class MyCustomThread extends Thread {
                 // print numbers and include thread name
                 System.out.print(this.getName() + ": " + s + "; ");
             });
-
         } catch (RuntimeException re) {
             // Print a statement and terminate cleanly
             System.out.println("\nInterrupted " + this.getName() + "'s execution");
         }
-
     }
 }
 
@@ -56,7 +54,7 @@ public class CustomThreadCreation {
     public static void main(String[] args) throws InterruptedException {
 
         // This task will print numbers out in increments of 5
-        Thread t = new MyCustomThread("Fives:", 5);
+        Thread t = new MyCustomThread("Fives-", 5);
 
         // This task will print numbers out in increments of 7
         Thread v = new MyCustomThread("Sevens", 7);
@@ -97,7 +95,8 @@ public class CustomThreadCreation {
         // creating a stream of 10 random numbers between 1 and 100
         Thread n2 = new Thread() {
             public void run() {
-                new Random().ints(10, 1, 100).forEach(System.out::println);
+                new Random().ints(10, 1, 100)
+                        .forEach(System.out::println);
             }
         };
 
