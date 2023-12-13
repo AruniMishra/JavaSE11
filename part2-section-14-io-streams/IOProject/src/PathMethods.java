@@ -314,7 +314,8 @@ public class PathMethods {
         // NoSuchFileException
         try {
             System.out.println(
-                    "p1.toRealPath() = " +
+                    "p1." +
+                            "toRealPath() = " +
                             p1.toRealPath());
         } catch (IOException io) {
             System.out.println(io);

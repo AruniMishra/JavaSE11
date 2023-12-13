@@ -86,5 +86,29 @@ public class CopyOnWriteExample {
         }
 
         System.out.println(animals);
+
+
+        var list1 = List.of("Melon", "Apple", "Banana", "Mango");
+        var list2 = new ArrayList<>(list1); // CopyOnWriteArrayList for for-each
+
+        /*
+        // ConcurrentModificationException, valid with CopyOnWriteArrayList
+        for(String s : list2) {
+            if(s.startsWith("M")){
+                list2.remove(s);
+            }
+        }
+        */
+
+
+        // this is valid
+        for (int i = 0; i < list2.size(); i++) {
+            String s = list2.get(i);
+            if (s.startsWith("M")) {
+                list2.remove(s);
+            }
+        }
+        System.out.println(list1);
+        System.out.println(list2);
     }
 }

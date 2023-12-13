@@ -10,6 +10,7 @@ import java.io.Console;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.time.LocalDateTime;
+import java.util.Arrays;
 
 public class ConsoleExamples {
     public static void main(String[] args) throws IOException {
@@ -34,7 +35,7 @@ public class ConsoleExamples {
             // name = console.readLine("What is your name? ");
 
 
-            console.printf("Enter your name:\n");
+            console.printf("--Enter your name:\n");
             // Good practice to flush the buffer before getting input
             console.flush();
 
@@ -46,10 +47,11 @@ public class ConsoleExamples {
             // clear the buffer
             console.flush();
             // Retrieve user's password
-            console.readPassword("Enter Password, please, %1s: ", name);
+            char[] readPassword = console.readPassword("Enter Password, please, %1s: ", name);
+            console.writer().println("---readPassword"+ Arrays.toString(readPassword));
 
             // Alternate of printf, use the console.writer().println
-            console.writer().println("Your input is appreciated, " + name);
+            console.writer().println("--Your input is appreciated, " + name);
             console.format("The local date and time is:" +
                     " %1$tF %1$tr", currentDate);
 

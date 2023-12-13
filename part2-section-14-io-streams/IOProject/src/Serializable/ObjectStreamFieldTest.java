@@ -2,6 +2,7 @@ package Serializable;
 
 import java.io.*;
 /*
+If you use 'serialPersistentFields', then it must be declared with private, static & final modifiers.
 'serialPersistentFields' is used and it is declared with private, static and final modifiers.
 
 Also private methods 'writeObject(ObjectOutputStream)' and 'readObject(ObjectInputStream)' are present,

@@ -6,10 +6,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.nio.file.attribute.BasicFileAttributes;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 import java.util.function.BiPredicate;
 import java.util.stream.IntStream;
 
@@ -92,6 +89,38 @@ class Test23 {
     }
 }
 
+
+class Store38 implements Serializable {
+    int i;
+    Double d;
+    String s;
+    StringBuilder sb;
+    // Object object = new Object() {
+    //     public String toString() {
+    //         return "OBJECT";
+    //     }
+    // };
+    List<String> colors = new ArrayList<>(List.of("R", "G", "B"));
+
+    Store38(int i, Double d) {
+        this.i = i;
+        this.d = d;
+    }
+}
+
+class Test38 {
+    public static void main(String[] args) throws IOException, ClassNotFoundException {
+        var store = new Store38(10, Double.parseDouble("100.0"));
+        try (var oos = new ObjectOutputStream(new FileOutputStream(("C:\\A\\store.ser")));
+             var ois = new ObjectInputStream(new FileInputStream("C:\\A\\store.ser"))) {
+            oos.writeObject(store);
+
+            var s = (Store38) ois.readObject();
+            System.out.println(s.i + ":" + s.d + ":" + s.s + ":" + s.sb + ":" + ":" + s.colors);
+        }
+    }
+}
+
 class Test40 {
     public static void main(String[] args) {
         var file = Paths.get("F:\\A\\.\\B\\C\\D\\..\\Book.java");
@@ -104,11 +133,16 @@ class Test40 {
 }
 
 class Test44 {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         var file1 = Paths.get("F:\\A\\B\\C");
         var file2 = Paths.get("Book.java");
         System.out.println(file1.resolve(file2));
         System.out.println(file1.resolveSibling(file2));
+
+
+        var path = Paths.get("C:\\A\\B\\store.ser");
+        var size1 = Files.size(path);
+        System.out.println(size1);
     }
 }
 

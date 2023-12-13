@@ -299,6 +299,8 @@ class Test26 {
 }
 
 
+
+
 class Test31 {
     public static void main(String[] args) throws InterruptedException, ExecutionException, TimeoutException {
         var es = Executors.newSingleThreadExecutor();
@@ -370,6 +372,7 @@ class Test33 {
         var cb = new CyclicBarrier(2, () -> System.out.println("START...")); // Line n1
         System.out.println(cb.getNumberWaiting());
         cb.await(); // Line n2
+        System.out.println(cb.getNumberWaiting());
         var tour = new Tour(cb); // Line n3
         System.out.println("END..."); // Line n4
     }
