@@ -1,4 +1,4 @@
-package javaio;
+package part2.PT5_javaio;
 
 import java.io.*;
 import java.nio.file.Files;
@@ -207,12 +207,20 @@ class Test59 {
 class Test69 {
     public static void main(String[] args) throws IOException {
         var src = Paths.get("C:\\A\\B\\C\\test.txt");
-        var tgt = Paths.get("C:\\A\\C"); // creates a file(if not exists), without extension
+        var tgt = Paths.get("C:\\A\\C"); // creates a file 'C' (if not exists), without extension
         Files.copy(src, tgt);
     }
 }
 
 class Test71 {
+    /*
+    Line n1 doesn't create 't1.txt' file. It just returns the File object containing abstract pathname.
+    Line n2 to Line Line n7 create respective files: 't2.txt', 't3.txt', 't4.txt', 't5.txt', 't6.txt', 't7.txt'.
+
+    StandardOpenOption.WRITE or StandardOpenOption.APPEND or StandardOpenOption.TRUNCATE_EXISTING opens the existing file,
+    it doesn't create any new file. Line n8 throws NoSuchFileException.
+    But given catch handler is blank, it catches the Exception but does nothing.
+     */
     public static void main(String[] args) {
         try {
             new File("C:\\A\\t1.txt"); // Line n1
@@ -253,7 +261,7 @@ class Test75 {
         NOTE: If you want to find the files ending with "txt" then use
         'p.toString().endsWith("txt")' in the lambda expression.
          */
-        BiPredicate<Path, BasicFileAttributes> predicate = (p, a) -> p.endsWith("t2.txt");
+        BiPredicate<Path, BasicFileAttributes> predicate = (p, a) -> p.endsWith("txt"); //
         try (var paths = Files.find(root, 2, predicate)) {
             paths.forEach(System.out::println);
         }

@@ -41,8 +41,9 @@ public class LocaleFormattingDateTime {
         System.out.println("\n----- Using Date Patterns ---------");
 
         // Printing this way prints the short representation of a date
-        System.out.println(MessageFormat.format("{0}  = " +
-                "{1, date}", "1, date", date));
+        System.out.println(MessageFormat.format(
+                "{0}  = {1, date}",
+                "--1, date1--", date));
 
         // Printing this way prints the short representation of a date,
         // same as above but making it clear that this is short

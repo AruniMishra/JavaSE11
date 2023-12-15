@@ -26,8 +26,8 @@ public class LocaleReview {
         // List only Locales with country code of "US"
         Arrays.stream(Locale.getAvailableLocales())
                 //.filter((s) -> s.getCountry().equals("US"))
-                .filter((s) -> s.getCountry().length() == 0 && s.getLanguage().length() > 0)
-                .limit(7)
+                .filter((s) -> s.getCountry().isEmpty() && !s.getLanguage().isEmpty())
+                .limit(10)
                 .forEach((s) -> System.out.println(s + " : " +
                         s.getDisplayName()));
 
@@ -35,11 +35,11 @@ public class LocaleReview {
         // List only Locales with country code of "US"
         Arrays.stream(Locale.getAvailableLocales())
                 //.filter((s) -> s.getCountry().equals("US"))
-                .filter((s) -> s.getVariant().length() > 0)
+                .filter((s) -> !s.getVariant().isEmpty())
                 .forEach((s) -> System.out.println(s + " : " +
                         s.getDisplayName() + " : " + s.getVariant()));
 
-        System.out.println("------ Locales with extensions ------");
+        System.out.println("\n\n------ Locales with extensions ------");
         // List only Locales with country code of "US"
         Arrays.stream(Locale.getAvailableLocales())
                 //.filter((s) -> s.getCountry().equals("US"))

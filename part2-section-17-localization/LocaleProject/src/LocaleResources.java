@@ -11,6 +11,8 @@ import java.util.ResourceBundle;
 public class LocaleResources {
     public static void main(String[] args) {
         /*
+        var loc = new Locale("en", "US");
+        var rb = ResourceBundle.getBundle("firstBundle", loc);
         the search order for matching resource bundle is:
         1. MyResourceBundle_en_US [1st: Complete, en_US].
         2. MyResourceBundle_en [2nd: Only language, en].

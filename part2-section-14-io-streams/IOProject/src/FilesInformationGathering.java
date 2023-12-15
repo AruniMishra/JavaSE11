@@ -76,7 +76,7 @@ public class FilesInformationGathering {
         try {
 
             /*
-            static method Files.size(path) method is equivalent to
+            static method Files.size(path) in java.nio.file method is equivalent to
             instance method file.length() defined in java.io.File class.
              */
 
