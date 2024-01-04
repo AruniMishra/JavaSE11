@@ -108,7 +108,7 @@ public class StreamSearches {
                 .anyMatch((s) -> s.length() == 6);
 
         // allMatch() : Returns true if all the stream elements match the given Predicate.
-        // If stream is empty, it returns true and predicate is not evaluated.
+        // noneMatch() : If stream is empty, it returns true and predicate is not evaluated.
         allMatch = noData.stream()
                 .allMatch((s) -> s.length() < 6);
         noneMatch = noData.stream()
@@ -130,7 +130,6 @@ public class StreamSearches {
                 .forEach(System.out::println);
 
     }
-
 
 
 }

@@ -10,6 +10,7 @@ public class HasDeprecatedMethod {
     /*
     @Deprecated annotation has 2 attributes: 'since' and 'forRemoval'.
     Default value of 'since' is empty string "" and  default value of 'forRemoval' is false.
+    Javadoc comment for this method uses @deprecated tag to provide documentation about the deprecation.
      */
 
 

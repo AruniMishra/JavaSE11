@@ -47,12 +47,13 @@ public class MapExamples {
                         // Terminal operations returns a Set
                         .collect(Collectors.toSet());
 
-        System.out.println("firstset = " + firstset);
+        System.out.println("\n\nfirstset = " + firstset);
 
 
         // Using an IntStream
         System.out.println("\n\nOutput from an IntStream using map");
-        IntStream.iterate(5, (t) -> t + 5).peek((t) -> System.out.print("t:" + t + " "))
+        IntStream.iterate(5, (t) -> t + 5)
+                .peek((t) -> System.out.print("t:" + t + " "))
                 .limit(5)
                 .map((s) -> s * 1000)
                 .forEach((s) -> System.out.print("s:" + s + " \n"));
