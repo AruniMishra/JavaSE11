@@ -34,19 +34,19 @@ public class ConcatExamples {
         Stream<String> stream1 = tree1.stream();
         stream1 = stream1.sorted(Comparator.reverseOrder());
         stream1 = stream1.peek(s -> System.out.print("-- 1 -- "));
-        // System.out.println("---First---");
+        System.out.println("---First---");
         // stream1.forEach(System.out::println); // stream has already been operated upon or closed
 
         Stream<String> stream2 = tree2.stream();
         // stream2 = stream2.filter(s-> s.charAt(s.length()-1) != 'y');
         stream2 = stream2.peek(s -> System.out.print("-- 2 -- "));
-        // System.out.println("---Second---");
+        System.out.println("---Second---");
         // stream2.forEach(System.out::println); // stream has already been operated upon or closed
 
         System.out.println("---Merged---");
         Stream<String> merged = Stream.concat(stream1, stream2);
-        // merged.forEach(System.out::println);
-        // merged.distinct().forEach(System.out::println);
+        merged.forEach(System.out::println);
+        merged.distinct().forEach(System.out::println);
 
 
         // Stream<String> newMerge = Stream.concat(stream1, Stream.of("Zoe","Pete"));
