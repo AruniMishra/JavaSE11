@@ -3,6 +3,7 @@ package part2.PT2_streams;
 import java.util.*;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
+import java.util.stream.DoubleStream;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
@@ -41,6 +42,21 @@ class Test12 {
 
         stream.flatMapToInt(s -> s.chars())
                 .forEach(i -> System.out.print((char) i));
+    }
+}
+
+class Test13 {
+    public static void main(String[] args) {
+        Stream<String> stream = Stream.of("ocp");
+        stream.flatMapToInt(s -> s.chars()).forEach(i -> System.out.print((char) i));
+    }
+}
+
+class Test31 {
+    public static void main(String[] args) {
+        Stream<Double> stream = Stream.generate(() -> Double.valueOf("1.0"));
+        // System.out.println(stream.sorted().findFirst()); // infinite
+        System.out.println(stream.findFirst()); // works; Optional[1.0]
     }
 }
 
@@ -134,7 +150,7 @@ class Test47 {
         list.stream()
                 .filter(predicate)
                 .sorted() // sorted() is an intermediate operation
-        // .collect(Collectors.toList())
+                .collect(Collectors.toList())
         ;
 
         System.out.println("---");
@@ -201,6 +217,7 @@ class Test61 {
     public static void main(String[] args) {
         IntStream stream = IntStream.generate(() -> new Random().nextInt(100)).limit(5);
         stream.filter(i -> i > 0 && i < 10).findFirst().ifPresent(System.out::println);
+        stream.filter(i -> i > 0 && i < 10).findFirst().stream();
     }
 }
 
@@ -234,6 +251,10 @@ class Test76 {
         IntStream intStream = IntStream.rangeClosed(1, 5);
         System.out.println(intStream.reduce(1, Integer::sum));
 
+        int res78 = 1;
+        IntStream stream78 = IntStream.rangeClosed(1, 4);
+        System.out.println(stream78.reduce(res78++, (i, j) -> i * j));
+
 
         Boolean.valueOf(null);
 
@@ -256,6 +277,25 @@ class Test76 {
 
         Stream<Double> doubleStream2 = Arrays.asList(1.8, 2.2, 3.5).stream();
         System.out.println(doubleStream2.reduce((d1, d2) -> d1 + d2)); // Line n1
+    }
+}
+
+class Test90 {
+    public static void main(String[] args) {
+        var a = DoubleStream.iterate(Double.valueOf(1.0), i -> i <= 3.0, i -> i + 1);
+        var b = a.mapToObj(i -> "" + i)
+                .collect(Collectors.joining(", "));
+        System.out.println(b);
+    }
+}
+
+
+class Test92 {
+    public static void main(String[] args) {
+        String str = Stream.of("a", "an", "and", "alas", "after")
+                .dropWhile(s -> s.length() > 4)
+                .collect(Collectors.joining(", "));
+        System.out.println(str);
     }
 }
 
@@ -361,6 +401,7 @@ class Test96 {
 
 
     static StringBuilder RES = new StringBuilder();
+
     public static void main(String[] args) {
         TrafficLight tl1 = new TrafficLight("Go", Color.GREEN);
         TrafficLight tl2 = new TrafficLight("Go Now!", Color.GREEN);
@@ -387,7 +428,7 @@ class Test96 {
 
         System.out.println("\n---------------------");
 
-        for (int i =0; i<1; i++){
+        for (int i = 0; i < 1; i++) {
             var s1 = List.of("A", "E", "I", "O", "U").stream()
                     .reduce("_", String::concat);
             var s2 = List.of("A", "E", "I", "O", "U").parallelStream()

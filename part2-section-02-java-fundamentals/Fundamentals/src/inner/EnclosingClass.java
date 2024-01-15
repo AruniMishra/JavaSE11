@@ -137,14 +137,15 @@ class TestClass {
         // new TestClass().new B();
         // new TestClass.A();
         new C();
+        // new TestClass().new C();
         // new TestClass.C();
 
     }
 
-     static class B {
+    static class B {
     }
 
-     class A {
+    class A {
     }
 }
 

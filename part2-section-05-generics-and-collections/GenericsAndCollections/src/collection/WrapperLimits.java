@@ -85,7 +85,8 @@ public class WrapperLimits {
         // could actually reference an array-list of short for example,
         // and adding 5 to an array list of type short would produce a compiler error.
         List<? extends Number> integerList1 = new ArrayList<Integer>();
-        // integer List1.add(5);
+        integerList1 = new ArrayList<Short>();
+        // integerList1.add(5);
 
 
         List<? super Integer> integerList2 = new ArrayList<Integer>();

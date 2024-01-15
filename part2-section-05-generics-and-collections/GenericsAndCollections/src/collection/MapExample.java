@@ -250,9 +250,9 @@ public class MapExample {
         System.out.println("After merge(Mary,100,val/3): " + m);
 
         // If Mary exists, and value is not null , use the function
-        System.out.println("After merge(Mary,33,val/3), return value : " +
-                m.merge("Mary", 33, (key, val) -> val / 3));
-        System.out.println("-After merge(Mary,33,val/3): " + m);
+        System.out.println("After merge(Mary,33,val/5), return value : " +
+                m.merge("Mary", 33, (key, val) -> val / 5));
+        System.out.println("-After merge(Mary,33,val/5): " + m);
 
         // If Mary exists, and return value of the function is null, Mary
         // gets removed from map
@@ -282,6 +282,11 @@ public class MapExample {
         System.out.println("-----------------");
 
         var map = new LinkedHashMap<Integer, String>();
+
+        String s01 = null;
+        String s02 = "One";
+        // System.out.println(s01.concat(s02)); // NLP
+
         map.put(1, null);
         map.put(2, "TWO");
         map.put(3, "THREE");
