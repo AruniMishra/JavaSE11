@@ -8,10 +8,7 @@ Topic:  Formatting Date Time
 import java.text.DateFormat;
 import java.text.MessageFormat;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
-import java.time.Month;
+import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
 import java.util.Date;
@@ -141,6 +138,33 @@ public class LocaleFormattingDateTime {
         dateFormatter.setTimeZone(TimeZone.getTimeZone("EST"));
         System.out.println(MessageFormat.format("{0}  = {1}",
                 "SimpleDateFormat(\"MM/dd/YY hh:mm zz\")", dateFormatter.format(date)));
+
+
+
+
+        // 1. First create a sample LocalDateTime
+        LocalDateTime specificDateTime =
+                LocalDateTime.of(2020, 9, 17, 1, 53, 23, 000);
+
+        // LocalDateTime to Date
+        // Date.from(specificDateTime.toInstant(ZoneOffset.UTC));
+
+        dateFormatter = new SimpleDateFormat("YYYY-MM-dd'T'HH:MM:ss.SSS'Z'");
+        dateFormatter.setTimeZone(TimeZone.getTimeZone("UTC"));
+        System.out.println(MessageFormat.format("{0}  = {1}",
+                "SimpleDateFormat(\"YYYY-MM-dd'T'HH:MM:ss.SSS'Z'\")", dateFormatter.format(Date.from(specificDateTime.toInstant(ZoneOffset.UTC)))));
+
+
+
+        /*
+        DateTimeFormatter is generally a better choice than SimpleDateFormat for formatting dates and times in Java.
+        It is more thread-safe, more flexible, and based on the newer and recommended java.time API.
+         */
+        DateTimeFormatter sdf = DateTimeFormatter.ofPattern("YYYY-MM-dd'T'HH:MM:ss.SSS'Z'").
+                withZone(ZoneId.of("UTC"));
+        System.out.println(sdf.format(specificDateTime));
+
+
     }
 
     // Using LocalDateTime.of, LocalDate.of and LocalTime.of to create

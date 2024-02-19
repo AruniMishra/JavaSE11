@@ -131,18 +131,31 @@ class TestClass {
         class C {
         }
 
-        new TestClass().new A();
-        // new A();
-        new B(); // for static allowed
-        // new TestClass().new B();
+        new TestClass().new A(); // class A is not static inner class of TestClass. So it cannot exist without an outer instance of TestClass.
+        // new A(); // 'inner.TestClass.this' cannot be referenced from a static context
         // new TestClass.A();
+
+        new B(); // for static allowed
+        new TestClass.B();
+        // new TestClass().new B();
+
         new C();
         // new TestClass().new C();
         // new TestClass.C();
-
     }
 
-    static class B {
+    void nonstaticUseClasses() {
+        // the method useClasses() is an instance method. So, it already has instance of outer class associated with it.
+        // So, new A(); is also valid. new TestClass.A(); is same as new A().
+        new TestClass().new A();
+        new A();
+        new TestClass.A();
+
+        new B();
+        new TestClass.B();
+    }
+
+    public static class B {
     }
 
     class A {

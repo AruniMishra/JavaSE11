@@ -46,7 +46,7 @@ public class ArraySearch {
         // Try another example...
         System.out.println("Arrays.mismatch(firstStringUnsortedDuplicates," +
                 " new String[]{\"jkl\",\"mno\"}) = "
-                + Arrays.mismatch(firstStringUnsortedDuplicates, new String[]{"mno", "jkl"}));
+                + Arrays.mismatch(firstStringUnsortedDuplicates, new String[]{"jkl", "mno"}));
 
         System.out.println("\n-------------- List methods  -------------------");
         // Does array contain "def"?

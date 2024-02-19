@@ -67,7 +67,7 @@ public class QueueExample {
         }
 
         // Retrieve an element using element or peek
-        System.out.println("element() returns : " + q.element() + " : " + q);
+        System.out.println("element() returns (return getFirst()) : " + q.element() + " : " + q);
         System.out.println("peek() returns(no exception) : " + q.peek() + " : " + q);
 
         // Retrieve and remove an element from the queue
@@ -126,6 +126,7 @@ public class QueueExample {
 // 1. addFirst
 // 2. getFirst
 // 3. removeFirst
+// 4. element() This method differs from peek only in that it throws an exception if this deque is empty.
 
 
 

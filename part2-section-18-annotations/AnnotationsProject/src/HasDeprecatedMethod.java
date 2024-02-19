@@ -38,6 +38,7 @@ public class HasDeprecatedMethod {
     public void doThisAlso() {
         System.out.println("Doing this also");
     }
+    
 
 
     public void doThat() {

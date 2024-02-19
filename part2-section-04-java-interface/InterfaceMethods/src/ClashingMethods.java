@@ -23,9 +23,9 @@ interface SecondInterface {
         System.out.println("SecondInterface's default method A");
     }
 
-    default void defaultA() {
-        System.out.println("SecondInterface's default method A");
-    }
+    // default void defaultA() {
+    //     System.out.println("SecondInterface's default method A");
+    // }
 }
 
 public class ClashingMethods implements FirstInterface {
@@ -38,6 +38,10 @@ public class ClashingMethods implements FirstInterface {
         // first.methodA(); // not allowed
 
         first.defaultA();
+    }
 
+    @Override
+    public void defaultA() {
+        System.out.println("SecondInterface's default method A");
     }
 }

@@ -44,9 +44,12 @@ public class WrapperOperators {
         // Short s = 10;
         Number s = Short.valueOf("10");
         int m = 10;
-        /*if (m instanceof Integer) {
+
+        /*
+        if (m instanceof Integer) {
             System.out.println(" m is instance of Integer ");
-        }*/
+        }
+         */
 
         // instanceof is one example where autoboxing doesn't occur
         if (s instanceof Number) {

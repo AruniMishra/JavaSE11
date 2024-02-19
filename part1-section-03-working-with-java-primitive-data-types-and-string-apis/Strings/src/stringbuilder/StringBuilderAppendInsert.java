@@ -30,6 +30,7 @@ public class StringBuilderAppendInsert {
 
         StringBuilder sb = new StringBuilder();
         System.out.println("sb length & capacity = " + sb.length() + " & " + sb.capacity());
+
         sb.append("Hello ")
                 .append(new char[]{'W', 'o', 'r', 'l', 'd'})
                 .append(',')

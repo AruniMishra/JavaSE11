@@ -13,7 +13,7 @@ public class Season implements AutoCloseable {
     If an exception is thrown within the "try-with-resources" block, then that is the exception
     that the caller gets. But before the try block returns, the resource's close() method is
     called and if the close() method throws an exception as well, then this exception is added
-    to the original exception as a supressed exception.
+    to the original exception as a suppressed exception.
      */
     // Each season has a season number
     private int seasonNumber;

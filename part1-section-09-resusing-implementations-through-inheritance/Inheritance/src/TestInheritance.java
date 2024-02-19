@@ -1,12 +1,12 @@
 public class TestInheritance {
     public static void main(String[] args) {
-        //Super s = new Super();
+        Super s = new Super();
         Sub sub = new Sub();
         Super ss = new Sub();
         // Sub sub1 = (Sub) new Super(); //ClassCastException: class Super cannot be cast to class Sub
 
 
-        //ss.notDeclaredInSubClass();
+        ss.notDeclaredInSubClass();
 
         sub.instanceMethod(); //sub instance method
         sub.staticMethod(); // sub static method

@@ -449,3 +449,15 @@ class Test96 {
 
     }
 }
+
+
+class Test112 {
+    public static void main(String[] args) {
+        var str1 = Stream.iterate(1, k -> k <= 10, i -> i + 1)
+                .reduce("", (i, s) -> i + s, (s1, s2) -> s1 + s2);
+        var str2 = Stream.iterate(1, k -> k <= 10, i -> i + 1)
+                .parallel()
+                .reduce("", (i, s) -> i + s, (s1, s2) -> s1 + s2);
+        System.out.println(str1.equals(str2));
+    }
+}

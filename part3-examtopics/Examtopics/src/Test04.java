@@ -36,8 +36,6 @@ public class Test04 {
         int x1 = 12_34;
 
 
-
-
         PersonTest personTest = new PersonTest("Joe");
         System.out.println(checkPerson(personTest));
         personTest = null;

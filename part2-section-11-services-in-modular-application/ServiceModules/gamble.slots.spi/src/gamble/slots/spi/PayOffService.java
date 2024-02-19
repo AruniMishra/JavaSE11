@@ -18,7 +18,7 @@ public interface PayOffService {
     public void twoInRow(SlotType s);
 
     // Enum representing slot machine images
-    enum SlotType {
+    static enum SlotType {
         FRUIT, JACKPOT, GOLDBAR_ONE, GOLDBAR_TWO, GOLDBAR_THREE;
     }
 }

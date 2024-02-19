@@ -31,5 +31,8 @@ a method local inner class can access local variables and parameters of the encl
 
 # Interface
 - Though an interface is allowed to have overriding abstract methods [equals(Object) method, toString() method etc.] from Object class but default methods of an interface cannot override the methods of the Object class.
-- Interfaces in java are allowed to override default method with abstract method.
+- Interfaces in java are allowed to override default method with abstract method and vice versa.
 - An Interface can extend an interface and override the abstract method with default interface.
+- a default method cannot be overridden by a static method. 
+- You can, however, redeclare a static method of a super interface as a default method in the sub interface
+  - (note: static methods cannot be overridden by a instance method).

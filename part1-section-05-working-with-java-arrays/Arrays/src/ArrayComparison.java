@@ -98,7 +98,7 @@ public class ArrayComparison {
 
         System.out.println("\n------------- misc ------------");
 
-        var a = new int[]{1, 2, 3, 4, 8};
+        var a = new int[]{1, 2, 3, 4, 5};
         var b = new int[]{1, 2, 3, 4, 8, 3};
         var c = new int[]{1, 2, 3, 4, 5, 6, 7};
 
@@ -112,14 +112,20 @@ public class ArrayComparison {
 
         // Finds and returns the index of the first mismatch between two int arrays, otherwise return -1 if no mismatch is found.
         // The index will be in the range of 0 (inclusive) up to the length (inclusive) of the smaller array.
-        //
+
         // If the two arrays share a common prefix then the returned index is the length of the common prefix
         // and it follows that there is a mismatch between the two elements at that index within the respective arrays.
-        //
+
         // If one array is a proper prefix of the other then the returned index is the length of the smaller array
         // and it follows that the index is only valid for the larger array. Otherwise, there is no mismatch.
         x = Arrays.mismatch(a, c);
         y = Arrays.mismatch(b, c);
         System.out.println(x + " " + y);
+
+
+        int [] array1 = {};
+        int [] array2 = {100, 200};
+        System.out.print(Arrays.compare(array1, array2));
+        System.out.print(Arrays.mismatch(array1, array2));
     }
 }

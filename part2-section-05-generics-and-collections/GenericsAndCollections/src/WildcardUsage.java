@@ -47,7 +47,7 @@ public class WildcardUsage {
 
         // Set up some test data
         List<WildcardTests> wildList =
-                List.of(new WildcardTests(1), new WildcardTests(2));
+                List.of(new WildcardTests<>(1), new WildcardTests(2));
 
         // wildcard used in type argument of local variable declaration
         List<?> unboundedList =

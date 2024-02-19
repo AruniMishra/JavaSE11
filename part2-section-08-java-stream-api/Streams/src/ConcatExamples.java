@@ -46,7 +46,7 @@ public class ConcatExamples {
         System.out.println("---Merged---");
         Stream<String> merged = Stream.concat(stream1, stream2);
         merged.forEach(System.out::println);
-        merged.distinct().forEach(System.out::println);
+        // merged.distinct().forEach(System.out::println);
 
 
         // Stream<String> newMerge = Stream.concat(stream1, Stream.of("Zoe","Pete"));

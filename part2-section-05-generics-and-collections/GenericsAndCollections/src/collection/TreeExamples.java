@@ -66,7 +66,7 @@ public class TreeExamples {
 
         // option1
         // Create TreeSet passing data to constructor and print data
-        // TreeSet<TreeElement> treeSet = new TreeSet<>(setTestData);
+        TreeSet<TreeElement> treeSet0 = new TreeSet<>(setTestData);
 
 
         // option2: remove "implements Comparable<TreeElement>, Comparator<TreeElement>"

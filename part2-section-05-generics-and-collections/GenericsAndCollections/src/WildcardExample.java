@@ -7,9 +7,20 @@ Topic:  Generics, wildcards
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.TreeSet;
 
 public class WildcardExample {
+
+    /*
+    Wildcards support both upper and lower bounds, type parameters only support upper bounds(extends).
+    So, if you want to define a method that takes a List of type Integer or it's superclass, you can do:
+
+    public void print(List<? super Integer> list)  // OK
+
+    but you can't use a type parameter:
+    public <T super Integer> void print(List<T> list)  // Won't compile
+
+    i.e super is used with wildcard (?) only.
+     */
 
     // Method prints elements in a list, restricted to Exception
     // elements and any of its subclasses
@@ -30,13 +41,13 @@ public class WildcardExample {
         // because the type of object actually passed could be something as broad as an object.
         System.out.println("\n----- Using lower bound ------");
         list.forEach((s) -> System.out.println(s));
-
     }
 
 
     // you can't overload methods using type parameters.
-    // -- public static void printList(List<? extends Exception> list) {}
-    // -- public static void printList(List<? super Exception> list) {}
+    // 'printList(List<? extends Exception>)' clashes with 'printList(List<? super Exception>)'; both methods have same erasure
+    // public static void printList(List<? extends Exception> list) {}
+    // public static void printList(List<? super Exception> list) {}
 
 
     // Method prints elements in a list, with no restrictions on
@@ -44,7 +55,6 @@ public class WildcardExample {
     public static void printOpenDoor(List<?> list) {
         System.out.println("\n----- Using no bounds ------");
         list.forEach((s) -> System.out.println(s));
-
     }
 
     // Method prints elements in a list, the list is made up of
@@ -52,7 +62,12 @@ public class WildcardExample {
     public static void printObjectList(List<Object> list) {
         System.out.println("----- List made up of objects ------");
         list.forEach((s) -> System.out.println(s));
+    }
 
+
+    public static void printLowerListRuntimeException(List<? super RuntimeException> list) {
+        System.out.println("\n----- Using upper bound ------");
+        list.forEach((s) -> System.out.println(s.getClass()));
     }
 
     public static void main(String[] args) {
@@ -90,9 +105,11 @@ public class WildcardExample {
         // Exception allowed by unbounded <?>
         printOpenDoor(exceptionList);
 
+        printLowerListRuntimeException(exceptionList);  // A<T> <<< A<? super T> <<< A<? super S>
+
         System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
         // Exception NOT allowed by type arg <Object>
-        //-- printObjectList(exceptionList);
+        // printObjectList(exceptionList);
 
         List<Integer> integerList = List.<Integer>of(5, 10, 15);
         // Integer type allowed by unbounded wildcard <?>
@@ -170,6 +187,9 @@ public class WildcardExample {
 
         List<Number> listNumber = new ArrayList<>();
         // List<Number> listNumber2 = listOfIntegers; // not allowed
+
+        //  A<S> <<< A<? extends S> <<< A<? extends T>
+        // Since Integer is a subtype of Number, List<Integer> is a subtype of List<? extends Integer> and List<? extends Integer> is a subtype of List<? extends Number>.
         List<? extends Number> listExtendNumber = listOfIntegers; // allowed
 
         listNumber.add(10L);
@@ -198,8 +218,5 @@ public class WildcardExample {
         // Long a2 = list2.get(0); // compiler error
         Object o = list2.get(0); // compiles fine
         // because once again, Java doesn't know what type will be returned.
-
-
-        TreeSet set;
     }
 }

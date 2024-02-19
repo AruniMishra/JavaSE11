@@ -6,11 +6,11 @@ public class CastingExample {
         int loopIterations = 0;
 
 
-//        int minValue = Short.MIN_VALUE;  // our loop condition variable is an int, so this is widening
-//        int maxValue = Short.MAX_VALUE;
+       int minValue0 = Short.MIN_VALUE;  // our loop condition variable is an int, so this is widening
+       int maxValue0 = Short.MAX_VALUE;
 
-        int minValue = Short.MIN_VALUE-1;  // our loop condition variable is an int, so this is widening
-        int maxValue = Short.MAX_VALUE+1;
+        int minValue = Short.MIN_VALUE - 1;  // our loop condition variable is an int, so this is widening
+        int maxValue = Short.MAX_VALUE + 1;
 
         // We are forcing the for loop to stay in the valid range of a short
         for (int i = minValue; i <= maxValue; i++) {
