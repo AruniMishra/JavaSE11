@@ -18,6 +18,7 @@ public class EnclosingClass {
     public void doSomethingOnInstance() {
         System.out.println("doSomethingOnInstance invoked.");
         // invoke nested class's method via instance reference
+        new EnclosingClass.NestedStaticClass().getInstanceName();
         new NestedStaticClass().getInstanceName();
 
         // invalid: invoke nested class's non-static method via class reference
@@ -26,7 +27,7 @@ public class EnclosingClass {
         NestedStaticClass.getStaticName();
     }
 
-    // Declaring a nested class static only means that instances of the class are created without having an outer
+    // Declaring a static nested class static only means that instances of the class are created without having an outer
     // instance. It does not put any limits on whether the members of the class can be static or not.
     // Begin declaration of static nested class named NestedStaticClass
     public static class NestedStaticClass {
@@ -63,7 +64,7 @@ public class EnclosingClass {
             RED, BLUE, YELLOW
         }
 
-        public interface NestedInterface {
+        public static interface NestedInterface {
 
         }
 

@@ -35,4 +35,4 @@ a method local inner class can access local variables and parameters of the encl
 - An Interface can extend an interface and override the abstract method with default interface.
 - a default method cannot be overridden by a static method. 
 - You can, however, redeclare a static method of a super interface as a default method in the sub interface
-  - (note: static methods cannot be overridden by a instance method).
+  - (note: static methods cannot be overridden by an instance method).

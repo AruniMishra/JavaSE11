@@ -82,7 +82,7 @@ public class ComparableExample {
         al.add(new SmartDog(collection.SmartDog.DogType.LABRADOR));
         Collections.sort(al, new SmartDogComparator());
         System.out.println("Sorted Dogs " + al);
-        // // al.sort(new SmartDogComparator());
+        // al.sort(new SmartDogComparator());
 
         // --Option2 end
     }

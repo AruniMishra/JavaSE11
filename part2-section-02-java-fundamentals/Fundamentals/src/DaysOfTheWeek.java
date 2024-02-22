@@ -9,6 +9,7 @@ class TestDaysOfTheWeek {
 
         // Retrieve the list of enum constants from
         // DaysOfTheWeek.values() static method
+
         for (DaysOfTheWeek day : DaysOfTheWeek.values()) {
             System.out.println(day.ordinal() + " is " + day);
         }

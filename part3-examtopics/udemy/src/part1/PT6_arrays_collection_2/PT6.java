@@ -43,9 +43,39 @@ class Test49 {
         var list1 = List.of("A"); //Line n1
         var list2 = List.of("A"); //Line n2
         list1 = list2; //Line n3
+
+        Integer.valueOf(15);
     }
 }
 
+
+class Father {}
+
+class Son extends Father {}
+
+class GrandSon extends Son {}
+
+abstract class Super {
+    abstract List<Father> get();
+}
+
+class Sub45 extends Super {
+    @Override
+    List<Father> get() {
+        return null;
+    }
+    /*INSERT*/
+}
+
+class Test48 {
+    public static void main(String[] args) {
+        List<Integer> list = new ArrayList<>(Arrays.asList(1,2,3,4,5,6,7,8,9,10));
+        list.removeIf(i -> i % 2 == 1);
+        System.out.println(list);
+
+        list.sort(Comparator.naturalOrder());
+    }
+}
 
 class Student56 {
     private String name;

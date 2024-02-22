@@ -12,7 +12,7 @@ public class QueueExample {
     public static void main(String[] args) {
         List<Integer> initialData = List.of(10, 20, 50, 40, 30);
 
-        // LinkedList supports null elements, whereas ArrayDeque does not.
+        // LinkedList supports null elements, whereas ArrayDeque does not(ArrayDeque cannot store null)
         // both allowed duplicates
         System.out.println("\n----------- ArrayDeque -----------");
         System.out.println("Original values entered: " + initialData);
@@ -122,7 +122,7 @@ public class QueueExample {
     }
 }
 
-// exception(agr):
+// exception(agre):
 // 1. addFirst
 // 2. getFirst
 // 3. removeFirst

@@ -174,6 +174,7 @@ public class MapExample {
 
 
         System.out.println("compute(John, val*100): " + m);
+        System.out.println();
 
         try {
             // Ilene does not exist
@@ -185,6 +186,7 @@ public class MapExample {
         } catch (Exception e) {
             System.out.println("Using compute(Ilene) threw error: " + e);
         }
+        System.out.println();
 
         try {
             m.put("John", null);
@@ -236,8 +238,13 @@ public class MapExample {
         // key is an old value
         System.out.println("\nOriginal State: " + m);
         //  If Mary exists and is not null, use the function
-        System.out.println("After merge(Mary,100,key/3), return value : " +
-                m.merge("Mary", 100, (oldValue, newValue) -> oldValue / 3));
+        System.out.println("After merge(Mary,100,(oldValue, newValue) -> oldValue / 3)), return value : " +
+                m.merge("Mary", 60,
+                        (oldValue, newValue) ->
+                        {
+                            System.out.println(oldValue + "  " + newValue);
+                            return (oldValue / 3);
+                        }));
         System.out.println("After merge(Mary,100,oldValue/3): " + m);
 
         System.out.println("After put(Mary, null), return value : " +
@@ -250,8 +257,8 @@ public class MapExample {
         System.out.println("After merge(Mary,100,val/3): " + m);
 
         // If Mary exists, and value is not null , use the function
-        System.out.println("After merge(Mary,33,val/5), return value : " +
-                m.merge("Mary", 33, (key, val) -> val / 5));
+        System.out.println("After merge(Mary,20,val/5), return value : " +
+                m.merge("Mary", 20, (key, val) -> val / 5));
         System.out.println("-After merge(Mary,33,val/5): " + m);
 
         // If Mary exists, and return value of the function is null, Mary
@@ -290,7 +297,10 @@ public class MapExample {
         map.put(1, null);
         map.put(2, "TWO");
         map.put(3, "THREE");
-        map.merge(1, "ONE", (s1, s2) -> s1.concat(s2)); // Line n1
+        map.merge(1, "ONE", (s1, s2) -> {
+            System.out.println(s1 + "  " + s2);
+            return s1.concat(s2);
+        }); // Line n1
         map.merge(2, "2-", (s1, s2) -> s2 + ":" + s1); // Line n2
         map.merge(3, "3-", (s1, s2) -> null); // Line n3
         System.out.println(map);

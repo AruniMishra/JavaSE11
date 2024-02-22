@@ -57,10 +57,10 @@ public class LocaleObjects {
 
         // Returns a locale for the specified IETF BCP 47 language
         // tag string.  Introduced with JDK 7
-        System.out.println("\nLocale.forLanguageTag(\"fr-CA\") =" +
+        System.out.println("\nLocale.forLanguageTag(\"fr-CA\") = " +
                 Locale.forLanguageTag("fr-CA"));
 
-        System.out.println("Locale.forLanguageTag(\"es-SP\") =" +
+        System.out.println("Locale.forLanguageTag(\"es-SP\") = " +
                 Locale.forLanguageTag("es-SP"));
 
 
@@ -94,7 +94,5 @@ public class LocaleObjects {
                 .setLanguage("en")
                 .build();
         System.out.println(l);
-
-
     }
 }

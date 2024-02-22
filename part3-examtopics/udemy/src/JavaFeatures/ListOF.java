@@ -69,7 +69,7 @@ public class ListOF {
         }
         //-------------------
 
-        // Returns an unmodifiable view.. Java 10
+        // Returns an unmodifiable view, backed by original list... Java 10
         List<String> newList = Collections.unmodifiableList(colorList);
         System.out.println("\nCopied List using Collections. UnmodifiableList : " + newList);
         colorList.set(0, "black");

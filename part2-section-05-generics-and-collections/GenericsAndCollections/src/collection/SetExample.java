@@ -16,6 +16,7 @@ public class SetExample {
         // Create a set from this list, best practice to declare variables
         // to the interface type as shown here.
         Set<Integer> h = new HashSet<>(initialData);
+        // HashSet cares about uniqueness and allows 1 null value.
         System.out.println("----------- HashSet(order is unpredictable) -----------");
         System.out.println("Original values entered: " + initialData);
 
@@ -57,6 +58,8 @@ public class SetExample {
         // cast t to a TreeSet variable to invoke TreeSet methods
         TreeSet<Integer> treeSet = (TreeSet<Integer>) t;
 
+        System.out.println("Start of method: " + treeSet);
+
         // lower returns the greatest element < (less than) the parameter
         // value or null if no smaller element exists
         System.out.println("Using lower with values (1, 10, 20, 50, 51): "
@@ -68,7 +71,7 @@ public class SetExample {
 
         // floor returns the greatest element <= (less than or equal to) the
         // parameter value or null if no smaller element exists
-        System.out.println("Using floor with values (1, 10, 20, 50, 51): "
+        System.out.println("Using floor with values (1, 10, 20, 50, 51) - "
                 + treeSet.floor(1) + " : "
                 + treeSet.floor(10) + " : "
                 + treeSet.floor(20) + " : "
@@ -77,7 +80,7 @@ public class SetExample {
 
         // ceiling returns the least element >= (greater than or equal to)
         // the parameter value or null if no greater element exists
-        System.out.println("Using ceiling with values (1, 10, 20, 50, 51) : "
+        System.out.println("Using ceiling with values (1, 10, 20, 50, 51) - "
                 + treeSet.ceiling(1) + " : "
                 + treeSet.ceiling(10) + " : "
                 + treeSet.ceiling(20) + " : "

@@ -1,3 +1,5 @@
+
+
 public class TestInheritance {
     public static void main(String[] args) {
         Super s = new Super();

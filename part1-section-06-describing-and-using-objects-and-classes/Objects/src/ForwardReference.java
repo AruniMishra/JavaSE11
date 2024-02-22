@@ -21,7 +21,7 @@ class Thing {
         //A static initializer cannot use a static variable, declared below it in a statement,
         //System.out.println(thirdString); //Illegal forward reference
         System.out.println("1. inside static");
-        thirdString = "c";
+        thirdString = "c"; // but this is allowed
     }
 
     // Two instance variables
