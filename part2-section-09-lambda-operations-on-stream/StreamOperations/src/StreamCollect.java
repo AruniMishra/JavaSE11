@@ -67,7 +67,7 @@ public class StreamCollect {
                         new Student("Andy", 1.7f))
                 .collect(Collectors.averagingDouble(Student::getGpa));
 
-        System.out.println(String.format("Average GPA = %.2f", AverageGPA));
+        System.out.printf("Average GPA = %.2f%n", AverageGPA);
 
 
         System.out.println("\n\n---- .collect(Collectors.summarizing) examples ----");

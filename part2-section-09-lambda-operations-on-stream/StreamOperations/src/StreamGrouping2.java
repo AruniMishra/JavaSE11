@@ -3,16 +3,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-interface House {
-    public default void lockTheGates() {
-        System.out.println("Locking House");
-    }
-}
 
-
-interface Office {
-    public void lockTheGates();
-}
 
 
 
@@ -36,6 +27,7 @@ public class StreamGrouping2 {
         classified.entrySet().stream().forEach(System.out::println);
     }
 }
+
 
 class Book {
     private int id;
@@ -92,6 +84,20 @@ class Book {
     }
 
 // constructors and accessors not shown
+}
+
+
+
+
+
+interface House {
+    public default void lockTheGates() {
+        System.out.println("Locking House");
+    }
+}
+
+interface Office {
+    public void lockTheGates();
 }
 
 class HomeOffice implements House, Office {

@@ -36,12 +36,12 @@ class Derived38 extends Base {
 
     ; // 1
 
-// public  Map<Number, Number> getMap(Number t, Number z) {
-//            return new TreeMap<Number, Number>(); }; //2
+public  Map<Number, Number> getMap(Number t, Number z) {
+           return new TreeMap<Number, Number>(); }; //2
 
-    public Map<Integer, Integer> getMap(Number t, Number z) {
-        return new HashMap<Integer, Integer>();
-    }
+    // public Map<Integer, Integer> getMap(Number t, Number z) {
+    //     return new HashMap<Integer, Integer>();
+    // }
 
     ;   // 3
 }

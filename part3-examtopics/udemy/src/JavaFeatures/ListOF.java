@@ -69,6 +69,18 @@ public class ListOF {
         }
         //-------------------
 
+        /*
+        java.utils.Collections class also has several variations of unmodifiableXXX static methods
+        (such as unmodifiableList(List ), unmodifiableSet(Set ), and unmodifiableMap(Map ) ).
+        These method return an unmodifiable view of the underlying collection.
+
+        The fundamental difference between Collections.unmodifiableXXX and List.of/copyOf methods is that
+        Collections.unmodifiableList returns a view (instead of a copy) into the underlying list.
+
+        Which means, if you make any changes to the underlying list after creating the view,
+        those changes will be visible in the view. Further, Collections.unmodifiableList has no problem with nulls.
+         */
+
         // Returns an unmodifiable view, backed by original list... Java 10
         List<String> newList = Collections.unmodifiableList(colorList);
         System.out.println("\nCopied List using Collections. UnmodifiableList : " + newList);
