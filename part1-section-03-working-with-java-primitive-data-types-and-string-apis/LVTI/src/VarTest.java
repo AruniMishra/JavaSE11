@@ -12,6 +12,11 @@ public class VarTest {
 
     // var a0 = 0;
 
+    /*
+    Var declarations are allowed only within method code (that is why it is called "local" type inferencing).
+    It is not allowed for declaring class or instance fields, method return type, and method parameters
+     */
+
     public static void main(String[] args) {
         var aClassWithAVeryLongName = new AClassWithAVeryLongName();
         aClassWithAVeryLongName.setName("Testing");

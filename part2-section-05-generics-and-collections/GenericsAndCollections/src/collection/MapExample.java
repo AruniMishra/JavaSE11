@@ -16,7 +16,7 @@ public class MapExample {
     public static void main(String[] args) {
 
         /*
-        HashMap and LinkedHashMap can accept 1 null key but TreeMap cannot accept null keys.
+        HashMap and LinkedHashMap can accept allow 1 null key but TreeMap cannot accept null keys.
 
         LinkedHashMap by default keeps an insertion order so every time you iterate the map, you get same result.
          */

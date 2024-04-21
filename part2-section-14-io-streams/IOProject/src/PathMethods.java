@@ -77,6 +77,16 @@ public class PathMethods {
         System.out.println("Normalize transforms \n\t" + p.toString()
                 + "\n to: \n\t" + p.normalize() + "\n---------------");
 
+        // this one starts a root
+        p = Path.of("/a/../../../b");
+        System.out.println("Normalize transforms \n\t" + p.toString()
+                + "\n to: \n\t" + p.normalize() + "\n---------------");
+
+        // this one starts a root
+        p = Path.of("/a/..");
+        System.out.println("Normalize transforms \n\t" + p.toString()
+                + "\n to: \n\t" + p.normalize() + "\n---------------");
+
 
     }
 
@@ -111,8 +121,8 @@ public class PathMethods {
         pathRelativize(p2, p1);
 
 
-        p1 = Path.of("/a/b");
-        p2 = Path.of("/c/d");
+        p1 = Path.of("a/b");
+        p2 = Path.of("c/d");
         try {
             pathRelativize(p1, p2);
         } catch (IllegalArgumentException ise) {

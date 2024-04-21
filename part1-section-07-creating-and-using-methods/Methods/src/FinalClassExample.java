@@ -15,6 +15,8 @@ final class FinalEntity {
 public class FinalClassExample {
     public static void main(String[] args) {
 
+        String name = new String("");
+
         // You can create as many instances of a final class as you wish
         FinalEntity f1 = new FinalEntity("a");
         FinalEntity f2 = new FinalEntity("b");

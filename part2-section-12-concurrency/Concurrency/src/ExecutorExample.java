@@ -37,6 +37,7 @@ public class ExecutorExample {
 
         Runnable command = () -> {
             doSomethingThreadOne();
+            return;
         };
 
         Runnable command1 = new Runnable() {

@@ -51,13 +51,30 @@ public class ListDataManipulation {
         System.out.println("primaryColors "
                 + Arrays.toString(primaryColors));
 
+
         System.out.println("\n--- List.of and List.copyOf Examples");
 
         // List.of method can take an array and make it a list
         List secondColorList = List.of(primaryColors);
 
+
+         /*
+        If you pass it a collection, it will be treated as a regular object i.e. it will return a list/set containing
+        the same collection object instead of returning a list/set containing the objects that the passed collection
+        contains.
+         */
+        List<List<String>> tempColorList = List.of(Arrays.asList(primaryColors));
+        System.out.println("tempColorList : "
+                + tempColorList.toString()); // [[blueish, redish, yellowish]]
+
+
         // List.copyOf method takes a list and makes another list
+        /*
+        The copyOf, on the other hand, accepts only a Collection.
+        It iterates through the passed Collection and adds all the elements of that Collection in the returned list/set.
+         */
         List thirdColorList = List.copyOf(Arrays.asList(primaryColors));
+
 
         System.out.println("\nsecondColorList : "
                 + secondColorList.toString());
@@ -76,6 +93,9 @@ public class ListDataManipulation {
 
         System.out.println("thirdColorList after array changed : "
                 + thirdColorList.toString());
+
+        System.out.println("tempColorList after array changed : "
+                + tempColorList.toString()); //note: contains a single element which is the reference to the collection.
 
         // secondColorList created from List.of method is immutable
         try {

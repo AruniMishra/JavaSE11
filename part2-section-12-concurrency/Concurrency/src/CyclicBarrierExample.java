@@ -25,7 +25,8 @@ public class CyclicBarrierExample {
                 // through the barrier.
                 // new CyclicBarrier(2, // crates partial traffic jam
                         () -> {
-                            System.out.println("---Confirming step is complete");
+                            System.out.println(Thread.currentThread().getName() +
+                                    "---Confirming step is complete");
                         });
 
         // Set up a callable local variable
@@ -56,7 +57,7 @@ public class CyclicBarrierExample {
 
             // All threads execute step 2
             step(2);
-            // cyclicBarrier.await();
+            cyclicBarrier.await();
 
             return true;
         };

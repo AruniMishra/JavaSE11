@@ -80,7 +80,7 @@ public class CollectionsMethods {
         List<String> l01 = new ArrayList<>(List.of("Two", "Three"));
         Collections.copy(l2, l01); // l01 to l2
         System.out.println("\nCopied List using Collections.copy l2: " + l2);
-        // l2.add("Five");
+        // l2.add("Five"); // IndexOutOfBoundsException
         // System.out.println("After adding Five : " + l2);
 
 

@@ -15,7 +15,8 @@ public class StaticClassExample {
          */
 
         // Reference static field on static nested class directly:
-        System.out.println(EnclosingClass.NestedStaticClass.staticName);
+        System.out.println(NestedStaticClass.staticName); // NestedStaticClass is a static class, it is not required to have an associated outer class instance.
+
 
         // Reference static method on static nested class directly:
         System.out.println(EnclosingClass.NestedStaticClass.getStaticName());

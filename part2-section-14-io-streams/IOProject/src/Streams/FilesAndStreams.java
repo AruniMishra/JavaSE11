@@ -16,6 +16,17 @@ import java.util.stream.Stream;
 public class FilesAndStreams {
     public static void main(String[] args) {
 
+        /*
+        The usage of Files.list method returns a stream of Path objects for files contained in a
+        directory. Unlike the Files.find method, the list method doesn't search for files.
+        It just returns all the files in a given directory.
+         */
+
+        /*
+         if you need to filter out files/dirs by attributes - use Files.find(),
+         if you don't need to filter by file attributes - use Files.walk()
+         */
+
         Path src = Paths.get("part2-section-14-io-streams/IOProject/src");
         System.out.println("-----------------------------------");
         System.out.println("Listing of " + src + " Directory");
@@ -41,7 +52,7 @@ public class FilesAndStreams {
         // is appropriately closed
         // walking, without maxDepth, follows deepest leaf before it searches the next directory.
         try (Stream<Path> str = Files.walk(out)) {
-            // try (Stream<Path> str = Files.walk(out, 2)) {
+        //     try (Stream<Path> str = Files.walk(out, 2)) {
             str
                     // Only get regular files (not directories)
                     // .filter((s) -> Files.isRegularFile(s))

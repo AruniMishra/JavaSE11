@@ -113,7 +113,7 @@ class Test15 {
 
         Enhanced for loop uses an internal iterator and as CopyOnWriteArrayList is used, add/set/remove operations while iterating doesn't cause any exception.
 
-        In first iteration, removeIf method removes 'Melon' and 'Mango' from the list. On every modification, a fresh copy of underlying array is created, leaving the iterator object unchanged. 'Melon' is printed on to the console.
+        In first iteration, removeIf method removes all 'Melon' and 'Mango' from the list. On every modification, a fresh copy of underlying array is created, leaving the iterator object unchanged. 'Melon' is printed on to the console.
 
         In 2nd iteration, removeIf method doesn't remove anything as list doesn't contain any element starting with 'M'. But iterator still has 4 elements. 2nd iteration prints 'Apple' on to the console. And so on.
          */

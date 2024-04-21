@@ -17,6 +17,10 @@ public class SetExample {
         // to the interface type as shown here.
         Set<Integer> h = new HashSet<>(initialData);
         // HashSet cares about uniqueness and allows 1 null value.
+        /*
+        Set<String> set = new HashSet<>(Arrays.asList(null,null,null));
+        long count = set.stream().count(); // 1
+         */
         System.out.println("----------- HashSet(order is unpredictable) -----------");
         System.out.println("Original values entered: " + initialData);
 
@@ -24,6 +28,7 @@ public class SetExample {
         CollectionTests.doStuffWithCollection(h, 60, 50, 10);
 
 
+        // TreeSet cannot contain null values.
         Set<Integer> t = new TreeSet<>(initialData);
         System.out.println("\n----------- TreeSet(ordered numerically) -----------");
         System.out.println("Original values entered: " + initialData);

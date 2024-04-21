@@ -42,17 +42,17 @@ public class StreamExtras {
         // So no list in the second scenario.
 
         // note: this will crash if petPopulation is created without distinct and there are duplicate key(Pet type)
-        // System.out.println("\n\n--- Group by Pet using toMap ---");
+        System.out.println("\n\n--- Group by Pet using toMap ---");
         // Take list of Pet, collect into a Map using toMap
         // chain to stream of Entry and print key,values.
 
-        // petPopulation.stream()
-        //         .collect(
-        //                 // toMap requires at least 2 arguments
-        //                 Collectors.toMap(Pet::getType, p -> p))
-        //         .entrySet()
-        //         .stream()
-        //         .forEach(System.out::println);
+        petPopulation.stream()
+                .collect(
+                        // toMap requires at least 2 arguments
+                        Collectors.toMap(Pet::getType, p -> p))
+                .entrySet()
+                .stream()
+                .forEach(System.out::println);
 
 
         System.out.println("\n\n--- distinct() & Group by Pet using toMap(key=\"type_name\") ---");
@@ -76,7 +76,6 @@ public class StreamExtras {
                                 TreeMap::new,
                                 Collectors.toList()))
                 .entrySet()
-                .stream()
                 .forEach(System.out::println);
 
 
@@ -92,7 +91,6 @@ public class StreamExtras {
                                 (existing, replacement) -> existing,
                                 TreeMap::new))
                 .entrySet()
-                .stream()
                 .forEach(System.out::println);
     }
 }

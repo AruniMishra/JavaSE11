@@ -62,6 +62,8 @@ java -p . -d MyFirstModule
 ---
 
 - Run for jdeps
+  - The jdeps tool is used to find out all dependencies of a class file or a jar file. It inspects the given class file
+  (or all class files inside a jar files) and finds out all the required modules and packages that are referred to by this class or jar file.
 - '--generate-module-info' option is available with jdeps command only,
   - It generates "mod-descriptors" directory containing module-info.java file
 
@@ -173,13 +175,17 @@ Module options applicable only for java:
   
 --describe-module or -d: It describes a module and exits(java).
 
+--jmod describe: used to identify class and module dependencies
+
+
 Note that -d works differently in java and javac. Further, -d is very different from -D, which is used while running a java program to specify name-value pairs of properties at the command line.
 ```
 
 ```notes
 --show-module-resolution
 This option shows all the dependencies of a module and how they are resolved while execution of a class. 
-For example, lets say you have a moduleA that requires moduleB and moduleB requires moduleC. Now, if you run the following command:
+For example, lets say you have a moduleA that requires moduleB and moduleB requires moduleC. 
+Now, if you run the following command:
 
 java --module-path out --show-module-resolution --module moduleA/test.A
 
@@ -203,5 +209,6 @@ Observe the top three lines of the output. They show how moduleA, moduleB, and m
 
 --describe-module
 The --describe-module option shows the information given in the module-info of a particular module. 
-It does not traverse the dependency graph. For example, if moduleA requires moduleB and moduleB requires moduleC, then the command java --describe-module moduleA will only show moduleB.
+It does not traverse the dependency graph. For example, if moduleA requires moduleB and moduleB requires moduleC, 
+then the command java --describe-module moduleA will only show moduleB.
 ```

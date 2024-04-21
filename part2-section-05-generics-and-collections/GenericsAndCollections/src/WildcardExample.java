@@ -105,7 +105,7 @@ public class WildcardExample {
         // Exception allowed by unbounded <?>
         printOpenDoor(exceptionList);
 
-        printLowerListRuntimeException(exceptionList);  // A<T> <<< A<? super T> <<< A<? super S>
+        printLowerListRuntimeException(exceptionList);  // S is a sub type of T; A<T> <<< A<? super T> <<< A<? super S>
 
         System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
         // Exception NOT allowed by type arg <Object>

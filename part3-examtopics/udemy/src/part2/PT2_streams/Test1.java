@@ -411,6 +411,13 @@ class Test96 {
 
         List<TrafficLight> list = Arrays.asList(tl1, tl2, tl3, tl4, tl5);
 
+        list.stream()
+                .collect(Collectors.groupingBy(TrafficLight::getColor))
+                .entrySet()
+                .forEach(System.out::println);
+
+        System.out.println("------------------------");
+
         Map<Color, List<String>> map = list.stream()
                 .collect(Collectors.groupingBy(TrafficLight::getColor,
                         Collectors.mapping(TrafficLight::getMsg, Collectors.toList())));

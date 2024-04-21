@@ -12,6 +12,13 @@ import java.io.IOException;
 public class ThrowableExamples {
 
     public static void main(String[] args) {
+
+        /*
+        Error and RuntimeException are unchecked exception classes.
+        Any subclass of Error or RuntimeException need not be declared in the throws clause
+         */
+
+
         ThrowableExamples te = new ThrowableExamples();
         String filename = "This_File_Does_Not_Exist.out";
 
@@ -29,12 +36,18 @@ public class ThrowableExamples {
             // Check to see if it's an IOException and print something
             if (error instanceof IOException) {
                 System.out.println("Something went wrong with the" + " processing of " + filename);
-            }
-            else{
+            } else {
                 System.out.println("-else-");
             }
 
             printErrorStructure(error);
+        }
+
+
+        try {
+            int a = 0;
+        } catch (ArithmeticException exception) {
+
         }
     }
 

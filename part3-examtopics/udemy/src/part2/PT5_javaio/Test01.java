@@ -256,13 +256,18 @@ class Test75 {
         var root = Paths.get("C:\\A");
         /*
         Even though endsWith(String) accepts String but it should evaluate to pathname,
-        such as "Child" OR "a.txt" but not just a part of pathname, such as "txt".
+        such as "Child" OR "a.txt/t3.txt" but not just a part of pathname, such as "txt".
 
         NOTE: If you want to find the files ending with "txt" then use
         'p.toString().endsWith("txt")' in the lambda expression.
          */
-        BiPredicate<Path, BasicFileAttributes> predicate = (p, a) -> p.endsWith("txt"); //
+        BiPredicate<Path, BasicFileAttributes> predicate = (p, a) -> {
+            System.out.println("~" + p);
+            return p.endsWith("txt");
+        }; //
+        System.out.println("#######");
         try (var paths = Files.find(root, 2, predicate)) {
+            System.out.println("!!");
             paths.forEach(System.out::println);
         }
 

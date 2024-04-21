@@ -46,8 +46,8 @@ public class StaticElementTests {
         // System.out.println(StaticStuff.counter);
 
         // ** Create an object of type StaticStuff.
-        // StaticStuff st = new StaticStuff();
-        StaticStuff st = null;
+        StaticStuff st = new StaticStuff();
+        // StaticStuff st = null;
         System.out.println("Has it been initialised? ");
 
         // We access static member of the StaticStuff class

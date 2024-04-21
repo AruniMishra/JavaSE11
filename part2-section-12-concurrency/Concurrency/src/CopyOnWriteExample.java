@@ -37,7 +37,9 @@ public class CopyOnWriteExample {
         */
 
         while (it.hasNext()) {
-            System.out.println(it.next());
+            System.out.println("--"+it.next());
+            // currentList.forEach(System.out::print); // a fresh copy of underlying array is created, leaving the iterator object unchanged.
+            // System.out.println();
             // Add some elements while iterating over elements
             if (i++ == 0) {
                 currentList.addAll(List.of("James", "Jim", "Joe"));// valid with CopyOnWriteArrayList

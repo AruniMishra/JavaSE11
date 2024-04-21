@@ -66,7 +66,6 @@ public class FlatMapExtras {
                 .flatMap(Collection::stream)
                 .collect(Collectors.groupingBy(Pet::getType))
                 .entrySet()
-                .stream()
                 .forEach(System.out::println);
 
 

@@ -86,7 +86,8 @@ class TestEnclosingClass {
 
 
         // We can declare a local variable of the inner class
-        EnclosingClass.InnerMemberClass i;
+        EnclosingClass.InnerMemberClass i; // InnerMemberClass is not a static class, it must have an associated outer class instance.
+
 
         // But instantiating this way does not work...
         /*
