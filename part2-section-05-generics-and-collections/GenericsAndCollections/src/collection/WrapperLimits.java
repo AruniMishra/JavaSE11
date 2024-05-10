@@ -75,7 +75,7 @@ public class WrapperLimits {
         // List integerList = new ArrayList<Integer>(); // valid here
 
 
-        //  integer lists can be assigned any array list of any type, including, for example, an exception that
+        //  integer lists can be assigned any array list of any type(?), including, for example, an exception that
         //  adding an int to an array-list of exception would cause a compiler error and that's what we're getting here.
         List<?> integerList = new ArrayList<Integer>();
         // integerList.add(5); // invalid: "'Required type: capture of ?'  &  'Provided: int'"

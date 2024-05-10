@@ -32,6 +32,7 @@ effectively final.
 - An Interface can extend an interface and override the abstract method with default interface.
 - a default method cannot be overridden by a static method.
     - cannot override a non-static method with a static method and vice versa in a class.
+    - static methods are never overridden, they may be hidden by a "static method of a subclass" with the same signature.
 - You can, however, redeclare a static method of a super interface as a default method in the sub interface
     - because a static method of an interface can only be called using that interface's name.
         - (note: static methods cannot be overridden by an instance method).

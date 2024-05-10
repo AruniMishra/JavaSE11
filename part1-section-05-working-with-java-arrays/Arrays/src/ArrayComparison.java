@@ -102,30 +102,42 @@ public class ArrayComparison {
         var b = new int[]{1, 2, 3, 4, 8, 3};
         var c = new int[]{1, 2, 3, 4, 5, 6, 7};
 
-        // If one array is the proper prefix of the other, then compare method returns a.length - b.length, where a refers to 1st array and b refers to 2nd array.
+        // If one array is the proper prefix of the other, then compare method returns a.length - b.length,
+        // where a refers to 1st array and b refers to 2nd array.
         // For Character, Byte & Short; compare method returns x - y.
-        // For Integer and Long; compare method returns -1 if x < y, it returns 1 if x > y and it returns 0 if x == y.
+        // For Integer and Long; compare method returns -1 if x < y, it returns 1 if x > y, and it returns 0 if x == y.
         int x = Arrays.compare(a, c);
         int y = Arrays.compare(b, c);
         System.out.println(x + " " + y);
+        System.out.println("---------------------------");
 
 
-        // Finds and returns the index of the first mismatch between two int arrays, otherwise return -1 if no mismatch is found.
+        // Finds and returns the index of the first mismatch between two int arrays,
+        // otherwise return -1 if no mismatch is found.
         // The index will be in the range of 0 (inclusive) up to the length (inclusive) of the smaller array.
 
         // If the two arrays share a common prefix then the returned index is the length of the common prefix
         // and it follows that there is a mismatch between the two elements at that index within the respective arrays.
 
-        // If one array is a proper prefix of the other then the returned index is the length of the smaller array
+        // If one array is a proper prefix of the other than the returned index is the length of the smaller array
         // and it follows that the index is only valid for the larger array. Otherwise, there is no mismatch.
         x = Arrays.mismatch(a, c);
         y = Arrays.mismatch(b, c);
-        System.out.println(x + " " + y);
+        System.out.println(x + " " + y); // 5 4
+        System.out.println("---------------------------");
 
 
-        int [] array1 = {};
-        int [] array2 = {100, 200};
-        System.out.print(Arrays.compare(array1, array2));
-        System.out.print(Arrays.mismatch(array1, array2));
+        int[] array1 = {};
+        int[] array2 = {100, 200};
+        System.out.println(Arrays.compare(array1, array2) + " " + Arrays.mismatch(array1, array2)); // -2 0
+        System.out.println("---------------------------");
+
+
+        char[] a1 = {'h', 'e', 'l', 'l'};
+        char[] b1 = {};
+
+        int x1 = Arrays.compare(a1, b1);
+        int y1 = Arrays.mismatch(a1, b1);
+        System.out.println(x1 + " " + y1); // 4 0
     }
 }

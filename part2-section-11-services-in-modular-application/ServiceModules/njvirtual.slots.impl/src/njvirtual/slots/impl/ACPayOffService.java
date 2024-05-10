@@ -15,7 +15,7 @@ public class ACPayOffService implements PayOffService {
     String className = this.getClass().getSimpleName().concat(" :: ");
 
     // this is a provider class
-    // This class has a public no args constructor, and does
+    // This class has a public no-args constructor, and does
     // not declare a static provider method(static PayOffService provider()).
     public ACPayOffService() {
         System.out.println("Atlantic City PayOffService loaded"+

@@ -121,6 +121,9 @@ public class TestPrivateInterfaceMethods extends TestStatic implements PrivateAn
         If you want to invoke the default method implementation, then the correct syntax is:
          [Interface_name].super.[default_method_name].
          */
+        // <InterfaceName>.super.<methodName>: cannot be used to invoke a default method provided by an interface
+        // that is not directly implemented (or extended) by the caller.
+
         PrivateAndDefaultTestable.super.doInterfaceSomethingPublicDefault();
 
         // Cannot call without qualifier even if current class implements interface

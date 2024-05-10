@@ -49,6 +49,12 @@ public class VarType {
         //
         // // Cannot have an array of var
         // var[]newarray = new int[2];
+        //
+        // var ia2[][] = { {1, 2}, null };
+
+        // var ia2 = { {1, 2}, null };
+
+        int ia[][] = {{1, 2}, null};
 
 
         //---- valid

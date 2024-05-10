@@ -14,11 +14,11 @@ public class GenericContainer<T> {
 
     // Container wraps an ArrayList
     List<T> wrappedList; // ONLY valid
-    // List<?> wrappedList ;
-    // List<Object> wrappedList ;
-    // List<? extends T> wrappedList ;
-    // List<? super T> wrappedList ;
-    // List wrappedList ;
+    // List<?> wrappedList1 ;
+    // List<Object> wrappedList2 ;
+    // List<? extends T> wrappedList3 ;
+    // List<? super T> wrappedList4 ;
+    // List wrappedList5 ;
 
     // Constructor
     GenericContainer(List<T> wrappedList) {

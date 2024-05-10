@@ -11,6 +11,16 @@ class MixAndMatch {
         counter++;
     }
 
+    /*
+    There is a difference between super() and this().
+
+    super()- calls the base class constructor whereas
+    this()- calls current class constructor.
+
+    Both this() and super() are constructor calls.
+    Constructor call must always be the first statement. So you either have super() or this() as first statement.
+     */
+
     // MixAndMatch constructor, one parameter
     MixAndMatch(String mixAndMatch) {
         // constructor chaining - call the no args constructor

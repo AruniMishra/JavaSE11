@@ -67,8 +67,19 @@ public class ArraysAndLists {
         String[] arrayRepresentation =
                 (String[]) firstList.toArray(new String[0]);
 
+
         System.out.println("arrayRepresentation array  = " +
                 Arrays.toString(arrayRepresentation));
+
+
+        /*
+        Thus, the argument to this method can be an array with length 0 (but not null) i.e.
+        String[] sa = values.toArray(new String[0]); //valid, sa will be assigned a new
+        //array of Strings containing all the elements of the array pointed to by values.
+        String[] temp = null;
+        String[] sa = values.toArray(temp);//will compile but will throw NullPointerException
+         */
+
 
         // You can call toArray with no parameter, it returns an array of Object[]
         Object[] objectArray = firstList.toArray();

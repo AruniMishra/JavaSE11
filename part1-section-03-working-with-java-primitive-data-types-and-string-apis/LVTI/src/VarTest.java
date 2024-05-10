@@ -63,5 +63,9 @@ public class VarTest {
         //
         // // Cannot have an array of var
         // var[]newarray = new int[2];
+
+        var itest = new int[]{1, 2}; // If you give the elements explicitly you can't give the size
+        int[] itest2 = {1, 2}; // (or just { 1, 2 } if you are not using var declaration)
+
     }
 }

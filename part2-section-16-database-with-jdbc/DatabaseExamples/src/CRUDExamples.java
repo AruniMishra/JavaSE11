@@ -81,7 +81,7 @@ public class CRUDExamples {
             stmt.setObject(2, "JOE2");
             stmt.setInt(3, 30);
             stmt.setNull(3, Types.INTEGER); // also valid, or
-            stmt.setString(2, ""); // valid too, note: STRING is not a valid constant in this class.
+            stmt.setString(2, null); // valid too, note: STRING is not a valid constant in this class.
             System.out.println("records inserted = " +
                     stmt.executeUpdate());
 

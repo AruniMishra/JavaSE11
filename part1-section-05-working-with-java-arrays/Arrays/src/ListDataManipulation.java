@@ -59,6 +59,8 @@ public class ListDataManipulation {
 
 
          /*
+         The list/set returned by the of/copyOf methods is completely independent of the original collection.
+
         If you pass it a collection, it will be treated as a regular object i.e. it will return a list/set containing
         the same collection object instead of returning a list/set containing the objects that the passed collection
         contains.
@@ -95,7 +97,7 @@ public class ListDataManipulation {
                 + thirdColorList.toString());
 
         System.out.println("tempColorList after array changed : "
-                + tempColorList.toString()); //note: contains a single element which is the reference to the collection.
+                + tempColorList.toString()); // note: contains a single element which is the reference to the collection.
 
         // secondColorList created from List.of method is immutable
         try {

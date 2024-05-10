@@ -19,6 +19,7 @@ public class LocaleResources {
         3. MyResourceBundle_fr_IT [3rd: Complete Default Locale, fr_IT].
         4. MyResourceBundle_fr [4th: Language of Default Locale, fr].
         5. MyResourceBundle [5th: ResourceBundle's name without language or country].
+        6. the resource bundle cannot be created. An exception will therefore be thrown when you call getBundle().
          */
 
         Locale.setDefault(new Locale("en", "AU"));

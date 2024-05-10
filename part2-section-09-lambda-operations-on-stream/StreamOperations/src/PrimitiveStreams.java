@@ -41,8 +41,11 @@ public class PrimitiveStreams {
         System.out.println("Average = " + DoubleStream.iterate(
                 1.0, s -> s < 10.0, s -> s + 1).average());
 
+
+        // There no sum method in Stream. There is one in IntStream and DoubleStream.
         System.out.println("Sum = " + IntStream.iterate(
                 5, s -> s < 100, s -> s + 5).sum());
+
 
 
         System.out.println(

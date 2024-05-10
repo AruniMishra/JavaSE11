@@ -62,6 +62,7 @@ public class EnclosingClass {
 
         // public interface NestedInterface {}
 
+        // Every non-static inner class object has a reference to its outer class object which can be accessed by doing OuterClass.this.
         public String getOuterName() {
             // Local variable shadows inner class member which in turn
             // shadows outer class's member.  Here we access all 3
@@ -84,7 +85,10 @@ class TestEnclosingClass {
         EnclosingClass e = new EnclosingClass("e's instance");
         e.doSomethingOnInstance();
 
+        // new EnclosingClass.InnerMemberClass().getInstanceName(); invalid
 
+
+        // InnerMemberClass i; // need to import class
         // We can declare a local variable of the inner class
         EnclosingClass.InnerMemberClass i; // InnerMemberClass is not a static class, it must have an associated outer class instance.
 
@@ -149,11 +153,13 @@ class TestClass {
         // the method useClasses() is an instance method. So, it already has instance of outer class associated with it.
         // So, new A(); is also valid. new TestClass.A(); is same as new A().
         new TestClass().new A();
+        this.new A();
         new A();
         new TestClass.A();
 
         new B();
         new TestClass.B();
+        // new TestClass().new B(); // Qualified new of static class
     }
 
     public static class B {

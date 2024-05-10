@@ -19,8 +19,8 @@ public class WildcardExample {
     but you can't use a type parameter:
     public <T super Integer> void print(List<T> list)  // Won't compile
 
-    i.e super is used with wildcard (?) only.
-     */
+    i.e. super is used with wildcard (?) only.
+    */
 
     // Method prints elements in a list, restricted to Exception
     // elements and any of its subclasses
@@ -189,7 +189,8 @@ public class WildcardExample {
         // List<Number> listNumber2 = listOfIntegers; // not allowed
 
         //  A<S> <<< A<? extends S> <<< A<? extends T>
-        // Since Integer is a subtype of Number, List<Integer> is a subtype of List<? extends Integer> and List<? extends Integer> is a subtype of List<? extends Number>.
+        // Since Integer is a subtype of Number,
+        // List<Integer> is a subtype of List<? extends Integer> and List<? extends Integer> is a subtype of List<? extends Number>.
         List<? extends Number> listExtendNumber = listOfIntegers; // allowed
 
         listNumber.add(10L);
@@ -218,5 +219,21 @@ public class WildcardExample {
         // Long a2 = list2.get(0); // compiler error
         Object o = list2.get(0); // compiles fine
         // because once again, Java doesn't know what type will be returned.
+
+
+        List<?> list3 = new ArrayList<>();
+        // list3.add(10); // error,  You cannot add any thing to it and you can only retrieve Objects from it.
+
+
+        //-----------------------
+
+        List<? super Object> wildSuperObject = new ArrayList<>();
+        wildSuperObject.add(new Object());
+        wildSuperObject.add("aaa");
+
+        List<?> wildList = new ArrayList<>();
+        // wildSuperObject.add(new Object());
+        // wildSuperObject.add("aaa");
+        list2.add(null); // Note that you can add null to it though i.e. list2.add(null); is valid.
     }
 }

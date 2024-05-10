@@ -62,17 +62,26 @@ class Foo extends FooBase implements Bar25 {
 
 
 
-class Super { static String ID = "QBANK"; }
+class Super { static String ID = "QBANK";
+
+}
 
 class Sub extends Super{
     // static String ID = "QBANK2";
+    static void myDemo(){
+        System.out.println("static mydemo");
+    }
     static { System.out.println("In Sub"); }
 }
  class Test32{
     public static void main(String[] args){
         //A reference to a static field causes initialization of only the class or interface that actually declares it,
         // even though it might be referred to through the name of a subclass, a subinterface, or a class that implements an interface.
-        System.out.println(Sub.ID);
+        // System.out.println(Sub.ID);
+
+        Sub.myDemo();
+
+
     }
 }
 

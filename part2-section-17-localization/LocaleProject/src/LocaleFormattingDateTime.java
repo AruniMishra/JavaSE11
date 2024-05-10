@@ -217,11 +217,11 @@ public class LocaleFormattingDateTime {
 
 
         DateTimeFormatter sdf = DateTimeFormatter.ofPattern("MM/'Week' w YYYY");
-        System.out.println(sdf.format(LocalDate.now()));
+        System.out.println(sdf.format(LocalDate.now())); // 04/Week 17 2024
 
         // Print LocalTimeDate using predefined formatter, static attribute
         // on DateTimeFormatter.ISO_WEEK_DATE
-        System.out.println(specificDateTime.format(DateTimeFormatter.ISO_WEEK_DATE));
+        System.out.println(specificDateTime.format(DateTimeFormatter.ISO_WEEK_DATE)); // 2020-W38-4
 
         // Create a patterned formatter using default Locale and print time
         dformatter = DateTimeFormatter.ofPattern("hh:mm:ss:nn a");

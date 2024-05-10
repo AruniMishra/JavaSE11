@@ -55,7 +55,7 @@ public class StreamCollect {
         // Create random list of numbers
 
         double average = new Random().ints(1, 100_000)
-                // Limit to 1000 random numbers
+                // Limit to 1000 random numbers.lines()
                 .limit(1000)
                 .boxed() // transform to an Integer stream
                 .collect(Collectors.averagingInt((s) -> s));

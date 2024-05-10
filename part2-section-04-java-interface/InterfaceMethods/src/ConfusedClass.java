@@ -36,7 +36,7 @@ public class ConfusedClass implements Walkable, Strollable {
         System.out.println("When walking, gait is " + getGait());
 
         // or,
-        Walkable.super.getGait();
+        System.out.println(Walkable.super.getGait());
     }
 
     public void stroll() {

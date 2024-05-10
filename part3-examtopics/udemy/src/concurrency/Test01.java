@@ -459,10 +459,10 @@ class Test39 {
     public static void main(String[] args) {
         var ai = new AtomicInteger(10);
 
-
-        System.out.println(ai.getAndAdd(1));
-        System.out.println(ai.addAndGet(1));
+        System.out.println(ai.getAndAdd(5));
+        System.out.println(ai.addAndGet(7));
         System.out.println(ai.incrementAndGet());
+        System.out.println(ai.getAndIncrement());
     }
 }
 
