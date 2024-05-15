@@ -155,3 +155,13 @@ class SomeClass{
         // System.out.println( s1+" = " + local );   //3
     }
 }
+
+
+class CastTest{
+    public static void main(String args[ ] ){
+        byte b = -128 ; // Only a constant int variable that fits into a byte can be assigned to a byte without a cast
+        int i = 129 ;
+        b = (byte) i;
+        System.out.println(i+" "+b);
+    }
+}

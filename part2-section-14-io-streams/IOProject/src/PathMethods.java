@@ -121,8 +121,8 @@ public class PathMethods {
         pathRelativize(p2, p1);
 
 
-        p1 = Path.of("a/b");
-        p2 = Path.of("c/d");
+        p1 = Path.of("/a/b");
+        p2 = Path.of("/c/d");
         try {
             pathRelativize(p1, p2);
         } catch (IllegalArgumentException ise) {
