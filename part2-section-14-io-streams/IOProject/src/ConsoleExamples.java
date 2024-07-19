@@ -31,8 +31,12 @@ public class ConsoleExamples {
             // Console supports a simple printf statement
             console.printf("Interacting with user via Console\n");
 
+            /*
+            readLine and readPassword methods of Console do not declare any checked exceptions.
+            Call to System.console() doesn't throw any exception either. It just returns null if Console is not available.
+             */
             // Console reads a line of text, terminated by the enter key
-            // name = console.readLine("What is your name? ");
+            name = console.readLine("What is your name? ");
 
 
             console.printf("--Enter your name:\n");

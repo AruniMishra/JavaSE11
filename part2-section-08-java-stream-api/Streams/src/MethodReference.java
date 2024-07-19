@@ -6,6 +6,7 @@ Topic:  Method References
 */
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Random;
 import java.util.stream.Stream;
 
@@ -41,6 +42,16 @@ class TestPerson {
     public void printInstance(String s) {
         System.out.print(s + ", ");
     }
+
+    public void printInstance2() {
+        System.out.print(", ");
+    }
+
+    public void printInstance3(TestPerson testPerson) {
+        System.out.print(", ");
+    }
+
+
 }
 
 public class MethodReference {
@@ -59,6 +70,7 @@ public class MethodReference {
         Arrays.stream(TestPerson.namesArray)
                 .forEach(new TestPerson()::printInstance);
 
+
         System.out.println("\nInstance Method on an arbitrary object: ");
         // Note that compareToIgnoreCase is not static method
         Arrays.sort(TestPerson.namesArray, String::compareToIgnoreCase);
@@ -68,6 +80,20 @@ public class MethodReference {
                 .limit(15)                // Limit to 15
                 .sorted((s, t) -> s.getName().compareToIgnoreCase(t.getName()))
                 .forEach(System.out::print);
+
+    }
+
+    private static void accept(TestPerson testPerson) {
+        new TestPerson().printInstance3(testPerson);
+    }
+
+    void nonstatic() {
+        List<TestPerson> testPersonList = List.of(new TestPerson());
+
+        testPersonList.forEach(TestPerson::printInstance2);
+
+        testPersonList.forEach(MethodReference::accept);
+        testPersonList.forEach(t -> MethodReference.accept(t));
 
     }
 }

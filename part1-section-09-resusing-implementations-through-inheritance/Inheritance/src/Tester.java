@@ -1,3 +1,4 @@
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -169,6 +170,7 @@ interface B2 extends A2{
 }
 
 class C2 implements B2{
+    @Override
     public void method(){
         System.out.println(a);
     }
@@ -181,4 +183,48 @@ class C3 extends C2{
 }
 
 
+//----------
 
+
+interface A59 {
+   public Iterable a();
+}
+
+interface B59 extends A59{
+    public Collection a();
+}
+
+interface C59 extends A59{
+    @Override
+    public Path a();
+}
+
+// interface D59 extends B59, C59{
+//
+// }
+
+
+
+
+class q58 {
+    public static void main(String[] args) {
+        AnotherClass ac = new AnotherClass();
+        SomeClass sc = new AnotherClass();
+        ac = (AnotherClass) sc;
+        // sc = ac;
+        sc.methodA();
+        ac.methodA();
+    }
+}
+
+class SomeClass {
+    public void methodA() {
+        System.out.println("Some Class #methodA ()");
+    }
+}
+
+class AnotherClass extends SomeClass {
+    public void methodA() {
+        System.out.println("AnotherClass#methodA() ");
+    }
+}

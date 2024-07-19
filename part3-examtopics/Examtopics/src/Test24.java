@@ -97,6 +97,12 @@ public class Test24 {
 
         System.out.println(list);
 
+        List list11 = new ArrayList<String>(); //Line n5
+        List<String> list21 = new ArrayList(); //Line n6
+        // List<> list31 = new ArrayList<String>(); //Line n7
+        List<String> list41 = new ArrayList<String>(); //Line n8
+        List<String> list51 = new ArrayList<>(); //Line n9
+
 
         System.out.println("\n----------------------------");
         /*
@@ -117,13 +123,13 @@ public class Test24 {
         System.out.println(Integer.valueOf(2));
 
 
-        System.out.println("\n----------------------------");
-        List<Integer> list2 = new ArrayList<Integer>();
-        list2.add(2);
-        list2.add(1);
-        list2.add(0);
+        System.out.println("\nlist3----------------------------");
+        List<Integer> list03 = new ArrayList<Integer>();
+        list03.add(2);
+        list03.add(1);
+        list03.add(0);
 
-        list2.forEach(System.out::println);
+        list03.forEach(System.out::println);
 
 
         System.out.println("\n----------------------------");

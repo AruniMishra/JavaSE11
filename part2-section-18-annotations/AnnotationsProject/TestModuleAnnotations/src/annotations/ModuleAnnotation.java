@@ -12,9 +12,14 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
+import static java.lang.annotation.ElementType.TYPE;
+
 // Intended for Module
 @Target(ElementType.MODULE)
 @Retention(RetentionPolicy.RUNTIME)
 public @interface ModuleAnnotation {
 
 }
+
+@Target(TYPE)
+@interface Resource {}

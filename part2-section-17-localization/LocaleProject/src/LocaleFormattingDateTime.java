@@ -35,6 +35,17 @@ public class LocaleFormattingDateTime {
 
     // MessageFormat uses the default Locale
     public static void printDateMessageFormat(Date date) {
+
+        // usage of MessageFormat.format()
+        String[] names = {"Joe", "Jane"}; // Object[] valid too
+        String message = MessageFormat.format("{0} {1}", names);
+        System.out.println(message);
+
+        Object[] names1 = {"Joe", "Jane"};
+        String message1 = MessageFormat.format("{0} {1}", "Joe1", "Jane1");
+        System.out.println(message1);
+
+
         System.out.println("\n----- Using Date Patterns ---------");
 
         // Printing this way prints the short representation of a date
@@ -138,8 +149,6 @@ public class LocaleFormattingDateTime {
         dateFormatter.setTimeZone(TimeZone.getTimeZone("EST"));
         System.out.println(MessageFormat.format("{0}  = {1}",
                 "SimpleDateFormat(\"MM/dd/YY hh:mm zz\")", dateFormatter.format(date)));
-
-
 
 
         // 1. First create a sample LocalDateTime

@@ -8,13 +8,14 @@ public class Test10 {
         ExecutorService executorService = Executors.newFixedThreadPool(2);
 
         CyclicBarrier barrier = new CyclicBarrier(2, () ->
-                System.out.print(Thread.currentThread().getName() + list));
+                System.out.println(Thread.currentThread().getName() + list));
 
 
         IntStream.range(0, 5).forEach(n -> executorService.execute(() ->
         {
             try {
                 list.add(n);
+                System.out.println("---");
                 barrier.await(); //Infinite
                 // barrier.await(5, TimeUnit.SECONDS); // TimeoutException
             } catch (InterruptedException | BrokenBarrierException e) {

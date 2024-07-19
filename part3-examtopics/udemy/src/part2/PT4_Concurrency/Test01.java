@@ -1,4 +1,4 @@
-package concurrency;
+package part2.PT4_Concurrency;
 
 import java.time.LocalTime;
 import java.time.temporal.ChronoUnit;
@@ -50,6 +50,21 @@ class Test05 {
             return new String(new char[]{(char) (x + 65)});
         }));
         System.out.println(results[0].get());
+        es.shutdown();
+    }
+}
+
+class Test007 {
+    static int ctr = 0;
+    public static void main(String[] args) throws InterruptedException,
+            ExecutionException {
+        var es = Executors.newFixedThreadPool(3);
+
+        var f1 = es.submit(() -> {});
+        es.execute(() -> ctr++); //Line n1
+        es.submit(() -> ctr++); //Line n2
+        var s = es.submit(() -> {}, "$".repeat(ctr++)); //Line n3
+        System.out.println(s.get());
         es.shutdown();
     }
 }
@@ -242,6 +257,28 @@ class Test20 {
     }
 }
 
+class MyCallable28 implements Callable<Integer> {
+    private Integer i;
+
+    public MyCallable28(Integer i) {
+        this.i = i;
+    }
+
+    public Integer call() throws Exception {
+        return --i;
+    }
+}
+
+class Test28 {
+    public static void main(String[] args) throws InterruptedException, ExecutionException {
+        var es = Executors.newSingleThreadExecutor();
+        var callable = new MyCallable28(100);
+        System.out.println(es.submit(callable).get());
+        System.out.println(es.submit(callable).get());
+        es.shutdown();
+    }
+}
+
 
 class Counter implements Runnable {
 
@@ -295,6 +332,42 @@ class Test26 {
         for (var thread : threads) {
             thread.start();
         }
+    }
+}
+
+
+class MyCallable30 implements Callable<Integer> {
+    private Integer i;
+
+    public MyCallable30(Integer i) {
+        this.i = i;
+    }
+
+    public Integer call() throws Exception {
+        return --i;
+    }
+}
+
+class MyThread30 extends Thread {
+    private int i;
+
+    MyThread30(int i) {
+        this.i = i;
+    }
+
+    public void run() {
+        i++;
+    }
+}
+
+class Test {
+    public static void main(String[] args) throws ExecutionException, InterruptedException{
+        var es = Executors.newSingleThreadExecutor();
+        var callable = new MyCallable30(10);
+        var thread = new MyThread30(10);
+        System.out.println(es.submit(callable).get());
+        System.out.println(es.submit(thread).get());
+        es.shutdown();
     }
 }
 

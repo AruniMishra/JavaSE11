@@ -36,6 +36,7 @@ public class StringBuilderAppendInsert {
                 .append(',')
                 .append((Object) " My ")
                 .append("NewNumber ", 3, 9)
+                .append(2)
         // .append(" is ")
         // .appendCodePoint(97)
         // .append(" float with the value of: ")

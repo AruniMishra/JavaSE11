@@ -2,6 +2,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.function.UnaryOperator;
@@ -11,10 +12,14 @@ import java.util.stream.Stream;
 enum Alpha {
     A, B, C;
 
+    final static String getFirstLetter() { return A.toString(); }
+
     static String getLetter() {
         String aValue = Alpha.values()[0].toString();
         System.out.println("aValue:" + aValue);
         System.out.println(Alpha.valueOf("A"));
+        // By default, an enum's toString() prints the enum name but you can override it to print anything you want.
+        System.out.println(A.toString());
         return A.toString();
     }
 }
@@ -39,6 +44,11 @@ interface ExampleInterface {
 
     public abstract String methodD(); // valid
 
+    // final void methodE1();
+
+    public abstract void methodB();
+
+    // private abstract void methodC();
 
 }
 
@@ -49,12 +59,20 @@ public class Test02 {
     int cCount;
     int gCount;
 
+
     Test02(int a, int tCount, int c, int g) {
         setGCount(g);
         aCount = a;
     }
 
     public static void main(String[] args) {
+
+        var i68 = 10;
+        var j = 5;
+        i68 += (j * 5 + i68) / j - 2;
+        System.out.println(i68);
+        System.out.println("\n------------------------");
+
         Test02 pop = new Test02(1, 2, 3, 4);
         System.out.println(pop.aCount + " " + pop.cCount + " " + pop.gCount); // 1 3 4
 
@@ -90,7 +108,7 @@ public class Test02 {
 
 
         System.out.println("\n\n------------------------");
-        UnaryOperator<Integer> u = (i) -> (i * 2);
+        UnaryOperator<Integer> u = (var i) -> (i * 2);
         System.out.println(u.apply(2));
 
 
@@ -104,6 +122,33 @@ public class Test02 {
         }
         list.forEach(System.out::println);
 
+
+        System.out.println("\n\n------------------------");
+        ArrayList<Integer> al = new ArrayList<>();
+        al.add(1);
+        al.add(2);
+        al.add(3);
+        Iterator<Integer> itr = al.iterator();
+        while (itr.hasNext()) {
+            if (itr.next() == 2) {
+                // al.remove(2);
+                System.out.println(itr.next());
+
+            }
+        }
+
+
+        System.out.println("\n\n------------------------");
+        Integer i = 11;
+        // Double c = (Double) i;
+        Double b = Double.valueOf(i);
+        // Double a = i;
+        // double e = Double.parseDouble(i);
+        double d = i;
+
+
+
+
     }
 
     int setCCount(int c) {
@@ -113,5 +158,7 @@ public class Test02 {
     void setGCount(int gCount) {
         this.gCount = gCount;
     }
+
+
 }
 

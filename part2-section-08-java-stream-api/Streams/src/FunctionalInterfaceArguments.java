@@ -7,8 +7,14 @@ Topic:  Method References and Lambda Expressions
 
 // Simple Functional Interface
 interface MyInterface {
-
     String doSomething(String s);
+}
+
+
+interface MyInterface2 {
+    public static void doSomething() {
+        // static method must be a body
+    }
 }
 
 // Class implements Functional Interface

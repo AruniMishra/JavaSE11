@@ -8,6 +8,7 @@ Topic:  Resource Bundles
 import java.util.Locale;
 import java.util.ResourceBundle;
 
+
 public class LocaleResources {
     public static void main(String[] args) {
         /*

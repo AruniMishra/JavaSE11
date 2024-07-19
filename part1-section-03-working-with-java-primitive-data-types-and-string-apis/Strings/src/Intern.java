@@ -11,9 +11,9 @@ public class Intern {
 
         // S1 refers to Object in the Heap Area
         String s1 = new String("GFG"); // Line-1
-        System.out.println(s1 == s0);
+        System.out.println(s1 == s0); // false
 
-        System.out.println(s1 == "GFG");
+        System.out.println(s1 == "GFG"); // false
 
         // S2 now refers to Object in SCP Area
         String s2 = s1.concat("GFG"); // Line-2
@@ -23,14 +23,14 @@ public class Intern {
         // S3 refers to Object in SCP Area
         String s3 = s2.intern(); // Line-3
 
-        System.out.println(s2 == s3);
+        System.out.println(s2 == s3); // true
 
         // String literals automatically interned so all "hello" literals
         // point to same reference in memory, in the string pool
         // S4 refers to Object in the SCP Area
         String s4 = "GFGGFG"; // Line-4
 
-        System.out.println(s3 == s4);
+        System.out.println(s3 == s4); // true
 
         String S40 = s4;
         System.out.println(S40 == s4);
@@ -60,6 +60,7 @@ public class Intern {
          */
         String s7 = new String("ALL IS WELL");
         String s8 = s1.toString();
+        System.out.println(s7 == s8);
         // s7==s8 // true
 
 

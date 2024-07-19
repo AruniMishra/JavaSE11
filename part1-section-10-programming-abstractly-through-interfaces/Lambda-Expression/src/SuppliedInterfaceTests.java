@@ -56,6 +56,13 @@ public class SuppliedInterfaceTests {
                 () -> "returning a new String Object";
         System.out.println("stringSupplier.get() = " + stringSupplier.get());
 
+
+        int i = 25;
+        Supplier<Integer> foo =
+                () -> i;
+        // i++;
+        System.out.println("foo.get() = " + foo.get());
+
         // -- Function Example
         // Method returns a result, and accepts one parameter
         Function<String, String> funkyFunction = (s) -> {

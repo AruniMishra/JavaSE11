@@ -26,6 +26,11 @@ class WildcardTests<T> {
     // public <? extends WildcardTests> void doSomethingElse() {
     //     System.out.println("cannot do this");
     // }
+
+    public WildcardTests<? super WildcardTests> doSomethingElse(T a) {
+        System.out.println("cannot do this");
+        return null;
+    }
 }
 
 public class WildcardUsage {

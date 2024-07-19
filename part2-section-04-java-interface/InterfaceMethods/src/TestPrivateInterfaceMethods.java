@@ -92,6 +92,8 @@ public class TestPrivateInterfaceMethods extends TestStatic implements PrivateAn
         // calling default from static with class object.
         new TestPrivateInterfaceMethods().doInterfaceSomethingPublicDefault();
 
+        // PrivateAndDefaultTestable.super.doInterfaceSomethingPublicDefault();
+
     }
 
     void testNonStatic() {

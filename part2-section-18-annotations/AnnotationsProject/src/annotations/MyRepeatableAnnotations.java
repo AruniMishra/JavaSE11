@@ -13,5 +13,5 @@ import java.lang.annotation.RetentionPolicy;
 // annotation which will be repeated
 @Retention(RetentionPolicy.RUNTIME)
 public @interface MyRepeatableAnnotations {
-    MyRepeatableAnnotation[] value();
+    MyRepeatableAnnotation[] value(); // The name of the MyRepeatableAnnotation[] array should be value()
 }

@@ -5,7 +5,7 @@ interface Rectangle {
 }
 
 interface Ellipse {
-    default double calculateSurfaceArea(double majorR, double minorR) {
+    default double calculateSurfaceArea1(double majorR, double minorR) {
         return Math.PI * majorR * minorR;
     }
 }
@@ -13,7 +13,7 @@ interface Ellipse {
 public class Cylinder implements Rectangle, Ellipse {
     public double calculateSurfaceArea(double l, double w, double majorR, double minorR) {
         double rectArea = Rectangle.super.calculateSurfaceArea(l, w);
-        double ellipseArea = Ellipse.super.calculateSurfaceArea(majorR, minorR);
+        double ellipseArea = Ellipse.super.calculateSurfaceArea1(majorR, minorR);
 
         return rectArea + ellipseArea * 2;
     }

@@ -7,6 +7,7 @@ Topic: Local Variable Type Inference
 import com.WordyCompanyName.ALongPackageName.AClassWithAVeryLongName;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class VarTest {
 
@@ -64,8 +65,11 @@ public class VarTest {
         // // Cannot have an array of var
         // var[]newarray = new int[2];
 
+
+
+        // An array initializer needs an explicit target-type if the variable is declared using var declaration
         var itest = new int[]{1, 2}; // If you give the elements explicitly you can't give the size
-        int[] itest2 = {1, 2}; // (or just { 1, 2 } if you are not using var declaration)
+        int[] itest2 =  new int[]{1, 2}; // (or just { 1, 2 } if you are not using var declaration)
 
     }
 }

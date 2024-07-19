@@ -204,7 +204,13 @@ public class MapExample {
 
         // Mary will get added with value result of computation
         System.out.println("\nMary gets added with value = " +
-                m.computeIfAbsent("Mary", (val) -> defaultVal * 3));
+                m.computeIfAbsent("Mary", (val) -> {
+                    System.out.println("-- val:" + val);
+                    return defaultVal * 3;
+
+                }));
+
+
         System.out.println("m.computeIfAbsent(Mary, (30) * 3): " + m);
 
         // Mary exists, no computation made, value left unchanged
@@ -239,7 +245,7 @@ public class MapExample {
         System.out.println("\nOriginal State: " + m);
         //  If Mary exists and is not null, use the function
         System.out.println("After merge(Mary,100,(oldValue, newValue) -> oldValue / 3)), return value : " +
-                m.merge("Mary", 60,
+                m.merge("Mary", 100,
                         (oldValue, newValue) ->
                         {
                             System.out.println(oldValue + "  " + newValue);

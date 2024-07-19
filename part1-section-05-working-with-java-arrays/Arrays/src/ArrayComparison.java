@@ -99,7 +99,7 @@ public class ArrayComparison {
         System.out.println("\n------------- misc ------------");
 
         var a = new int[]{1, 2, 3, 4, 5};
-        var b = new int[]{1, 2, 3, 4, 8, 3};
+        var b = new int[]{1, 2, 3, 4, 3, 3};
         var c = new int[]{1, 2, 3, 4, 5, 6, 7};
 
         // If one array is the proper prefix of the other, then compare method returns a.length - b.length,

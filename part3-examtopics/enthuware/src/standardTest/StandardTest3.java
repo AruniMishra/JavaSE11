@@ -178,6 +178,7 @@ class s3T10 {
     public void processUploads(String listOfFilesFile) throws IOException {
         // 1
         File f = new File(listOfFilesFile);
+        f.getCanonicalFile();
         List<BufferedReader> al = new ArrayList<BufferedReader>();
         try (var bfr = new BufferedReader(new FileReader(f))) {
             // 2

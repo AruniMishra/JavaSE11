@@ -137,6 +137,8 @@ class NewClass40 {
         Optional<String> grade1 = getGrade(50);
         Optional<String> grade2 = getGrade(55);
         System.out.println(grade1.orElse("UNKNOWN"));
+
+        System.out.println(grade2);
         if(grade2.isPresent()){
             grade2.ifPresent(x->System.out.println(x));
         }else{

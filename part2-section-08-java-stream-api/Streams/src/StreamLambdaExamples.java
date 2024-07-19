@@ -6,6 +6,8 @@ Topic:  Lambda Expressions
 */
 
 import java.util.Arrays;
+import java.util.List;
+import java.util.function.BinaryOperator;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -51,6 +53,9 @@ public class StreamLambdaExamples {
                         .skip(2)
                         // collect method returns results as List
                         .collect(Collectors.toList()));
+
+        List<Integer> ls = Arrays.asList(1, 2, 3);
+        double sum = ls.stream().reduce(0, (a, b)->a+b);
 
         System.out.println("reduce example: Sum of the numbers = " +
                 Stream.iterate(5, (t) -> t <= 100, (t) -> t + 5)

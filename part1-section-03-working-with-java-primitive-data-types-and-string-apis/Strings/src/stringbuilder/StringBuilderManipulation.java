@@ -4,7 +4,7 @@ public class StringBuilderManipulation {
     public static void main(String[] args) {
 
         // Create and Initialize a StringBuilder Object
-        StringBuilder sb = new StringBuilder("World Hello, How are you?");
+        StringBuilder sb = new StringBuilder("World Hello,-How are you?");
         System.out.println("Original Value in sb = " + sb);
 
         // Delete the comma from the string,

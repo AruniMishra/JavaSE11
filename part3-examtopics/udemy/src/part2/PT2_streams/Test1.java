@@ -1,6 +1,7 @@
 package part2.PT2_streams;
 
 import java.util.*;
+import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.DoubleStream;
@@ -265,10 +266,11 @@ class Test76 {
         System.out.println(doubleStream.min(Double::compareTo));
 
 
-        int res2 = 1;
+        System.out.println("---");
+        int res2 = 2;
         IntStream stream2 = IntStream.rangeClosed(1, 4);
 
-        System.out.println(stream2.reduce(res++, (i, j) -> i * j));
+        System.out.println(stream2.reduce(res2++, (i, j) -> i * j));
 
 
         Stream<Double> doubleStream1 = Arrays.asList(1.8, 2.2, 3.5).stream();
@@ -277,6 +279,12 @@ class Test76 {
 
         Stream<Double> doubleStream2 = Arrays.asList(1.8, 2.2, 3.5).stream();
         System.out.println(doubleStream2.reduce((d1, d2) -> d1 + d2)); // Line n1
+
+
+
+        // ---------------
+
+        Function<Integer, String> function = Integer::toHexString;
     }
 }
 

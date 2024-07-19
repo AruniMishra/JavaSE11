@@ -1,6 +1,6 @@
 class StaticStuffTest {
 
-    public static int counter= 0;
+    public static int counter = 0;
     static {
         System.out.println("StaticStuff: static initializer");
         StaticStuffTest.counter++;

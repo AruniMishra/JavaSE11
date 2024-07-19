@@ -53,8 +53,10 @@ abstract class ParentClass {
 // Apply annotations to the class
 // @MyClassAnnotation() // this becomes invalid if 'MyClassAnnotation' annotated with @Target(ElementType.FIELD)
 // @MySourceAnnotation() // this becomes invalid if 'MySourceAnnotation' annotated with @Target(ElementType.METHOD)
-@MyRuntimeAnnotation(author = "Aruni", version = 0.1, description = "testing annotations")
+@MyRuntimeAnnotation(author = "Aruni", version = 0.1, description = "testing annotations") // @Target(ElementType.TYPE)
 
+
+// @MyRepeatableAnnotations(value={@MyRepeatableAnnotation(10)}) // valid, a container annotation, but comment others
 // --Marker Annotation,  Repeatable
 @MyRepeatableAnnotation // first occurrence
 @MyRepeatableAnnotation() // first occurrence, also valid

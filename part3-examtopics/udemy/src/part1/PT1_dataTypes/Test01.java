@@ -1,4 +1,4 @@
-package dataTypes;
+package part1.PT1_dataTypes;
 
 import java.util.Arrays;
 import java.util.Collection;
@@ -6,6 +6,13 @@ import java.util.Collection;
 public class Test01 {
 }
 
+
+class Test {
+    public static void main(String[] args) {
+        byte b1 = (byte) (127 + 21);
+        System.out.println(b1);
+    }
+}
 
 class Test49 {
     public static void main(String[] args) {
@@ -140,18 +147,33 @@ class Computator<N extends Number, C extends Collection<N>> {
 
     public Number sum(C collection) {
 
-        Double sum = 0.0;
+        double sum = 0.0;
 
         return sum;
     }
 
     public static void main(String[] args) {
 
-        char d = 100, e = 'e'; // line 1
+        char d = 300, e = 'e'; // line 1
         int x = d;
 
         int a = 0;
         char b = 0;
 
+        byte b1 = 10;
+        char c1 = (char) b1;
+
+
+        int[][] e1 = {{1,1,1},{2,2,2}};
+
+        // var e2 = {{1,1,1},{2,2,2}};
+
+        var e3 = new int[][]{{1,1,1},{2,2,2}};
+
+
+        // String contact# = "(+2) (999) (232)";
+
     }
 }
+
+

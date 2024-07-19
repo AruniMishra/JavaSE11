@@ -8,7 +8,10 @@ class Foo {
     }
 }
 
+
 public class Bar extends Foo {
+
+
     public static void main(String... args) {
 
         List<String> li = new ArrayList<>();
@@ -26,3 +29,4 @@ public class Bar extends Foo {
         System.out.println("Bar Bonjour le monde!");
     }
 }
+

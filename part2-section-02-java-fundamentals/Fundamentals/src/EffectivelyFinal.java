@@ -9,6 +9,7 @@ Topic:  Nested Class, local Class, effectively final review
 public class EffectivelyFinal {
 
     static int a = 0;
+    int b = 0;
 
     public static void main(String[] args) {
 
@@ -32,5 +33,13 @@ public class EffectivelyFinal {
 
         // Execute method on the local class
         new LocalClass().printValue();
+    }
+
+    class LocalClass2 {
+        public void printValue() {
+            // efinal++;
+            b++;
+            System.out.println("b = " + b);
+        }
     }
 }

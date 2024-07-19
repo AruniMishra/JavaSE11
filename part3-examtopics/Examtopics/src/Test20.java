@@ -80,5 +80,9 @@ java: log() in Log cannot implement log() in ILog
   Static and non-static methods with same signature are not allowed in one scope,
   therefore class MyLogger fails to compile.
  */
-// class MyLogger extends Log implements ILog {}
+// class MyLogger extends Log implements ILog {
+// }
+
+
+
 

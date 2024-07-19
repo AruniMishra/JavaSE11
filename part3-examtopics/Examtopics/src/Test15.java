@@ -7,13 +7,19 @@ public class Test15 {
             sb.append(i)
                     .append("). ")
                     .append(furnitures[i].charAt(i))
-                    .append(", ");
+                    .append(",~");
             if (index < furnitures.length) {
-                sb.append(" | ");
+                System.out.println("---");
+                sb.append("-|-");
+
             }
+            System.out.println(sb);
+            System.out.println("###########");
             sb.delete(sb.length() - 2, sb.length() - 1);
+            System.out.println(sb);
             sb.insert(0, '[').insert(sb.length() - 1, ']');
             System.out.println(sb);
+            System.out.println();
         }
     }
 }

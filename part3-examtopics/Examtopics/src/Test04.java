@@ -36,6 +36,7 @@ public class Test04 {
         int x1 = 12_34;
 
 
+        System.out.println("------------");
         PersonTest personTest = new PersonTest("Joe");
         System.out.println(checkPerson(personTest));
         personTest = null;
@@ -52,5 +53,28 @@ public class Test04 {
 
         return s;
 
+    }
+}
+
+class Tester143 {
+    static PersonTest p = null;
+
+    public static void main(String[] args) {
+
+        p = checkPerson(p);
+        System.out.println(p);
+
+        PersonTest p1 = new PersonTest("Joe");
+        p1 = checkPerson(p);
+        System.out.println(p1);
+
+
+    }
+
+    public static PersonTest checkPerson(PersonTest p) {
+        if (p == null) {
+            p = new PersonTest("Mary");
+        }
+        return p;
     }
 }

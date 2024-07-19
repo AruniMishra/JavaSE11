@@ -100,3 +100,15 @@ class Y extends X {
         this.name = name;
     }
 }
+
+interface MyInterface {
+    void m();
+}
+
+class Test {
+    public static void main(String[] args) {
+        MyInterface mi = () -> {
+
+        };
+    }
+}

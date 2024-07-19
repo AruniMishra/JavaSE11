@@ -1,5 +1,7 @@
 package nest;
 
+import static nest.EnclosingClass.NestedStaticClass;
+
 // Enclosing Class
 public class EnclosingClass {
     // static field on enclosing class
@@ -74,6 +76,17 @@ public class EnclosingClass {
         }
     }  // Ends declaration of the static nested class
 
+
+    private static class PrivateStaticClass {
+        private void print (){
+            System.out.println("Private Print of PrivateStaticClass");
+        }
+    }
+
+    public static void main(String[] args) {
+        EnclosingClass.PrivateStaticClass privateStaticClass = new PrivateStaticClass();
+        privateStaticClass.print();
+    }
 }
 
 // This class tests the EnclosingClass and it's nested class
@@ -81,6 +94,11 @@ public class EnclosingClass {
 class TestEnclosingClass {
 
     public static void main(String[] args) {
+
+        // invalid
+        // EnclosingClass.PrivateStaticClass privateStaticClass = new EnclosingClass.PrivateStaticClass();
+
+
         // Reference static field on static nested class directly:
         System.out.println(EnclosingClass.NestedStaticClass.staticName);
 
@@ -96,7 +114,11 @@ class TestEnclosingClass {
 
         EnclosingClass.NestedStaticClass nInstance = new EnclosingClass.NestedStaticClass();
 
+        new NestedStaticClass();
+
         nInstance.getInstanceName();
+
+        // new EnclosingClass().new NestedStaticClass(); // invalid
 
     }
 }

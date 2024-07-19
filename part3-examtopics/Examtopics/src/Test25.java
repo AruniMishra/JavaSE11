@@ -45,7 +45,7 @@ interface ObjectCreator<T> {
     T create(String str);
 }
 
-class Test {
+class Test00 {
     public static void main(String[] args) {
         Equality eq = x -> true;
         System.out.println(eq.equals(null));

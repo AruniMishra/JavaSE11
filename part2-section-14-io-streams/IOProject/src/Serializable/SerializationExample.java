@@ -52,7 +52,7 @@ class Pet extends Animal implements Serializable { // pet is Serializable, is Su
     and,
     While de-serializing, transient fields are initialized to default values
     (null for reference type and respective Zeros for primitive types) and static fields refer to current value.
-    i.e State of transient and static fields are not persisted.
+    i.e. State of transient and static fields are not persisted.
      */
     static int count;
     private String name;

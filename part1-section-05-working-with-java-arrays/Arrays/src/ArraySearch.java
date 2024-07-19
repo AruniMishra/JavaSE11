@@ -14,8 +14,6 @@ public class ArraySearch {
                 "yz", "jkl", "abc", "def", "ghi"
         };
 
-        String[] partialFirstString = {"abc", "def", "ghi", "jkl", "mno"};
-
         // Create Lists from the arrays to test List search methods
         List<String> firstList = List.of(firstString);
         List<String> secondList = Arrays.asList(firstStringUnsortedDuplicates);
@@ -39,6 +37,7 @@ public class ArraySearch {
 
 
         System.out.println("\n---------- Arrays mismatch  ----------");
+        String[] partialFirstString = {"abc", "def", "ghi", "jkl", "mno"};
         // mismatch returns the non-matching index where the prefix ends
         System.out.println("Arrays.mismatch(firstString,partialFirstString) = "
                 + Arrays.mismatch(firstString, partialFirstString));

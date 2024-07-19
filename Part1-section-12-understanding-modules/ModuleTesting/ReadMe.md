@@ -62,10 +62,22 @@ java -p . -d MyFirstModule
 ---
 
 - Run for jdeps
-  - The jdeps tool is used to find out all dependencies of a class file or a jar file. It inspects the given class file
-  (or all class files inside a jar files) and finds out all the required modules and packages that are referred to by this class or jar file.
+  - The jdeps tool is used to find out all dependencies of a class file or a jar file without executing it. 
+  - It inspects the given class file
+  (or all class files inside a jar files) and finds out all the required modules and packages that are referred to by 
+  this class or jar file.
 - '--generate-module-info' option is available with jdeps command only,
   - It generates "mod-descriptors" directory containing module-info.java file
+  - You can add module jars and other jars in its search path using --module-path and --classpath options
+- jdeps --list-deps moduleA.jar
+  - It will list all the modules on which moduleA depends.
+    Lists the module dependencies and also the package names of JDK internal APIs (if referenced).
+  - It will show an error if moduleA requires any other application module.
+    Remember that one modular jar contains only one module. So, moduleA.jar will contain only one module.  
+    If moduleA depends only on the standard JDK modules, then jdeps will print them. 
+    - However, if this module 
+      depends on any other application module (for example, moduleB), jdeps won't find it and will therefore fail. 
+      You need to put all the module jars in --module-path.
 
 ```shell
 jdeps --module-path . .\MyFirstModule.jar
@@ -171,11 +183,13 @@ Module options applicable only for javac:
 
 Module options applicable only for java:
 --list-modules has no shortcut. It lists observable modules and exits.
---show-module-resolution has no shortcut. It shows module resolution output during startup.
+--show-module-resolution has no shortcut. It shows module resolution output during startup. It prints out the complete 
+module dependency tree for a given module.
+
   
 --describe-module or -d: It describes a module and exits(java).
 
---jmod describe: used to identify class and module dependencies
+jmod describe: used to identify class and module dependencies
 
 
 Note that -d works differently in java and javac. Further, -d is very different from -D, which is used while running a java program to specify name-value pairs of properties at the command line.

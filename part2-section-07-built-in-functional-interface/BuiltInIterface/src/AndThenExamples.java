@@ -25,7 +25,7 @@ public class AndThenExamples {
         // invoke compose() on function?
         // function.<String>compose((s) -> {
         function = function.<String>compose((s) -> {
-            System.out.println("1. Composing " + s);
+            System.out.println("1. Composing " + s + " --");
             return s;
         });
 

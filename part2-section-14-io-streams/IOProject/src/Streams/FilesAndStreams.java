@@ -18,7 +18,7 @@ public class FilesAndStreams {
 
         /*
         The usage of Files.list method returns a stream of Path objects for files contained in a
-        directory. Unlike the Files.find method, the list method doesn't search for files.
+        directory(listing is not recursive). Unlike the Files.find method, the list method doesn't "search" for files.
         It just returns all the files in a given directory.
          */
 

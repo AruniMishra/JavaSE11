@@ -105,6 +105,7 @@ public class WildcardExample {
         // Exception allowed by unbounded <?>
         printOpenDoor(exceptionList);
 
+        // <? super RuntimeException>
         printLowerListRuntimeException(exceptionList);  // S is a sub type of T; A<T> <<< A<? super T> <<< A<? super S>
 
         System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
@@ -207,6 +208,7 @@ public class WildcardExample {
         Whereas:
         List<? extends Number> list = new ArrayList<>();
         can be thought of as "list can take a single type which is a subclass of Number".
+        e.g. integerList1 = new ArrayList<Short>();
         */
 
 
@@ -232,8 +234,8 @@ public class WildcardExample {
         wildSuperObject.add("aaa");
 
         List<?> wildList = new ArrayList<>();
-        // wildSuperObject.add(new Object());
-        // wildSuperObject.add("aaa");
-        list2.add(null); // Note that you can add null to it though i.e. list2.add(null); is valid.
+        // wildList.add(new Object());
+        // wildList.add("aaa");
+        wildList.add(null); // Note that you can add null to it though i.e. list2.add(null); is valid.
     }
 }

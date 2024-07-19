@@ -93,14 +93,24 @@ public class CopyOnWriteExample {
         var list1 = List.of("Melon", "Apple", "Banana", "Mango");
         var list2 = new ArrayList<>(list1); // CopyOnWriteArrayList for for-each
 
-        /*
+
+        List<String> concurrentList2 = new CopyOnWriteArrayList<>(list2);
+        for(String s : concurrentList2) {
+            if(s.startsWith("M")){
+                concurrentList2.remove(s);
+            }
+        }
+        System.out.println("concurrentList2: "+concurrentList2);
+
+
         // ConcurrentModificationException, valid with CopyOnWriteArrayList
-        for(String s : list2) {
+        /* for(String s : list2) {
             if(s.startsWith("M")){
                 list2.remove(s);
             }
         }
-        */
+        System.out.println("list2: "+list2); */
+
 
 
         // this is valid
@@ -113,4 +123,11 @@ public class CopyOnWriteExample {
         System.out.println(list1);
         System.out.println(list2);
     }
+
+    /*
+    You can add null elements in CopyOnWriteArrayList (as well as in a regular ArrayList).
+
+    Remember that HashMap supports adding null key as well as null values but ConcurrentHashMap does not.
+    Some candidates have reported getting a question on this aspect of ConcurrentHashMap.
+     */
 }

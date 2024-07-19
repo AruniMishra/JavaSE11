@@ -56,6 +56,9 @@ public class Test11 {
         ArrayList<Member> clubMembers = new ArrayList<>();
         clubMembers.add(new Member("smith"));
         clubMembers.add(new Member("asdfg"));
+
+        new Member("").print();
+
         long matches = clubMembers.
                 stream()
                 .peek(new Consumer<Member>() {
@@ -64,18 +67,19 @@ public class Test11 {
                         m.print();
                     }
                 })
-                .peek(Member::print) // valid too
+                .peek(Member::print)
+                .peek(member -> member.print()) // valid too
                 .filter(m -> m.getYearsMembership() >= testMembershipLength)
 
                 // Bad return type in method reference: cannot convert int to boolean
                 // filter waits a lambda(predicate) whose return type is boolean
                 // .filter(Member::getYearsMembership() >= testMembershipLength)
 
-                .filter(Member::getYearsMembershipBoolean) // this is valid
+                .filter(Member::getYearsMembershipBoolean)//valid; .filter(member -> member.getYearsMembershipBoolean())
                 .filter(Test11::getTest11Boolean)// valid, should be static
 
 
-                .map(m -> testName.compareToIgnoreCase(String.valueOf(m)))
+                .map(m -> testName.compareToIgnoreCase(m.toString()))
                 // valid too
                 // .map(Test11::getMemberIntegerFunction)
 

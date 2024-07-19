@@ -34,7 +34,7 @@ public class LocaleFormattingNumbers {
 
         // Using getInstance() with and without passing a Locale
         System.out.println(MessageFormat.format(outpattern,
-                "getInstance.format",   // {0} - Text, method executed
+                "getInstance",   // {0} - Text, method executed
                 Locale.getDefault(),    // {1} - default Locale String
                 l,                      // {2} - passed Locale String
                 NumberFormat.getInstance().format(d), // {3} number (default Locale)

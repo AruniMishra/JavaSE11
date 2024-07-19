@@ -67,7 +67,6 @@ public class StreamGrouping {
                                 p -> Arrays.asList(p.getState(), p.getType()),
                                 // Get average age of pet
                                 Collectors.averagingInt(Pet::getAge)));
-
         // petMaps.entrySet().forEach(System.out::println); // valid , [GA, Dog]=3.0
 
         // Can get very specific about requesting information from Map

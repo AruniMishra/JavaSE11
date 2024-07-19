@@ -7,6 +7,7 @@ Topic: Path Manipulation methods
 
 import java.io.IOException;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 
 public class PathMethods {
     /*
@@ -121,8 +122,8 @@ public class PathMethods {
         pathRelativize(p2, p1);
 
 
-        p1 = Path.of("/a/b");
-        p2 = Path.of("/c/d");
+        p1 = Path.of("a/b");
+        p2 = Path.of("a/b/c/d");
         try {
             pathRelativize(p1, p2);
         } catch (IllegalArgumentException ise) {
@@ -135,6 +136,12 @@ public class PathMethods {
             System.out.println(ise);
         }
 
+
+        Path path1 = Paths.get("\\personal\\readme.txt");
+        Path path2 = Paths.get("\\index.html");
+        pathRelativize(path1, path2); // ..\..\index.html
+
+        System.out.println("-----------------------------``");
 
         /*
         For 'path1.relativize(path2)' both path1 and path2 should be of same type.
@@ -159,7 +166,6 @@ public class PathMethods {
         } catch (IllegalArgumentException ise) {
             System.out.println(ise);
         }
-
 
 
     }

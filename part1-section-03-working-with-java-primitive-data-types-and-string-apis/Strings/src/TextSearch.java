@@ -8,7 +8,9 @@ public class TextSearch {
         //String below is so just there to help see the index easier
         String showIndx = "012345678901234567890123";
 
-        String searchString = "word";
+        String searchString = "est";
+        int Index = fullText.indexOf(searchString);
+        System.out.println("Index = " + Index);
 
         int lastIndex = fullText.lastIndexOf(searchString);
         System.out.println("lastIndex = " + lastIndex);

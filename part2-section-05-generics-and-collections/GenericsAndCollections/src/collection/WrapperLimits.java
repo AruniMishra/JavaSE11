@@ -36,8 +36,6 @@ public class WrapperLimits {
         // An autoboxed float -> Float cannot be assigned to a Double
         Float wrapper = 32.0f; // valid
 
-        // An array of double wrappers cannot be initialized to array
-        // of primitive float
         Float[] wrappedArray = new Float[]{32.0f}; // valid
 
 

@@ -1,3 +1,6 @@
+import java.util.Arrays;
+import java.util.stream.Collectors;
+
 public enum DaysOfTheWeek {
     // Note that it is not required to make all constants uppercase,
     // but is considered best practice
@@ -18,6 +21,11 @@ class TestDaysOfTheWeek {
         System.out.println(DaysOfTheWeek.valueOf("WEDNESDAY"));
 
         System.out.println("---------------------------------");
+
+        System.out.println(Arrays.stream(DaysOfTheWeek.values()).map(Enum::name).collect(Collectors.joining(", ")));
+        System.out.println("-----------");
+
+        Arrays.stream(DaysOfTheWeek.values()).map(Enum::name).collect(Collectors.joining(","));
 
         // We can loop through the list of values..
         for (DaysOfTheWeek day : DaysOfTheWeek.values()) {
