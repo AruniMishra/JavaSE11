@@ -106,6 +106,8 @@ public class WildcardExample {
         printOpenDoor(exceptionList);
 
         // <? super RuntimeException>
+        List<? super RuntimeException> listTemp = exceptionList;
+        // A<Exception> <<< A<? super Exception> <<< A<? super RuntimeException>
         printLowerListRuntimeException(exceptionList);  // S is a sub type of T; A<T> <<< A<? super T> <<< A<? super S>
 
         System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
@@ -189,9 +191,9 @@ public class WildcardExample {
         List<Number> listNumber = new ArrayList<>();
         // List<Number> listNumber2 = listOfIntegers; // not allowed
 
-        //  A<S> <<< A<? extends S> <<< A<? extends T>
+        // A<S> <<< A<? extends S> <<< A<? extends T>
         // Since Integer is a subtype of Number,
-        // List<Integer> is a subtype of List<? extends Integer> and List<? extends Integer> is a subtype of List<? extends Number>.
+        // List<Integer> is a subtype of List<? extends Integer> is a subtype of List<? extends Number>.
         List<? extends Number> listExtendNumber = listOfIntegers; // allowed
 
         listNumber.add(10L);

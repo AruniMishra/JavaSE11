@@ -1,3 +1,4 @@
+import java.io.FileNotFoundException;
 import java.io.IOException;
 
 /*
@@ -123,4 +124,34 @@ while a constructor of a subclass cannot throw subclass exception
 (Note: FileNotFoundException is a subclass of IOException, which is a subclass of Exception)
  */
 
+class A {
+    public A() throws IOException {
+    }
 
+    void m() throws IOException {
+    }
+}
+
+class B extends A {
+    // IOException is valid here, but FileNotFoundException is invalid
+    public B() throws IOException {
+    }
+
+    // FileNotFoundException is valid here, but Exception is invalid
+    void m() throws FileNotFoundException {
+    }
+}
+
+
+class Super {
+    Super() throws RuntimeException {
+        System.out.print("CARPE ");
+    }
+}
+
+class Sub extends Super {
+    // as RuntimeException is unchecked exception, therefore no handling is necessary in the constructor of Sub class.
+    Sub() throws IndexOutOfBoundsException {
+        System.out.print("DIEM ");
+    }
+}

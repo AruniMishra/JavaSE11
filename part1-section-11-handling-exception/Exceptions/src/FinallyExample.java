@@ -16,6 +16,12 @@ public class FinallyExample {
             System.out.println("Outer try block starts here....");
             String property = fex.getPropertyFromFile("FinallyProperties.txt");
         } catch (IOException | ArrayIndexOutOfBoundsException io) {
+            /*
+            The exception parameter in a multi-catch clause is implicitly final. Thus, it cannot be reassigned.
+            Had there been only one exception in the catch clause (of type that is compatible with FileNotFoundException
+             such as IOException or Exception, but not RuntimeException), it would have been valid.
+             */
+            // io =  new FileNotFoundException();
             System.out.println("Outer catch exception block starts here....");
             try {
                 // Retry;

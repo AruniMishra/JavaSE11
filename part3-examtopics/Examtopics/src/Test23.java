@@ -2,7 +2,7 @@ enum Flags {
     // Enum constructor is invoked once for every constant.
     TRUE, FALSE;
 
-    Flags() {
+    private Flags() {
         System.out.println("HELLO");
     }
 }

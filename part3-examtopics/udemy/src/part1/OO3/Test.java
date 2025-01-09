@@ -1,4 +1,7 @@
-package OO3;
+package part1.OO3;
+
+import java.io.FileNotFoundException;
+import java.sql.SQLException;
 
 enum Flags {
     TRUE, FALSE;
@@ -130,6 +133,26 @@ class Test31 {
 }
 
 
+class Test37 {
+    private static void getData() throws SQLException {
+        try {
+            throw new SQLException();
+        } catch (Exception e) {
+            // e = new SQLException();
+            throw e;
+        }
+    }
+
+    public static void main(String[] args) {
+        try {
+            getData();
+        } catch(SQLException e) {
+            System.out.println("SQL");
+        }
+    }
+}
+
+
 
 enum TrafficLight {
     RED, YELLOW, GREEN;
@@ -142,3 +165,80 @@ class Test41 {
         // System.out.println(tl2); //Line n2
     }
 }
+
+
+
+class MyException1 extends RuntimeException {
+}
+
+class MyException2 extends RuntimeException{
+}
+
+class Test44 implements AutoCloseable {
+    private static void m() {
+        try {
+            throw new RuntimeException();
+        } catch(RuntimeException ex) {
+            throw new MyException1();
+        } finally {
+            // If finally block throws exception, then exception thrown by try or catch block is ignored.
+            throw new MyException2();
+        }
+    }
+
+    public static void main(String[] args) {
+        Test44 test44 = new Test44();
+
+        try(test44) {
+            m();
+        } catch(MyException1 e) {
+            System.out.println("MyException1");
+        } catch(MyException2 e) {
+            System.out.println("MyException2");
+        } catch (RuntimeException e) {
+            System.out.println("RuntimeException");
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public void close() throws Exception {
+
+    }
+}
+
+interface Printer53 {
+    default void print() throws FileNotFoundException {
+        System.out.println("PRINTER");
+    }
+}
+
+class FilePrinter implements Printer53 {
+    public void print() { //Line n1
+        System.out.println("FILE PRINTER");
+    }
+}
+class Test53 implements Printer53 {
+    public static void main(String[] args)  {
+        Printer53 p = new FilePrinter(); //Line n2
+        try {
+            p.print(); //Line n3
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+        var fp = new FilePrinter(); //Line n4
+        fp.print(); //Line n5
+    }
+
+    public void walk() {
+        try {
+            Printer53.super.print(); //Line n3
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+    }
+}
+
+
+

@@ -58,9 +58,10 @@ public class Intern {
 
         s2 and s1 both refer to same non-pool String object.
          */
+        System.out.println(" all ");
         String s7 = new String("ALL IS WELL");
-        String s8 = s1.toString();
-        System.out.println(s7 == s8);
+        String s8 = s7.toString();
+        System.out.println("-- : " + (s7 == s8));
         // s7==s8 // true
 
 

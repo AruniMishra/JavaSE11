@@ -132,12 +132,13 @@ class TestEnclosingClass {
 }
 
 class TestClass {
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         class C {
         }
 
         new TestClass().new A(); // class A is not static inner class of TestClass. So it cannot exist without an outer instance of TestClass.
-        // new A(); // 'inner.TestClass.this' cannot be referenced from a static context
+        // this.new A(); // Keyword 'this' is not allowed inside static main method.
+        // new A(); // 'inner.TestClass.this' cannot be referenced from a static context,
         // new TestClass.A();
 
         new B(); // for static allowed
@@ -157,6 +158,9 @@ class TestClass {
         new A();
         new TestClass.A();
 
+        TestClass.A a = new TestClass().new A();
+        A a2 = new TestClass().new A();
+
         new B();
         new TestClass.B();
         // new TestClass().new B(); // Qualified new of static class
@@ -169,3 +173,16 @@ class TestClass {
     }
 }
 
+class Test {
+    public static void main(String[] args) {
+        //Insert statement here
+        TestClass.A a = new TestClass().new A();
+
+        // main method is outside Outer class only, so inner class's name can be referred by 2 ways only: Outer.Inner or var.
+        // A a2 = new TestClass().new A();
+
+
+        // new B();
+        new TestClass.B();
+    }
+}

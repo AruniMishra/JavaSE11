@@ -82,7 +82,7 @@ public class Tester {
 
         A aToB = new B();
         aToB.callDisplay();
-        aToB.staticMethod();
+        aToB.staticMethod(); // A.staticMethod
         System.out.println(aToB.x);
         System.out.println("3 end--------\n");
 
